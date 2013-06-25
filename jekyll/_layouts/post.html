@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div class="row">
+	<div class="twelve columns event-post">
+		<div class="event-post-title">
+			<h3>{{ page.title }}</h3>
+		</div>
+		{% if page.image_url %}
+			<img class="event-post-image" src="{{ page.image_url }}" />
+		{% endif %}
+		<div class="event-post-metadata">
+			{% if page.event_date %}
+				<div class="event-post-date"><i class="icon-calendar"></i><time>{{ page.event_date | date: "%B %d,  %Y" }}</time></div>
+			{% endif %}
+			{% if page.event_time %}
+				<div class="event-post-time"><i class="icon-time"></i><time>{{ page.event_time }}</time></div>
+			{% endif %}
+		</div>
+	</div>
+	<div class="twelve columns event-post-entry">
+			{{ content }}
+	</div>
+	{% if page.ics %}
+		<div class="four column centered"><hr /></div>
+		<div class="twelve columns ics"><i class="icon-download-alt"></i><a href="{{ page.ics }}">Download Calendar Event</a></div>
+	{% endif %}
+</div>

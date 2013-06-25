@@ -1,0 +1,9 @@
+source:      .
+destination: ../events
+plugins:     ./_plugins
+layouts:     ./_layouts
+include:     ['.htaccess']
+exclude:     ['css','build']
+keep_files:  ['.git','.svn']
+
+permalink:   /:title.html
