@@ -1,8 +1,7 @@
 ##source for tmcyf
 
 ### to-dos
-
-- get rails started 
+ 
 - login authentication 
 - registration and updatable information
 - payments with stripe
