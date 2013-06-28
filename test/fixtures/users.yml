@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fname: MyString
+  lname: MyString
+  address: MyString
+  phone: MyString
+  email: MyString
+  string: MyString
+  gender: MyString
+  birthday: 2013-06-28
+  cumulative_amount_paid: 9.99
+
+two:
+  fname: MyString
+  lname: MyString
+  address: MyString
+  phone: MyString
+  email: MyString
+  string: MyString
+  gender: MyString
+  birthday: 2013-06-28
+  cumulative_amount_paid: 9.99
