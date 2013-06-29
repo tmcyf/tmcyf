@@ -3,10 +3,10 @@
   <a href="/"><div class="five columns" id="logo"></div></a>
   <div class="eight columns" id="menu">
     <ul class="nav-bar right">
-      <li><a href="/about">About</a></li>
-      <li><a href="/events">Events</a></li>
+      <li><%= link_to "About", about_path %></li>
+      <li><%= link_to "Events", events_path %></li>
       <li><a href="#">Bible Study</a></li>
-      <li><%= link_to "Sign in", new_user_session_path %></li>
+      <li><%= link_to "Login / Register", new_user_session_path %></li>
     </ul>
   </div>
 </div>
