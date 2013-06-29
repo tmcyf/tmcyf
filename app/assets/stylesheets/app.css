@@ -26,7 +26,7 @@ body {
 	background-position: center;
 }
 .hero {
-	background-image: url("http://mu.eyev.in/abthead.png");
+	background-image: url('http://mu.eyev.in/abthead.png')
 }
 .herocontact {
 	background-image: url("http://mu.eyev.in/contact.png");
