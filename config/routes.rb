@@ -1,9 +1,8 @@
 TmcyfBackend::Application.routes.draw do
   devise_for :users
-  get "static_pages/home"
-  get "static_pages/about"
-  get "static_pages/events"
-  get "static_pages/bible_study"
+  match '/events', to: 'static_pages#events',         via: 'get'
+  match '/about', to: 'static_pages#about',           via: 'get'
+  match '/biblestudy', to: 'static_pages#biblestudy', via: 'get'
 
   root :to => "static_pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
