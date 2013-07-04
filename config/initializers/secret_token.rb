@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-TmcyfBackend::Application.config.secret_key_base = '44aeaffaac052e8174a59494fe53304e4848c9478cf1d44fb8116550425ffa990e3293ea8b9676a4854959899ffa5ad18a120258303cb58a7c172beedf0a2e10'
+Static::Application.config.secret_key_base = '6e0b59071c6168dd6c5b240011383213b32fa202edd189bf5ef3fdf997384fb787bc533a0a6103f01fb3794b225165000553b5e309449a9da732e9df10d82c25'
