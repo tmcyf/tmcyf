@@ -1,0 +1,35 @@
+<div class="large-3 columns about-sidebar">
+  <h3>Get Started</h3>
+  <ul class="side-nav vertical about-nav">
+    <li class="<%= 'active' if current_page?(about_biblestudies_path) %>">
+      <%= link_to(about_biblestudies_path) do %>
+        <span>Bible Studies</span>
+      <% end %>
+    </li>
+    <li class="<%= 'active' if current_page?(about_tribes_path) %>">
+      <%= link_to(about_tribes_path) do %>
+        <span>Tribes</span>
+        <% end %>
+    </li>
+    <li class="<%= 'active' if current_page?(about_service_path) %>">
+      <%= link_to(about_service_path) do %>
+        <span>Service Events</span>
+      <% end %>
+    </li>
+    <li class="<%= 'active' if current_page?(about_socials_path) %>">
+      <%= link_to(about_socials_path) do %>
+        <span>Social Events</span>
+      <% end %>
+    </li>
+    <li class="<%= 'active' if current_page?(about_officers_path) %>">
+      <%= link_to(about_officers_path) do %>
+        <span>Officers</span>
+      <% end %>
+    </li>
+    <li class="<%= 'active' if current_page?(about_contact_path) %>">
+      <%= link_to(about_contact_path) do %>
+        <span>Contact</span>
+      <% end %>
+    </li>
+  </ul>
+</div>

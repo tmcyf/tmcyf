@@ -1,0 +1,340 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300|Arvo);
+
+$primary: #c73f3f;
+$body: #333;
+
+body {
+  border-top: 7px solid $primary;
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  line-height: 1.6em;
+  color: $body;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arvo', serif;
+}
+.orbit-wrapper .slider-nav span, .false {
+    display: none;
+}
+// HEADER
+// .search {
+//   margin: 0 0 20px -28px;
+// }
+
+textarea {
+  border: 2px solid #bdc3c7;
+  color: #34495e;
+  font-size: 14px;
+  padding: 15px 5px;
+  height: 21px;
+  text-indent: 6px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: border .25s linear, color .25s linear;
+  -moz-transition: border .25s linear, color .25s linear;
+  -o-transition: border .25s linear, color .25s linear;
+  transition: border .25s linear, color .25s linear;
+  -webkit-backface-visibility: hidden;
+}
+
+input {
+  &[type="text"], &[type="password"], &[type="datetime"], &[type="datetime-local"], &[type="date"], &[type="month"], &[type="time"], &[type="week"], &[type="number"], &[type="email"], &[type="url"], &[type="search"], &[type="tel"], &[type="color"] {
+    border: 2px solid #bdc3c7;
+    color: #34495e;
+    font-size: 14px;
+    padding: 15px 5px;
+    height: 21px;
+    text-indent: 6px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: border .25s linear, color .25s linear;
+    -moz-transition: border .25s linear, color .25s linear;
+    -o-transition: border .25s linear, color .25s linear;
+    transition: border .25s linear, color .25s linear;
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+.uneditable-input {
+  border: 2px solid #bdc3c7;
+  color: #34495e;
+  font-size: 14px;
+  padding: 15px 5px;
+  height: 21px;
+  text-indent: 6px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: border .25s linear, color .25s linear;
+  -moz-transition: border .25s linear, color .25s linear;
+  -o-transition: border .25s linear, color .25s linear;
+  transition: border .25s linear, color .25s linear;
+  -webkit-backface-visibility: hidden;
+}
+
+textarea:focus {
+  border-color: #1abc9c;
+  background-color: #fff;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+input {
+  &[type="text"]:focus, &[type="password"]:focus, &[type="datetime"]:focus, &[type="datetime-local"]:focus, &[type="date"]:focus, &[type="month"]:focus, &[type="time"]:focus, &[type="week"]:focus, &[type="number"]:focus, &[type="email"]:focus, &[type="url"]:focus, &[type="search"]:focus, &[type="tel"]:focus, &[type="color"]:focus {
+    border-color: #1abc9c;
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+.uneditable-input:focus {
+  border-color: #1abc9c;
+  background-color: #fff;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+// ABOUT
+
+.hero, .herocontact, .herobiblestudy, .heroofficers, .heroservice, .herosocials, .herotribes {
+  padding-top: 40%;
+  background-size: cover;
+  -moz-background-size: cover;
+  background-position: center;
+}
+.hero {
+  background-image: url('http://mu.eyev.in/abthead.png')
+}
+.herocontact {
+  background-image: url("http://mu.eyev.in/contact.png");
+}
+.herobiblestudy {
+  background-image: url("http://mu.eyev.in/biblestudy.png");
+}
+.heroofficers {
+  background-image: url("http://mu.eyev.in/officers.png");
+}
+.heroservice {
+  background-image: url("http://mu.eyev.in/service.png");
+}
+.herosocials {
+  background-image: url("http://mu.eyev.in/socials.png");
+}
+.herotribes {
+  background-image: url("http://mu.eyev.in/tribes.png");
+}
+.about-sidebar {
+  margin-top: 20px;
+}
+
+.about-copyblock {
+  margin-top: 20px;
+  padding: 0px 20px 20px 20px;
+  border-left: 1px solid #eee;
+}
+
+// ABOUT_SIDENAV
+
+@media only screen and (min-width: 768px) {
+  .about-nav {
+    a:hover {
+      color: $primary;
+    }
+    li {
+      padding: 5px 5px;
+      span {
+        background: url('http://mu.eyev.in/redarrow.png') 100% 10px no-repeat;
+        padding-right: 25px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+    .about-nav {
+      display: hidden;
+    }
+
+    .about-sidebar h3 {
+      text-align: center;
+    }
+
+    .side-nav {
+      height: auto;
+        > li {
+          float: none;
+          display: block;
+          border-right: none;
+          text-align: center;
+        &:first-child {
+          > a.main {
+           border-top: none;
+          }
+          -webkit-box-shadow: 0 0 0;
+          -moz-box-shadow: 0 0 0;
+          box-shadow: 0 0 0;
+        }
+      float: left;
+      display: block;
+      position: relative;
+      padding: 0;
+      margin: 0;
+      border-right: none;
+      line-height: 40px;
+      -webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+      -moz-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+      box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+      &:last-child {
+        -webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset, 1px 0 0 rgba(255, 255, 255, 0.2);
+        -moz-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset, 1px 0 0 rgba(255, 255, 255, 0.2);
+        box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset, 1px 0 0 rgba(255, 255, 255, 0.2);
+      }
+      &.active {
+        background: $primary;
+        border-color: #a33030;
+        > a {
+          color: white;
+          cursor: default;
+        }
+        &:hover {
+          background: $primary;
+          cursor: default;
+        }
+      }
+      &:hover {
+        background: $primary;
+      }
+      > a {
+        color: #e6e6e6;
+      }
+      ul {
+        margin-bottom: 0;
+      }
+      > {
+        a:first-child {
+          position: relative;
+          padding: 0 20px;
+          display: block;
+          text-decoration: none;
+          font-size: 14px;
+        }
+        input {
+          margin: 0 10px;
+        }
+      }
+    }
+    height: 40px;
+    background: #111;
+    margin-left: 0;
+    margin-top: 20px;
+    padding: 0;
+    &.vertical {
+      height: auto;
+      margin-top: 30px;
+      > li {
+        float: none;
+        border-bottom: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        &.active {
+          border-right: solid 1px #a33030;
+        }
+      }
+    }
+  }
+}
+
+
+// ABOUT_OFFICERS
+
+.officers h4, h6 {
+  text-align: center;
+}
+
+.officers {
+  h6 {
+    font-weight: 300;
+    font-style: italic;
+  }
+  h3 {
+    padding-bottom: 20px;
+  }
+}
+
+// ABOUT_CONTACT
+
+.info {
+  .left {
+    float: left;
+  }
+  .right {
+    float: right;
+  }
+}
+
+.times {
+  color: #333;
+  .icon-time {
+    color: #9d9d9d;
+  }
+}
+
+.location {
+  .direction {
+    text-decoration: underline;
+  }
+  .icon-map-marker {
+    color: #9d9d9d;
+  }
+}
+
+.social .facebook, .mail {
+  text-decoration: underline;
+}
+
+// FOOTER
+
+footer {
+  a {
+    color: $body;
+  }
+  ul {
+    float: right;
+    text-align: right;
+    list-style: none;
+    font-weight: bold;
+    font-size: .7em;
+    li {
+      display: inline;
+      &:after {
+        padding-left: .5em;
+        content: '\00B7';
+      }
+      &:last-of-type:after {
+        content: '';
+      }
+    }
+  }
+  .foothr {
+    margin-top: 25px;
+  }
+}

@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-TmcyfBackend::Application.load_tasks
+Static::Application.load_tasks
