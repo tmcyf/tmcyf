@@ -1,0 +1,9 @@
+---
+Static files built with rails.
+	Problems to note:
+	- Slider javascript on root fails when accessed via back button.
+	To do:
+	- Find suitable location for search field
+	- Match up active link states
+
+Live at: http://thawing-bayou-8869.herokuapp.com/
