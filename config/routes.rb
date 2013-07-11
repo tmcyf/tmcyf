@@ -1,6 +1,10 @@
 Static::Application.routes.draw do
   devise_for :users
 
+  devise_scope :user do
+    get "/login" => "devise/registrations#new"
+  end
+
   root to: 'pages#home'
   match '/about',         to: 'pages#about',        via: 'get'
     match '/about/biblestudies',  to: 'pages#about_biblestudies',     via: 'get'
