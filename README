@@ -1,9 +1,13 @@
 ---
-Static files built with rails.
+Static files built with rails. Added default devise authentication.
 	Problems to note:
 	- Slider javascript on root fails when accessed via back button.
+	- Routing issues with password reset page
+		- Error: 'No route matches [GET] "/users/sign_in"'
 	To do:
 	- Find suitable location for search field
 	- Match up active link states
+	- Make flash states presentable
+	- Add account page
 
 Live at: http://thawing-bayou-8869.herokuapp.com/
