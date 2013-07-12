@@ -1,11 +1,15 @@
 Static::Application.routes.draw do
-  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register', :password => 'password'}
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register', :password => 'reset'}
 
   devise_scope :user do
-    get "/login"            => "devise/registrations#new"
-    get "/logout"           => "devise/sessions#destroy"
-    get "/register"         => "devise/registrations#new"
-    post "/register"        => "devise/registrations#create"
+    get "/login"                    => "devise/sessions#new"
+    get "/logout"                   => "devise/sessions#destroy"
+    get "/register"                 => "devise/registrations#new"
+    post "/register"                => "devise/registrations#create"
+    get "/reset"           => "devise/passwords#new"
+    put "/reset"           => "devise/passwords#update"
+    post "/reset"          => "devise/passwords#create"
+    get "/reset/change"    => "devise/passwords#edit"
   end
 
   root to: 'pages#home'
