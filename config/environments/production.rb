@@ -73,15 +73,14 @@ Static::Application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
 
-config.action_mailer.smtp_settings = {
-  address: "smtp.gmail.com",
+  config.action_mailer.smtp_settings = {
+  address: "smtp.mandrillapp.com",
   port: 587,
-  domain: "tmcyf.org",
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: admin@tmcyf.org,
-  password: 2corinth
-}
+  user_name: ENV["MANDRILL_USERNAME"],
+  password: ENV["MANDRILL_API_KEY"]
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
