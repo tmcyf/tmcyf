@@ -3,7 +3,7 @@ Static files built with rails. Added default devise authentication.
 	Problems to note:
 	- Slider javascript on root fails when accessed via back button.
 	- Routing issues with password reset page
-		- Error: 'No route matches [GET] "/users/sign_in"'
+		- Error: 'No route matches [GET] "/users/sign_in"' [fixed!]
 	To do:
 	- Add jekyll based events and bible study pages (important!)
 	- Find suitable location for search field
