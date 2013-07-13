@@ -79,8 +79,8 @@ config.action_mailer.smtp_settings = {
   domain: "tmcyf.org",
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: ENV["admin@tmcyf.org"],
-  password: ENV["2corinth"]
+  user_name: admin@tmcyf.org,
+  password: 2corinth
 }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
