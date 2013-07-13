@@ -5,6 +5,7 @@ Static files built with rails. Added default devise authentication.
 	- Routing issues with password reset page
 		- Error: 'No route matches [GET] "/users/sign_in"' [fixed!]
 	To do:
+	- Enable mailer via Mandrill for password resets
 	- Add jekyll based events and bible study pages (important!)
 	- Find suitable location for search field
 	- Match up active link states
