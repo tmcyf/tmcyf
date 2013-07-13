@@ -18,6 +18,7 @@ gem 'compass-rails'
 gem 'zurb-foundation', '~> 4.2.3'
 gem 'font-awesome-rails'
 gem "devise", "~> 3.0.0.rc"
+gem "figaro"
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
