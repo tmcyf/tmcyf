@@ -6,10 +6,13 @@ Static::Application.routes.draw do
     get "/logout"                   => "devise/sessions#destroy"
     get "/register"                 => "devise/registrations#new"
     post "/register"                => "devise/registrations#create"
-    get "/reset"           => "devise/passwords#new"
-    put "/reset"           => "devise/passwords#update"
-    post "/reset"          => "devise/passwords#create"
-    get "/reset/change"    => "devise/passwords#edit"
+    get "/reset"                    => "devise/passwords#new"
+    put "/reset"                    => "devise/passwords#update"
+    post "/reset"                   => "devise/passwords#create"
+    get "/reset/change"             => "devise/passwords#edit"
+    get "/dashboard/profile"        => "devise/registrations#edit"
+    patch "/dashboard/profile"      => "devise/registrations#update"
+    put "/dashboard/profile"        => "devise/registrations#update"
   end
 
   root to: 'pages#home'
@@ -22,4 +25,6 @@ Static::Application.routes.draw do
     match '/about/contact',       to: 'pages#about_contact',          via: 'get'
   match '/events',        to: 'pages#events',       via: 'get'
   match '/biblestudy',    to: 'pages#biblestudy',   via: 'get'
+  match '/dashboard',    to: 'pages#dashboard',   via: 'get'
+  match '/dashboard/profile',    to: 'pages#profile',   via: 'get'
 end

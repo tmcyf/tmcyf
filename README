@@ -9,7 +9,7 @@ Static files built with rails. Added default devise authentication.
 	- Add jekyll based events and bible study pages (important!)
 	- Find suitable location for search field
 	- Match up active link states
-	- Make flash states presentable
+	- Make flash and error states presentable
 	- Add account page
 
-Live at: http://thawing-bayou-8869.herokuapp.com/
+Live at: http://peaceful-mountain-8347.herokuapp.com/
