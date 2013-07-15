@@ -4,4 +4,12 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  
+  def fullname
+  	self.fname + self.lname
+  end
+
+  def address
+  	self.line1 + self.city + self.state + self.zip  	
+  end
 end
