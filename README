@@ -12,4 +12,6 @@ Static files built with rails. Added default devise authentication.
 	- Make flash and error states presentable
 	- Add account page
 
+To run locally, you'll need the environment variables. Let me know when you need them.
+
 Live at: http://peaceful-mountain-8347.herokuapp.com/
