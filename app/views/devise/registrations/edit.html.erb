@@ -33,8 +33,10 @@
               <%= f.text_field :phone, :placeholder => "2810002200", :type => "tel" %></div>
             <div class="large-1 columns"><%= f.label :gender %>
             <%= f.text_field :gender, :placeholder => "M" %></div>
-            <div class="large-3 pull-6 columns"><%= f.label :birthday %>
+            <div class="large-3 columns"><%= f.label :birthday %>
             <%= f.date_field :birthday %></div>
+            <div class="large-2 pull-4 columns"><%= f.label :shirt_size %>
+            <%= f.select :shirtsize, shirt_size %></div>
         </div>        
         <div class="row">
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
