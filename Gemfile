@@ -17,8 +17,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails'
 gem 'zurb-foundation', '~> 4.2.3'
 gem 'font-awesome-rails'
-gem "devise", "~> 3.0.0.rc"
-gem "figaro"
+gem 'devise', '~> 3.0.0.rc'
+gem 'figaro'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -36,9 +36,6 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'

@@ -10,9 +10,9 @@ Static::Application.routes.draw do
     put "/reset"                    => "devise/passwords#update"
     post "/reset"                   => "devise/passwords#create"
     get "/reset/change"             => "devise/passwords#edit"
-    get "/dashboard/profile"        => "devise/registrations#edit"
-    patch "/dashboard/profile"      => "devise/registrations#update"
-    put "/dashboard/profile"        => "devise/registrations#update"
+    get "/account/profile"        => "devise/registrations#edit"
+    patch "/account/profile"      => "devise/registrations#update"
+    put "/account/profile"        => "devise/registrations#update"
   end
 
   root to: 'pages#home'
@@ -25,6 +25,6 @@ Static::Application.routes.draw do
     match '/about/contact',       to: 'pages#about_contact',          via: 'get'
   match '/events',        to: 'pages#events',       via: 'get'
   match '/biblestudy',    to: 'pages#biblestudy',   via: 'get'
-  match '/dashboard',    to: 'pages#dashboard',   via: 'get'
-  match '/dashboard/profile',    to: 'pages#profile',   via: 'get'
+  match '/account',    to: 'pages#account',   via: 'get'
+  match '/account/profile',    to: 'pages#profile',   via: 'get'
 end
