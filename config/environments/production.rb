@@ -82,6 +82,8 @@ Static::Application.configure do
   password: ENV["MANDRILL_API_KEY"]
   }
 
+  config.assets.cache_store = :dalli_store
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
   config.i18n.fallbacks = true
