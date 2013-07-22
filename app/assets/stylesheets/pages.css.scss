@@ -336,6 +336,93 @@ label {
 .accountpage {
   text-align: center;
 }
+.fields {
+  background-color: #fffbfb;
+}
+
+.account-nav {
+    border: 1px solid #e1e1e1;
+    height: auto;
+      > li {
+        float: none;
+        display: block;
+        border-right: none;
+        text-align: center;
+      &:first-child {
+        > a.main {
+         border-top: none;
+        }
+        -webkit-box-shadow: 0 0 0;
+        -moz-box-shadow: 0 0 0;
+        box-shadow: 0 0 0;
+      }
+    float: left;
+    display: block;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border-right: none;
+    line-height: 40px;
+    -webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    -moz-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    &:last-child {
+      -webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset, 1px 0 0 rgba(255, 255, 255, 0.2);
+      -moz-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset, 1px 0 0 rgba(255, 255, 255, 0.2);
+      box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset, 1px 0 0 rgba(255, 255, 255, 0.2);
+    }
+    &.active {
+      background: $primary;
+      border-color: #a33030;
+      > a {
+        color: white;
+        cursor: default;
+      }
+      &:hover {
+        background: $primary;
+        cursor: default;
+      }
+    }
+    &:hover {
+      background: $primary;
+    }
+    > a {
+      color: #333;
+    }
+    ul {
+      margin-bottom: 0;
+    }
+    > {
+      a:first-child {
+        position: relative;
+        padding: 0 20px;
+        display: block;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      input {
+        margin: 0 10px;
+      }
+    }
+  }
+  height: 40px;
+  background: #fffbfb;
+  margin-left: 0;
+  padding: 0;
+  &.vertical {
+    height: auto;
+    > li {
+      float: none;
+      border-bottom: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      &.active {
+        border-right: solid 1px #a33030;
+      }
+    }
+  }
+}
 
 // FOOTER
 
