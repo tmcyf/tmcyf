@@ -1,5 +1,5 @@
 Static::Application.routes.draw do
-  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register', :password => 'reset'}
+  devise_for :users, :controllers => { :registrations => :registrations }, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register', :password => 'reset'}
 
   devise_scope :user do
     get "/login"                    => "devise/sessions#new"
