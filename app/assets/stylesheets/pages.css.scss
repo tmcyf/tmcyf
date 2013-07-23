@@ -27,6 +27,17 @@ h1, h2, h3, h4, h5, h6 {
 //   margin: 0 0 20px -28px;
 // }
 
+
+// FORMS
+
+select {
+  width: 65px;
+}
+
+div.ui-datepicker{
+ font-size:10px;
+}
+
 .content-blocks img {
   margin-bottom: 1.5em;
 }
@@ -94,6 +105,10 @@ h1, h2, h3, h4, h5, h6 {
 
     .about-sidebar h3 {
       text-align: center;
+    }
+
+    select {
+      width: 100%;
     }
 
     .side-nav {
@@ -247,6 +262,7 @@ label {
 }
 .fields {
   background-color: #fffbfb;
+  border: 1px solid #e1e1e1;
 }
 
 .account-nav {
