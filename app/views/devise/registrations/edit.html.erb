@@ -34,9 +34,9 @@
               <%= f.text_field :phone, :placeholder => "2810002200", :type => "tel" %></div>
             <div class="large-2 columns"><%= f.label :gender %>
             <%= f.text_field :gender, :placeholder => "M" %></div>
-            <div class="large-4 columns"><%= f.label :birthday %>
+            <div class="large-3 columns"><%= f.label :birthday %>
             <%= f.date_field :birthday %></div>
-            <div class="large-2 pull-1 columns"><%= f.label :shirt_size %>
+            <div class="large-2 pull-2 columns select"><%= f.label :shirt_size %>
             <%= f.select :shirtsize, shirt_size %></div>
         </div>        
         <div class="row">
