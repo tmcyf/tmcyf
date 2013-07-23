@@ -385,6 +385,9 @@ label {
     }
     &:hover {
       background: $primary;
+        > a {
+          color: #eee;
+      }
     }
     > a {
       color: #333;
