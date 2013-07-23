@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require foundation_and_overrides
- *= require bootstrap.min.css
+ *= require bootstrap
  *= require_tree .
  *= require font-awesome
  */
