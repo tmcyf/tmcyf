@@ -1,7 +1,7 @@
 ---
 Static files built with rails. Added default devise authentication.
 	Problems to note:
-	- Slider javascript on root fails when accessed via back button.
+	- Slider javascript on root fails when accessed via back button. [fixed!]
 	- Routing issues with password reset page
 		- Error: 'No route matches [GET] "/users/sign_in"' [fixed!]
 	To do:
@@ -10,7 +10,8 @@ Static files built with rails. Added default devise authentication.
 	- Find suitable location for search field
 	- Match up active link states
 	- Make flash and error states presentable
-	- Add account page
+	- Add account page [done!]
+	- Add functionality to switches in preference page. Maybe with simpleform?
 
 To run locally, you'll need the environment variables. Let me know when you need them.
 
