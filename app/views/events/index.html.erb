@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="large-12 columns">
+		<h1>All Events</h1>
+
+		<ul class="front-page-events">
+			<% @events.each do |event| %>
+				<li>
+					<%= link_to event.title, event_path(event), class: "front-page-title" %>
+				</li>
+			<% end %>
+		</ul>
+		<%= link_to "Create a New Event", new_event_path, class: "new-event-link" %>
+	</div>
+</div>

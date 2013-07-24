@@ -1,4 +1,6 @@
 Static::Application.routes.draw do
+  resources :events
+    get 'events/new' => 'events#new'
   devise_for :users, :controllers => { :registrations => :registrations }, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register', :password => 'reset'}
 
   devise_scope :user do
@@ -23,7 +25,6 @@ Static::Application.routes.draw do
     match '/about/socials',       to: 'pages#about_socials',          via: 'get'
     match '/about/officers',      to: 'pages#about_officers',         via: 'get'
     match '/about/contact',       to: 'pages#about_contact',          via: 'get'
-  match '/events',        to: 'pages#events',       via: 'get'
   match '/biblestudy',    to: 'pages#biblestudy',   via: 'get'
   match '/account',    to: 'pages#account',   via: 'get'
     match '/account/profile',    to: 'pages#profile',   via: 'get'
