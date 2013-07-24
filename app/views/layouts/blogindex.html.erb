@@ -26,6 +26,7 @@
         <%= render 'layouts/flash_messages', flash: flash %>
       </div>
     </div>
+    <h1><%= yield(:title) %></h1>
     <%= yield %>
     <%= render 'layouts/footer' %>    
 
