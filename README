@@ -1,18 +1,8 @@
 ---
-Static files built with rails. Added default devise authentication.
-	Problems to note:
-	- Slider javascript on root fails when accessed via back button. [fixed!]
-	- Routing issues with password reset page
-		- Error: 'No route matches [GET] "/users/sign_in"' [fixed!]
-	To do:
-	- Enable mailer via Mandrill for password resets [fixed!]
-	- Add jekyll based events and bible study pages (important!)
-	- Find suitable location for search field
-	- Match up active link states
-	- Make flash and error states presentable
-	- Add account page [done!]
-	- Add functionality to switches in preference page. Maybe with simpleform?
+Events page
 
-To run locally, you'll need the environment variables. Let me know when you need them.
-
-Live at: http://peaceful-mountain-8347.herokuapp.com/
+To do:
+	- jekyll-like index with loops
+	- css everything
+	- authentication for admins
+	- uploads
