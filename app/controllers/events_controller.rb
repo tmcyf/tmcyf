@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+	layout 'blogindex'
+
 	def index
 		@events = Event.all
 	end
