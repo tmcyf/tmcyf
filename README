@@ -4,6 +4,7 @@ Events page
 To do:
 	- jekyll-like index with loops [done!]
 	- fix updated post moving down
+	- add hr to only last item in loop
 	- css everything
 	- authentication for admins
 	- uploads [done!]
