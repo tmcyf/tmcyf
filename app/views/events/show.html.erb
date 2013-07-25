@@ -5,6 +5,7 @@
 		<p><%= @event.time %></p>
 		<p><%= @event.location %></p>
 		<p><%= @event.body %></p>
+		<%= image_tag @event.image_url.to_s %>
 
 		<%= link_to '<< Back to Events List', events_path %><br>
 		<%= link_to "edit", edit_event_path(@event) %>

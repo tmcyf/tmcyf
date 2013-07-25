@@ -21,6 +21,7 @@ gem 'devise', '~> 3.0.0.rc'
 gem 'figaro'
 gem 'dalli'
 gem 'memcachier'
+gem 'carrierwave'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
