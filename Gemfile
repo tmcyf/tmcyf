@@ -22,6 +22,8 @@ gem 'figaro'
 gem 'dalli'
 gem 'memcachier'
 gem 'carrierwave'
+gem 'fog'
+gem 'rmagick'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
