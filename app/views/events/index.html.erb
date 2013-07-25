@@ -1,11 +1,10 @@
 <div class="row">
 	<div class="large-12 columns">
-			<% @events.each do |event| %>
-			<ul>
-				<li>
-					<%= link_to event.title, event_path(event), class: "front-page-title" %>
-				</li>
-			</ul>
+			<% for event in @events do %>
+				<h1><%= link_to event.title, event_path(event), class: "front-page-title" %></h1>
+				<p><%= event.date %></p>
+				<p><%= event.body %></p>
+				<hr>
 			<% end %>
 		<%= link_to "Create a New Event", new_event_path, class: "new-event-link" %>
 	</div>
