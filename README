@@ -1,10 +1,18 @@
----
-Events page
+--
+Work In Progress
 
-To do:
-	- jekyll-like index with loops [done!]
-	- fix updated post moving down
-	- add hr to only last item in loop
-	- css everything
-	- authentication for admins
-	- uploads [done!]
+Currently in progress
+ - events page
+ - stripe integration
+ - preference pages with service integration
+
+Work that's left
+
+ - bible study page
+ - search
+ - css fixes (consistency, errors, refactoring)
+ - account status
+ - admin login and admin controls
+ - code refactoring
+ - clean up dependencies
+ - deployment
