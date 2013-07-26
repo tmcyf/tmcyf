@@ -1,45 +1,58 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-	def index
-		@events = Event.all(params[:id])
-	end
+  # GET /events
+  def index
+    @events = Event.all.order("date DESC")
+  end
 
-	def show
-		@event = Event.find(params[:id])
-	end
+  # GET /events/1
+  def show
+  end
 
-	def new
-		@event = Event.new
-	end
+  # GET /events/new
+  def new
+    @event = Event.new
+  end
 
-	def create
-		@event = Event.new(event_params)
-		@event.save
+  # GET /events/1/edit
+  def edit
+  end
 
-		redirect_to events_path
-	end
+  # POST /events
+  def create
+    @event = Event.new(event_params)
 
-	def edit
-		@event = Event.find(params[:id])
-	end
+    if @event.save
+      redirect_to @event, notice: 'Event was successfully created.'
+    else
+      render action: 'new'
+    end
+  end
 
-	def update
-		@event = Event.find(params[:id])
-		@event.update(event_params)
+  # PATCH/PUT /events/1
+  def update
+    if @event.update(event_params)
+      redirect_to @event, notice: 'Event was successfully updated.'
+    else
+      render action: 'edit'
+    end
+  end
 
-		flash.notice = "Event '#{@event.title}' Updated!"
+  # DELETE /events/1
+  def destroy
+    @event.destroy
+    redirect_to events_url, notice: 'Event was successfully destroyed.'
+  end
 
-		redirect_to events_path
-	end
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_event
+      @event = Event.find(params[:id])
+    end
 
-	def destroy
-		@event = Event.find(params[:id])
-		@event.destroy
-
-		redirect_to events_path
-	end
-
-	def event_params
-		params.require(:event).permit(:title, :body, :date, :time, :location, :image)
-	end	
+    # Only allow a trusted parameter "white list" through.
+    def event_params
+      params.require(:event).permit(:title, :date, :time, :body, :location, :image, :remote_image_url)
+    end
 end

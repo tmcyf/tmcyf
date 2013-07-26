@@ -1,6 +1,8 @@
 <div class="row">
-	<div class="large-12 columns">
-		<h1>Edit</h1>
-		<%= render 'layouts/events_form' %>
-	</div>
+	<h1>Editing event</h1>
+</div>
+<%= render 'form' %>
+<div class="row">
+	<%= link_to 'Show', @event %> |
+	<%= link_to 'Back', events_path %>
 </div>

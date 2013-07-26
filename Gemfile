@@ -19,11 +19,10 @@ gem 'zurb-foundation', '~> 4.2.3'
 gem 'font-awesome-rails'
 gem 'devise', '~> 3.0.0.rc'
 gem 'figaro'
-gem 'dalli'
-gem 'memcachier'
+gem 'rmagick'
 gem 'carrierwave'
 gem 'fog'
-gem 'rmagick'
+gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'rails4'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -32,9 +31,6 @@ gem "jquery-rails"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

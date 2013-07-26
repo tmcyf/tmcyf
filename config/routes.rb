@@ -1,7 +1,6 @@
 Static::Application.routes.draw do
   resources :events
-    get '/events/new' => 'events#new'
-    get '/events/edit' => 'events#edit'
+  
   devise_for :users, :controllers => { :registrations => :registrations }, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register', :password => 'reset'}
 
   devise_scope :user do
