@@ -24,6 +24,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'rails4'
 gem 'twilio-ruby'
+gem 'gibbon' # for mailchimp
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

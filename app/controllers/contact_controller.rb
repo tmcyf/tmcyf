@@ -1,16 +1,14 @@
 class ContactController < ApplicationController
 
-  def contact_all
+  def contact_all # TODO: this needs to be changed to send_sms
     # validate that user is an admin
     redirect_to :root unless current_user && current_user.admin?
   end
 
   def send_all_message
     message = params[:message]
-    addresses_to_email = User.where(email_contact: true).pluck(:email)
     numbers_to_sms = User.where(sms_contact: true).pluck(:phone)
     numbers_to_sms.each { |number| self.text_contact(message, number) }
-    addresses_to_email.each { |address| self.email_contact(message, address)}
     redirect_to contact_all_path
   end
 
@@ -22,8 +20,5 @@ class ContactController < ApplicationController
       :to => contact_number,
       :body => message
     )
-  end
-  def email_contact(message, contact_email_address)
-    # TODO: integrate mandrill here
   end
 end
