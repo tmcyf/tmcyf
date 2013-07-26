@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="large-12 columns">
+      <% @events.each_with_index do |event, index| %>
+      <div class="row">
+        <article>
+          <div class="large-6 columns">
+            <%= link_to(image_tag(event.image_url(:thumb).to_s), event_path(event), class: "index-page-image") %>
+          </div>
+          <div class="large-6 columns">
+            <h3><%= link_to event.title, event_path(event), class: "index-page-title" %></h3>
+            <date class="index-page-date"><%= event.date.strftime("%B %e, %Y") %></date> |
+            <time class="index-page-time"><%= event.time.strftime("%I:%M %p") %></time>
+            <p class="index-page-location"><%=raw event.location %></p>
+          </div>
+        </article>
+      </div>
+      <% unless index == @events.size - 1 %>
+      <hr />
+      <% end %>
+      <% end %>
+    <%#= link_to "Create a New Event", new_event_path, class: "new-event-link" %>
+  </div>
+</div>
