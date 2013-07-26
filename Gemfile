@@ -22,6 +22,7 @@ gem 'figaro'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'fog'
+gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'rails4'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
