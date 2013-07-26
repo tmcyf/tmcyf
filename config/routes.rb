@@ -28,5 +28,5 @@ Static::Application.routes.draw do
   match '/account',    to: 'pages#account',   via: 'get'
     match '/account/profile',    to: 'pages#profile',   via: 'get'
     match '/account/preferences',    to: 'pages#preferences',   via: 'get'
-    match '/account/payments',    to: 'pages#payments',   via: 'get'
+    match '/account/payments',    to: 'pages#payments',   via: 'get' 
 end

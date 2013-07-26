@@ -2,53 +2,18 @@
 <div class="row">
 	<%= render 'layouts/account_menu' %>
 	<div class="large-9 columns">
-	  <fieldset class="fields">
-	    <div class="large-12 columns">
-	      <h2>Contact Preferences</h2>
-	      <p>Here you can choose how you want to be contacted by the YF. <br>Options include: email, facebook, and text.</p>
-	      <div class="row">
-	      	<div class="large-2 columns">
-	      		<h5>Email</h5>
-	      	</div>
-		      <div class="large-2 pull-8 columns">
-			      <div class="switch small round">
-						  <input id="x" name="switch-x" type="radio" checked>
-						  <label for="x" onclick="">Off</label>
-						  <input id="x1" name="switch-x" type="radio">
-						  <label for="x1" onclick="">On</label>
-						  <span></span>
-						</div>
-					</div>	
-				</div>
-	      <div class="row">
-	      	<div class="large-2 columns">
-	      		<h5>Facebook</h5>
-	      	</div>
-		      <div class="large-2 pull-8 columns">
-			      <div class="switch small round">
-						  <input id="y" name="switch-y" type="radio" checked>
-						  <label for="y" onclick="">Off</label>
-						  <input id="y1" name="switch-y" type="radio">
-						  <label for="y1" onclick="">On</label>
-						  <span></span>
-						</div>
-					</div>	
-				</div>
-	      <div class="row">
-	      	<div class="large-2 columns">
-	      		<h5>Text</h5>
-	      	</div>
-		      <div class="large-2 pull-8 columns">
-			      <div class="switch small round">
-						  <input id="z" name="switch-z" type="radio" checked>
-						  <label for="z" onclick="">Off</label>
-						  <input id="z1" name="switch-z" type="radio">
-						  <label for="z1" onclick="">On</label>
-						  <span></span>
-						</div>
-					</div>
-				</div>
-				<input type="submit" value="Update">
+      <fieldset class="fields">
+        <div class="large-12 columns">
+          <h2>Contact Preferences</h2>
+          <p>Here you can choose how you want to be contacted by the YF. <br>Options include: email, facebook, and text.</p>
+          <%= form_tag account_preferences_path, method: "GET" %> 
+          <%= label_tag "Facebook" %>
+          <%= check_box_tag "Facebook" %>
+          <%= label_tag "Email" %>
+          <%= check_box_tag "Email" %>
+          <%= label_tag "SMS" %>
+          <%= check_box_tag "SMS" %>
+          <%= submit_tag %>
 	     </div>
 	  </fieldset>
 	</div>
