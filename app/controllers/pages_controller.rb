@@ -14,8 +14,24 @@ class PagesController < ApplicationController
   end
 
   def preferences
-    current_user.facebook_contact=true if params["Facebook"]
-    current_user.email_contact=true if params["email"]
-    current_user.sms_contact=true if params["SMS"]
+    @user = current_user
+  end
+  def update_preferences
+    @user = current_user
+    @user.facebook_contact=true if params["Facebook"]
+    gibbon = Gibbon::API.new
+    if params["email"]
+      @user.email_contact=true 
+      gibbon.lists.subscribe({:id => "c0e58367c5", :email => {:email => @user.email}, :merge_vars => {:FNAME => @user.fname, :LNAME => @user.lname}, :double_optin => false})
+    else
+      @user.email_contact=false 
+      # gibbon.lists.unsubscribe({:id => "c0e58367c5", :email => {:email => @user.email}, :merge_vars => {:FNAME => @user.fname, :LNAME => @user.lname}, :double_optin => false})
+    end
+    if params["SMS"]
+      @user.sms_contact=true 
+    else
+      @user.sms_contact=false
+    end
+    @user.save!
   end
 end
