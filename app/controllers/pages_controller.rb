@@ -15,4 +15,10 @@ class PagesController < ApplicationController
 
   def account
   end
+
+  def preferences
+    current_user.facebook_contact=true if params["Facebook"]
+    current_user.email_contact=true if params["email"]
+    current_user.sms_contact=true if params["SMS"]
+  end
 end
