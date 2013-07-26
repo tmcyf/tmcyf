@@ -2,6 +2,7 @@ class ContactController < ApplicationController
 
   def contact_all
     # validate that user is an admin
+    redirect_to :root unless current_user && current_user.admin?
   end
 
   def send_all_message
@@ -15,6 +16,7 @@ class ContactController < ApplicationController
 
   private
   def text_contact(message, contact_number)
+    @twilio_client = Twilio::REST::Client.new ENV[TWILIO_SID], ENV[TWILIO_TOKEN]
     @twilio_client.account.sms.messages.create(
       :from => "+1#{ENV[TWILIO_NUMBER]}",
       :to => contact_number,
