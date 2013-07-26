@@ -12,15 +12,18 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    redirect_to :root unless current_user && current_user.admin?
+    @event = Event.new    
   end
 
   # GET /events/1/edit
   def edit
+    redirect_to :root unless current_user && current_user.admin?
   end
 
   # POST /events
   def create
+    redirect_to :root unless current_user && current_user.admin?
     @event = Event.new(event_params)
 
     if @event.save
@@ -32,6 +35,7 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1
   def update
+    redirect_to :root unless current_user && current_user.admin?
     if @event.update(event_params)
       redirect_to @event, notice: 'Event was successfully updated.'
     else
@@ -41,6 +45,7 @@ class EventsController < ApplicationController
 
   # DELETE /events/1
   def destroy
+    redirect_to :root unless current_user && current_user.admin?
     @event.destroy
     redirect_to events_url, notice: 'Event was successfully destroyed.'
   end
