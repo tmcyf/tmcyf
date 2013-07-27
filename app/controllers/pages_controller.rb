@@ -13,6 +13,9 @@ class PagesController < ApplicationController
   def account
   end
 
+  def admin
+  end
+
   def preferences
     @user = current_user
   end

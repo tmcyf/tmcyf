@@ -27,6 +27,7 @@ Static::Application.routes.draw do
     match '/about/contact',       to: 'pages#about_contact',          via: 'get'
   match '/biblestudy',    to: 'pages#biblestudy',   via: 'get'
   match '/account',    to: 'pages#account',   via: 'get'
+  match '/admin',    to: 'pages#admin',   via: 'get'
     match '/account/profile',    to: 'pages#profile',   via: 'get'
     match '/account/preferences',    to: 'pages#preferences',   via: 'get'
     match '/account/preferences',    to: 'pages#update_preferences',   via: 'post'
