@@ -25,7 +25,9 @@ class PagesController < ApplicationController
       gibbon.lists.subscribe({:id => "c0e58367c5", :email => {:email => @user.email}, :merge_vars => {:FNAME => @user.fname, :LNAME => @user.lname}, :double_optin => false})
     else
       @user.email_contact=false 
-      # gibbon.lists.unsubscribe({:id => "c0e58367c5", :email => {:email => @user.email}, :merge_vars => {:FNAME => @user.fname, :LNAME => @user.lname}, :double_optin => false})
+      if gibbon.lists.members(id: "c0e58367c5", email: @user.email)
+        gibbon.lists.unsubscribe({:id => "c0e58367c5", :email => {:email => @user.email}, :merge_vars => {:FNAME => @user.fname, :LNAME => @user.lname}, :double_optin => false})
+      end
     end
     if params["SMS"]
       @user.sms_contact=true 
@@ -33,5 +35,6 @@ class PagesController < ApplicationController
       @user.sms_contact=false
     end
     @user.save!
+    redirect_to account_preferences_path
   end
 end
