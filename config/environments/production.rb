@@ -65,7 +65,7 @@ Static::Application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { :host => 'peaceful-mountain-8347.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'secure-fjord-9832.herokuapp.com' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
