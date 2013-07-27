@@ -25,7 +25,9 @@ class PagesController < ApplicationController
     gibbon = Gibbon::API.new
     if params["email"]
       @user.email_contact=true 
-      gibbon.lists.subscribe({:id => "c0e58367c5", :email => {:email => @user.email}, :merge_vars => {:FNAME => @user.fname, :LNAME => @user.lname}, :double_optin => false})
+      if !gibbon.lists.members(id: "c0e58367c5", email: @user.email)
+        gibbon.lists.subscribe({:id => "c0e58367c5", :email => {:email => @user.email}, :merge_vars => {:FNAME => @user.fname, :LNAME => @user.lname}, :double_optin => false})
+      end
     else
       @user.email_contact=false 
       if gibbon.lists.members(id: "c0e58367c5", email: @user.email)
@@ -33,7 +35,13 @@ class PagesController < ApplicationController
       end
     end
     if params["SMS"]
-      @user.sms_contact=true 
+      if @user.phone?
+        @user.sms_contact=true 
+      else
+        # need to flash an error notifying the user that they don't have
+        # a valid phone number
+        flash[:error] = "Please enter a valid phone number in your Profile."
+      end
     else
       @user.sms_contact=false
     end
