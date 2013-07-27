@@ -1,18 +1,20 @@
 --
 Work In Progress
 
-Currently in progress
+Finished Work
  - events page @done
+ - preference pages with service integration @done
+  - twilio sms subscribe/unsubscribe @done
+  - twilio sms send @done
+  - mailchimp list subscribe/unsubscribe @done
+
+Currently in progress
  - stripe integration
   - payments model
   - stripe payment action
   - conditional registration
-  - account status
- - preference pages with service integration
-  - twilio sms subscribe/unsubscribe @done
-  - twilio sms send @untested
-  - mailchimp list subscribe/unsubscribe @done
-
+  - account payment status
+ - prompt users to add personal data
 
 Work that's left
  - bible study page
@@ -21,6 +23,7 @@ Work that's left
  - code refactoring
  - clean up dependencies
  - deployment
+ - flash messages for saved user state across the app
  
 Stretch Goals:
  - facebook event creation
