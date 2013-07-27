@@ -10,9 +10,9 @@ class AddDetailsToUser < ActiveRecord::Migration
     add_column :users, :state, :string
     add_column :users, :zip, :string
     add_column :users, :shirtsize, :string
-    add_column :users, :email_contact, :boolean
-    add_column :users, :facebook_contact, :boolean
-    add_column :users, :sms_contact, :boolean
+    add_column :users, :email_contact, :boolean, :default => false
+    add_column :users, :facebook_contact, :boolean, :default => false
+    add_column :users, :sms_contact, :boolean, :default => false
     add_column :users, :admin, :boolean, :default => false
   end
 end
