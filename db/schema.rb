@@ -72,9 +72,9 @@ ActiveRecord::Schema.define(version: 20130728205225) do
     t.string   "state"
     t.string   "zip"
     t.string   "shirtsize"
-    t.boolean  "email_contact",          default: false
-    t.boolean  "facebook_contact",       default: false
-    t.boolean  "sms_contact",            default: false
+    t.boolean  "email_contact"
+    t.boolean  "facebook_contact"
+    t.boolean  "sms_contact"
     t.boolean  "admin",                  default: false
   end
 
