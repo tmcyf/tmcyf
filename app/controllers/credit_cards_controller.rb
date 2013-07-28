@@ -7,9 +7,9 @@ class CreditCardsController < ApplicationController
 
   def index
     @card_tokens = current_user.credit_cards
-    @card_tokens.inject([]) do |token, array_of_digits|
+    @card_tokens.collect do |token|
       # grab the last four digits of the card token via the Stripe API 
-      # and add it to the digits array
+      # and return it to add it to the returned array
     end
   end
 
