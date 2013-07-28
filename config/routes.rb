@@ -31,7 +31,7 @@ Static::Application.routes.draw do
     match '/account/profile',    to: 'pages#profile',   via: 'get'
     match '/account/preferences',    to: 'pages#preferences',   via: 'get'
     match '/account/preferences',    to: 'pages#update_preferences',   via: 'post'
-    match '/account/payments',    to: 'pages#payments',   via: 'get' 
+    match '/account/payments',    to: 'payments#index',   via: 'get' 
   match '/admin/contact_all', to: 'contact#contact_all', via: 'get', as: "contact_all"
   match '/admin/send_message', to: 'contact#send_all_message', via: 'post', as: "send_message"
 end
