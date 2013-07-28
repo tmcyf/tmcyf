@@ -14,12 +14,14 @@
 				    </tr>
 				  </thead>
 				  <tbody>
-            <% @events.each do |e| %>
-              <tr>
-                <td><%= e.title %></td>
-                <td><%= e.cost %></td>
-                <td><%= button_to "Pay Now", payment_path_for(e), {class: "btn btn-info"} %></td>
-              </tr>
+            <% if @events %>
+              <% @events.each do |event| %>
+                <tr>
+                  <td><%= event.title %></td>
+                  <td><%= event.cost %></td>
+                  <td><%= button_to "Pay Now", new_event_payment_path(event), {class: "btn btn-info"} %></td>
+                </tr>
+              <% end %>
             <% end %>
 				  </tbody>
 				</table>

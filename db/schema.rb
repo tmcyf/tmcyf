@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130728220126) do
+ActiveRecord::Schema.define(version: 20130728223232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,9 +73,9 @@ ActiveRecord::Schema.define(version: 20130728220126) do
     t.string   "state"
     t.string   "zip"
     t.string   "shirtsize"
-    t.boolean  "email_contact"
-    t.boolean  "facebook_contact"
-    t.boolean  "sms_contact"
+    t.boolean  "email_contact",          default: false
+    t.boolean  "facebook_contact",       default: false
+    t.boolean  "sms_contact",            default: false
     t.boolean  "admin",                  default: false
   end
 

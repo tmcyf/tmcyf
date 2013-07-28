@@ -1,5 +1,7 @@
 Static::Application.routes.draw do
-  resources :events
+  resources :events do
+    resources :payments, only: [:create, :new]
+  end
   
   devise_for :users, :controllers => { :registrations => :registrations }, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register', :password => 'reset'}
 
