@@ -15,9 +15,9 @@
 				  </thead>
 				  <tbody>
 				    <tr>
-				      <td>Dues</td>
-				      <td>$15</td>
-				      <td><button class="btn btn-info">Pay Now</button></td>
+              <td>Dues</td> <!-- should be event.title -->
+              <td>$15</td> <!-- should be event.cost -->
+				      <td><button class="btn btn-info">Pay Now</button></td><!-- should be something like button_to "Pay Now", payment_path_for(@event) -->
 				    </tr>
 				    <tr>
 				      <td>Retreat</td>
@@ -28,7 +28,7 @@
 				      <td>T-Shirt</td>
 				      <td>$20</td>
 				      <td><button class="btn btn-info">Pay Now</button></td>
-				    </tr>					    			    
+				    </tr>
 				  </tbody>
 				</table>
 	     </div>
