@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable
   has_many :credit_cards
-  has_many :payments
+  has_many :payments, through: :credit_cards
   
   def fullname
   	self.fname + self.lname
