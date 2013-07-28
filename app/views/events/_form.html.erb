@@ -44,6 +44,10 @@
         <%= f.file_field :image %>
       </div>
       <div class="row">
+        <%= f.label :cost %><br>
+        <%= f.text_field :cost %>
+      </div>      
+      <div class="row">
         <div class="large-5">
           <%= f.label :remote_image_url, "or image URL" %><br>
           <%= f.text_field :remote_image_url %>
