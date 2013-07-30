@@ -1,6 +1,4 @@
 class PagesController < ApplicationController
-  require 'nokogiri'
-  require 'open-uri'
 	before_filter :authenticate_user!, :except => [:home, :about, :about_biblestudies, :about_tribes, :about_service, :about_socials, :about_officers, :about_contact, :events, :biblestudy, :account]
 
 	def home
