@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'ruby', '2.0.0'
+gem 'ruby'
 gem 'rails', '4.0.0'
 gem 'rails_12factor'
 
