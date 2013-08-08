@@ -3,6 +3,7 @@ class CreditCardsController < ApplicationController
     # set credit card user to current_user
     # create a stripe::customer with the card
     # save stripe token 
+    @user = current_user
   end
 
   def index

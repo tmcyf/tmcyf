@@ -19,7 +19,7 @@
                 <tr>
                   <td><%= event.title %></td>
                   <td><%= event.cost %></td>
-                  <td><%= button_to "Pay Now", new_event_payment_path(event), {class: "btn btn-info"} %></td>
+                  <td><%= button_to "Pay Now", new_event_payment_path(event), class: "btn btn-info", method: :get %></td>
                 </tr>
               <% end %>
             <% end %>

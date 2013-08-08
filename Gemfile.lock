@@ -135,6 +135,8 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rmagick (2.13.2)
     ruby-hmac (0.4.0)
     sass (3.2.9)
@@ -155,6 +157,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    stripe (1.8.4)
+      multi_json (>= 1.0.4, < 2)
+      rest-client (~> 1.4)
     thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -201,6 +206,7 @@ DEPENDENCIES
   rmagick
   sass-rails (~> 4.0.0)
   sdoc
+  stripe
   thin
   turbolinks
   twilio-ruby
