@@ -17,6 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+
 gem 'compass-rails'
 gem 'zurb-foundation', '~> 4.2.3'
 gem 'font-awesome-rails'
@@ -29,6 +30,7 @@ gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'rails4'
 gem 'twilio-ruby'
 gem 'gibbon' # for mailchimp
 gem 'pry', group: :development # for debugging
+gem 'stripe'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

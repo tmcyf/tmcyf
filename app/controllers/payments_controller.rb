@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
     @payment = Payment.new
     # the user is directed to this page by clicking "Pay Now" on a payment on
     # the payments/index page (at the route /account/payments)
-    @payment.event = params[:event_id]
+    @payment.event = Event.find(params[:event_id])
   end
   def create
     # does this method know that we're paying for the user currently signed in?

@@ -1,0 +1,11 @@
+<%= form_tag event_payments_path(@payment.event) do %>
+  <article>
+    <label class="amount">
+      <span><%= @payment.event.cost %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+          data-key="<%= ENV['STRIPE_PUBLIC_KEY'] %>"
+          data-amount="<%= @payment.event.cost %>"></script>
+<% end %>
