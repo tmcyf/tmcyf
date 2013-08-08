@@ -1,10 +1,10 @@
-<%= form_tag event_payments_path(@payment.event) do %>
+<%= form_for(@payment, url: event_payments_path(@payment.event)) do |f| %>
   <article>
     <label class="amount">
       <span><%= @payment.event.cost %></span>
     </label>
   </article>
-  <%= hidden_field_tag :event, value: @payment.event.id %>
+  <%= f.hidden_field :event %>
 
   <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
           data-key="<%= ENV['STRIPE_PUBLIC_KEY'] %>"

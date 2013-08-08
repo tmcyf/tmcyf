@@ -16,7 +16,7 @@ class PaymentsController < ApplicationController
     @payment.event = Event.find(params[:event_id])
   end
   def create
-    @payment = Payment.new(params[:payment]) # should include the event id & current user
+    @payment = Payment.new(payment_params) # should include the event id & current user
     # does this method know that we're paying for the user currently signed in?
     # :stripe_token is set by Stripe.js, which we handle in credit_card.js.coffee
     @payment.credit_card = CreditCard.where(stripe_token: params[:stripe_token]).first_or_create
@@ -32,4 +32,8 @@ class PaymentsController < ApplicationController
     end
     redirect_to account_payments_path
   end
+  private
+    def payment_params
+      params.require(:payment).permit(:event, :credit_card)
+    end
 end
