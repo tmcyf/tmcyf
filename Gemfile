@@ -1,9 +1,10 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'ruby'
 gem 'rails', '4.0.0'
-gem 'rails_12factor'
+gem 'rubber', '2.5.0'
+gem 'rmagick', '2.13.2'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'
@@ -21,7 +22,6 @@ gem 'zurb-foundation', '~> 4.2.3'
 gem 'font-awesome-rails'
 gem 'devise', '~> 3.0.0.rc'
 gem 'figaro'
-gem 'rmagick'
 gem 'carrierwave'
 gem 'fog'
 gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'rails4'
@@ -30,7 +30,7 @@ gem 'gibbon' # for mailchimp
 gem 'pry', group: :development # for debugging
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 gem "jquery-rails"
 
@@ -43,10 +43,11 @@ group :doc do
 end
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'open4'
