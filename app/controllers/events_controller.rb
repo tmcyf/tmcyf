@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   def create
     redirect_to :root unless current_user && current_user.admin?
     @event = Event.new(event_params)
-
+    # TODO: we need to check for errors here, especially malformed costs
     if @event.save
       redirect_to @event, notice: 'Event was successfully created.'
     else

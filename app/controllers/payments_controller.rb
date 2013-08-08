@@ -16,8 +16,20 @@ class PaymentsController < ApplicationController
     @payment.event = Event.find(params[:event_id])
   end
   def create
+    @payment = Payment.new(params[:payment]) # should include the event id & current user
     # does this method know that we're paying for the user currently signed in?
     # :stripe_token is set by Stripe.js, which we handle in credit_card.js.coffee
-    @payment.credit_card = CreditCard.find_by(stripe_token: params[:stripe_token])
+    @payment.credit_card = CreditCard.where(stripe_token: params[:stripe_token]).first_or_create
+    begin
+      charge = Stripe::Charge.create(
+        :amount => @payment.event.cost, # amount in cents, again
+        :currency => "usd",
+        :card => params[:stripe_token],
+        :description => "Payment for TMCYF #{@payment.event.title}"
+      )
+    rescue Stripe::CardError => e
+      # The card has been declined
+    end
+    redirect_to account_payments_path
   end
 end

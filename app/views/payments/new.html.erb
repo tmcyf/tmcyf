@@ -4,8 +4,10 @@
       <span><%= @payment.event.cost %></span>
     </label>
   </article>
+  <%= hidden_field_tag :event, value: @payment.event.id %>
 
   <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
           data-key="<%= ENV['STRIPE_PUBLIC_KEY'] %>"
-          data-amount="<%= @payment.event.cost %>"></script>
+          data-amount="<%= @payment.event.cost %>"
+          data-description="TMCYF payment for <%= @payment.event.title %>"></script>
 <% end %>
