@@ -25,6 +25,7 @@ Work that's left
   - if user has fully registered
   - if user has selected a contact preference
   - if user has paid dues
+ - ICS for events page
  - css fixes (consistency, errors, refactoring)
  - code refactoring
  - deployment
