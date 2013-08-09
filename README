@@ -8,13 +8,13 @@ Things to refactor and fix:
 
 - Compass compatiblity with rails 4 @done
 - Add SimpleForm for all forms @done
-- contact preference page
- - can't unsub from email without gibbon error
+- contact preference page @done
+ - can't unsub from email without gibbon error @done
 - Consistent color schemes and styling on all pages
 - Fonts
 - User interactions and flow
   - Are all available actions obvious?
-- Verse of the day spacing
+- Verse of the day spacing @done
 - Create and add relevant sliders and content boxes for front page
 - Copy for about pages
 - Add relevant events
