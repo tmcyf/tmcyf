@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # PLUGINS
 gem 'devise', '~> 3.0.0.rc'
+gem 'simple_form'
 gem 'figaro'
 gem 'carrierwave'
 gem 'fog'
