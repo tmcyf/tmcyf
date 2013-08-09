@@ -24,17 +24,22 @@ class PagesController < ApplicationController
   end
   def update_preferences
     @user = current_user
-    @user.facebook_contact=true if params["Facebook"]
+    if params['Facebook']
+      @user.facebook_contact=true
+    else
+      @user.facebook_contact=false
+    end
     gibbon = Gibbon::API.new
+    Gibbon::API.throws_exceptions = false
     if params["email"]
       @user.email_contact=true 
-      if !gibbon.lists.members(id: "c0e58367c5", email: @user.email)
-        gibbon.lists.subscribe({:id => "c0e58367c5", :email => {:email => @user.email}, :merge_vars => {:FNAME => @user.fname, :LNAME => @user.lname}, :double_optin => false})
+      if gibbon.lists.members(id: "4c04c52ede", email: @user.email)
+        gibbon.lists.subscribe({:id => "4c04c52ede", :email => {:email => @user.email}, :merge_vars => {:FNAME => @user.fname, :LNAME => @user.lname}, :double_optin => false})
       end
     else
       @user.email_contact=false 
-      if gibbon.lists.members(id: "c0e58367c5", email: @user.email)
-        gibbon.lists.unsubscribe({:id => "c0e58367c5", :email => {:email => @user.email}, :merge_vars => {:FNAME => @user.fname, :LNAME => @user.lname}, :double_optin => false})
+      if gibbon.lists.members(id: "4c04c52ede", email: @user.email)
+        gibbon.lists.unsubscribe({:id => "4c04c52ede", :email => {:email => @user.email}, :merge_vars => {:FNAME => @user.fname, :LNAME => @user.lname}, :double_optin => false})
       end
     end
     if params["SMS"]
