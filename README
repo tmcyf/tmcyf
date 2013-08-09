@@ -25,3 +25,6 @@ Things to refactor and fix:
  - Buttons
 - Javacript errors
  - back space to home page breaks JS
+- refactor app architecture to make sense
+ - static and dynamic controllers should be separate
+ - sms shouldn't be defined only in contact controller
