@@ -26,8 +26,7 @@ Work that's left
   - if user has selected a contact preference
   - if user has paid dues
  - ICS for events page
- - css fixes (consistency, errors, refactoring)
- - code refactoring
+ - bug fixes / refactoring ( in progress )
  - deployment
  - flash messages for saved user state across the app
  
@@ -37,6 +36,3 @@ Stretch Goals:
  - facebook message subscribe/unsubscribe
  - one-to-many texting & flexible replies
  - search
-
-
-live at: http://dev.tmcyf.org
