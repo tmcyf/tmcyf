@@ -2,9 +2,10 @@ class PagesController < ApplicationController
 	before_filter :authenticate_user!, :except => [:home, :about, :about_biblestudies, :about_tribes, :about_service, :about_socials, :about_officers, :about_contact, :events, :biblestudy, :account]
 
 	def home
-    url = 'http://www.verseoftheday.com/'
+    url = 'http://www.heartlight.org/cgi-shl/todaysverse.cgi'
     data = Nokogiri::HTML(open(url))
-    @votd = data.at_css(".bilingual-left").text
+    @votd = data.at_css(".todays-verse-verse").text
+    @votdref = data.at_css(".todays-verse-ref").text
 	end
 
   def about
