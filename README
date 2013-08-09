@@ -1,36 +1,27 @@
 --
-Work In Progress
+Refactoring / Bug Fixes
+--
 
-Finished Work
- - events page @done
- - preference pages with service integration @done
-  - twilio sms subscribe/unsubscribe @done
-  - twilio sms send @done
-  - mailchimp list subscribe/unsubscribe @done
+Branch to track all refactoring and bug fixes done for the app.
 
-Currently in progress
- - stripe integration
-  - payments model
-  - stripe payment action
-  - conditional registration
-  - account payment status
- - prompt users to add personal data
+Things to refactor and fix: 
 
-Work that's left
- - resources page
- - css fixes (consistency, errors, refactoring)
- - admin login and admin controls @done
- - code refactoring
- - clean up dependencies
- - deployment
- - flash messages for saved user state across the app
- 
-Stretch Goals:
- - facebook event creation
- - facebook message send
- - facebook message subscribe/unsubscribe
- - one-to-many texting & flexible replies
- - search
-
-
-live at: http://dev.tmcyf.org
+- Compass compatiblity with rails 4 @done
+- Add SimpleForm for all forms @done
+- contact preference page
+ - can't unsub from email without gibbon error
+- Consistent color schemes and styling on all pages
+- Fonts
+- User interactions and flow
+  - Are all available actions obvious?
+- Verse of the day spacing
+- Create and add relevant sliders and content boxes for front page
+- Copy for about pages
+- Add relevant events
+- Refine admin pages
+- Cross browser testing
+- Styling
+ - Forms
+ - Buttons
+- Javacript errors
+ - back space to home page breaks JS
