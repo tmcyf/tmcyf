@@ -1,41 +1,33 @@
 source 'http://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# CORE
 gem 'ruby'
 gem 'rails', '4.0.0'
-gem 'rubber', '2.5.0'
-gem 'rmagick', '2.13.2'
 
-# Use sqlite3 as the database for Active Record
+# DATABASE
 gem 'pg'
 
-# Use SCSS for stylesheets
+# ASSETS
 gem 'sass-rails', '~> 4.0.0'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
-gem 'compass-rails'
+gem 'compass-rails', github: 'milgner/compass-rails', branch: 'rails4'
 gem 'zurb-foundation', '~> 4.2.3'
 gem 'font-awesome-rails'
+gem "jquery-rails"
+gem 'uglifier', '>= 1.3.0'
+
+# PLUGINS
 gem 'devise', '~> 3.0.0.rc'
-gem 'simple_form'
 gem 'figaro'
 gem 'carrierwave'
 gem 'fog'
 gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'rails4'
 gem 'twilio-ruby'
-gem 'gibbon' # for mailchimp
-gem 'pry', group: :development # for debugging
+gem 'gibbon'
+gem 'rubber', '2.5.0'
+gem 'rmagick', '2.13.2'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
-
-gem "jquery-rails"
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
 group :doc do
@@ -43,12 +35,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use unicorn as the app server
+# DEPLOYMENT
 gem 'unicorn'
-
-# Use Capistrano for deployment
 gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
+gem 'pry', group: :development
 gem 'open4'
