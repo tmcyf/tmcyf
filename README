@@ -11,6 +11,7 @@ Finished Work
  - clean up dependencies @done
  - deployment @done 
  - admin login and admin controls @done 
+ - prompt users to add personal data @done
 
 Currently in progress
  - stripe integration
@@ -18,7 +19,7 @@ Currently in progress
   - stripe payment action
   - conditional registration
   - account payment status
- - prompt users to add personal data @done
+ - bug fixes / refactoring 
 
 Work that's left
  - status page
@@ -26,7 +27,6 @@ Work that's left
   - if user has selected a contact preference
   - if user has paid dues
  - ICS for events page
- - bug fixes / refactoring ( in progress )
  - deployment
  - flash messages for saved user state across the app
  
