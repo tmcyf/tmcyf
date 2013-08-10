@@ -381,6 +381,12 @@ label {
 h3.show-page-title, .show-page-eventdata, .ics, .show-page-body {
   text-align: center;
 }
+.ics {
+  margin-bottom: 2em;
+}
+.event-form-edit-datetime select {
+  width: 25%;
+}
 
 // FOOTER
 
