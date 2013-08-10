@@ -1,13 +1,12 @@
 <%= form_for(@payment, url: event_payments_path(@payment.event)) do |f| %>
-  <article>
-    <label class="amount">
-      <span><%= @payment.event.cost %></span>
-    </label>
-  </article>
-  <%= f.hidden_field :event %>
+  <label class="amount">
+    <span><%= @payment.event.cost %></span>
+  </label>
+  <%= f.fields_for :credit_card do |c| %>
 
-  <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-          data-key="<%= ENV['STRIPE_PUBLIC_KEY'] %>"
-          data-amount="<%= @payment.event.cost %>"
-          data-description="TMCYF payment for <%= @payment.event.title %>"></script>
+  <% end %>
+  <!-- NOTE: for some reason, calling event.id returns 1, instead of the correct event title from friendly_url. I think there might be a better way to do this later -->
+  <%= f.hidden_field :event_id, value: @payment.event.title %>
+  <%= f.submit %>
+  <!-- TODO: Need to add stripe code -->
 <% end %>

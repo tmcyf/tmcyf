@@ -13,27 +13,31 @@ class PaymentsController < ApplicationController
     @payment = Payment.new
     # the user is directed to this page by clicking "Pay Now" on a payment on
     # the payments/index page (at the route /account/payments)
+
     @payment.event = Event.find(params[:event_id])
   end
   def create
-    @payment = Payment.new(payment_params) # should include the event id & current user
+    @payment = Payment.create(payment_params) # should include the event id & current user
     # does this method know that we're paying for the user currently signed in?
     # :stripe_token is set by Stripe.js, which we handle in credit_card.js.coffee
+    # TODO: if we don't have params[:stripe_token] we should error out of this
+    # request
     @payment.credit_card = CreditCard.where(stripe_token: params[:stripe_token]).first_or_create
-    begin
-      charge = Stripe::Charge.create(
+    if @payment and @payment.event
+      Stripe::Charge.create(
         :amount => @payment.event.cost, # amount in cents, again
         :currency => "usd",
         :card => params[:stripe_token],
         :description => "Payment for TMCYF #{@payment.event.title}"
       )
-    rescue Stripe::CardError => e
-      # The card has been declined
+      redirect_to account_payments_path
+    else
+      flash[:error] = "Event or payment was nil! @payment.event is currently #{payment_params}"
+      redirect_to :back
     end
-    redirect_to account_payments_path
   end
   private
     def payment_params
-      params.require(:payment).permit(:event, :credit_card)
+      params.require(:payment).permit(:event_id, :credit_card)
     end
 end
