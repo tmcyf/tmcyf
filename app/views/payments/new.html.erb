@@ -1,12 +1,4 @@
-<%= form_for(@payment, url: event_payments_path(@payment.event)) do |f| %>
-  <label class="amount">
-    <span><%= @payment.event.cost %></span>
-  </label>
-  <%= f.fields_for :credit_card do |c| %>
-
-  <% end %>
-  <!-- NOTE: for some reason, calling event.id returns 1, instead of the correct event title from friendly_url. I think there might be a better way to do this later -->
-  <%= f.hidden_field :event_id, value: @payment.event.title %>
+<%= form_for(@payment, url: new_event_payment_path(@payment.event)) do |f| %>
+  <%= f.hidden_field :event_id %>
   <%= f.submit %>
-  <!-- TODO: Need to add stripe code -->
 <% end %>
