@@ -26,7 +26,7 @@ gem 'figaro'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'fog'
-gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'rails4'
+gem 'friendly_id', '5.0.0.beta1'
 gem 'twilio-ruby'
 gem 'gibbon' # for mailchimp
 gem 'pry', group: :development # for debugging

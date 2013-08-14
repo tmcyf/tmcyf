@@ -36,6 +36,8 @@ Static::Application.routes.draw do
   get '/account/preferences'        => 'pages#preferences'
   post '/account/preferences'       => 'pages#update_preferences'
   get '/account/payments'           => 'payments#index' 
+  # TODO: routed with default for expediency, change this later
+  post '/events/payments/new'           => 'payments#index' 
   get '/admin/contact_all'          => 'contact#contact_all'
   post '/admin/send_message'        => 'contact#send_all_message'
 end
