@@ -23,6 +23,7 @@ class ContactController < ApplicationController
         :to => contact_number,
         :body => message
       )
+      flash[:notice] = "Message sent!"
     else
       return false
     end

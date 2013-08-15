@@ -1,6 +1,6 @@
 <div class="row">
   <div class="large-12 columns">
-    <%= form_for(@event) do |f| %>
+    <%= simple_form_for(@event) do |f| %>
       <% if @event.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -14,34 +14,40 @@
       <% end %>
 
       <div class="row">
-        <div class="large-4">
+        <div class="large-4 columns">
           <%= f.label :title %><br>
           <%= f.text_field :title %>
         </div>
       </div>
       <div class="row">
-        <%= f.label :date %><br>
-        <%= f.date_select :date %>
+        <div class="large-4 columns event-form-edit-datetime">
+          <%= f.label :start %><br>
+          <%= f.datetime_select :startdt, :ampm => true, :order => [:month, :day, :year] %>
+        </div>
       </div>
       <div class="row">
-        <%= f.label :time %><br>
-        <%= f.time_select :time, ampm: true %>
+        <div class="large-4 columns event-form-edit-datetime">
+          <%= f.label :end %><br>
+          <%= f.datetime_select :enddt, :ampm => true, :order => [:month, :day, :year] %>
+        </div>
       </div>
       <div class="row">
-        <div class="large-4">
+        <div class="large-4 columns">
           <%= f.label :location %><br>
           <%= f.text_field :location %>
         </div>
       </div>
       <div class="row">
-        <div class="large-6">
+        <div class="large-6 columns">
           <%= f.label :body %><br>
           <%= f.text_area :body %>
         </div>
       </div>  
       <div class="row">
-        <%= f.label :image %><br>
-        <%= f.file_field :image %>
+        <div class="large-5 columns">
+          <%= f.label :image %><br>
+          <%= f.file_field :image %>
+        </div>
       </div>
       <div class="row">
         <%= f.label :cost %><br>
@@ -54,8 +60,10 @@
         </div>
       </div>  
       <div class="row">
-        <div class="actions">
-          <%= f.submit %>
+        <div class="large-5 columns">
+          <div class="actions">
+            <%= f.submit %>
+          </div>
         </div>
       </div>
     <% end %>
