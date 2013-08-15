@@ -30,10 +30,6 @@ h1, h2, h3, h4, h5, h6 {
 
 // FORMS
 
-select {
-  width: 65px;
-}
-
 div.ui-datepicker{
  font-size:10px;
 }
@@ -260,9 +256,31 @@ label {
 .accountpage {
   text-align: center;
 }
+
 .fields {
-  background-color: #fffbfb;
+  background-color: #fefefe;
   border: 1px solid #e1e1e1;
+}
+
+.form-tel {
+  // SO DAMN UGLY
+  width: 100px !important;
+}
+
+.form-sel {
+  width: 80px;
+}
+
+.form-sel-shirt {
+  width: 50px;
+}
+
+.form-date {
+  width: auto;
+}
+
+.hint {
+  font-size: .8em;
 }
 
 // ACCOUNT MENU
@@ -336,7 +354,7 @@ label {
     }
   }
   height: 40px;
-  background: #fffbfb;
+  background: #fefefe;
   margin-left: 0;
   padding: 0;
   &.vertical {
@@ -362,6 +380,12 @@ label {
 
 h3.show-page-title, .show-page-eventdata, .ics, .show-page-body {
   text-align: center;
+}
+.ics {
+  margin-bottom: 2em;
+}
+.event-form-edit-datetime select {
+  width: 25%;
 }
 
 // FOOTER

@@ -3,11 +3,20 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = Event.all.order("date DESC")
+    @events = Event.all.order("startdt DESC")
   end
 
   # GET /events/1
   def show
+    respond_to do |format|
+      format.html
+      format.ics do
+        calendar = Icalendar::Calendar.new
+        calendar.add_event(@event.to_ics)
+        calendar.publish
+        render :text => calendar.to_ical, content_type: 'text/calendar'
+      end
+    end
   end
 
   # GET /events/new
@@ -58,6 +67,6 @@ class EventsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def event_params
-      params.require(:event).permit(:title, :date, :time, :body, :location, :image, :remote_image_url)
+      params.require(:event).permit(:title, :startdt, :enddt, :body, :location, :image, :remote_image_url)
     end
 end
