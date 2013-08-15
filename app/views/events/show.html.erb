@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="large-12 columns">
 				<div class="large-6 large-centered columns show-page-eventdata">
-					<div class="show-datetime"><%= @event.startdt.strftime("%B %d, %Y | %I:%M %p") %></div>
+					<div class="show-datetime"><%= @event.startdt.try(:strftime,"%B %d, %Y | %I:%M %p") %></div>
 					<p><%=raw @event.location %></p>
 				</div>
 			</div>
@@ -23,7 +23,8 @@
 
 		<%= link_to 'Back to Events', events_path %><br>
 		<% if current_user.admin? %>
-			<%= link_to "edit", edit_event_path(@event) %><br><%= link_to "delete", event_path(@event), method: :delete, confirm: "You sure?" %>
+		<hr />
+			<%= link_to "edit", edit_event_path(@event) %><br><%= button_to('destroy', event_path(@event), method: :delete ) %>
 		<% end %>
 	</div>
 </div>
