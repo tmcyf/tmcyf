@@ -11,24 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130724175751) do
+ActiveRecord::Schema.define(version: 20130810194148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "credit_cards", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "stripe_token"
+  end
+
   create_table "events", force: true do |t|
     t.string   "title"
-    t.date     "date"
-    t.time     "time"
     t.text     "location"
     t.string   "image"
     t.text     "body"
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "cost"
+    t.datetime "startdt"
+    t.datetime "enddt"
   end
 
   add_index "events", ["slug"], name: "index_events_on_slug", using: :btree
+
+  create_table "payments", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "credit_card_id"
+    t.datetime "payment_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

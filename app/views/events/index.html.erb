@@ -8,14 +8,13 @@
           </div>
           <div class="large-6 columns">
             <h3><%= link_to event.title, event_path(event), class: "index-page-title" %></h3>
-            <date class="index-page-date"><%= event.date.strftime("%B %e, %Y") %></date> |
-            <time class="index-page-time"><%= event.time.strftime("%I:%M %p") %></time>
+            <div class="index-datetime"><%= event.startdt.try(:strftime,"%B %d, %Y | %I:%M %p") %></div>
             <p class="index-page-location"><%=raw event.location %></p>
           </div>
         </article>
       </div>
       <% unless index == @events.size - 1 %>
-      <hr />
+        <hr />
       <% end %>
       <% end %>
   </div>
