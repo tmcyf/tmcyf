@@ -25,7 +25,6 @@ gem 'fog'
 gem 'friendly_id', github: 'norman/friendly_id'
 gem 'twilio-ruby'
 gem 'gibbon'
-gem 'rubber', github: 'rubber/rubber'
 gem 'rmagick', '2.13.2'
 gem 'icalendar'
 
