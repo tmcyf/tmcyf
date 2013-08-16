@@ -34,6 +34,7 @@ class PagesController < ApplicationController
       @user.sms_unsubscribe
     end
     @user.save!
+    flash[:notice] = "Preferences saved!"
     redirect_to account_preferences_path
   end
 end
