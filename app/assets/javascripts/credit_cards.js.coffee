@@ -7,10 +7,22 @@ jQuery ->
 
 credit_card =
   setupForm: ->
-    $('#new_credit_card').submit ->
+      # $('#new_credit_card').submit ->
+      # $('input[type=submit]').attr('disabled', true)
+      # credit_card.processCard()
+      # false
+    $('#test_credit_card').submit ->
       $('input[type=submit]').attr('disabled', true)
       credit_card.processCard()
+      false
   
+  testAPIResponse: ->
+    testCard =
+      number: 4242424242424242
+      cvc: 892
+      expMonth: 10
+      expYear: 2014
+    Stripe.createToken(testCard, credit_card.handleStripeResponse)
   processCard: ->
     card =
       number: $('#card_number').val()
@@ -20,6 +32,5 @@ credit_card =
     Stripe.createToken(card, credit_card.handleStripeResponse)
   
   handleStripeResponse: (status, response) ->
-      alert(response)
+      alert response
 
-Window.credit_card = credit_card
