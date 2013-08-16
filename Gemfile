@@ -27,6 +27,7 @@ gem 'gibbon'
 gem 'rubber', '2.5.0'
 gem 'rmagick', '2.13.2'
 gem 'icalendar'
+gem 'figaro'
 
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
