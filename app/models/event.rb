@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
 	has_many :payments
 	mount_uploader :image, ImageUploader
 	extend FriendlyId
+	# without :finders, we need to use Event.friendly.find in all cases
 	friendly_id :title, use: :slugged
 
 	def to_ics
