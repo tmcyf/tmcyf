@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-	before_filter :authenticate_user!, :except => [:home, :about, :about_biblestudies, :about_tribes, :about_service, :about_socials, :about_officers, :about_contact, :events, :biblestudy, :account]
+	before_filter :authenticate_user!, :except => [:home, :about, :about_biblestudies, :about_tribes, :about_service, :about_socials, :about_officers, :about_contact, :events, :biblestudy]
 
 	def home
     url = 'http://www.heartlight.org/cgi-shl/todaysverse.cgi'
@@ -18,6 +18,7 @@ class PagesController < ApplicationController
   end
 
   def admin
+    redirect_to :root unless current_user && current_user.admin?
   end
 
   def preferences
