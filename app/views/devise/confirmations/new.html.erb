@@ -4,16 +4,22 @@
 		<fieldset>
 			<div class="large-12 columns">
 				<h2>Resend confirmation instructions</h2>
-				<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  				<%= devise_error_messages! %>
-				<div class="row">
-				  	<div class="large-4 columns"><%= f.label :email %>
-  					<%= f.email_field :email, :autofocus => true %></div>
-  				</div>
-  				<div><%= f.submit "Resend confirmation instructions" %></div>
-				<% end %>
-				<%= render "devise/shared/links" %>
-			</div>	
-		</fieldset>
-	</div>
-</div>		
+				<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  			<%= f.error_notification %>
+  			<%= f.full_error :confirmation_token %>
+  			<div class="row">
+			  	<div class="large-4 columns">
+						<%= f.input :email, :required => true, :autofocus => true %>
+					</div>
+				</div>
+        <div class="row">
+          <div class="large-4 columns">
+          	<%= f.button :submit, "Resend confirmation instructions" %>
+          </div>
+        </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </fieldset>
+  </div>
+</div>
