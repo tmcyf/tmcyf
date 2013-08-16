@@ -13,8 +13,9 @@ class PaymentsController < ApplicationController
     @payment = Payment.new
     # the user is directed to this page by clicking "Pay Now" on a payment on
     # the payments/index page (at the route /account/payments)
-    # use find_by instead of find because of friendly_id
-    @payment.event = Event.find_by(title: params[:event_id])
+    # if this isn't working, use event.friendly.find
+    # potential source of problems, try Event.friendly.find if necessary
+    @payment.event = Event.friendly.find(params[:event_id])
   end
   def create
     @payment = Payment.create(payment_params) # should include the event id & current user

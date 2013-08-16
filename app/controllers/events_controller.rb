@@ -62,7 +62,8 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      # potential source of problems, try Event.friendly.find if necessary
+      @event = Event.friendly.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
