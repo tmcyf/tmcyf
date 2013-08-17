@@ -7,7 +7,6 @@ $(document).on 'ready page:load', ->
 
 credit_card = 
   setupForm: ->
-    alert "Hello!"
     card = 
         number: 4242424242424242
         cvc: 898
