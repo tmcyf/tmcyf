@@ -3,7 +3,7 @@ Static::Application.routes.draw do
     resources :payments, only: [:create, :new]
   end
 
-  resources :credit_cards, only: [:create, :delete]
+  resources :credit_cards, only: [:new, :create, :delete]
   
   devise_for :users, :controllers => { :registrations => :registrations, :confirmations => :confirmations }, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register', :password => 'reset'}
 
