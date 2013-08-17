@@ -21,7 +21,6 @@ gem 'uglifier', '>= 1.3.0'
 # PLUGINS
 gem 'devise', '~> 3.0.0.rc'
 gem 'simple_form'
-gem 'figaro'
 gem 'carrierwave'
 gem 'fog'
 gem 'friendly_id', '5.0.0.beta1'
@@ -29,9 +28,10 @@ gem 'twilio-ruby'
 gem 'pry', group: :development # for debugging
 gem 'stripe'
 gem 'gibbon'
-gem 'rubber', '2.5.0'
+gem 'rubber', github: 'rubber/rubber'
 gem 'rmagick', '2.13.2'
 gem 'icalendar'
+gem 'figaro'
 
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
@@ -44,6 +44,7 @@ end
 # DEPLOYMENT
 gem 'unicorn'
 gem 'capistrano', group: :development
+gem 'thin', group: :development
 
 # Use debugger
 gem 'debugger', group: [:development, :test]
