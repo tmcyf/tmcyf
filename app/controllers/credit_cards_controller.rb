@@ -1,4 +1,6 @@
 class CreditCardsController < ApplicationController
+  def new
+  end
   def create
     # set credit card user to current_user
     # create a stripe::customer with the card

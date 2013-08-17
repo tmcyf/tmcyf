@@ -13,6 +13,6 @@
 //= require jquery
 //= require foundation
 //= require bootstrap.min.js
-//= require turbolinks
+// require turbolinks isn't working right now
 //= require_tree .
 $(function(){ $(document).foundation(); });
