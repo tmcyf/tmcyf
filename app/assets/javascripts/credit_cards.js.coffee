@@ -17,5 +17,8 @@ credit_card =
         Stripe.createToken(card, credit_card.handleStripeResponse)
 
   handleStripeResponse: (status, response) ->
-    alert("Token is " + response.id)
+    # TODO: what should we call this form?
+    $('#add_credit_card').append("<input type='hidden' name='stripeToken' value='" + response.id + "'/>")
+    $('#add_credit_card').submit
+
 
