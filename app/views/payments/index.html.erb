@@ -5,7 +5,24 @@
 	  <fieldset class="fields">
 	    <div class="large-12 columns">
 	      <h2>Payments</h2>
-        <%= button_to "Add a Credit Card", new_credit_card_path, class: "btn btn-info", method: :get %>
+        <h3>Credit Cards</h3>
+	      <table>
+				  <thead>
+				    <tr>
+				      <th>Type</th>
+				      <th>Last 4 Digits</th>
+				    </tr>
+				  </thead>
+          <% if @usable_cards %>
+            <% @usable_cards.each do |card| %>
+              <tr>
+                <td><%= card.type %></td>
+                <td><%= card.last4 %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </table>
+        <%= render 'credit_cards/form' %>
 	      <table>
 				  <thead>
 				    <tr>
