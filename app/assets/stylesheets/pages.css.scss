@@ -2,7 +2,9 @@
 
 $primary: #c73f3f;
 $body: #333;
-$payblue: #3498db;
+$asphalt: #34495E;
+
+
 
 body {
   border-top: 7px solid $primary;
@@ -64,11 +66,11 @@ div.ui-datepicker{
     text-decoration: none;
   }
   &.btn-pay {
-    color: $payblue;
-    border-color: $payblue;
+    color: $asphalt;
+    border-color: $asphalt;
     margin: 0 0 0;
     &:hover {
-      background-color: $payblue;
+      background-color: $asphalt;
       color: #fff;
       text-decoration: none;
     }
@@ -115,6 +117,28 @@ input {
   &:focus {
     border-color: $primary;
   }
+}
+
+.preference ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.preference li {
+  padding-top: 11px;
+  *zoom: 1;
+}
+
+.preference li:first-child {
+  padding-top: 0;
+}
+
+.preference li:last-child {
+  padding-bottom: 10px;
+}
+
+.preference-label {
+  padding-right: 20px;
 }
 
 
