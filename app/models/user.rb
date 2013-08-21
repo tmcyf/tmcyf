@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
       # can we console.log an exception? 
       # should we raise the exception again to allow it to be passed on to the
       # controller or the view?
-      console.log(e)
+      logger.info(e)
       raise
     end
   end

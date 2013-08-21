@@ -1,2 +1,3 @@
 cardString = <%= @card.type + " " + @card.last4 %>;
-$('#default_card').replace(cardString);
+console.log(cardString);
+$('#default_card').replaceWith(cardString);
