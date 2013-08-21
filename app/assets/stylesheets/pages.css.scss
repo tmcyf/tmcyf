@@ -2,6 +2,7 @@
 
 $primary: #c73f3f;
 $body: #333;
+$payblue: #3498db;
 
 body {
   border-top: 7px solid $primary;
@@ -61,6 +62,16 @@ div.ui-datepicker{
     background-color: $primary;
     color: #fff;
     text-decoration: none;
+  }
+  &.btn-pay {
+    color: $payblue;
+    border-color: $payblue;
+    margin: 0 0 0;
+    &:hover {
+      background-color: $payblue;
+      color: #fff;
+      text-decoration: none;
+    }
   }
 }
 
