@@ -11,6 +11,7 @@ class CreditCardsController < ApplicationController
       # user.new_card will catch any exceptions from params[:stripe_token]
       # being nil, or problems with the Stripe API re: that specific card
       @card = current_user.new_card(params[:stripe_token]).default_card
+      redirect_to account_payments_path
     rescue => e # to rescue any exceptions from the new_card call
       # TODO: We can give the user various more useful descriptions of what went
       # wrong, like an insufficient balance or an invalid card number
@@ -26,7 +27,7 @@ class CreditCardsController < ApplicationController
 
   def show
     begin
-      current_user.credit_card
+      @card = current_user.credit_card
     rescue => e
       redirect_to account_payments_path, error: e
     end
