@@ -5,9 +5,15 @@ Static::Application.routes.draw do
 
   # the model for credit cards is no longer necessary (we're storing them with 
   # stripe), but the routes for credit cards still are 
-  resources :credit_cards, only: [:new, :delete]
+  resources :credit_cards, only: [:new, :create, :delete, :show]
   
-  devise_for :users, :controllers => { :registrations => :registrations, :confirmations => :confirmations }, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register', :password => 'reset'}
+  devise_for :users, 
+    controllers: { registrations: :registrations, confirmations: :confirmations },
+    path: '',
+    path_names: {sign_in: 'login',
+                 sign_out: 'logout',
+                 sign_up: 'register',
+                 password: 'reset'}
 
   devise_scope :user do
     get '/login'                    => 'devise/sessions#new'

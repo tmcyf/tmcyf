@@ -9,25 +9,18 @@ class PaymentsController < ApplicationController
   def new
     # in this page, you should only be able to pick credit cards that are valid
     # for current_user
-    @usable_cards = current_user.credit_card_list
+    @default_card = current_user.credit_card
     @payment = Payment.new
     @payment.event = Event.friendly.find(params[:event_id])
   end
   def create
     @payment = Payment.create(payment_params) # should include the event id & current user
-    # TODO: if we don't have params[:stripe_token] we should error out of this
-    # request
-    if @payment and @payment.event
-      Stripe::Charge.create(
-        :amount => @payment.event.cost, # amount in cents, again
-        :currency => "usd",
-        :customer => current_user.stripe_id,
-        :description => "Payment for TMCYF #{@payment.event.title}"
-      )
+    begin
+      current_user.charge(amount: @payment.event.cost, description: "Payment for TMCYF #{@payment.event.title}")
       redirect_to account_payments_path
-    else
-      flash[:error] = "Event or payment was nil! @payment.event is currently #{payment_params}"
-      redirect_to :back
+    rescue => e
+      # TODO: More informative error messages
+      redirect_to account_payments_path, error: e
     end
   end
   private

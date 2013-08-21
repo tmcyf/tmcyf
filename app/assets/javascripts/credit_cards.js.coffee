@@ -18,7 +18,9 @@ credit_card =
 
   handleStripeResponse: (status, response) ->
     # TODO: what should we call this form?
+    alert response.id
     $('#add_credit_card').append("<input type='hidden' name='stripeToken' value='" + response.id + "'/>")
-    $('#add_credit_card').submit
+    $('input[type=submit]').attr('disabled', false)
+    $('#new_credit_card').submit
 
 

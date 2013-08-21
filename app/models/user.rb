@@ -4,8 +4,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable
-  has_many :credit_cards
-  has_many :payments, through: :credit_cards
+  has_many :payments
   
   def fullname
   	self.fname + self.lname
@@ -15,30 +14,47 @@ class User < ActiveRecord::Base
   	self.line1 + self.city + self.state + self.zip
   end
 
-  # TODO: should I run this in an after_create hook? in the controller?
-  def create_stripe_id
-    self.stripe_id = Stripe::Customer.create(
-      description: self.fullname,
-    ).id
-  end
-  def add_card(stripe_token)
-    # TODO: wrap calls to the stripe API in begin/rescue/end blocks
-    if self.stripe_id
-      customer = Stripe::Customer.retrieve(self.stripe_id)
-      customer.cards.create(card: stripe_token)
-    else
-      customer = Stripe::Customer.create(
-        description: self.fullname,
-        card: stripe_token
-      )
-      self.stripe_id = customer.id
+  def new_card(stripe_token)
+    begin
+      raise "No stripe token submitted" unless stripe_token
+      if self.stripe_id
+        customer = Stripe::Customer.retrieve(self.stripe_id)
+        customer.cards.create(card: stripe_token)
+      else
+        customer = Stripe::Customer.create(
+          description: self.fullname,
+          card: stripe_token
+        )
+        self.stripe_id = customer.id
+      end
+      customer
+    rescue Stripe::CardError => e
+      # catch stripe error here
+      # can we console.log an exception? 
+      # should we raise the exception again to allow it to be passed on to the
+      # controller or the view?
+      console.log(e)
+      raise
     end
-    customer
   end
 
-  def credit_card_list
-    self.create_stripe_id unless self.stripe_id
-    Stripe::Customer.retrieve(self.stripe_id).cards.all
+  def charge(amount: nil, description: nil)
+    # TODO: validate that there are no decimals in the amount
+    raise "There is no credit card saved for this account" unless self.stripe_id 
+    begin
+      Stripe::Charge.create(
+        amount: amount, # amount in cents, again
+        currency: "usd",
+        customer: self.stripe_id,
+        description: description
+      )
+    rescue => e
+      console.log(e)
+    end
+  end
+
+  def credit_card
+    Stripe::Customer.retrieve(self.stripe_id).default_card if self.stripe_id
   end
 
 
