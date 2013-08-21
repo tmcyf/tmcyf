@@ -17,10 +17,11 @@ credit_card =
         Stripe.createToken(card, credit_card.handleStripeResponse)
 
   handleStripeResponse: (status, response) ->
-    # TODO: what should we call this form?
     alert response.id
     $('#add_credit_card').append("<input type='hidden' name='stripeToken' value='" + response.id + "'/>")
     $('input[type=submit]').attr('disabled', false)
+    # TODO: this form submit needs to create a credit card, but asynchronously
+    # What is the best way to pull this off? 
     $('#add_credit_card').submit
 
 

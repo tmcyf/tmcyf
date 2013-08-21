@@ -6,8 +6,7 @@ class CreditCardsController < ApplicationController
   def new
   end
   def create
-    # success = "Credit card successfully saved."
-    failure = "There was a problem processing your request." 
+    
     begin
       # user.new_card will catch any exceptions from params[:stripe_token]
       # being nil, or problems with the Stripe API re: that specific card
@@ -16,10 +15,13 @@ class CreditCardsController < ApplicationController
       # TODO: We can give the user various more useful descriptions of what went
       # wrong, like an insufficient balance or an invalid card number
       logger.info(e)
-      redirect_to account_payments_path, error: failure
+      redirect_to account_payments_path, error: "There was a problem processing your request."
     end
     # render html: "<div id='default_card'> #{@card.type} #{@card.last4}</div>"
-    render html: "<div id='default_card'> Visa 4242 </div>"
+    # TODO: what exactly should we render here? We need to replace the default
+    # card div in payments/index with the returned default card object
+    # This could be a format.js call or a render call, with an html fragment
+    # returned.
   end
 
   def show
