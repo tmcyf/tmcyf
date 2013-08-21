@@ -21,6 +21,6 @@ credit_card =
     alert response.id
     $('#add_credit_card').append("<input type='hidden' name='stripeToken' value='" + response.id + "'/>")
     $('input[type=submit]').attr('disabled', false)
-    $('#new_credit_card').submit
+    $('#add_credit_card').submit
 
 
