@@ -5,23 +5,14 @@
 	  <fieldset class="fields">
 	    <div class="large-12 columns">
 	      <h2>Payments</h2>
-        <h3>Credit Cards</h3>
-	      <table>
-				  <thead>
-				    <tr>
-				      <th>Type</th>
-				      <th>Last 4 Digits</th>
-				    </tr>
-				  </thead>
-          <% if @usable_cards %>
-            <% @usable_cards.each do |card| %>
-              <tr>
-                <td><%= card.type %></td>
-                <td><%= card.last4 %></td>
-              </tr>
+        <h3>Credit Card:</h3>
+          <div id="default_card">
+            <% if @default_card %>
+              <%= @default_card.type + " " + @default_card.last4 %>
+            <% else %>
+              <p>Add a credit card below!</p>
             <% end %>
-          <% end %>
-        </table>
+          </div>
         <%= render 'credit_cards/form' %>
 	      <table>
 				  <thead>
@@ -37,6 +28,7 @@
                 <tr>
                   <td><%= event.title %></td>
                   <td><%= event.cost %></td>
+                  <!-- TODO: This Pay Now button can be a post request to the payments controller, with remote: true, and we can return some javascript to display loading and stripe-success -->
                   <td><%= button_to "Pay Now", new_event_payment_path(event), class: "btn btn-info", method: :get %></td>
                 </tr>
               <% end %>

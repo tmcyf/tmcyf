@@ -1,5 +1,4 @@
 <%= form_for(@payment, url: event_payments_path(@payment.event)) do |f| %>
   <%= f.hidden_field :event_id %>
   <%= f.submit %>
-  <%= button_to "Test Stripe Integration", id: "test_credit_card" %>
 <% end %>
