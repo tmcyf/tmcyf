@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
         )
         self.stripe_id = customer.id
       end
+      self.save
       customer
     rescue Stripe::CardError => e
       # catch stripe error here
@@ -49,7 +50,7 @@ class User < ActiveRecord::Base
         description: description
       )
     rescue => e
-      console.log(e)
+      logger.info(e)
     end
   end
 
