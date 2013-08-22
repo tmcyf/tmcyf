@@ -1,12 +1,12 @@
 <!-- render this form from the payments/index page -->
-<%= form_tag credit_cards_path, id: "add_credit_card" %>
+<%= form_tag credit_cards_path, id: "add_credit_card", remote: true %>
 <%= label_tag :card_number, "Credit Card Number"%>
 <%= text_field_tag :card_number, nil, name: nil %>
 <%= label_tag :card_code, "Security Code on Card (CVV)" %>
 <%= text_field_tag :card_code, nil, name: nil %>
-<%= label_tag :card_month, "Card Expiration" %>
+<%= label_tag :card_month, "Card Expiration MM / YYYY" %>
 <!-- TODO: change these select elements to text_fields with lengths of 2 and 4 -->
-<%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
-<%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
-<%= submit_tag "Save Credit Card", id: "new_credit_card"%>
+<%= text_field_tag :card_month, nil, name: nil, length: 2 %>
+<%= text_field_tag :card_year, nil, name: nil, length: 4 %>
+<%= submit_tag "Save Credit Card", id: "new_credit_card", remote: true%>
 </form>

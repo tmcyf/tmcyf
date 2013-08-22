@@ -1,3 +1,4 @@
-cardString = <%= @card.type + " " + @card.last4 %>;
+alert("yo!");
+cardString = "<p><%= @card.type + " " + @card.last4 %></p>";
 console.log(cardString);
-$('#default_card').replaceWith(cardString);
+$('#default_card').html(cardString);
