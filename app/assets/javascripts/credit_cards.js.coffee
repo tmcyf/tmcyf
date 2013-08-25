@@ -7,20 +7,10 @@ $(document).on 'ready page:load', ->
 
 credit_card = 
   setupForm: ->
-    card =
-        number: 4242424242424242
-        cvc: 898
-        expMonth: 10
-        expYear: 2014
-    form_vals =
-        number: $('#card_number').val()
-        cvc: $('#card_code').val()
-        expMonth: $('#card_month').val()
-        expYear: $('#card_year').val()
-    console.log($('#card_number').val())
     $('#new_credit_card').on 'click', ->
+        card_form = $('#add_credit_card')
         $('input[type=submit]').attr('disabled', true)
-        Stripe.createToken(card, credit_card.handleStripeResponse)
+        Stripe.createToken(card_form, credit_card.handleStripeResponse)
 
   handleStripeResponse: (status, response) ->
     alert response.id
