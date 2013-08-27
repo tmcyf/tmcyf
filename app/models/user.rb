@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :payments
   
   def fullname
-  	self.fname + " " + self.lname
+  	self.fname ? self.fname + " " + self.lname : nil
   end
 
   def address
