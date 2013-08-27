@@ -28,9 +28,9 @@
               <% @events.each do |event| %>
                 <tr>
                   <td><%= event.title %></td>
-                  <td><%= event.cost %></td>
+                  <td><%= number_to_currency(event.cost) %></td>
                   <!-- TODO: This Pay Now button can be a post request to the payments controller, with remote: true, and we can return some javascript to display loading and stripe-success -->
-                  <td><%= button_to "Pay Now", event_payments_path(event), class: "btn btn-info", method: :post %></td>
+                  <td><%= button_to "Pay Now", event_payments_path(event), class: "button btn-pay", method: :post %></td>
                 </tr>
               <% end %>
             <% end %>

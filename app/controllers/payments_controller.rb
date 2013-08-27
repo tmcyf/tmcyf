@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
     @payment = Payment.create # should include the event id & current user
     @payment.event = Event.friendly.find(params[:event_id])
     begin
-      current_user.charge(amount: @payment.event.cost, description: "Payment for TMCYF #{@payment.event.title}")
+      current_user.charge(amount: (@payment.event.cost * 100).to_i, description: "Payment for TMCYF #{@payment.event.title}")
       flash[:success] = "Payment has been made for #{@payment.event.title}"
       redirect_to account_payments_path
     rescue => e
