@@ -55,7 +55,9 @@ class User < ActiveRecord::Base
   end
 
   def credit_card
-    Stripe::Customer.retrieve(self.stripe_id).default_card if self.stripe_id
+    # instead of saving this in the database, we query Stripe each time we want 
+    # to get the value of the user's current card
+    Stripe::Customer.retrieve(id: self.stripe_id, expand: ['default_card']).default_card if self.stripe_id
   end
 
 
