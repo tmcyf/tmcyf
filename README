@@ -14,9 +14,9 @@ Finished Work
  - prompt users to add personal data @done
 
 Currently in progress
- - stripe integration
-  - payments model
-  - stripe payment action
+ - stripe integration @done
+  - payments model @done
+  - stripe payment action @done
   - conditional registration
   - account payment status
  - bug fixes / refactoring 
