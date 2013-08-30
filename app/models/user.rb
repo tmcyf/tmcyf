@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
       raise "No stripe token submitted" unless stripe_token
       if self.stripe_id
         customer = Stripe::Customer.retrieve(self.stripe_id)
-        customer.cards.create(card: stripe_token)
+        customer.default_card = customer.cards.create(card: stripe_token)
+        customer.save
       else
         customer = Stripe::Customer.create(
           description: self.fullname,
