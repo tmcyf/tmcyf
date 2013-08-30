@@ -7,8 +7,10 @@
 	      <h2>Payments</h2>
         <h3>Credit Card:</h3>
           <div id="default_card">
-            <% if @default_card %>
-              <%= @default_card.type + " " + @default_card.last4 %>
+            <% if @credit_card %>
+              
+              <p>**** **** **** <%= @credit_card.last4 + " " + @credit_card.type %></p>
+              <p>Update your credit card below!</p>
             <% else %>
               <p>Add a credit card below!</p>
             <% end %>
