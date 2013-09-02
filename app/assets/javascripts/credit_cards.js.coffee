@@ -19,5 +19,3 @@ credit_card =
     # TODO: this form submit needs to create a credit card, but asynchronously
     # What is the best way to pull this off? 
     $('#add_credit_card')[0].submit()
-
-
