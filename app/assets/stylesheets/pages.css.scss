@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300|Arvo);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300|Arvo);
 
 $primary: #c73f3f;
 $body: #333;
@@ -142,6 +142,18 @@ input {
   padding-right: 20px;
 }
 
+//MISC
+.well {
+  padding: 10px;
+  font-size: 13px;
+}
+.cc {
+  padding-right: 10px;
+}
+.pay-table {
+  margin-top: 50px;
+}
+
 
 // ABOUT
 
@@ -152,25 +164,25 @@ input {
   background-position: center;
 }
 .hero {
-  background-image: url('http://mu.eyev.in/abthead.png')
+  background-image: url('https://s3-us-west-2.amazonaws.com/files.tmcyf.org/abthead.png')
 }
 .herocontact {
-  background-image: url("http://mu.eyev.in/contact.png");
+  background-image: url("https://s3-us-west-2.amazonaws.com/files.tmcyf.org/contact.png");
 }
 .herobiblestudy {
-  background-image: url("http://mu.eyev.in/biblestudy.png");
+  background-image: url("https://s3-us-west-2.amazonaws.com/files.tmcyf.org/biblestudy.png");
 }
 .heroofficers {
-  background-image: url("http://mu.eyev.in/officers.png");
+  background-image: url("https://s3-us-west-2.amazonaws.com/files.tmcyf.org/officers.png");
 }
 .heroservice {
-  background-image: url("http://mu.eyev.in/service.png");
+  background-image: url("https://s3-us-west-2.amazonaws.com/files.tmcyf.org/service.png");
 }
 .herosocials {
-  background-image: url("http://mu.eyev.in/socials.png");
+  background-image: url("https://s3-us-west-2.amazonaws.com/files.tmcyf.org/socials.png");
 }
 .herotribes {
-  background-image: url("http://mu.eyev.in/tribes.png");
+  background-image: url("https://s3-us-west-2.amazonaws.com/files.tmcyf.org/tribes.png");
 }
 .about-sidebar {
   margin-top: 20px;
@@ -192,7 +204,7 @@ input {
     li {
       padding: 5px 5px;
       span {
-        background: url('http://mu.eyev.in/redarrow.png') 100% 10px no-repeat;
+        background: url('https://s3-us-west-2.amazonaws.com/files.tmcyf.org/redarrow.png') 100% 10px no-repeat;
         padding-right: 25px;
       }
     }
@@ -507,8 +519,10 @@ footer {
     font-size: .7em;
     li {
       display: inline;
+      a {
+        margin: 0 3px 0 -1px;
+      }
       &:after {
-        padding-left: .5em;
         content: '\00B7';
       }
       &:last-of-type:after {
