@@ -111,10 +111,16 @@ class User < ActiveRecord::Base
   end
 
   def profile_completion_percentage
-    total = self.attributes.keys.size
+    # TODO: We want to avoid hardcoding this; how do we link the elements  of
+    # the required profile items array to the contents of the profile form?
+    # If we keep this hardcoded, every update of the profile form will require
+    # this to be updated, or else we'll break the profile_completion_percentage
+    # indicator
+    required_profile_items = [ :email, :fname, :lname, :phone, :gender, :birthday, :city, :state, :zip, :shirtsize, :email_contact, :facebook_contact, :sms_contact ]
+    total = required_profile_items.size
     completed = 0.0
     # TODO: there is DEFINITELY a cleaner way to do this
-    self.attributes.keys.each do |k|
+    required_profile_items.each do |k|
       completed += 1 if self[k]
     end
     # calculate the average, round the result
