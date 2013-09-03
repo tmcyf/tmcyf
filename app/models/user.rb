@@ -90,4 +90,34 @@ class User < ActiveRecord::Base
   def sms_unsubscribe
     self.sms_contact=false
   end
+
+  def dues_paid?
+    this_years_dues = Event.where(dues: true).detect do |dues|
+      dues.startdt.year.equal? DateTime.now.year
+    end
+    self.paid_events.include? this_years_dues
+  end
+
+
+
+  def unpaid_events
+    paid_events = self.paid_events 
+    events_requiring_payment = Event.where.not(cost: nil)
+    # the set difference of two arrays a & b in ruby is (a - b) | (b - a)
+    events_requiring_payment - paid_events | paid_events - events_requiring_payment
+  end
+  def paid_events
+    self.payments.collect { |p| p.event }
+  end
+
+  def profile_completion_percentage
+    total = self.attributes.keys.size
+    completed = 0.0
+    # TODO: there is DEFINITELY a cleaner way to do this
+    self.attributes.keys.each do |k|
+      completed += 1 if self[k]
+    end
+    # calculate the average, round the result
+    ((completed / total)* 100).round 
+  end
 end

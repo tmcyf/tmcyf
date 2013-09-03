@@ -5,7 +5,14 @@
     <fieldset class="fields">
       <div class="large-12 columns">
         <h2>Account Status</h2>
-       </div>
+      </div>
+      <p> <%= "Your profile is #{@completion_percentage}% complete." %> </p>
+      <p> <%= "You have paid for #{@paid_events ? @paid_events.size : 0} events." %> </p>
+      <% if @dues_paid %> 
+        <p> Your dues have been paid! </p>
+      <% else %>
+        <p> Your dues have not yet been paid. </p>
+      <% end %>
     </fieldset>
   </div>
 </div>
