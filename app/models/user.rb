@@ -73,6 +73,7 @@ class User < ActiveRecord::Base
                              double_optin: false)
     end
   end
+  
   def email_unsubscribe
     gibbon = Gibbon::API.new
     Gibbon::API.throws_exceptions = false
@@ -84,9 +85,11 @@ class User < ActiveRecord::Base
                              double_optin: false)
     end
   end
+  
   def sms_subscribe
     self.phone? ? self.sms_contact = true : false
   end
+  
   def sms_unsubscribe
     self.sms_contact=false
   end
@@ -98,14 +101,13 @@ class User < ActiveRecord::Base
     self.paid_events.include? this_years_dues
   end
 
-
-
   def unpaid_events
     paid_events = self.paid_events 
     events_requiring_payment = Event.where.not(cost: nil)
     # the set difference of two arrays a & b in ruby is (a - b) | (b - a)
     events_requiring_payment - paid_events | paid_events - events_requiring_payment
   end
+
   def paid_events
     self.payments.collect { |p| p.event }
   end
