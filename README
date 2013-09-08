@@ -12,24 +12,25 @@ Finished Work
  - deployment @done 
  - admin login and admin controls @done 
  - prompt users to add personal data @done
-
-Currently in progress
  - stripe integration @done
   - payments model @done
   - stripe payment action @done
-  - conditional registration
-  - account payment status
- - bug fixes / refactoring 
+  - account payment status @done
+ - ICS for events page @done
+ - deployment @done
+ - status page @done
+  - if user has paid dues @done
+  - if user has fully registered @done
+  - if user has selected a contact preference @done
+ - flash messages for saved user state across the app @done
+
+Currently in progress
 
 Work that's left
- - status page
-  - if user has fully registered
-  - if user has selected a contact preference
-  - if user has paid dues
- - ICS for events page
- - deployment
- - flash messages for saved user state across the app
- 
+ - retreat page
+  - conditional registration
+  - retreat page marketing copy
+  - retreat registration form
 Stretch Goals:
  - facebook event creation
  - facebook message send
