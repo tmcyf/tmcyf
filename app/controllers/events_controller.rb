@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     redirect_to :root unless current_user && current_user.admin?
-    @event = Event.new    
+    @event = Event.new
   end
 
   # GET /events/1/edit
@@ -34,7 +34,7 @@ class EventsController < ApplicationController
   def create
     redirect_to :root unless current_user && current_user.admin?
     @event = Event.new(event_params)
-
+    # TODO: we need to check for errors here, especially malformed costs
     if @event.save
       redirect_to @event, notice: 'Event was successfully created.'
     else
@@ -62,11 +62,11 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.friendly.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def event_params
-      params.require(:event).permit(:title, :startdt, :enddt, :body, :location, :image, :remote_image_url)
+      params.require(:event).permit(:title, :startdt, :enddt, :body, :location, :image, :remote_image_url, :cost, :dues)
     end
 end
