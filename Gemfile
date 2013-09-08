@@ -40,6 +40,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# TESTING
+gem 'rspec-rails'
+gem 'capybara', group: :test
+
 # DEPLOYMENT
 gem 'unicorn'
 gem 'capistrano', group: :development
