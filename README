@@ -1,17 +1,17 @@
 Development
 --
 WORKFLOW: 
-	- identify missing feature
-	- create an issue
-	- wireframe feature in issue comments, refine idea
-	- create feature branch from develop
-	- write feature test
-	- develop feature til test passes
-	- commit
-	- create pull request
-	- review pull request & merge with develop
-	- delete feature branch
-	- merge develop with deploy
+- identify missing feature
+- create an issue
+- wireframe feature in issue comments, refine idea
+- create feature branch from develop
+- write feature test
+- develop feature til test passes
+- commit
+- create pull request
+- review pull request & merge with develop
+- delete feature branch
+- merge develop with deploy
 
 TESTING:
   
