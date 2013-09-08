@@ -126,9 +126,26 @@ class User < ActiveRecord::Base
     required_profile_items = [ :email, :fname, :lname, :phone, :gender, :birthday, :city, :state, :zip, :shirtsize, :email_contact, :facebook_contact, :sms_contact ]
     total = required_profile_items.size
     completed = 0.0
+    # This method is tricky because the database does not reliably return "nil" from
+    # profile items that are semantically "empty."
+    # This debugging code helped me understand which profile items I can't reliably use nil
+    # to detect.
+    required_profile_items.each do |k| 
+     logger.info self[k]
+     logger.info self[k].class
+     logger.info "#{k} #{ self[k].nil? ? "is nil" : "is not nil" }"
+    end
     # TODO: there is DEFINITELY a cleaner way to do this
     required_profile_items.each do |k|
-      completed += 1 if self[k]
+      item = self[k]
+      # TODO: annoyingly, the DateTime class does not respond to the .empty?
+      # method, hence this stupid special case check. Figure out a better way
+      # to do this. 
+      if item.respond_to? :empty?
+        completed += 1 unless item.empty? or item.nil? 
+      else
+        completed += 1 unless item.nil?
+      end
     end
     # calculate the average, round the result
     ((completed / total)* 100).round 
