@@ -16,7 +16,9 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 RSpec.configure do |config|
   # enables us to use Devise's sign_in and sign_out methods in tests
   config.include Devise::TestHelpers, :type => :controller
-  # config.include Capybara::DSL
+  # including capybara in the global scope is not recommended
+  # capybara's DSL will be available in spec/features
+  # include Capybara::DSL
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
