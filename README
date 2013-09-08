@@ -1,7 +1,20 @@
 --
-Work In Progress
+Work In Progress:
+ (none)
 
-Finished Work
+Work that's left:
+ - retreat page
+  - conditional registration
+  - retreat page marketing copy
+  - retreat registration form
+
+Stretch Goals:
+ - facebook event creation
+ - facebook message send
+ - facebook message subscribe/unsubscribe
+ - one-to-many texting & flexible replies
+ - search
+Finished Work:
  - events page @done
  - preference pages with service integration @done
   - twilio sms subscribe/unsubscribe @done
@@ -23,17 +36,3 @@ Finished Work
   - if user has fully registered @done
   - if user has selected a contact preference @done
  - flash messages for saved user state across the app @done
-
-Currently in progress
-
-Work that's left
- - retreat page
-  - conditional registration
-  - retreat page marketing copy
-  - retreat registration form
-Stretch Goals:
- - facebook event creation
- - facebook message send
- - facebook message subscribe/unsubscribe
- - one-to-many texting & flexible replies
- - search
