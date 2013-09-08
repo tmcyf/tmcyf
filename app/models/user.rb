@@ -109,7 +109,12 @@ class User < ActiveRecord::Base
   end
 
   def paid_events
-    self.payments.collect { |p| p.event }
+    # TODO: the delete_if call is required to trim payments that have been made
+    # for events which have since been deleted. It's important to keep record
+    # of these payments, so they shouldn't be destroyed in the database, but
+    # their associated events return nil in the database. I'll keep thinking
+    # about the best way to handle this. 
+    self.payments.collect { |p| p.event }.delete_if { |event| event.nil? }
   end
 
   def profile_completion_percentage
