@@ -11,8 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require foundation
 //= require bootstrap.min.js
-//= require turbolinks
+//= require bootstrap-switch.js
 //= require_tree .
 $(function(){ $(document).foundation(); });

@@ -4,6 +4,8 @@ source 'http://rubygems.org'
 gem 'ruby'
 gem 'rails', '4.0.0'
 
+# Use Thin instead of Webrick
+gem 'thin'
 # DATABASE
 gem 'pg'
 
@@ -19,14 +21,16 @@ gem 'uglifier', '>= 1.3.0'
 # PLUGINS
 gem 'devise', '~> 3.0.0.rc'
 gem 'simple_form'
-gem 'figaro'
 gem 'carrierwave'
 gem 'fog'
-gem 'friendly_id', github: 'norman/friendly_id'
+gem 'friendly_id', '5.0.0.beta1'
 gem 'twilio-ruby'
+gem 'stripe'
 gem 'gibbon'
+gem 'rubber', github: 'rubber/rubber'
 gem 'rmagick', '2.13.2'
 gem 'icalendar'
+gem 'figaro'
 
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
@@ -39,8 +43,13 @@ end
 # DEPLOYMENT
 gem 'unicorn'
 gem 'capistrano', group: :development
+gem 'thin', group: :development
 
 # Use debugger
 gem 'debugger', group: [:development, :test]
+gem 'better_errors', group: :development
+gem 'quiet_assets', group: :development
+gem 'binding_of_caller', group: :development
+gem 'meta_request', group: :development
 gem 'pry', group: :development
 gem 'open4'

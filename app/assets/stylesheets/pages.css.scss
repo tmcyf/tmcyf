@@ -1,7 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300|Arvo);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300|Arvo);
 
 $primary: #c73f3f;
 $body: #333;
+$asphalt: #34495E;
+$abestos: #7F8C8D;
+
+
 
 body {
   border-top: 7px solid $primary;
@@ -38,6 +42,119 @@ div.ui-datepicker{
   margin-bottom: 1.5em;
 }
 
+.button {
+  background: none;
+  margin: 0 0 1.25em;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: $primary;
+  border-color: $primary;
+  line-height: 1;
+  transition: background-color 300ms ease-out;
+  -moz-transition: background-color 300ms ease-out;
+  -o-transition: background-color 300ms ease-out;
+  -webkit-transition: background-color 300ms ease-out;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0) inset;
+  -moz-box-shadow: 0 0 0 rgba(255, 255, 255, 0) inset;
+  -webkit-box-shadow: 0 0 0 rgba(255, 255, 255, 0) inset;
+  &:hover {
+    background-color: $primary;
+    color: #fff;
+    text-decoration: none;
+  }
+  &.btn-pay {
+    color: $asphalt;
+    border-color: $asphalt;
+    margin: 20px 0 0;
+    &:hover {
+      background-color: $asphalt;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+textarea {
+  border: 1px solid #ccc;
+  font-size: 14px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 15px;
+  line-height: 20px;
+  color: #555;
+  &:focus {
+    border-color: $abestos;
+  }
+}
+
+input {
+  &[type="text"], &[type="password"], &[type="datetime"], &[type="datetime-local"], &[type="date"], &[type="month"], &[type="time"], &[type="week"], &[type="number"], &[type="email"], &[type="url"], &[type="search"], &[type="tel"], &[type="color"] {
+    border: 1px solid #ccc;
+    font-size: 14px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 15px;
+    line-height: 20px;
+    color: #555;   
+    &:focus {
+      border-color: $abestos;
+      outline: none;
+    }
+  }
+}
+
+.uneditable-input {
+  border: 1px solid #ccc;
+  font-size: 14px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 15px;
+  line-height: 20px;
+  color: #555;
+  &:focus {
+    border-color: $primary;
+  }
+}
+
+.preference ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.preference li {
+  padding-top: 11px;
+  *zoom: 1;
+}
+
+.preference li:first-child {
+  padding-top: 0;
+}
+
+.preference li:last-child {
+  padding-bottom: 10px;
+}
+
+.preference-label {
+  padding-right: 20px;
+}
+
+//MISC
+.well {
+  padding: 10px;
+  font-size: 13px;
+}
+.cc {
+  padding-right: 10px;
+}
+.pay-table {
+  margin-top: 20px;
+}
+
+
 // ABOUT
 
 .hero, .herocontact, .herobiblestudy, .heroofficers, .heroservice, .herosocials, .herotribes {
@@ -47,25 +164,25 @@ div.ui-datepicker{
   background-position: center;
 }
 .hero {
-  background-image: url('http://mu.eyev.in/abthead.png')
+  background-image: url('https://s3-us-west-2.amazonaws.com/files.tmcyf.org/abthead.png')
 }
 .herocontact {
-  background-image: url("http://mu.eyev.in/contact.png");
+  background-image: url("https://s3-us-west-2.amazonaws.com/files.tmcyf.org/contact.png");
 }
 .herobiblestudy {
-  background-image: url("http://mu.eyev.in/biblestudy.png");
+  background-image: url("https://s3-us-west-2.amazonaws.com/files.tmcyf.org/biblestudy.png");
 }
 .heroofficers {
-  background-image: url("http://mu.eyev.in/officers.png");
+  background-image: url("https://s3-us-west-2.amazonaws.com/files.tmcyf.org/officers.png");
 }
 .heroservice {
-  background-image: url("http://mu.eyev.in/service.png");
+  background-image: url("https://s3-us-west-2.amazonaws.com/files.tmcyf.org/service.png");
 }
 .herosocials {
-  background-image: url("http://mu.eyev.in/socials.png");
+  background-image: url("https://s3-us-west-2.amazonaws.com/files.tmcyf.org/socials.png");
 }
 .herotribes {
-  background-image: url("http://mu.eyev.in/tribes.png");
+  background-image: url("https://s3-us-west-2.amazonaws.com/files.tmcyf.org/tribes.png");
 }
 .about-sidebar {
   margin-top: 20px;
@@ -87,7 +204,7 @@ div.ui-datepicker{
     li {
       padding: 5px 5px;
       span {
-        background: url('http://mu.eyev.in/redarrow.png') 100% 10px no-repeat;
+        background: url('https://s3-us-west-2.amazonaws.com/files.tmcyf.org/redarrow.png') 100% 10px no-repeat;
         padding-right: 25px;
       }
     }
@@ -196,7 +313,7 @@ div.ui-datepicker{
 
 // ABOUT_OFFICERS
 
-.officers h4, h6 {
+.officers h4, .officers h6 {
   text-align: center;
 }
 
@@ -402,8 +519,10 @@ footer {
     font-size: .7em;
     li {
       display: inline;
+      a {
+        margin: 0 3px 0 -1px;
+      }
       &:after {
-        padding-left: .5em;
         content: '\00B7';
       }
       &:last-of-type:after {
