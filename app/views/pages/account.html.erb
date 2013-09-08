@@ -12,6 +12,11 @@
         <% else %>
           <p>Your dues have not yet been paid.</p>
         <% end %>
+        <% if @has_selected_contact_preference %>
+          <p> You can change your contact preferences in <%= link_to "account preferences", account_preferences_path %>. </p>
+        <% else %>
+          <p> Please set your contact preferences in <%= link_to "account preferences", account_preferences_path %>! </p>
+        <% end %>
       </div>
     </fieldset>
   </div>

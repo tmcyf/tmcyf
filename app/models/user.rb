@@ -117,6 +117,11 @@ class User < ActiveRecord::Base
     self.payments.collect { |p| p.event }.delete_if { |event| event.nil? }
   end
 
+  def has_selected_contact_preference?
+    [ :email_contact, :facebook_contact, :sms_contact ].any? do |c|
+      self[c]
+    end
+  end
   def profile_completion_percentage
     # TODO: We want to avoid hardcoding this; how do we link the elements  of
     # the required profile items array to the contents of the profile form?

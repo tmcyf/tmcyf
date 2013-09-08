@@ -17,9 +17,8 @@ class PagesController < ApplicationController
   def account
     @completion_percentage = current_user.profile_completion_percentage
     @paid_events = current_user.paid_events
-    # TODO: the whole way we're doing dues sucks
-    # fuck it, ship it
     @dues_paid = current_user.dues_paid?
+    @has_selected_contact_preference = current_user.has_selected_contact_preference?
   end
 
   def admin
