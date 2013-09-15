@@ -231,7 +231,6 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
-    ruby (0.1.0)
     ruby-hmac (0.4.0)
     ruby_parser (3.2.2)
       sexp_processor (~> 4.1)
@@ -323,7 +322,6 @@ DEPENDENCIES
   rmagick (= 2.13.2)
   rspec-rails
   rubber!
-  ruby
   sass-rails (~> 4.0.0)
   sdoc
   simple_form

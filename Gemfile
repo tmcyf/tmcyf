@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 # CORE
-gem 'ruby'
 gem 'rails', '4.0.0'
 
 # Use Thin instead of Webrick
