@@ -6,7 +6,19 @@
 	<br>
 	<div class="large-6 columns give-m-head">
 		<h3>Give Money</h3>
-		<div class="give-m-body">The Youth Fellowship accepts donations, large or small, to help fund the events we have planned for the year. The Bible asks us to give our first and our best back to God and He will bless the rest. Get us touch with us at <a href="mailto:hello@tmcyf.org">hello@tmcyf.org</a> or see an officer during church.</div>
+		<div class="give-m-body">The Youth Fellowship accepts donations, large or small, to help fund the events we have planned for the year. The Bible asks us to give our first and our best back to God and He will bless the rest. You can donate from right here or see an officer during church.</div>
+		<br>
+		<div class="row">
+			<div class="large-3 push-2 columns">
+				<%= form_tag give_index_path do %>
+		 		<%= number_field_tag(:amount, nil, placeholder: '25.00', min: '0', step: '25.00') %>
+		 	</div>
+		 	<div class="large-4 pull-3 columns">
+		  <button id="stripebutton" class="button btn-stripe">Purchase</button>
+				<% end %>
+			</div>
+		</div>
+		<p><small>Secure Payments by <a href="https://stripe.com/blog/stripe-checkout">Stripe Checkout</a></small></p>
 	</div>
 	<div class="large-6 columns give-t-head">
 		<h3>Give Time</h3>
