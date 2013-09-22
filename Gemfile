@@ -25,7 +25,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'friendly_id', '5.0.0.beta1'
 gem 'twilio-ruby'
-gem 'stripe'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'gibbon'
 gem 'rubber', github: 'rubber/rubber'
 gem 'rmagick', '2.13.2'
@@ -39,6 +39,11 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+# TESTING
+gem 'rspec-rails'
+gem 'capybara', group: :test
+gem 'factory_girl_rails', group: :test
 
 # DEPLOYMENT
 gem 'unicorn'
