@@ -78,6 +78,16 @@ div.ui-datepicker{
       text-decoration: none;
     }
   }
+  &.btn-stripe {
+    color: $asphalt;
+    border-color: $asphalt;
+    margin: 0;
+    &:hover {
+      background-color: $asphalt;
+      color: #fff;
+      text-decoration: none;
+    }
+  }  
 }
 
 textarea {
