@@ -108,9 +108,6 @@ class User < ActiveRecord::Base
   end
 
   def dues_paid?
-    this_years_dues = Event.where(dues: true).detect do |dues|
-      dues.startdt.year.equal? DateTime.now.year
-    end
     self.paid_events.include? this_years_dues
   end
 
