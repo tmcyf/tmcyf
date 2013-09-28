@@ -6,7 +6,7 @@
 	    <div class="large-12 columns">
 	      <h2>Payments</h2>
         <div class="payments">
-          <% if @unpaid_events.present? or @paid_events.present? %>
+          <% if @unpaid_events.present? %>
             <table class="pay-table">
               <thead>
                 <tr>
@@ -24,22 +24,32 @@
                       <!-- TODO: This Pay Now button can be a post request to the payments controller, with remote: true, and we can return some javascript to display loading and stripe-success -->
                       <td><%= button_to "Pay Now", event_payments_path(unpaid_event), class: "button btn-pay", method: :post, data: { confirm: "Are you sure you want to make this payment?" } %></td>
                     </tr>
-                    <% @paid_events.each do |paid_event| %>
-                      <tr>
-                        <td><%= paid_event.title %></td>
-                        <td><%= number_to_currency(paid_event.cost) %></td>
-                        <td><%= button_to "Pay Now", event_payments_path(unpaid_event), class: "button btn-pay", method: :post, disabled: true %><td>
-                        <td>Event Paid!</td>
-                      </tr>
-                    <% end %>
+                  <% end %>
+              </tbody>
+            </table>
+          <% else %>
+            <table class="pay-table">
+              <thead>
+                <tr>
+                  <th>Payment</th>
+                  <th>Amount</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- TODO: maybe we can make this something like render "event_payment_form" -->
+                  <% @paid_events.each do |paid_event| %>
+                    <tr>
+                      <td><%= paid_event.title %></td>
+                      <td><%= number_to_currency(paid_event.cost) %></td>
+                      <!-- TODO: This Pay Now button can be a post request to the payments controller, with remote: true, and we can return some javascript to display loading and stripe-success -->
+                      <td><%= button_to "Paid!", root_path, class: "button btn-pay", :disabled => true, data: { confirm: "Are you sure you want to make this payment?" } %></td>
+                    </tr>
                   <% end %>
               </tbody>
             </table>
           <% end %>
-          <% if !@unpaid_events.present? %>
-            <h6>You have no payments to make!</h6>
-          <% end %>
-        </div>       
+        </div>     
         <hr /> 
         <div class="cc">
           <h3>Credit Card:</h3>
