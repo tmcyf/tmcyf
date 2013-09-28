@@ -94,6 +94,19 @@ class User < ActiveRecord::Base
     self.sms_contact=false
   end
 
+  # Temporary fix for now
+  def dues_paid_out_of_band
+    if this_years_dues
+       if self.payments.build({event_id: this_years_dues.id}).save!
+         logger.info "Successfully updated dues status for #{self.fullname}"
+       else
+         logger.info "Saving the updated dues payment failed for some reason. Try again?"
+       end
+    else
+      logger.info "This year's dues event has not been created yet, create it first!"
+    end
+  end
+
   def dues_paid?
     this_years_dues = Event.where(dues: true).detect do |dues|
       dues.startdt.year.equal? DateTime.now.year
@@ -154,5 +167,12 @@ class User < ActiveRecord::Base
     end
     # calculate the average, round the result
     ((completed / total)* 100).round 
+  end
+
+  private
+  def this_years_dues
+    this_years_dues = Event.where(dues: true).detect do |dues|
+      dues.startdt.year.equal? DateTime.now.year
+    end
   end
 end
