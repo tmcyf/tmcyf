@@ -6,7 +6,7 @@
 	    <div class="large-12 columns">
 	      <h2>Payments</h2>
         <div class="payments">
-          <% if @unpaid_events.present? %>
+          <% if @unpaid_events.present? or @paid_events.present? %>
             <table class="pay-table">
               <thead>
                 <tr>
@@ -35,8 +35,9 @@
                   <% end %>
               </tbody>
             </table>
-          <% else %>
-          <h6>You have no payments to make!</h6>
+          <% end %>
+          <% if !@unpaid_events.present? %>
+            <h6>You have no payments to make!</h6>
           <% end %>
         </div>       
         <hr /> 
