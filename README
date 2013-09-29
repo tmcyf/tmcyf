@@ -8,9 +8,11 @@ WORKFLOW:
 - write feature test
 - develop feature til test passes
 - commit
+- add screenshot to issue demonstrating changes to app
 - create pull request
 - review pull request & merge with develop
 - delete feature branch
+- close issue
 - merge develop with deploy
 
 TESTING:
