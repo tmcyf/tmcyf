@@ -3,7 +3,6 @@ function hideAnnouncement(announcement_created_at) {
   $("#announcement").slideUp();
 }
 
-// http://www.quirksmode.org/js/cookies.html
 function createCookie(name,value,days) {
   if (days) {
     var date = new Date();
