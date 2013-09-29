@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/tmcyf/paul_revere
-  revision: 6a137e60045fd215edf49a0d7e7bc65cd46254e2
+  revision: 9e5457927660f309fbea624091fa5a727dbb2793
   specs:
     paul_revere (1.2)
       rails (>= 3.0)
