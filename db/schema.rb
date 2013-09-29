@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130903042505) do
+ActiveRecord::Schema.define(version: 20130928003459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "announcements", force: true do |t|
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -39,6 +45,35 @@ ActiveRecord::Schema.define(version: 20130903042505) do
     t.datetime "updated_at"
     t.integer  "last4"
     t.integer  "user_id"
+  end
+
+  create_table "retreat_registrations", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "emergency_contact"
+    t.string   "emergency_phone"
+    t.string   "emergency_relation"
+    t.string   "insurance_provider"
+    t.string   "insurance_policy_number"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "email"
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "phone"
+    t.string   "gender"
+    t.date     "birthday"
+    t.string   "line1"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "shirtsize"
+  end
+
+  create_table "retreats", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
