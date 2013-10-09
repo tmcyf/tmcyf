@@ -1,0 +1,54 @@
+
+<%= form_for @registration, url: 'retreat/register' do |f| %>
+        <div class="row">
+          <div class="large-3 columns">
+            <%= f.text_field :fname, label: 'First Name', :placeholder => "John", :required => true, :value => @user.fname %>
+          </div>
+          <div class="large-4 pull-5 columns">
+            <%= f.text_field :lname, label: 'Last Name', :placeholder => "Smith", :required => true, :value => @user.lname %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-4 columns">
+            <%= f.text_field :line1, label: 'Street Address', :placeholder => "5810 Almeda-Genoa Rd", :value => @user.line1 %>
+          </div>
+          <div class="large-3 columns">
+            <%= f.text_field :city, label: 'City', :placeholder => "Houston", :value => @user.city %>
+          </div>
+          <div class="large-2 columns">
+            <%= f.text_field :state, label: 'State', :placeholder => "TX", :value => @user.state %>
+          </div>
+          <div class="large-2 pull-1 columns">
+            <%= f.text_field :zip, label: 'Zip', :placeholder => "77048", :value => @user.zip %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-3 columns">
+            <%= f.text_field :phone, as: :tel, :placeholder => '7139911557', :value => @user.phone %>
+          </div>
+          <div class="large-2 columns">
+            <%= f.text_field :gender, collection: [:Male, :Female], :value => @user.gender %>
+          </div>
+          <div class="large-5 columns">
+            <%= f.label :birthday %><br>
+            <%= f.date_select :birthday, {:include_blank => true, :default => nil, :order => [:month, :day, :year], :start_year => Date.today.year - 13, :end_year => 1970}, :value => @user.birthday %>
+          </div>
+          <div class="large-2 columns">
+            <%= f.label :shirt_size %><br>
+            <%= f.text_field :shirtsize, collection: [:XS, :S, :M, :L, :XL], :value => @user.shirtsize %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-3 columns">
+            <%= f.label :emergency_contact %><br>
+            <%= f.text_field :emergency_contact, :placeholder => "John Smith", :required => true %>
+          </div>
+          <div class="large-3 columns">
+            <%= f.label :emergency_phone %><br>
+            <%= f.text_field :emergency_phone, as: :tel, :placeholder => '7139911557' %>
+          </div>
+        </div>
+        <div class="row">
+          <%= f.submit "Update" %>
+      </div>
+<% end %>
