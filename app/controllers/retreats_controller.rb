@@ -10,6 +10,7 @@ class RetreatsController < ApplicationController
   def show
     # Show only the latest retreat at the singular retreat path
     @retreat = Retreat.last
+    @user = current_user
     @registration = RetreatRegistration.new
   end
 
