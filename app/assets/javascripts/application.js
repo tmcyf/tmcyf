@@ -16,5 +16,6 @@
 //= require bootstrap.min.js
 //= require bootstrap-switch.js
 //= require announcements
+//= require jquery.onepage-scroll.js
 //= require_tree .
 $(function(){ $(document).foundation(); });

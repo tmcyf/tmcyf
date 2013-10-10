@@ -14,15 +14,96 @@
   	<title><%= full_title(yield(:title)) %></title>
     <meta name="description" content="Passion for God, Passion for Others!">
   	<%= stylesheet_link_tag    "application" %>
+    <style type="text/css">
+        body, html {
+          margin: 0;
+          overflow: hidden;
+          -webkit-transition: opacity 400ms;
+          -moz-transition: opacity 400ms;
+          transition: opacity 400ms;
+        }
+
+        body, .onepage-wrapper, html {
+          display: block;
+          position: static;
+          padding: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .onepage-wrapper {
+          width: 100%;
+          height: 100%;
+          display: block;
+          position: relative;
+          padding: 0;
+          -webkit-transform-style: preserve-3d;
+        }
+
+        .onepage-wrapper .section {
+          width: 100%;
+          height: 100%;
+        }
+
+        .onepage-pagination {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          z-index: 5;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+        .onepage-pagination li {
+          padding: 0;
+          text-align: center;
+        }
+        .onepage-pagination li a{
+          padding: 10px;
+          width: 4px;
+          height: 4px;
+          display: block;
+          
+        }
+        .onepage-pagination li a:before{
+          content: '';
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          background: rgba(0,0,0,0.85);
+          border-radius: 10px;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+        }
+
+        .onepage-pagination li a.active:before{
+          width: 10px;
+          height: 10px;
+          background: none;
+          border: 1px solid black;
+          margin-top: -4px;
+          left: 8px;
+        }
+    </style>
     <%= csrf_meta_tags %>
     <%= tag :meta, :name => "stripe-key", :content => ENV['STRIPE_PUBLIC_KEY'] %>
   </head>
   <body>
-    <%= yield %>
-
+    <div class="main">
+      <%= yield %>
+    </div>
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= javascript_include_tag "https://js.stripe.com/v2/" %>
     <%= javascript_include_tag "https://checkout.stripe.com/v2/checkout.js" %>
+    <script type="text/javascript">
+      $(".main").onepage_scroll({
+       sectionContainer: "section", // sectionContainer accepts any kind of selector in case you don't want to use section
+       easing: "ease", // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in", "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
+       animationTime: 1000, // AnimationTime let you define how long each section takes to animate
+       pagination: true, // You can either show or hide the pagination. Toggle true for show, false for hide.
+       updateURL: false // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
+      });
+    </script>
   </body>
 </html>
