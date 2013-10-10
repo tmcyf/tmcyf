@@ -1,4 +1,5 @@
 class RetreatsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_retreat, only: [:edit, :update, :destroy]
     layout 'retreats'
 

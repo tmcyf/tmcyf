@@ -1,15 +1,26 @@
-.main section.theme {
-	background: #c73f3f;
-}
-
-.main section.deets {
-	background: #3aa4a4;
-}
-
-.main section.involvement {
-	background: #7f3bc3;
-}
-
-.main section.action {
+.main section.retreat-theme {
 	background: #fff;
+}
+
+.main section.retreat-description {
+	background: #fff;
+}
+
+.main section.retreat-details {
+	background: #fff;
+}
+
+.main section.retreat-calltoaction {
+	background: #fff;
+}
+
+.retreat-heading {
+	margin-top: 50%;
+}
+
+.retreat-banner {
+	background-color: #f8f4eb;
+	padding: 2em 0;
+	border-bottom: 1px solid #e0dcd3;
+	text-align: center;
 }
