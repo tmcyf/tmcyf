@@ -13,6 +13,5 @@
  *= require bootstrap
  *= require bootstrap-switch.css
  *= require font-awesome
- *= stub onepage-scroll.css
  *= require_tree .
  */
