@@ -14,7 +14,6 @@
   	<title><%= full_title(yield(:title)) %></title>
     <meta name="description" content="Passion for God, Passion for Others!">
   	<%= stylesheet_link_tag    "application" %>
-    <%= stylesheet_link_tag    "onepage-scroll.css" %>
     
     <%= csrf_meta_tags %>
     <%= tag :meta, :name => "stripe-key", :content => ENV['STRIPE_PUBLIC_KEY'] %>
@@ -24,18 +23,8 @@
       <%= yield %>
     </div>
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "jquery.onepage-scroll.js" %>
     <%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= javascript_include_tag "https://js.stripe.com/v2/" %>
     <%= javascript_include_tag "https://checkout.stripe.com/v2/checkout.js" %>
-    <script type="text/javascript">
-      $(".main").onepage_scroll({
-       sectionContainer: "section", // sectionContainer accepts any kind of selector in case you don't want to use section
-       easing: "ease", // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in", "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
-       animationTime: 1000, // AnimationTime let you define how long each section takes to animate
-       pagination: true, // You can either show or hide the pagination. Toggle true for show, false for hide.
-       updateURL: false // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
-      });
-    </script>
   </body>
 </html>
