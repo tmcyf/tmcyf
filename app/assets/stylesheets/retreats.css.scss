@@ -85,7 +85,55 @@
 }
 .main section.retreat-details {
 	background: #f8f4eb;
-	padding: 15em 0;
+	padding: 1em 0 15em 0;
+}
+
+.retreat-details-heading {
+	text-align: center;
+	border-bottom: 1px solid #e0dcd3;
+	margin-bottom: 4em;
+}
+
+.retreat-details-heading h2 {
+	display: inline-block;
+	position: relative;
+	top: 1.1em;
+	padding: 0 1em;
+	background: #f8f4eb;
+	color: #333;
+}
+
+.retreat-schedule ul {
+	list-style: none;
+}
+.retreat-schedule>ul>li {
+	display: inline-block;
+	vertical-align: top;
+	zoom: 1;
+	width: 27%;
+	margin: 0 8% 80px 8%;
+}
+.retreat-schedule h5 {
+	padding-bottom: 17px;
+	text-align: left;
+	-webkit-font-smoothing: antialiased;
+	border-bottom: 2px solid #0e1824;
+}
+.retreat-schedule>ul>li li {
+	text-align: left;
+	margin-top: 35px;
+	color: #a1a6ad;
+}
+.retreat-schedule time {
+	margin-top: 1px;
+	float: left;
+	width: 30%;
+	font-size: 14px;
+	color: #a1a6ad;
+	margin-right: 10%;
+}
+.retreat-schedule h6 {
+	color: #333;
 }
 
 .main section.retreat-calltoaction {
@@ -106,7 +154,12 @@
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 	.main section.retreat-theme {
 		padding: 40px 0 200px 0;
-	}	
+		margin: 0 8% 80px 25%;
+	}
+	.retreat-schedule>ul>li {
+		width: 47%;
+		margin: 0 8% 80px 25%;
+	}
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -122,5 +175,8 @@
 	}
 	.retreat-logo {
 		font-size: 1.2em;
+	}
+	.retreat-schedule>ul>li {
+		width: 70%
 	}
 }
