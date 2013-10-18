@@ -94,6 +94,17 @@ class User < ActiveRecord::Base
     self.sms_contact=false
   end
 
+  # TODO: 
+  def registered_for_retreat?
+  end
+  
+  # TODO: 
+  def paid_for_retreat?
+  end
+
+  # TODO: 
+  def retreat_paid_out_of_band
+  end
   # Temporary fix for now
   def dues_paid_out_of_band
     if this_years_dues
