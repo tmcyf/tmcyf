@@ -1,3 +1,6 @@
+
+// THEME
+
 .main section.retreat-theme {
 	background-image: url('https://s3-us-west-2.amazonaws.com/toplel/03-4.jpg');
 	background-position: center center;
@@ -20,6 +23,8 @@
 	color: #eee;
 	font-weight: bold;
 }
+
+//DESCRIPTION
 
 .main section.retreat-description {
 	background: #fff;
@@ -53,6 +58,8 @@
 	text-align: center;
 }
 
+// LOCATION
+
 .main section.retreat-location {
 	margin-top: 2em;
 	text-align: center;
@@ -83,9 +90,13 @@
 .retreat-location-wrap h6, .retreat-location-wrap h2 {
 	color: #eee;
 }
+
+// DETAILS
+
 .main section.retreat-details {
 	background: #f8f4eb;
-	padding: 1em 0 15em 0;
+	padding: 2em 0;
+	border-bottom: 1px solid #e0dcd3;
 }
 
 .retreat-details-heading {
@@ -103,27 +114,42 @@
 	color: #333;
 }
 
+.retreat-details-subheading h6 {
+	text-align: center;
+	margin: -20px 0 60px 0;
+	font-size: 14px;
+	color: #a1a6ad;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+// SCHEDULE
+
 .retreat-schedule ul {
 	list-style: none;
 }
+
 .retreat-schedule>ul>li {
 	display: inline-block;
 	vertical-align: top;
 	zoom: 1;
 	width: 27%;
-	margin: 0 8% 80px 8%;
+	margin: 0 8% 40px 8%;
 }
+
 .retreat-schedule h5 {
 	padding-bottom: 17px;
 	text-align: left;
 	-webkit-font-smoothing: antialiased;
 	border-bottom: 2px solid #0e1824;
 }
+
 .retreat-schedule>ul>li li {
 	text-align: left;
 	margin-top: 35px;
 	color: #a1a6ad;
 }
+
 .retreat-schedule time {
 	margin-top: 1px;
 	float: left;
@@ -132,9 +158,50 @@
 	color: #a1a6ad;
 	margin-right: 10%;
 }
+
 .retreat-schedule h6 {
 	color: #333;
 }
+
+.retreat-schedule-last ul {
+	list-style: none;
+}
+
+.retreat-schedule-last>ul>li {
+	display: inline-block;
+	vertical-align: top;
+	zoom: 1;
+	width: 27%;
+	margin: -598px 8% 0 8%;
+}
+
+.retreat-schedule-last h5 {
+	padding-bottom: 17px;
+	text-align: left;
+	-webkit-font-smoothing: antialiased;
+	border-bottom: 2px solid #0e1824;
+}
+
+.retreat-schedule-last>ul>li li {
+	text-align: left;
+	margin-top: 35px;
+	color: #a1a6ad;
+}
+
+.retreat-schedule-last time {
+	margin-top: 1px;
+	float: left;
+	width: 30%;
+	font-size: 14px;
+	color: #a1a6ad;
+	margin-right: 10%;
+}
+
+.retreat-schedule-last h6 {
+	color: #333;
+}
+
+// CALL TO ACTION
 
 .main section.retreat-calltoaction {
 	background: #fff;
@@ -154,11 +221,14 @@
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 	.main section.retreat-theme {
 		padding: 40px 0 200px 0;
-		margin: 0 8% 80px 25%;
 	}
 	.retreat-schedule>ul>li {
 		width: 47%;
 		margin: 0 8% 80px 25%;
+	}
+	.retreat-schedule-last>ul>li {
+		width: 47%;
+		margin: 0 8% 0 25%;
 	}
 }
 
@@ -177,6 +247,10 @@
 		font-size: 1.2em;
 	}
 	.retreat-schedule>ul>li {
-		width: 70%
+		width: 70%;
 	}
+	.retreat-schedule-last>ul>li {
+		width: 70%;
+		margin: 0 8% 0 8%;
+	}	
 }

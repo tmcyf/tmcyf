@@ -12,7 +12,7 @@ class RetreatsController < ApplicationController
     # Show only the latest retreat at the singular retreat path
     @retreat = Retreat.current
     @user = current_user
-    @registration = @retreat.retreat_registrations.build
+    @registration = @retreat.retreat_registrations.build if @retreat # pls create retreat beforehand thx
   end
 
   # GET /retreats/new
