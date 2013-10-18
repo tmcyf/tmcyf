@@ -197,13 +197,34 @@
 	</div>
 </section>
 <section class='retreat-calltoaction'>
+	<div class="retreat-calltoaction-wrap">
+		<h1>Registration Info</h1>
+		<h5>Interested in coming? Great! You can see how below:</h5>
+	</div>
 <% if @user and @user.registered_for_retreat? and @user.paid_for_retreat? %>
   <p> gj bb </b>
 <% elsif @user and @user.registered_for_retreat? %>
   <p> plz pay bb </p>
 <% elsif @user %>
-  <%= render 'retreat_registrations/form' %>
+<div class="retreat-calltoaction-well"><%= render 'retreat_registrations/form' %></div>
 <% else %>
-  <p> plz sign in bb </p>
+<div class="row">
+	<div class="large-12 columns center">
+		<div class="retreat-calltoaction-wrap">
+			<h5>To register for this year's retreat, you must have an account with us and have all your profile information filled out!</h5>
+			<a href="/login"><span class="retreat-calltoaction-login">Please log in!</span></a>
+		</div>
+	</div>
+</div>
 <% end %>
+<div class="row">
+	<div class="large-6 large-centered columns retreat-calltoaction-forms">
+		<pre class="retreat-calltoaction-forms-well">
+			<p><b>Forms</b></p>
+			<p><a href="#">TMCYF Waiver</a></p>
+			<p><a href="#">Campsite Waiver</a></p>
+			<p><a href="#">Item Checklist</a></p>
+		</pre>
+	</div>
+</div>
 </section>
