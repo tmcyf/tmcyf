@@ -1,6 +1,6 @@
 
 <%= form_for @registration, url: 'retreat/register' do |f| %>
-        <%= f.hidden_field :user_id, value: @registration.user_id %>
+        <%= f.hidden_field :retreat_id, value: @registration.retreat_id %>
         <div class="row">
           <div class="large-3 columns">
             <%= f.text_field :fname, label: 'First Name', :placeholder => "John", :required => true, :value => @user.fname %>

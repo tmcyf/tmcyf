@@ -1,6 +1,7 @@
 class RetreatRegistrationsController < ApplicationController
   def create
     @registration = RetreatRegistration.new(registration_params)
+    @registration.user_id = current_user.id
     if @registration.save
       flash[:notice] = "See you there!"
       redirect_to :retreat
@@ -20,6 +21,6 @@ class RetreatRegistrationsController < ApplicationController
                                                  :insurance_provider, 
                                                  :emergency_relation, 
                                                  :insurance_policy_number, 
-                                                 :days_attending, :user_id)
+                                                 :days_attending, :retreat_id)
   end
 end
