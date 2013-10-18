@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130928003459) do
+ActiveRecord::Schema.define(version: 20131018031858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,6 @@ ActiveRecord::Schema.define(version: 20130928003459) do
     t.string   "emergency_relation"
     t.string   "insurance_provider"
     t.string   "insurance_policy_number"
-    t.date     "start_date"
-    t.date     "end_date"
     t.string   "email"
     t.string   "fname"
     t.string   "lname"
@@ -69,6 +67,7 @@ ActiveRecord::Schema.define(version: 20130928003459) do
     t.string   "state"
     t.string   "zip"
     t.string   "shirtsize"
+    t.integer  "days_attending"
   end
 
   create_table "retreats", force: true do |t|
