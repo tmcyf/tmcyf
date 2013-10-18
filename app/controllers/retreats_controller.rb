@@ -1,5 +1,4 @@
 class RetreatsController < ApplicationController
-  before_filter :authenticate_user!
   before_action :set_retreat, only: [:edit, :update, :destroy]
     layout 'retreats'
 
@@ -11,9 +10,9 @@ class RetreatsController < ApplicationController
   # GET /retreat
   def show
     # Show only the latest retreat at the singular retreat path
-    @retreat = Retreat.last
+    @retreat = Retreat.current
     @user = current_user
-    @registration = RetreatRegistration.new
+    @registration = @user.retreat_registrations.build
   end
 
   # GET /retreats/new
@@ -63,7 +62,7 @@ class RetreatsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def retreat_params
-      params[:retreat]
+      params.require( :retreat ).permit(:title, :startdt, :enddt, :body, :location, :image, :remote_image_url, :cost) 
     end
     def registration_params
       params.require(:retreat_registration).permit(
