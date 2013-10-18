@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable
   has_many :payments
+  has_many :retreat_registrations
 
   def fullname
   	self.fname ? self.fname + " " + self.lname : nil
@@ -96,10 +97,12 @@ class User < ActiveRecord::Base
 
   # TODO: 
   def registered_for_retreat?
+    self.retreat_registrations.any? {|r| r.retreat.equal? Retreat.current }
   end
   
   # TODO: 
   def paid_for_retreat?
+    self.payments.any? {|p| p.event.equal? Retreat.current }
   end
 
   # TODO: 

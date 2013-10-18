@@ -9,6 +9,7 @@ class RetreatRegistrationsController < ApplicationController
       redirect_to :back
     end
   end
+
   private
   def registration_params 
     params.require(:retreat_registration).permit(:fname, :lname, :line1, :city, 
@@ -19,6 +20,6 @@ class RetreatRegistrationsController < ApplicationController
                                                  :insurance_provider, 
                                                  :emergency_relation, 
                                                  :insurance_policy_number, 
-                                                 :days_attending)
+                                                 :days_attending, :user_id)
   end
 end
