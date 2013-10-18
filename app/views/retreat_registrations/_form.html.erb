@@ -31,11 +31,11 @@
           </div>
           <div class="large-5 columns">
             <%= f.label :birthday %><br>
-            <%= f.date_select :birthday, {:include_blank => true, :default => nil, :order => [:month, :day, :year], :start_year => Date.today.year - 13, :end_year => 1970}, :value => @user.birthday %>
+            <%= f.date_select :birthday, {:include_blank => true, :selected => @user.birthday, :order => [:month, :day, :year], :start_year => Date.today.year - 13, :end_year => 1970} %>
           </div>
           <div class="large-2 columns">
             <%= f.label :shirt_size %><br>
-            <%= f.text_field :shirtsize, collection: [:XS, :S, :M, :L, :XL], :value => @user.shirtsize %>
+            <%= f.select :shirtsize, options_for_select([:XS, :S, :M, :L, :XL], :selected => @user.shirtsize ) %>
           </div>
         </div>
         <div class="row">
@@ -45,7 +45,25 @@
           </div>
           <div class="large-3 columns">
             <%= f.label :emergency_phone %><br>
-            <%= f.text_field :emergency_phone, as: :tel, :placeholder => '7139911557' %>
+            <%= f.text_field :emergency_phone, as: :tel, :placeholder => '7139911557', :required => true  %>
+          </div>
+          <div class="large-3 columns">
+            <%= f.label :emergency_relation %><br>
+            <%= f.text_field :emergency_relation, :placeholder => "Mother", :required => true %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-3 columns">
+            <%= f.label :insurance_provider %><br>
+            <%= f.text_field :insurance_provider, :placeholder => "BigCo", :required => true %>
+          </div>
+          <div class="large-3 columns">
+            <%= f.label :insurance_policy_number %><br>
+            <%= f.text_field :insurance_policy_number, :placeholder => "8675309", :required => true %>
+          </div>
+          <div class="large-3 columns">
+            <%= f.label :days_attending %><br>
+            <%= f.select :days_attending, options_for_select([1, 2, 3], :selected => 3), :required => true %>
           </div>
         </div>
         <div class="row">
