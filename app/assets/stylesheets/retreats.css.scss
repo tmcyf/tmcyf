@@ -9,7 +9,13 @@
 	padding: 40px 0 275px 0;
 }
 
-.retreat-heading h1, .retreat-heading h4, .retreat-heading p {
+.retreat-heading h1 {
+	font-family: 'Bevan', cursive;
+	color: #eee;
+	margin: 40px;
+}
+
+.retreat-heading h4, .retreat-heading p {
 	margin: 40px;
 	color: #eee;
 }
@@ -53,7 +59,9 @@
 	top: 1.1em;
 	padding: 0 1em;
 	background: #fff;
+	font-family: 'Bevan', cursive;
 }
+
 .retreat-desc-body {
 	text-align: center;
 }
@@ -87,7 +95,12 @@
 	border-radius: 4px;
 }
 
-.retreat-location-wrap h6, .retreat-location-wrap h2 {
+.retreat-location-wrap h6 {
+	color: #eee;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.retreat-location-wrap h2 {
 	color: #eee;
 }
 
@@ -112,15 +125,17 @@
 	padding: 0 1em;
 	background: #f8f4eb;
 	color: #333;
+	font-family: 'Bevan', cursive;
 }
 
 .retreat-details-subheading h6 {
 	text-align: center;
-	margin: -20px 0 60px 0;
+	margin: -30px 0 60px 0;
 	font-size: 14px;
 	color: #a1a6ad;
 	font-weight: 300;
 	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
 }
 
 // SCHEDULE
@@ -216,12 +231,15 @@
 }
 
 .main section.retreat-calltoaction h5 {
-	color: #eee;
+	color: #333;
+	font-family: 'Cardo', serif;
+	font-style: italic;
 }
 
 .retreat-calltoaction-wrap h1 {
 	color: #333;
 	margin-top: 40px;
+	font-family: 'Bevan', cursive;
 } 
 
 .retreat-calltoaction-wrap h5 {
@@ -247,6 +265,12 @@
 	text-decoration: underline;
 	margin: 0;
 	padding: 0;
+}
+
+p.retreat-price-disclaimer {
+	color: #333;
+	font-size: .8em;
+	font-style: italic;
 }
 pre.retreat-calltoaction-forms-well {
   display: block;
@@ -300,9 +324,6 @@ pre.retreat-calltoaction-forms-well {
 		width: 47%;
 		margin: 0 8% 0 25%;
 	}
-	.main section.retreat-calltoaction h5 {
-		color: #333;
-	}
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -326,9 +347,6 @@ pre.retreat-calltoaction-forms-well {
 		width: 70%;
 		margin: 0 8% 0 8%;
 	}
-	.main section.retreat-calltoaction h5 {
-		color: #333;
-	}	
 }
 
 // WEBFONTS
