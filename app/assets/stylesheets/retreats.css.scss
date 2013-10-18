@@ -53,6 +53,36 @@
 	text-align: center;
 }
 
+.main section.retreat-location {
+	margin-top: 2em;
+	text-align: center;
+	height: 408px;
+	text-transform: uppercase;
+	-webkit-font-smoothing: antialiased;
+	color: #fff;
+	background: transparent url('https://s3-us-west-2.amazonaws.com/toplel/camp_bg.jpg') no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+}
+
+.retreat-location-image {
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	height: 167px;
+	width: 182px;
+	margin: -34px auto 52px auto;
+	background: transparent url('https://s3-us-west-2.amazonaws.com/toplel/camp.jpg') no-repeat center center;
+	-webkit-box-shadow: rgba(0,0,0,0.45) 0 2px 4px;
+	box-shadow: rgba(0,0,0,0.45) 0 2px 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.retreat-location-wrap h6, .retreat-location-wrap h2 {
+	color: #eee;
+}
 .main section.retreat-details {
 	background: #f8f4eb;
 	padding: 15em 0;
