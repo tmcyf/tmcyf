@@ -97,12 +97,15 @@ class User < ActiveRecord::Base
 
   # TODO: 
   def registered_for_retreat?
-    self.retreat_registrations.any? {|r| r.retreat.equal? Retreat.current }
+    puts self.retreat_registrations
+    self.retreat_registrations.any? {|r| 
+      puts "Registration: ", r, "Retreat: ", r.retreat, "Retreat id: ", r.retreat.id
+      r.retreat.id.equal? Retreat.current.id }
   end
   
   # TODO: 
   def paid_for_retreat?
-    self.payments.any? {|p| p.event.equal? Retreat.current }
+    self.payments.any? {|p| p.event.id.equal? Retreat.current.id }
   end
 
   # TODO: 
