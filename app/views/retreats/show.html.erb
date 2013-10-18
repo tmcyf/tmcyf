@@ -79,14 +79,23 @@
 								<h6>Welcome & Dinner</h6>
 							</li>
 						</ul>
-					</li>										
+          </li>
 				</ul>
 			</div>
 		</div>
 	</div>
 </section>
 <section class='retreat-calltoaction'>
-
-<%= render 'retreat_registrations/form' %>
+<% if current_user %>
+  <% if !current_user.registered_for_retreat? %>
+    <%= render 'retreat_registrations/form' %>
+  <% elsif !current_user.paid_for_retreat? %>
+    <p> plz pay bb </p>
+  <% else %>
+    <p> gj bb </b>
+  <% end %>
+<% else %>
+  <p> plz sign in bb </p>
+<% end %>
 
 </section>
