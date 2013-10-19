@@ -17,11 +17,13 @@ class RetreatsController < ApplicationController
 
   # GET /retreats/new
   def new
+    redirect_to :root unless current_user && current_user.admin?
     @retreat = Retreat.new
   end
 
   # GET /retreats/1/edit
   def edit
+    redirect_to :root unless current_user && current_user.admin?
   end
 
   def register
@@ -30,6 +32,7 @@ class RetreatsController < ApplicationController
 
   # POST /retreats
   def create
+    redirect_to :root unless current_user && current_user.admin?
     @retreat = Retreat.new(retreat_params)
 
     if @retreat.save

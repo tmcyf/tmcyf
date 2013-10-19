@@ -4,7 +4,7 @@ class RetreatRegistrationsController < ApplicationController
     @registration.user_id = current_user.id
     if @registration.save
       flash[:notice] = "See you there!"
-      redirect_to :retreat
+      redirect_to account_payments_path
     else
       flash[:error] = "There was a problem registering you for retreat"
       redirect_to :back
