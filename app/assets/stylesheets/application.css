@@ -12,6 +12,6 @@
  *= require foundation_and_overrides
  *= require bootstrap
  *= require bootstrap-switch.css
- *= require_tree .
  *= require font-awesome
+ *= require_tree .
  */
