@@ -23,7 +23,7 @@ class ContactController < ApplicationController
     flash[:success] = "Announcement successfully made."
     redirect_to new_announcement_path
   end
-  
+
   private
   def text_contact(message, contact_number)
     if contact_number
