@@ -4,7 +4,7 @@ class GiveController < ApplicationController
 	def index
 	end
 
-	def new		
+	def new
 	end
 
 	def create
@@ -27,7 +27,7 @@ class GiveController < ApplicationController
 
 rescue Stripe::CardError => e
   flash[:error] = e.message
-  redirect_to give_index_path		
-		
+  redirect_to give_index_path
+
 	end
 end
