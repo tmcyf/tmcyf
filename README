@@ -1,6 +1,6 @@
 Development
 --
-WORKFLOW: 
+WORKFLOW:
 - identify missing feature
 - create an issue
 - wireframe feature in issue comments, refine idea
@@ -16,7 +16,7 @@ WORKFLOW:
 - merge develop with deploy
 
 TESTING:
-  
+
 
 TODO:
 - [ ] conditional registration

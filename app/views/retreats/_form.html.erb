@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="large-12 columns">
+    <%= simple_form_for(@retreat) do |f| %>
+      <% if @retreat.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@retreat.errors.count, "error") %> prohibited this retreat from being saved:</h2>
+
+          <ul>
+          <% @retreat.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="large-4 columns">
+          <%= f.label :title %><br>
+          <%= f.text_field :title %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-4 columns event-form-edit-datetime">
+          <%= f.label :start %><br>
+          <%= f.datetime_select :startdt, :ampm => true, :order => [:month, :day, :year] %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-4 columns event-form-edit-datetime">
+          <%= f.label :end %><br>
+          <%= f.datetime_select :enddt, :ampm => true, :order => [:month, :day, :year] %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-4 columns">
+          <%= f.label :location %><br>
+          <%= f.text_field :location %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.label :body %><br>
+          <%= f.text_area :body %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-2 columns">
+          <%= f.label :cost %><br>
+          <%= f.text_field :cost %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-5 columns">
+          <%= f.label :image %><br>
+          <%= f.file_field :image %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-5 columns">
+          <%= f.label :remote_image_url, "or image URL" %><br>
+          <%= f.text_field :remote_image_url %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-5 columns">
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

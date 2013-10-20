@@ -14,21 +14,14 @@
   	<title><%= full_title(yield(:title)) %></title>
     <meta name="description" content="Passion for God, Passion for Others!">
   	<%= stylesheet_link_tag    "application" %>
-    <style type="text/css">body { border-top: 7px solid #c73f3f }</style>
+
     <%= csrf_meta_tags %>
     <%= tag :meta, :name => "stripe-key", :content => ENV['STRIPE_PUBLIC_KEY'] %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
-    <div class="row">
-      <div class="large-12 columns">
-        <%= render 'layouts/flash_messages', flash: flash %>
-        <%= render 'announcements/announcement' %>
-      </div>
+    <div class="main">
+      <%= yield %>
     </div>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
-
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= javascript_include_tag "https://js.stripe.com/v2/" %>

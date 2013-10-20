@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130928003459) do
+ActiveRecord::Schema.define(version: 20131018051005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20130928003459) do
     t.datetime "startdt"
     t.datetime "enddt"
     t.boolean  "dues"
+    t.string   "type"
   end
 
   add_index "events", ["slug"], name: "index_events_on_slug", using: :btree
@@ -56,8 +57,6 @@ ActiveRecord::Schema.define(version: 20130928003459) do
     t.string   "emergency_relation"
     t.string   "insurance_provider"
     t.string   "insurance_policy_number"
-    t.date     "start_date"
-    t.date     "end_date"
     t.string   "email"
     t.string   "fname"
     t.string   "lname"
@@ -69,11 +68,8 @@ ActiveRecord::Schema.define(version: 20130928003459) do
     t.string   "state"
     t.string   "zip"
     t.string   "shirtsize"
-  end
-
-  create_table "retreats", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "days_attending"
+    t.integer  "retreat_id"
   end
 
   create_table "users", force: true do |t|
@@ -103,9 +99,9 @@ ActiveRecord::Schema.define(version: 20130928003459) do
     t.string   "state"
     t.string   "zip"
     t.string   "shirtsize"
-    t.boolean  "email_contact"
-    t.boolean  "facebook_contact"
-    t.boolean  "sms_contact"
+    t.boolean  "email_contact",          default: false
+    t.boolean  "facebook_contact",       default: false
+    t.boolean  "sms_contact",            default: false
     t.boolean  "admin",                  default: false
     t.string   "stripe_id"
   end
