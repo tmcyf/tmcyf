@@ -17,10 +17,10 @@ class PaymentsController < ApplicationController
       current_user.charge(amount: (@payment.event.cost * 100).to_i, description: "Payment for TMCYF #{@payment.event.title}")
       flash[:success] = "Payment has been made for #{@payment.event.title}" if @payment.save!
       redirect_to account_payments_path
-    rescue => e
+    rescue Stripe::CardError => e
       # TODO: More informative error messages
       logger.info(e)
-      flash[:error] = "There was a problem processing your payment"
+      flash[:error] = e.json_body[:message]
       redirect_to account_payments_path
     end
   end
