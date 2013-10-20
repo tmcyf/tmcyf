@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
                              double_optin: false)
     end
   end
-  
+
   def email_unsubscribe
     gibbon = Gibbon::API.new
     Gibbon::API.throws_exceptions = false
@@ -86,29 +86,29 @@ class User < ActiveRecord::Base
                              double_optin: false)
     end
   end
-  
+
   def sms_subscribe
     self.phone? ? self.sms_contact = true : false
   end
-  
+
   def sms_unsubscribe
     self.sms_contact=false
   end
 
-  # TODO: 
+  # TODO:
   def registered_for_retreat?
     puts self.retreat_registrations
-    self.retreat_registrations.any? {|r| 
+    self.retreat_registrations.any? {|r|
       puts "Registration: ", r, "Retreat: ", r.retreat, "Retreat id: ", r.retreat.id
       r.retreat.id.equal? Retreat.current.id }
   end
-  
-  # TODO: 
+
+  # TODO:
   def paid_for_retreat?
     self.payments.any? {|p| p.event.id.equal? Retreat.current.id }
   end
 
-  # TODO: 
+  # TODO:
   def retreat_paid_out_of_band
   end
   # Temporary fix for now
@@ -129,7 +129,7 @@ class User < ActiveRecord::Base
   end
 
   def unpaid_events
-    paid_events = self.paid_events 
+    paid_events = self.paid_events
     events_requiring_payment = Event.where.not(cost: nil)
     # the set difference of two arrays a & b in ruby is (a - b) | (b - a)
     events_requiring_payment - paid_events | paid_events - events_requiring_payment
@@ -140,7 +140,7 @@ class User < ActiveRecord::Base
     # for events which have since been deleted. It's important to keep record
     # of these payments, so they shouldn't be destroyed in the database, but
     # their associated events return nil in the database. I'll keep thinking
-    # about the best way to handle this. 
+    # about the best way to handle this.
     self.payments.collect { |p| p.event }.delete_if { |event| event.nil? }
   end
 
@@ -162,7 +162,7 @@ class User < ActiveRecord::Base
     # profile items that are semantically "empty."
     # This debugging code helped me understand which profile items I can't reliably use nil
     # to detect.
-    required_profile_items.each do |k| 
+    required_profile_items.each do |k|
      logger.info self[k]
      logger.info self[k].class
      logger.info "#{k} #{ self[k].nil? ? "is nil" : "is not nil" }"
@@ -172,15 +172,15 @@ class User < ActiveRecord::Base
       item = self[k]
       # TODO: annoyingly, the DateTime class does not respond to the .empty?
       # method, hence this stupid special case check. Figure out a better way
-      # to do this. 
+      # to do this.
       if item.respond_to? :empty?
-        completed += 1 unless item.empty? or item.nil? 
+        completed += 1 unless item.empty? or item.nil?
       else
         completed += 1 unless item.nil?
       end
     end
     # calculate the average, round the result
-    ((completed / total)* 100).round 
+    ((completed / total)* 100).round
   end
 
   private

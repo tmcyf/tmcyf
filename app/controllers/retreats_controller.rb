@@ -65,7 +65,7 @@ class RetreatsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def retreat_params
-      params.require( :retreat ).permit(:title, :startdt, :enddt, :body, :location, :image, :remote_image_url, :cost) 
+      params.require( :retreat ).permit(:title, :startdt, :enddt, :body, :location, :image, :remote_image_url, :cost)
     end
     def registration_params
       params.require(:retreat_registration).permit(
