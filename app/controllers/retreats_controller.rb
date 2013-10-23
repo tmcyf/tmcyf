@@ -4,6 +4,7 @@ class RetreatsController < ApplicationController
 
   # GET /retreats
   def index
+    redirect_to :root unless current_user && current_user.admin?
     @retreats = Retreat.all
   end
 
