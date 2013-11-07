@@ -7,3 +7,5 @@ bundler_args: --binstubs=./bundler_stubs
 branches:
   only:
     - testing
+cache:
+  - bundler
