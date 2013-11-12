@@ -1,0 +1,30 @@
+$primary: #c73f3f;
+$primary-muted: darken($primary, 15%);
+$body: #333;
+$asphalt: #34495E;
+$abestos: #7F8C8D;
+$disable: #e6e6e6;
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  line-height: 1.6em;
+  color: $body;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arvo', serif;
+}
+
+a {
+  color: $primary;
+  &:hover {
+    color: $primary-muted;
+  }
+}
+
+nav.top-bar section.top-bar-section ul.right li a {
+  color: white;
+  &:hover {
+    color: $primary;
+  }
+}
