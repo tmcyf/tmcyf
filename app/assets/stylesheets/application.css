@@ -9,9 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require foundation_and_overrides
  *= require bootstrap
+ *= require foundation.css
  *= require bootstrap-switch.css
- *= require font-awesome
  *= require_tree .
  */
