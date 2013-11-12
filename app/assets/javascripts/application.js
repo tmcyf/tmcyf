@@ -12,7 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
+//= require foundation.js
+//= require foundation.forms.js
+//= require foundation.orbit.js
+//= require foundation.topbar.js
 //= require bootstrap.min.js
 //= require bootstrap-switch.js
 //= require_tree .
