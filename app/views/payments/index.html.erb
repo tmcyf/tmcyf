@@ -17,14 +17,14 @@
               </thead>
               <tbody>
                 <!-- TODO: maybe we can make this something like render "event_payment_form" -->
-                  <% @unpaid_events.each do |unpaid_event| %>
-                    <tr>
-                      <td><%= unpaid_event.title %></td>
-                      <td><%= number_to_currency(unpaid_event.cost) %></td>
-                      <!-- TODO: This Pay Now button can be a post request to the payments controller, with remote: true, and we can return some javascript to display loading and stripe-success -->
-                      <td><%= button_to "Pay Now", event_payments_path(unpaid_event), class: "button btn-pay", method: :post, data: { confirm: "Are you sure you want to make this payment?" } %></td>
-                    </tr>
-                  <% end %>
+                <% @unpaid_events.each do |unpaid_event| %>
+                  <tr>
+                    <td><%= unpaid_event.title %></td>
+                    <td><%= number_to_currency(unpaid_event.cost) %></td>
+                    <!-- TODO: This Pay Now button can be a post request to the payments controller, with remote: true, and we can return some javascript to display loading and stripe-success -->
+                    <td><%= button_to "Pay Now", event_payments_path(unpaid_event), class: "button btn-link", method: :post, data: { confirm: "Are you sure you want to make this payment?" } %></td>
+                  </tr>
+                <% end %>
               </tbody>
             </table>
           <% else %>
@@ -38,14 +38,14 @@
               </thead>
               <tbody>
                 <!-- TODO: maybe we can make this something like render "event_payment_form" -->
-                  <% @paid_events.each do |paid_event| %>
-                    <tr>
-                      <td><%= paid_event.title %></td>
-                      <td><%= number_to_currency(paid_event.cost) %></td>
-                      <!-- TODO: This Pay Now button can be a post request to the payments controller, with remote: true, and we can return some javascript to display loading and stripe-success -->
-                      <td><%= button_to "Paid!", root_path, class: "button", :disabled => true, data: { confirm: "Are you sure you want to make this payment?" } %></td>
-                    </tr>
-                  <% end %>
+                <% @paid_events.each do |paid_event| %>
+                  <tr>
+                    <td><%= paid_event.title %></td>
+                    <td><%= number_to_currency(paid_event.cost) %></td>
+                    <!-- TODO: This Pay Now button can be a post request to the payments controller, with remote: true, and we can return some javascript to display loading and stripe-success -->
+                    <td><%= button_to "Paid!", root_path, class: "button", :disabled => true, data: { confirm: "Are you sure you want to make this payment?" } %></td>
+                  </tr>
+                <% end %>
               </tbody>
             </table>
           <% end %>
@@ -56,7 +56,7 @@
             <div id="default_card">
               <% if @credit_card %>
                 <div class="well">
-                  <i class="icon-credit-card cc"></i> Your current card **** **** **** <%= @credit_card.last4 + " " + @credit_card.type %>
+                  <i class="fa fa-credit-card"></i> Your current card **** **** **** <%= @credit_card.last4 + " " + @credit_card.type %>
                 </div>
                 <p>Update your credit card below!</p>
               <% else %>

@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 2.0.0
+script:
+  - rake secret
+bundler_args: --binstubs=./bundler_stubs
+branches:
+  only:
+    - testing
+    - refactor-css
+cache:
+  - bundler

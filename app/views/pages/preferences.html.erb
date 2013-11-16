@@ -5,32 +5,30 @@
       <fieldset class="fields">
         <div class="large-12 columns">
           <h2>Contact Preferences</h2>
-          <p>Here you can choose how you want to be contacted by the YF. <br>Options include: email, facebook, and text.</p>
+          <p>Here you can choose how you want to be contacted by the YF.</p>
           <%= form_tag account_preferences_path, method: "POST" %>
-          <div class="row preference">
-            <ul>
-              <li>
-                <%= label_tag "Facebook", nil, class: 'large-2 columns' %>
-                <div class="make-switch switch-small">
-                  <%= check_box_tag "Facebook", 'yes', @user.facebook_contact %>
-                </div>
-              </li>
-              <li>
-                <%= label_tag "Email", nil, class: 'large-2 columns' %>
-                <div class="make-switch switch-small">
-                  <%= check_box_tag "email", 1, @user.email_contact %>
-                </div>
-              </li>
-              <li>
-                <%= label_tag "SMS", nil, class: 'large-2 columns' %>
-                <div class="make-switch switch-small">
-                  <%= check_box_tag "SMS", 1, @user.sms_contact %>
-                </div>
-              </li>
-            </ul>
+          <div class="preference-panel">
+            <div class="preference">
+              <div class="preference-logo"><i class="fa fa-facebook-square"></i> Facebook</div>
+              <div class="preference-option make-switch switch-small">
+                <%= check_box_tag "Facebook", 'yes', @user.facebook_contact, class: "no-custom" %>
+              </div>
+            </div>
+            <div class="preference">
+              <div class="preference-logo"><i class="fa fa-envelope"></i> Email</div>
+              <div class="preference-option make-switch switch-small">
+                <%= check_box_tag "Facebook", 'yes', @user.facebook_contact, class: "no-custom" %>
+              </div>
+            </div>
+            <div class="preference-last">
+              <div class="preference-logo"><i class="fa fa-mobile"></i> SMS</div>
+              <div class="preference-option make-switch switch-small">
+                <%= check_box_tag "Facebook", 'yes', @user.facebook_contact, class: "no-custom" %>
+              </div>
+            </div>
+            <%= submit_tag "Save", class: 'button' %>
           </div>
-          <%= submit_tag "Save", class: 'button' %>
-	     </div>
+        </div>
 	  </fieldset>
 	</div>
 </div>
