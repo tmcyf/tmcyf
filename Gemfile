@@ -51,6 +51,9 @@ gem 'unicorn'
 gem 'capistrano', group: :development
 gem 'thin', group: :development
 
+# MONITORING
+gem 'newrelic_rpm'
+
 # Use debugger
 gem 'debugger', group: [:development, :test]
 gem 'better_errors', group: :development
