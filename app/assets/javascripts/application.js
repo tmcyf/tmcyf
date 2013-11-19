@@ -16,7 +16,7 @@
 //= require foundation.forms.js
 //= require foundation.orbit.js
 //= require foundation.topbar.js
-//= require bootstrap.min.js
+//= require bootstrap.js
 //= require bootstrap-switch.js
 //= require_tree .
 $(function(){ $(document).foundation(); });

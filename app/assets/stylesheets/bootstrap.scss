@@ -1498,9 +1498,12 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
   }
   .close {
     position: relative;
-    top: -2px;
+    top: 1px;
     right: -21px;
     line-height: 20px;
+    &:hover {
+      background-color: transparent;
+    }
   }
 }
 
