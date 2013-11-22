@@ -6,4 +6,4 @@ log/
 /config/application.yml
 /config/rubber
 /config/certs
-newrelic.yml
+/config/newrelic.yml
