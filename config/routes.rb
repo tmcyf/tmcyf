@@ -54,7 +54,6 @@ Static::Application.routes.draw do
   post '/account/preferences'       => 'pages#update_preferences'
   get '/account/payments'           => 'payments#index'
   get '/privacy_policy'             => 'pages#privacy_policy'
-  # TODO: routed with default for expediency, change this later
-  get '/admin/contact_all'          => 'contact#contact_all', as: "contact_all"
+  get '/admin/send_sms'          => 'contact#send_sms', as: "send_sms"
   post '/admin/send_message'        => 'contact#send_all_message', as: "send_message"
 end
