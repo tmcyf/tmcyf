@@ -162,11 +162,11 @@ class User < ActiveRecord::Base
     # profile items that are semantically "empty."
     # This debugging code helped me understand which profile items I can't reliably use nil
     # to detect.
-    required_profile_items.each do |k|
-     logger.info self[k]
-     logger.info self[k].class
-     logger.info "#{k} #{ self[k].nil? ? "is nil" : "is not nil" }"
-    end
+    # required_profile_items.each do |k|
+    #  logger.info self[k]
+    #  logger.info self[k].class
+    #  logger.info "#{k} #{ self[k].nil? ? "is nil" : "is not nil" }"
+    # end
     # TODO: there is DEFINITELY a cleaner way to do this
     required_profile_items.each do |k|
       item = self[k]
