@@ -6,4 +6,13 @@ FactoryGirl.define do
     # an argument to the factory call
     f.confirmed_at(DateTime.now)
   end
+  
+  factory :retreat do |f|
+    f.sequence(:title, 2013) {|n| "Retreat #{n}" }
+    f.location("Houston")
+    f.body("A retreat.")
+    f.created_at(DateTime.now)
+    f.startdt(DateTime.now)
+    f.enddt(DateTime.now + 3.days)
+  end
 end
