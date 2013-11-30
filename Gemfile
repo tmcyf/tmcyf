@@ -30,7 +30,6 @@ gem 'rubber', github: 'rubber/rubber'
 gem 'rmagick', '2.13.2'
 gem 'icalendar'
 gem 'figaro'
-gem 'paul_revere', :git => 'https://github.com/tmcyf/paul_revere'
 gem 'redcarpet'
 
 gem 'therubyracer', platforms: :ruby
