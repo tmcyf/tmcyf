@@ -14,16 +14,6 @@ class ContactController < ApplicationController
     redirect_to contact_all_path
   end
 
-  def new_announcement
-  end
-
-  def make_announcement
-    message = params[:message]
-    Announcement.create!(body: message)
-    flash[:success] = "Announcement successfully made."
-    redirect_to new_announcement_path
-  end
-
   private
   def text_contact(message, contact_number)
     if contact_number

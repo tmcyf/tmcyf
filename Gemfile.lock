@@ -19,13 +19,6 @@ GIT
       multi_json (>= 1.0.4, < 2)
       rest-client (~> 1.4)
 
-GIT
-  remote: https://github.com/tmcyf/paul_revere
-  revision: 9e5457927660f309fbea624091fa5a727dbb2793
-  specs:
-    paul_revere (1.2)
-      rails (>= 3.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -311,7 +304,6 @@ DEPENDENCIES
   meta_request
   newrelic_rpm
   open4
-  paul_revere!
   pg
   pry
   quiet_assets
