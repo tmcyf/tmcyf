@@ -19,7 +19,10 @@ class RetreatsController < ApplicationController
   # GET /retreat/csv
   def csv
     @retreat = Retreat.current
-    send_data @retreat.to_csv
+    respond_to do |format|
+      format.html
+      format.csv { send_data @retreat.to_csv }
+    end
   end
 
   # GET /retreats/new
