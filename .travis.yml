@@ -2,7 +2,7 @@ language: ruby
 rvm:
   - 2.0.0
 script:
-  - rake secret
+  - bundle exec rake secret
 bundler_args: --binstubs=./bundler_stubs
 branches:
   only:
