@@ -35,11 +35,6 @@ gem 'redcarpet'
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
 # TESTING
 gem 'rspec-rails'
 gem 'guard', '~> 2.2.2', group: :test
@@ -57,7 +52,7 @@ gem 'thin', group: :development
 gem 'newrelic_rpm'
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
+gem 'debugger', group: :development
 gem 'better_errors', group: :development
 gem 'quiet_assets', group: :development
 gem 'binding_of_caller', group: :development
