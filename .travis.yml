@@ -6,6 +6,6 @@ script:
 bundler_args: --binstubs=./bundler_stubs
 branches:
   only:
-    - testing
+    - develop
 cache:
   - bundler
