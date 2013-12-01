@@ -1,5 +1,5 @@
 class Retreat < Event
-  require 'CSV'
+  require 'csv'
   has_many :retreat_registrations
 
   def self.current
