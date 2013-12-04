@@ -4,8 +4,5 @@ rvm:
 script:
   - bundle exec rake secret
 bundler_args: --binstubs=./bundler_stubs
-branches:
-  only:
-    - develop
 cache:
   - bundler
