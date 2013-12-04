@@ -1049,11 +1049,11 @@ td {
 
 /* Default Link Styles */
 a {
-  color: #333;
+  color: #2ba6cb;
   text-decoration: none;
   line-height: inherit; }
   a:hover, a:focus {
-    color: #c73f3f; }
+    color: #2795b6; }
   a img {
     border: none; }
 
@@ -1767,7 +1767,8 @@ input[type="file"] {
 /* We add basic fieldset styling */
 fieldset {
   border: solid 1px #dddddd;
-  padding: 1.25em; }
+  padding: 1.25em;
+  margin: 1.125em 0; }
   fieldset legend {
     font-weight: bold;
     background: white;
@@ -2842,11 +2843,11 @@ label.error {
 
 .top-bar {
   overflow: hidden;
-  height: 64px;
-  line-height: 64px;
+  height: 45px;
+  line-height: 45px;
   position: relative;
   background: #111111;
-  margin-bottom: 1.5625em; }
+  margin-bottom: 0; }
   .top-bar ul {
     margin-bottom: 0;
     list-style: none; }
@@ -2865,7 +2866,7 @@ label.error {
     position: relative;
     margin: 0; }
   .top-bar .name {
-    height: 64px;
+    height: 45px;
     margin: 0;
     font-size: 16px; }
     .top-bar .name h1 {
@@ -2940,7 +2941,7 @@ label.error {
   .top-bar-section .divider,
   .top-bar-section [role="separator"] {
     border-bottom: solid 1px #2b2b2b;
-    border-top: solid 1px #333;
+    border-top: solid 1px black;
     clear: both;
     height: 1px;
     width: 100%; }
@@ -2949,15 +2950,15 @@ label.error {
     width: 100%;
     color: white;
     padding: 12px 0 12px 0;
-    padding-left: 22px;
+    padding-left: 15px;
     font-size: 0.8125em;
     font-weight: bold;
     background: #222222; }
     .top-bar-section ul li > a.button {
       background: #2ba6cb;
       font-size: 0.8125em;
-      padding-right: 22px;
-      padding-left: 22px; }
+      padding-right: 15px;
+      padding-left: 15px; }
       .top-bar-section ul li > a.button:hover {
         background: #2284a1; }
     .top-bar-section ul li > a.button.secondary {
@@ -2990,7 +2991,7 @@ label.error {
       border: inset 5px;
       border-color: transparent transparent transparent rgba(255, 255, 255, 0.5);
       border-left-style: solid;
-      margin-right: 22px;
+      margin-right: 15px;
       margin-top: -4.5px;
       position: absolute;
       top: 50%;
@@ -3010,7 +3011,7 @@ label.error {
       height: auto; }
       .top-bar-section .dropdown li a {
         font-weight: normal;
-        padding: 8px 22px; }
+        padding: 8px 15px; }
         .top-bar-section .dropdown li a.parent-link {
           font-weight: bold; }
       .top-bar-section .dropdown li.title h5 {
@@ -3083,8 +3084,8 @@ label.error {
       background: black;
       color: white; }
     .top-bar-section li a:not(.button) {
-      padding: 0 21.33333px;
-      line-height: 64px;
+      padding: 0 15px;
+      line-height: 45px;
       background: #111111; }
       .top-bar-section li a:not(.button):hover {
         background: black; }
@@ -4290,13 +4291,13 @@ ul.pagination {
   list-style-type: none;
   list-style-position: inside; }
   .side-nav li {
-    margin: 0 0 1.25em 0;
-    font-size: 1.125em; }
+    margin: 0 0 0.4375em 0;
+    font-size: 0.875em; }
     .side-nav li a {
       display: block;
-      color: #333; }
+      color: #2ba6cb; }
     .side-nav li.active > a:first-child {
-      color: #c73f3f;
+      color: #4d4d4d;
       font-weight: bold; }
     .side-nav li.divider {
       border-top: 1px solid;
