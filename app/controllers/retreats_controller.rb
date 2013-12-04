@@ -4,6 +4,7 @@ class RetreatsController < ApplicationController
 
   # GET /retreats
   def index
+    redirect_to :root unless current_user && current_user.admin?
     @retreats = Retreat.all
   end
 
@@ -13,6 +14,15 @@ class RetreatsController < ApplicationController
     @retreat = Retreat.current
     @user = current_user
     @registration = @retreat.retreat_registrations.build if @retreat # pls create retreat beforehand thx
+  end
+
+  # GET /retreat/csv
+  def csv
+    @retreat = Retreat.current
+    respond_to do |format|
+      format.html
+      format.csv { send_data @retreat.to_csv }
+    end
   end
 
   # GET /retreats/new
