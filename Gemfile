@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 # CORE
 gem 'rails', '4.0.0'
@@ -11,7 +11,7 @@ gem 'pg'
 # ASSETS
 gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'compass-rails', github: 'milgner/compass-rails', branch: 'rails4'
+gem "compass-rails", "~> 2.0.alpha.0"
 gem 'zurb-foundation', '~> 4.2.3'
 gem 'font-awesome-rails'
 gem "jquery-rails"
@@ -30,18 +30,16 @@ gem 'rubber', github: 'rubber/rubber'
 gem 'rmagick', '2.13.2'
 gem 'icalendar'
 gem 'figaro'
-gem 'paul_revere', :git => 'https://github.com/tmcyf/paul_revere'
+gem 'redcarpet'
 
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
 # TESTING
 gem 'rspec-rails'
+gem 'guard', '~> 2.2.2', group: :test
+gem 'guard-rspec', group: :test
+gem 'guard-livereload', group: :test
 gem 'capybara', group: :test
 gem 'factory_girl_rails', group: :test
 
@@ -50,8 +48,11 @@ gem 'unicorn'
 gem 'capistrano', group: :development
 gem 'thin', group: :development
 
+# MONITORING
+gem 'newrelic_rpm'
+
 # Use debugger
-gem 'debugger', group: [:development, :test]
+gem 'debugger', group: :development
 gem 'better_errors', group: :development
 gem 'quiet_assets', group: :development
 gem 'binding_of_caller', group: :development

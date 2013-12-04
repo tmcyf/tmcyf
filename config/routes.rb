@@ -5,6 +5,7 @@ Static::Application.routes.draw do
   # we're adding the singular retreat path as a route to the latest/current
   # retreat
   get '/retreat' => "retreats#show", as: "retreat"
+  get '/retreat/csv' => "retreats#csv", as: "retreat_csv"
   post '/retreat/register' => "retreat_registrations#create"
 
   resources :retreats, except: [:show]
@@ -54,9 +55,6 @@ Static::Application.routes.draw do
   post '/account/preferences'       => 'pages#update_preferences'
   get '/account/payments'           => 'payments#index'
   get '/privacy_policy'             => 'pages#privacy_policy'
-  # TODO: routed with default for expediency, change this later
-  get '/admin/contact_all'          => 'contact#contact_all', as: "contact_all"
+  get '/admin/send_sms'          => 'contact#send_sms', as: "send_sms"
   post '/admin/send_message'        => 'contact#send_all_message', as: "send_message"
-  get '/admin/new_announcement'     => 'contact#new_announcement', as: "new_announcement"
-  post '/admin/make_announcement'   => 'contact#make_announcement', as: "make_announcement"
 end

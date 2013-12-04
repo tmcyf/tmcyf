@@ -7,10 +7,7 @@
 				<%= link_to "Create a New Event", new_event_path, class: "new-event-link" %>
 			</div>
 			<div class="large-12 columns">
-				<%= link_to "Create a SMS", contact_all_path, class: "new-sms-link" %>
-			</div>
-			<div class="large-12 columns">
-				<%= link_to "Create an announcement", new_announcement_path, class: "new-announcement-link" %>
+				<%= link_to "Create a SMS", send_sms_path, class: "new-sms-link" %>
 			</div>
 			<div class="large-12 columns">
 				<h5>List of users who prefer Facebook:</h5>
@@ -27,6 +24,9 @@
 				<% @emailname.each do |fullname| %>
 					<li style="list-style: none;"><%= fullname %></li>
 				<% end %>
+			<hr />
+      <h5>CSV of retreat registrations: </h5>
+        <%= link_to "Retreat CSV", retreat_csv_path(format: "csv") %>
 			<hr />
 				<h5>List of users:</h5>
 				<% @allusers.each do |fullname| %>

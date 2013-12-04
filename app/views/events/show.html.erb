@@ -16,7 +16,7 @@
 				<hr />
 			</div>
 		</div>
-		<p class="show-page-body"><%= @event.body.html_safe %></p>
+		<div class="show-page-body"><%= markdown @event.body %></div>
 		<div class="large-3 large-centered columns">
 			<hr />
 		</div>

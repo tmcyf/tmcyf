@@ -1,19 +1,27 @@
-require 'spec_helper'
-
 FactoryGirl.define do
-  factory :user do |f|
-    f.sequence(:email) { |n| "foo#{n}@example.com" }
-    f.password("secret12")
+  factory :user do
+    sequence(:email) { |n| "foo#{n}@example.com" }
+    password("secret12")
     # might want to consider making this optional, having "should confirm" as
     # an argument to the factory call
-    f.confirmed_at(DateTime.now)
+    confirmed_at(DateTime.now)
   end
 
-  factory :retreat do |f|
-    f.sequence(:title) { |n| "Retreat#{n}" }
-    f.location("Camp")
-    f.cost(100.0)
-    f.sequence(:startdt) { |n| DateTime.now + n }
-    f.sequence(:enddt) { |n| DateTime.now + n + 3 }
+  factory :retreat do
+    sequence(:title, 2013) {|n| "Retreat #{n}" }
+    location "Houston"
+    body "A retreat."
+    created_at DateTime.now
+    startdt DateTime.now
+    enddt DateTime.now + 3.days
+  end
+  factory :retreat_registration do
+    user
+    retreat
+    emergency_contact "prolly ivan"
+    emergency_phone "7139683673"
+    emergency_relation "prolly ur mom"
+    insurance_policy_number "8675309"
+    days_attending 2
   end
 end
