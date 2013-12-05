@@ -9,6 +9,7 @@ describe Retreat do
   describe "csv" do
     it "should export all retreat registration attributes to a csv" do
       # generate users, generate retreat, register users for retreat
+      # TODO: can this be updated to use the registration factory?
       registration_params = @user.attributes.except("id", "reset_password_token", 
         "reset_password_sent_at", "remember_created_at", "sign_in_count", 
         "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", 
@@ -21,12 +22,14 @@ describe Retreat do
           emergency_relation: "prolly ur mom",
           insurance_policy_number: "8675309",
           days_attending: 2,
-          retreat_id: @retreat.id
+          retreat_id: @retreat.id,
+          user: @user
         })
       @registration = RetreatRegistration.create(registration_params)
       @csv = @retreat.to_csv
       csv_data = CSV.parse(@csv)
       # number of columns should equal registration num columns
+      puts @csv
       csv_data.first.length.should == (RetreatRegistration.column_names.length) 
       # number of rows should equal number of registrations plus 1 (for header)
       csv_data.length.should == (@retreat.retreat_registrations.length + 1)
