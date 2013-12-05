@@ -13,6 +13,7 @@ class Retreat < Event
       csv << column_names
       self.retreat_registrations.each do |registration|
         values = registration.attributes.values_at(*column_names)
+        values << registration.paid?
         csv << values
       end
     end
