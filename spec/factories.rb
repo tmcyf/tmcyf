@@ -13,6 +13,7 @@ FactoryGirl.define do
     body "A retreat."
     created_at DateTime.now
     startdt DateTime.now
+    cost 100.0
     enddt DateTime.now + 3.days
   end
   factory :retreat_registration do
@@ -23,5 +24,8 @@ FactoryGirl.define do
     emergency_relation "prolly ur mom"
     insurance_policy_number "8675309"
     days_attending 2
+  end
+  factory :payment do
+    user
   end
 end
