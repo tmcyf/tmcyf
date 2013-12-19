@@ -2,7 +2,6 @@
 tmp/
 .bundle/
 log/
-# Ignore application configuration
 /config/application.yml
 /config/rubber
 /config/certs
