@@ -55,13 +55,13 @@
         </div>
         <div class="row">
           <div class="large-4 columns">
+            <%= f.input :current_password, :hint => "We need your current password to confirm your changes!", :required => true %>
+          </div>
+          <div class="large-4 columns">
             <%= f.input :password, label: 'New password', :autocomplete => "off", :required => false %>
           </div>
           <div class="large-4 columns">
             <%= f.input :password_confirmation, label: 'New password confirmation', :required => false %>
-          </div>
-          <div class="large-4 columns">
-            <%= f.input :current_password, :hint => "We need your current password to confirm your changes!", :required => true %>
           </div>
         </div>
         <div class="row">
