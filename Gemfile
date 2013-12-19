@@ -11,10 +11,10 @@ gem 'pg'
 # ASSETS
 gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem "compass-rails", "~> 2.0.alpha.0"
+gem 'compass-rails'
 gem 'zurb-foundation', '~> 4.2.3'
 gem 'font-awesome-rails'
-gem "jquery-rails"
+gem 'jquery-rails'
 gem 'uglifier', '>= 1.3.0'
 
 # PLUGINS
