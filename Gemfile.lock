@@ -315,7 +315,7 @@ DEPENDENCIES
   capybara
   carrierwave
   coffee-rails (~> 4.0.0)
-  compass-rails (~> 2.0.alpha.0)
+  compass-rails
   debugger
   devise (~> 3.0.0.rc)
   factory_girl_rails
