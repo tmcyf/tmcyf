@@ -8,12 +8,12 @@ class Retreat < Event
 
   def to_csv
     CSV.generate do |csv|
-      column_names = RetreatRegistration.column_names
-      column_names << "Paid?"
-      csv << column_names
+      column_names = self.retreat_registrations.first.attributes.keys
+      csv << (column_names.concat ["Paid?", "Email"])
       self.retreat_registrations.each do |registration|
-        values = registration.attributes.values_at(*column_names)
+        values = registration.attributes.values_at(*(RetreatRegistration.column_names))
         values << registration.paid?
+        values << registration.user.email
         csv << values
       end
     end
