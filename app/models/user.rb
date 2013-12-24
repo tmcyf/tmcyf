@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
         customer.save
       else
         customer = Stripe::Customer.create(
-          description: self.fullname,
+          description: self.fullname || self.email,
           card: stripe_token
         )
         self.stripe_id = customer.id
@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
     # TODO: validate that there are no decimals in the amount
     raise "There is no credit card saved for this account" unless self.stripe_id
     begin
-      Stripe::Charge.create(
+      charge = Stripe::Charge.create(
         amount: amount, # amount in cents, again
         currency: "usd",
         customer: self.stripe_id,
@@ -54,6 +54,7 @@ class User < ActiveRecord::Base
     rescue => e
       logger.info(e)
     end
+    charge
   end
 
   def credit_card
@@ -185,7 +186,7 @@ class User < ActiveRecord::Base
 
   private
   def this_years_dues
-    this_years_dues = Event.where(dues: true).detect do |dues|
+    Event.where(dues: true).detect do |dues|
       dues.startdt.year.equal? DateTime.now.year
     end
   end
