@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
         customer.save
       else
         customer = Stripe::Customer.create(
-          description: self.fullname,
+          description: self.fullname || self.email,
           card: stripe_token
         )
         self.stripe_id = customer.id
@@ -185,7 +185,7 @@ class User < ActiveRecord::Base
 
   private
   def this_years_dues
-    this_years_dues = Event.where(dues: true).detect do |dues|
+    Event.where(dues: true).detect do |dues|
       dues.startdt.year.equal? DateTime.now.year
     end
   end
