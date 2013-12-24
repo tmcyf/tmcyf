@@ -22,7 +22,12 @@
                       <td><%= unpaid_event.title %></td>
                       <td><%= number_to_currency(unpaid_event.cost) %></td>
                       <!-- TODO: This Pay Now button can be a post request to the payments controller, with remote: true, and we can return some javascript to display loading and stripe-success -->
-                      <td><%= button_to "Pay Now", event_payments_path(unpaid_event), class: "button btn-pay", method: :post, data: { confirm: "Are you sure you want to make this payment?" } %></td>
+                      <% if unpaid_event.class.name == "Retreat" and !current_user.registered_for_retreat? %>
+                        <td><%= button_to "Pay Now", event_payments_path(unpaid_event), class: "button btn-pay", method: :post, disabled: true, data: { confirm: "Are you sure you want to make this payment?" } %></td>
+                      <% else %>
+                        <td><%= button_to "Pay Now", event_payments_path(unpaid_event), class: "button btn-pay", method: :post, data: { confirm: "Are you sure you want to make this payment?" } %></td>
+                      <% end %>
+
                     </tr>
                   <% end %>
               </tbody>
