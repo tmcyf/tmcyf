@@ -24,7 +24,8 @@ class User < ActiveRecord::Base
         customer.save
       else
         customer = Stripe::Customer.create(
-          description: self.fullname || self.email,
+          description: self.fullname,
+          email: self.email,
           card: stripe_token
         )
         self.stripe_id = customer.id
