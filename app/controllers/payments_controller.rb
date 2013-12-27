@@ -16,8 +16,7 @@ class PaymentsController < ApplicationController
     @payment.user = current_user
     begin
       @payment.stripe_id = current_user.charge(amount: (@payment.event.cost * 100).to_i,
-                          description: "Payment for TMCYF #{@payment.event.title}",
-                          username: @payment.user.email).id
+                          description: "Payment for TMCYF #{@payment.event.title}").id
       flash[:success] = "Payment has been made for #{@payment.event.title}" if @payment.save!
       redirect_to account_payments_path
     rescue Stripe::CardError => e
