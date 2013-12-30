@@ -207,34 +207,18 @@
 <section class='retreat-calltoaction'>
   <div class="retreat-calltoaction-wrap">
     <h1>Registration Info</h1>
-    <h5>Interested in coming? Great! You can see how below:</h5>
   </div>
-<% if @user and @user.registered_for_retreat? and @user.paid_for_retreat? %>
-  <h3>Hey, you've registered and paid! See you at retreat!</h3>
-<% elsif @user and @user.registered_for_retreat? %>
 <div class="row">
   <div class="large-12 columns center">
-    <h3>Retreat this year is $90</h3>
-    <a href="/account/payments"><span class="retreat-calltoaction-login">Please pay now!</span></a>
+    <h6>That's it boys and girls! Thanks to all who registered and we'll see you at retreat!</h6>
+    <span class="retreat-calltoaction-login">Registration is closed!</span>
   </div>
 </div>
-<% elsif @user %>
-<div class="retreat-calltoaction-well"><%= render 'retreat_registrations/form' %></div>
-<% else %>
-<div class="row">
-  <div class="large-12 columns center">
-    <h6>To register for this year's retreat, you must have an account with us and have all your profile information filled out!</h6>
-    <a href="/login"><span class="retreat-calltoaction-login">Please log in!</span></a>
-  </div>
-</div>
-<% end %>
 <div class="row">
   <div class="large-6 large-centered columns retreat-calltoaction-forms">
     <pre class="retreat-calltoaction-forms-well">
       <p><b>Forms</b></p>
       <p><a href="https://s3-us-west-2.amazonaws.com/files.tmcyf.org/pdf/retreat_waiver2014.pdf">TMCYF Waiver</a></p>
-      <p><a href="#">Campsite Waiver</a></p>
-      <p><a href="#">Item Checklist</a></p>
     </pre>
   </div>
 </div>
