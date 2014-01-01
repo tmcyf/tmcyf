@@ -16,6 +16,18 @@ FactoryGirl.define do
     cost 100.0
     enddt DateTime.now + 3.days
   end
+  factory :event do
+    sequence(:title, 2013) {|n| "Event #{n}" }
+    location "Houston"
+    body "An event."
+    created_at DateTime.now
+    startdt DateTime.now
+    cost 20.0
+    enddt DateTime.now + 1.days
+    factory :dues do
+      dues true
+    end
+  end
   factory :retreat_registration do
     user
     retreat
