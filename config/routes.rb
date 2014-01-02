@@ -9,13 +9,7 @@ Static::Application.routes.draw do
   post '/retreat/register' => "retreat_registrations#create"
 
   resources :retreats, except: [:show]
-  resources :events do
-    resources :payments, only: [:create, :new]
-  end
-
-  # the model for credit cards is no longer necessary (we're storing them with
-  # stripe), but the routes for credit cards still are
-  resources :credit_cards, only: [:new, :create, :delete, :show]
+  resources :events
 
   devise_for :users,
     controllers: { registrations: :registrations, confirmations: :confirmations },
@@ -53,7 +47,6 @@ Static::Application.routes.draw do
   get '/account/profile'            => 'pages#profile'
   get '/account/preferences'        => 'pages#preferences'
   post '/account/preferences'       => 'pages#update_preferences'
-  get '/account/payments'           => 'payments#index'
   get '/privacy_policy'             => 'pages#privacy_policy'
   get '/admin/send_sms'          => 'contact#send_sms', as: "send_sms"
   post '/admin/send_message'        => 'contact#send_all_message', as: "send_message"
