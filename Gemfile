@@ -41,6 +41,7 @@ gem 'guard', '~> 2.2.2', group: :test
 gem 'guard-rspec', group: :test
 gem 'guard-livereload', group: :test
 gem 'capybara', group: :test
+gem 'selenium-webdriver', group: :test
 gem 'factory_girl_rails', group: :test
 
 # DEPLOYMENT

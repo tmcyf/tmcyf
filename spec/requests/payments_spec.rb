@@ -21,5 +21,19 @@ describe "Payments" do
     expect(page).to have_content('Please provide a valid credit card')
   end
 
+  it "should allow payment after entering a valid credit card", js: true do
+    visit account_payments_path
+    # Credit card creation. Can these steps be factored out into a helper?
+    fill_in "card_number", with: "4242424242424242"
+    fill_in "card_code", with: "000"
+    page.select "January", from: "card_month"
+    page.select "2015", from: "card_year"
+    click_button "Save Credit Card"
+    # end credit card creation
+    # binding.pry
+    click_button "Pay"
+    page.should have_content('Payment has been made')
+  end
+
 end
 
