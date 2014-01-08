@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300|Arvo|Cardo:400italic|Bevan);
+@import url(https://fonts.googleapis.com/css?family=Cardo:400italic|Bevan);
 
 $primary: #c73f3f;
 $primary-muted: darken($primary, 15%);
@@ -8,13 +8,15 @@ $abestos: #7F8C8D;
 $disable: #e6e6e6;
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 300;
   width: 100%;
   line-height: 1.6em;
   color: $body;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Arvo', serif;
+  font-family: "ff-meta-serif-web-pro", serif;
+  font-weight: 600;
 }
 
 .center {
@@ -35,6 +37,10 @@ a {
   &:hover {
     color: $primary-muted;
   }
+}
+
+nav.top-bar section.top-bar-section ul.right li a.active {
+  color: $primary;
 }
 
 nav.top-bar section.top-bar-section ul.right li a {
@@ -66,6 +72,9 @@ fieldset {
   padding-right: 22px;
   padding-left: 22px; }
 
+.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
+  height: 1px; }
+
 .top-bar-section .has-dropdown > a:after {
   margin-right: 22px; }
 
@@ -85,3 +94,12 @@ fieldset {
 
 .side-nav li.active > a:first-child {
   color: $primary; }
+
+@media only screen and (max-width: 767px) {
+  .about-nav li.active > a:first-child {
+    color: #eee;
+  }
+  .side-nav li {
+    margin: 0;
+  }
+}
