@@ -31,7 +31,7 @@ gem 'rmagick', '2.13.2'
 gem 'icalendar'
 gem 'figaro'
 gem 'redcarpet'
-
+gem 'active_link_to'
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 

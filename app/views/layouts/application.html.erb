@@ -18,6 +18,8 @@
     <style type="text/css">body { border-top: 7px solid #c73f3f }</style>
     <%= csrf_meta_tags %>
     <%= tag :meta, :name => "stripe-key", :content => ENV['STRIPE_PUBLIC_KEY'] %>
+    <script type="text/javascript" src="//use.typekit.net/kom6fjp.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   </head>
   <body>
     <%= render 'layouts/header' %>
