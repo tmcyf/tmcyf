@@ -6,11 +6,15 @@ class ContactController < ApplicationController
   end
 
   def send_all_message
-    message = params[:message]
+    message_chunks = params[:message].scan(/.{155}/)
     numbers_to_sms = User.where(sms_contact: true).pluck(:phone)
     # if any of these numbers are nil, the text_contact call will fail and
     # return false
-    numbers_to_sms.each { |number| text_contact(message, number) }
+    numbers_to_sms.each do |number| 
+      message_chunks.each_with_index do |message, index|
+        text_contact(message + "#{index}/#{message_chunks.length}", number)
+      end
+    end
     redirect_to send_sms_path
   end
 
