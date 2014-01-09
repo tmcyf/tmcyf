@@ -12,8 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
-//= require bootstrap.min.js
+//= require foundation.js
+//= require foundation.forms.js
+//= require foundation.orbit.js
+//= require foundation.topbar.js
+//= require bootstrap.js
 //= require bootstrap-switch.js
 //= require_tree .
 $(function(){ $(document).foundation(); });

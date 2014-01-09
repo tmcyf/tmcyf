@@ -7,5 +7,6 @@ bundler_args: --binstubs=./bundler_stubs
 branches:
   only:
     - master
+    - refactor-css
 cache:
   - bundler

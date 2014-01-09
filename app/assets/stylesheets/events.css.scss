@@ -1,19 +1,34 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'global';
 
 // EVENTS
 
 .index-page-location {
-  margin-top: 0.5em;
+  margin-top: .5em;
 }
 
-h3.show-page-title, .show-page-eventdata, .ics, .show-page-body {
+h3.show-page-title {
   text-align: center;
+}
+
+.show-page-eventdata {
+  text-align: center;
+}
+
+.show-page-body {
+  text-align: center;
+}
+
+.show-page-hr {
+  margin: -.25em 0 1.25em;
 }
 .ics {
   margin-bottom: 2em;
+  text-align: center;
 }
 .event-form-edit-datetime select {
   width: 25%;
+}
+
+.button-event {
+	padding: .5em;
 }
