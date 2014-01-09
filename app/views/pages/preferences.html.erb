@@ -9,21 +9,39 @@
           <%= form_tag account_preferences_path, method: "POST" %>
           <div class="preference-panel">
             <div class="preference">
-              <div class="preference-logo"><i class="fa fa-facebook-square"></i> Facebook</div>
-              <div class="preference-option make-switch switch-small">
-                <%= check_box_tag "Facebook", 'yes', @user.facebook_contact, class: "no-custom" %>
+              <div class="row">
+                <div class="small-6 columns">
+                  <div class="preference-logo"><i class="fa fa-facebook-square"></i> Facebook</div>
+                </div>
+                <div class="small-6 columns">
+                  <div class="preference-option make-switch switch-small">
+                    <%= check_box_tag "Facebook", 'yes', @user.facebook_contact, class: "no-custom" %>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="preference">
-              <div class="preference-logo"><i class="fa fa-envelope"></i> Email</div>
-              <div class="preference-option make-switch switch-small">
-                <%= check_box_tag "Facebook", 'yes', @user.facebook_contact, class: "no-custom" %>
+              <div class="row">
+                <div class="small-6 columns">
+                  <div class="preference-logo"><i class="fa fa-envelope"></i> Email</div>
+                </div>
+                <div class="small-6 columns">
+                  <div class="preference-option make-switch switch-small">
+                    <%= check_box_tag "Facebook", 'yes', @user.facebook_contact, class: "no-custom" %>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="preference-last">
-              <div class="preference-logo"><i class="fa fa-mobile"></i> SMS</div>
-              <div class="preference-option make-switch switch-small">
-                <%= check_box_tag "Facebook", 'yes', @user.facebook_contact, class: "no-custom" %>
+              <div class="row">
+                <div class="small-6 columns">
+                  <div class="preference-logo"><i class="fa fa-mobile"></i> SMS</div>
+                </div>
+                <div class="small-6 columns">
+                  <div class="preference-option make-switch switch-small">
+                    <%= check_box_tag "Facebook", 'yes', @user.facebook_contact, class: "no-custom" %>
+                  </div>
+                </div>
               </div>
             </div>
             <%= submit_tag "Save", class: 'button' %>

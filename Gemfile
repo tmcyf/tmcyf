@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 # Use Thin instead of Webrick
 gem 'thin'
+
 # DATABASE
 gem 'pg'
 
@@ -46,7 +47,6 @@ gem 'factory_girl_rails', group: :test
 # DEPLOYMENT
 gem 'unicorn'
 gem 'capistrano', group: :development
-gem 'thin', group: :development
 
 # MONITORING
 gem 'newrelic_rpm'
