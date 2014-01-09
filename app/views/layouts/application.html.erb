@@ -14,9 +14,12 @@
   	<title><%= full_title(yield(:title)) %></title>
     <meta name="description" content="Passion for God, Passion for Others!">
   	<%= stylesheet_link_tag    "application" %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <style type="text/css">body { border-top: 7px solid #c73f3f }</style>
     <%= csrf_meta_tags %>
     <%= tag :meta, :name => "stripe-key", :content => ENV['STRIPE_PUBLIC_KEY'] %>
+    <script type="text/javascript" src="//use.typekit.net/kom6fjp.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   </head>
   <body>
     <%= render 'layouts/header' %>
@@ -29,7 +32,6 @@
     <%= render 'layouts/footer' %>
 
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= javascript_include_tag "https://js.stripe.com/v2/" %>
     <%= javascript_include_tag "https://checkout.stripe.com/v2/checkout.js" %>
   </body>
