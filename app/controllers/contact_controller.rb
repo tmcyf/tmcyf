@@ -1,6 +1,5 @@
 class ContactController < ApplicationController
-  require 'faraday'
-  require 'faraday_middleware'
+
   skip_before_filter :verify_authenticity_token, :only => [:receive_sms]
 
   def send_sms
@@ -13,14 +12,12 @@ class ContactController < ApplicationController
     from_num = params["From"]
 
     jsonbody = {
-      :payload => "hi"
+      :text => "This here be some text"
     }.to_json
 
-    @response = Net::HTTP.new("https://tmcyf.slack.com").request_post('/services/hooks/incoming-webhook?token=lFAo4KrEmegGC3IoBnbfYvdP', jsonbody, initheader = {'Content-Type' =>'application/json'})
+    @response = Net::HTTP.new("https://tmcyf.slack.com/services/hooks/incoming-webhook?token=lFAo4KrEmegGC3IoBnbfYvdP", 'payload' => jsonbody)
 
-    respond_to do |format|
-      format.json { render :json => @response }
-    end
+    render json: @response
   end
 
   def send_all_message
