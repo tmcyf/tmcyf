@@ -1,8 +1,26 @@
 class ContactController < ApplicationController
+  require 'faraday'
+  require 'faraday_middleware'
+  skip_before_filter :verify_authenticity_token, :only => [:receive_sms]
 
   def send_sms
     # validate that user is an admin
     redirect_to :root unless current_user && current_user.admin?
+  end
+
+  def receive_sms
+    msg_body = params["Body"]
+    from_num = params["From"]
+
+    jsonbody = {
+      :payload => "hi"
+    }.to_json
+
+    @response = Net::HTTP.new("https://tmcyf.slack.com").request_post('/services/hooks/incoming-webhook?token=lFAo4KrEmegGC3IoBnbfYvdP', jsonbody, initheader = {'Content-Type' =>'application/json'})
+
+    respond_to do |format|
+      format.json { render :json => @response }
+    end
   end
 
   def send_all_message
