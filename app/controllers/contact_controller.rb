@@ -11,18 +11,14 @@ class ContactController < ApplicationController
     msg_body = params["Body"]
     from_num = params["From"]
 
-    jsonbody = {
-      :text => "Text from #{from_num}: #{msg_body}"
-    }
+    payload = {
+      :text => "From: #{from_num}. Message: #{msg_body}"
+    }.to_json
 
-    uri = URI.parse("http://requestb.in/19m43211")
-    req = Net::HTTP::Post.new(uri.path)
-    req.body = JSON.generate(jsonbody)
-    req["Content-Type"] = "application/json"
-    http = Net::HTTP.new(uri.host, uri.port)
-    @response = http.start {|http| http.request(req)}
+    uri = URI('https://tmcyf.slack.com/services/hooks/incoming-webhook?token=lFAo4KrEmegGC3IoBnbfYvdP')
+    @res = Net::HTTP.post_form(uri, 'payload' => payload)
 
-    render json: @response
+    render json: @res
   end
 
   def send_all_message
