@@ -48,6 +48,7 @@ Static::Application.routes.draw do
   get '/account/preferences'        => 'pages#preferences'
   post '/account/preferences'       => 'pages#update_preferences'
   get '/privacy_policy'             => 'pages#privacy_policy'
-  get '/admin/send_sms'          => 'contact#send_sms', as: "send_sms"
+  get '/admin/send_sms'             => 'contact#send_sms', as: "send_sms"
+  post '/admin/receive_sms'         => 'contact#receive_sms', as: "receive_sms"
   post '/admin/send_message'        => 'contact#send_all_message', as: "send_message"
 end
