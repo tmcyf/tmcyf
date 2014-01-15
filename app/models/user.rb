@@ -152,37 +152,18 @@ class User < ActiveRecord::Base
     end
   end
   def profile_completion_percentage
-    # TODO: We want to avoid hardcoding this; how do we link the elements  of
-    # the required profile items array to the contents of the profile form?
-    # If we keep this hardcoded, every update of the profile form will require
-    # this to be updated, or else we'll break the profile_completion_percentage
-    # indicator
-    required_profile_items = [ :email, :fname, :lname, :phone, :gender, :birthday, :city, :state, :zip, :shirtsize, :email_contact, :facebook_contact, :sms_contact ]
-    total = required_profile_items.size
-    completed = 0.0
-    # This method is tricky because the database does not reliably return "nil" from
-    # profile items that are semantically "empty."
-    # This debugging code helped me understand which profile items I can't reliably use nil
-    # to detect.
-    # required_profile_items.each do |k|
-    #  logger.info self[k]
-    #  logger.info self[k].class
-    #  logger.info "#{k} #{ self[k].nil? ? "is nil" : "is not nil" }"
-    # end
-    # TODO: there is DEFINITELY a cleaner way to do this
-    required_profile_items.each do |k|
-      item = self[k]
-      # TODO: annoyingly, the DateTime class does not respond to the .empty?
-      # method, hence this stupid special case check. Figure out a better way
-      # to do this.
-      if item.respond_to? :empty?
-        completed += 1 unless item.empty? or item.nil?
+    required_items = [ :email, :fname, :lname, :phone, :gender, :birthday, :city, :state, :zip, :shirtsize, :email_contact, :facebook_contact, :sms_contact ]
+    # count number of empty or nil items, add them up, and divide by total
+    # number of required items
+    # in a perfect world, Date would respond to the .empty? method so this
+    # could be one beautiful line of code
+    required_items.map do |k| 
+      if self[k].respond_to? :empty?
+        self[k].empty? ? 0 : 1
       else
-        completed += 1 unless item.nil?
+        self[k].nil? ? 0 : 1
       end
-    end
-    # calculate the average, round the result
-    ((completed / total)* 100).round
+    end.reduce(:+).to_f / required_items.size * 100
   end
 
   private
