@@ -95,6 +95,12 @@ fieldset {
 .side-nav li.active > a:first-child {
   color: $primary; }
 
+span.error {
+  display: block;
+  font-weight: bold;
+  color: $primary;
+  background: #eee;
+}
 @media only screen and (max-width: 767px) {
   .about-nav li.active > a:first-child {
     color: #eee;
