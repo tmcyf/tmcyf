@@ -157,7 +157,7 @@ class User < ActiveRecord::Base
     # number of required items
     # in a perfect world, Date would respond to the .empty? method so this
     # could be one beautiful line of code
-    required_items.map do |k| 
+    required_items.map do |k|
       if self[k].respond_to? :empty?
         self[k].empty? ? 0 : 1
       else
