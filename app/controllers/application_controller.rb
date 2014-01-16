@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
         request.fullpath != "/register" &&
         request.fullpath != "/reset" &&
         !request.xhr?) # don't store ajax calls
-      session[:previous_url] = request.fullpath 
+      session[:previous_url] = request.fullpath
     end
   end
 
