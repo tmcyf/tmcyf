@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :payments
   has_many :retreat_registrations
 
+  validates_format_of :phone, :with => /\d*[1-9]\d*/i, :on => :update, message: "This isn't a valid number!"
+
   def fullname
     self.fname ? self.fname + " " + self.lname : nil
   end
