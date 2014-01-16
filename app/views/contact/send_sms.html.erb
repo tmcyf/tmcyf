@@ -2,7 +2,7 @@
 	<div class="large-12">
 		<%= form_tag send_message_path %>
 		<%= label_tag "Message" %>
-		<%= text_field_tag "message" %>
+		<%= text_field_tag "message", nil, maxlength: 160 %>
 		<%= submit_tag "Send message" %>
 	</div>
 </div>
