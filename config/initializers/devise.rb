@@ -6,6 +6,8 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "no-reply@tmcyf.org"
 
+  config.secret_key = "#{ENV['SECRET_KEY_BASE}']}"
+
   # Configure the class responsible to send e-mails.
   config.mailer = "Devise::Mailer"
 
