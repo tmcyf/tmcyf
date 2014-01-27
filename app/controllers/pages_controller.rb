@@ -39,7 +39,7 @@ class PagesController < ApplicationController
   def update_preferences
     @user = current_user
     params['Facebook'] ? @user.facebook_contact=true : @user.facebook_contact=false
-    params["email"] ? @user.email_subscribe : @user.email_unsubscribe
+    params['Email'] ? @user.email_subscribe : @user.email_unsubscribe
     if params["SMS"]
       error_msg = "There was a problem subscribing you to our text alerts. Is there a valid phone number in your Profile?"
       flash[:error] = error_msg unless @user.sms_subscribe
