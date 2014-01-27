@@ -19,7 +19,7 @@ gem "jquery-rails"
 gem 'uglifier', '>= 1.3.0'
 
 # PLUGINS
-gem 'devise', '~> 3.0.0.rc'
+gem 'devise'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'fog'
