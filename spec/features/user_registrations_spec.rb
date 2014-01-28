@@ -9,6 +9,7 @@ describe "UserRegistrations" do
       fill_in "user_password_confirmation", with: "bertbert"
       click_button "Sign up"
       page.should have_content "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
+      User.last.email_contact.should be_true
     end
   end
 
