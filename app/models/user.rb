@@ -8,7 +8,12 @@ class User < ActiveRecord::Base
   has_many :retreat_registrations
   after_create :auto_optin
 
+  before_validation(on: :update) do
+    self.phone = phone.gsub(/[^0-9]/, "") if attribute_present?("phone")
+  end
+
   validates_format_of :phone, :with => /\d*[1-9]\d*/i, :on => :update, message: "This isn't a valid number!", :allow_blank => true
+  validates :phone, length: { is: 10, wrong_length: "Your number doesn't look valid. Check again!" }
 
   def fullname
     self.fname ? self.fname + " " + self.lname : nil
