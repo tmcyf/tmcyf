@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable
   has_many :payments
   has_many :retreat_registrations
+  after_create :auto_optin
 
-  validates_format_of :phone, :with => /\d*[1-9]\d*/i, :on => :update, message: "This isn't a valid number!"
+  validates_format_of :phone, :with => /\d*[1-9]\d*/i, :on => :update, message: "This isn't a valid number!", :allow_blank => true
 
   def fullname
     self.fname ? self.fname + " " + self.lname : nil
@@ -15,6 +16,19 @@ class User < ActiveRecord::Base
 
   def address
     self.line1 + self.city + self.state + self.zip
+  end
+
+  def auto_optin
+    gibbon = Gibbon::API.new
+    Gibbon::API.throws_exceptions = false
+    self.email_contact = true
+    self.save
+    if gibbon.lists.members(id: ENV['MAILCHIMP_CAMPAIGN_ID'], email: self.email)
+      gibbon.lists.subscribe(id: ENV['MAILCHIMP_CAMPAIGN_ID'],
+                             email: {email: self.email},
+                             merge_vars: {FNAME: self.fname, LNAME: self.lname},
+                             double_optin: false)
+    end
   end
 
   def new_card(stripe_token)

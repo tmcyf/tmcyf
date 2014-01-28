@@ -14,6 +14,11 @@ describe User do
     User.create!(@attr)
   end
 
+  it "should opt-in each new user to the mailing list after create" do
+    user = User.create!(@attr)
+    user.email_contact.should be_true
+  end
+
   it "should require an email address" do
     no_email_user = User.new(@attr.merge(:email => ""))
     no_email_user.should_not be_valid
