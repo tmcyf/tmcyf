@@ -52,4 +52,5 @@ Static::Application.routes.draw do
   get '/admin/send_sms'             => 'contact#send_sms', as: "send_sms"
   post '/admin/receive_sms'         => 'contact#receive_sms', as: "receive_sms"
   post '/admin/send_message'        => 'contact#send_all_message', as: "send_message"
+  get ':status', to: 'errors#show', constraints: {status: /\d{3}/}
 end
