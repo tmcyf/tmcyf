@@ -19,15 +19,13 @@ WORKFLOW:
 - develop feature til test passes
 - commit
 - add screenshot to issue demonstrating changes to app
-- create pull request
+- create pull request with list of routes affected
 - review pull request & merge with develop
 - delete feature branch
 - close issue
 - merge develop with deploy
 
 TODO:
-- [ ] stripe refunds
-- [ ] improve test coverage
 - [ ] question-answer 'forum'
 - [ ] events page rsvp
 
