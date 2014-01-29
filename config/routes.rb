@@ -40,6 +40,7 @@ Static::Application.routes.draw do
     get '/about/service'            => 'pages#about_service'
     get '/about/socials'            => 'pages#about_socials'
     get '/about/officers'           => 'pages#about_officers'
+    get '/about/officers/past'      => 'pages#officers_archive'
     get '/about/contact'            => 'pages#about_contact'
   get '/biblestudy'                 => 'pages#biblestudy'
   get '/account'                    => 'pages#account'
