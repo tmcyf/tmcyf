@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
     self.phone = phone.gsub(/[^0-9]/, "") if attribute_present?("phone")
   end
 
-  validates_format_of :phone, :with => /\d*[1-9]\d*/i, :on => :update, message: "This isn't a valid number!", :allow_blank => true, :allow_nil = true
+  validates_format_of :phone, :with => /\d*[1-9]\d*/i, :on => :update, message: "This isn't a valid number!", :allow_blank => true, :allow_nil => true
   validates :phone, length: { is: 10, wrong_length: "Your number doesn't look valid. Check again!" }
 
   def fullname
