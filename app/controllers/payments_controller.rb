@@ -10,7 +10,7 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.create # should include the event id & current user
     @payment.event = Event.friendly.find(params[:event_id])
-    @payment.last4 = current_user.credit_card.last4 # TODO: cache this value
+    @payment.last4 = current_user.credit_card.last4
     # TODO: I think this is an anti-pattern? Try current_user.payment.build or
     # something to that effect
     @payment.user = current_user
