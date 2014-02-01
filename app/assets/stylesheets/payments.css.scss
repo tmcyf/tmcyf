@@ -1,3 +1,25 @@
-// Place all the styles related to the payments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'global';
+
+div.payments td {
+  line-height: 1em;
+}
+
+.button {
+  &.btn-link {
+  font-weight: normal;
+  padding: 10px 0 10px 0;
+  border: none;
+  margin: 12px 0 0 0;
+  &:hover {
+    color: $primary-muted;
+    text-decoration: underline;
+    background-color: transparent;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  div.payments td {
+    padding: .3em;
+  }
+}

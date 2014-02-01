@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 # Use Thin instead of Webrick
 gem 'thin'
+
 # DATABASE
 gem 'pg'
 
@@ -14,7 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails'
 gem 'zurb-foundation', '~> 4.2.3'
 gem 'font-awesome-rails'
-gem 'jquery-rails'
+gem "jquery-rails"
 gem 'uglifier', '>= 1.3.0'
 
 # PLUGINS
@@ -31,7 +32,7 @@ gem 'rmagick', '2.13.2'
 gem 'icalendar'
 gem 'figaro'
 gem 'redcarpet'
-
+gem 'active_link_to'
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 
@@ -47,7 +48,6 @@ gem 'factory_girl_rails', group: :test
 # DEPLOYMENT
 gem 'unicorn'
 gem 'capistrano', group: :development
-gem 'thin', group: :development
 
 # MONITORING
 gem 'newrelic_rpm'

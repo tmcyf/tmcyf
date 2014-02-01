@@ -1,0 +1,9 @@
+@import 'global';
+
+a.shared-links-a {
+  color: $primary;
+  &:hover {
+    text-decoration: underline;
+    color: $primary-muted;
+  }
+}
