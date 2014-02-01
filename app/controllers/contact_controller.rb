@@ -41,7 +41,6 @@ class ContactController < ApplicationController
 
   private
   def message_chunks
-    binding.pry
     # message limit is 160 chars
     # need to leave 6 chars for the msg index (e.g. "(5/6)" or "(5/10)")
     params[:message].scan(/.{1,154}/)
