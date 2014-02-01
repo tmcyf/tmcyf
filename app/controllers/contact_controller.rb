@@ -28,12 +28,12 @@ class ContactController < ApplicationController
     if params[:message].length > 160
       numbers_to_sms.each do |number| 
         message_chunks.each_with_index do |message, index|
-          text_contact(message + "#{index+1}/#{message_chunks.length}", number)
+          text_contact(message + "(#{index+1}/#{message_chunks.length})", number)
         end
       end
     else
       numbers_to_sms.each do |number| 
-        text_contact(message, number)
+        text_contact(params[:message], number)
       end
     end
     redirect_to send_sms_path
@@ -41,8 +41,10 @@ class ContactController < ApplicationController
 
   private
   def message_chunks
-    # need to leave 5 chars for the msg index (e.g. "5/6")
-    params[:message].scan(/.{155}/)
+    binding.pry
+    # message limit is 160 chars
+    # need to leave 6 chars for the msg index (e.g. "(5/6)" or "(5/10)")
+    params[:message].scan(/.{1,154}/)
   end
   def text_contact(message, contact_number)
     if contact_number
