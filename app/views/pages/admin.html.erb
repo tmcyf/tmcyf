@@ -25,9 +25,6 @@
 					<li style="list-style: none;"><%= fullname %></li>
 				<% end %>
 			<hr />
-      <h5>CSV of retreat registrations: </h5>
-        <%= link_to "Retreat CSV", retreat_csv_path(format: "csv") %>
-			<hr />
 				<h5>List of users:</h5>
 				<% @allusers.each do |fullname| %>
 					<li style="list-style: none;"><%= fullname %></li>
