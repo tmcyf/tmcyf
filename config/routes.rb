@@ -2,13 +2,6 @@ Static::Application.routes.draw do
 
   resources :give, only: [:index, :new, :create]
 
-  # we're adding the singular retreat path as a route to the latest/current
-  # retreat
-  get '/retreat' => "retreats#show", as: "retreat"
-  get '/retreat/csv' => "retreats#csv", as: "retreat_csv"
-  post '/retreat/register' => "retreat_registrations#create"
-
-  resources :retreats, except: [:show]
   resources :events
 
   devise_for :users,

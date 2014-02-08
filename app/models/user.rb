@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable
   has_many :payments
-  has_many :retreat_registrations
   after_create :auto_optin
 
   before_validation(on: :update) do
@@ -117,22 +116,6 @@ class User < ActiveRecord::Base
     self.sms_contact=false
   end
 
-  # TODO:
-  def registered_for_retreat?
-    puts self.retreat_registrations
-    self.retreat_registrations.any? {|r|
-      puts "Registration: ", r, "Retreat: ", r.retreat, "Retreat id: ", r.retreat.id
-      r.retreat.id.equal? Retreat.current.id }
-  end
-
-  # TODO:
-  def paid_for_retreat?
-    self.payments.any? {|p| p.event.id.equal? Retreat.current.id }
-  end
-
-  # TODO:
-  def retreat_paid_out_of_band
-  end
   # Temporary fix for now
   def dues_paid_out_of_band
     if this_years_dues
