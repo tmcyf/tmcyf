@@ -1,6 +1,14 @@
 class PagesController < ApplicationController
   before_filter :authenticate_user!, :except => [:home, :about, :about_biblestudies, :about_tribes, :about_service, :about_socials, :about_officers, :officers_archive, :about_contact, :events, :biblestudy, :privacy_policy]
 
+  def database
+    redirect_to :root unless current_user && current_user.admin?
+    @users = User.order(:lname)
+    respond_to do |format|
+      format.xls
+    end
+  end
+
   def home
     url = 'http://www.heartlight.org/cgi-shl/todaysverse.cgi'
     data = Nokogiri::HTML(open(url))
