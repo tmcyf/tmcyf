@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def database
     redirect_to :root unless current_user && current_user.admin?
-    @users = User.order(:lname)
+    @users = User.order(:city, :birthday)
     respond_to do |format|
       format.xls
     end
