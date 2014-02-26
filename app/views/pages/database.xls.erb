@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">First Name</Data></Cell>
+        <Cell><Data ss:Type="String">Last Name</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Phone</Data></Cell>
+        <Cell><Data ss:Type="String">Gender </Data></Cell>
+        <Cell><Data ss:Type="String">Birthday </Data></Cell>
+        <Cell><Data ss:Type="String">Line1 </Data></Cell>
+        <Cell><Data ss:Type="String">City </Data></Cell>
+        <Cell><Data ss:Type="String">State </Data></Cell>
+        <Cell><Data ss:Type="String">Zip </Data></Cell>
+        <Cell><Data ss:Type="String">Shirt size</Data></Cell>
+        <Cell><Data ss:Type="String">Email contact</Data></Cell>
+        <Cell><Data ss:Type="String">Facebook contact</Data></Cell>
+        <Cell><Data ss:Type="String">Sms contact</Data></Cell>
+      </Row>
+      <% @users.each do |user| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= user.fname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.lname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.email %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.phone %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.gender %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.birthday %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.line1 %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.city %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.state %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.zip %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.shirtsize %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.email_contact %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.facebook_contact %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.sms_contact %></Data></Cell>
+      </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
