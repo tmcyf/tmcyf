@@ -11,7 +11,7 @@ Static::Application.routes.draw do
                  sign_out: 'logout',
                  sign_up: 'register',
                  password: 'reset'}
-  get '/users/database' => 'pages#database'
+  get '/pages/database' => 'pages#database', as: 'database'
 
   devise_scope :user do
     get '/login'                    => 'devise/sessions#new'
