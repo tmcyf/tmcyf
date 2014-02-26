@@ -169,6 +169,15 @@ class User < ActiveRecord::Base
     end.reduce(:+).to_f / required_items.size * 100
   end
 
+  def self.to_xls
+    # an xls file is just a CSV with tabs as delimiters
+    CSV.generate(col_sep: "\t") do |csv|
+      csv << column_names
+      all.each do |user|
+        csv << user.attributes.values_at(*column_names)
+      end
+    end
+  end
   private
   def this_years_dues
     Event.where(dues: true).detect do |dues|

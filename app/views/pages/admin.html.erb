@@ -6,6 +6,10 @@
 			<div class="large-12 columns">
 				<%= link_to "Create a New Event", new_event_path, class: "new-event-link" %>
 			</div>
+
+			<div class="large-12 columns">
+				<%= link_to "Users Excel Spreadsheet", database_path(format: "xls"), class: "database-link" %>
+			</div>
 			<div class="large-12 columns">
 				<%= link_to "Create a SMS", send_sms_path, class: "new-sms-link" %>
 			</div>
