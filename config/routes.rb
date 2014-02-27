@@ -1,5 +1,6 @@
 Static::Application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin2', :as => 'rails_admin'
   resources :give, only: [:index, :new, :create]
 
   resources :events
