@@ -6,11 +6,6 @@
       <div class="large-12 columns">
         <h2>Account Status</h2>
         <p><%= "Your profile is #{@completion_percentage.round(0)}% complete." %></p>
-        <% if @dues_paid %>
-          <p>Your dues have been paid!</p>
-        <% else %>
-          <p>Your dues have not yet been paid.</p>
-        <% end %>
         <% if @has_selected_contact_preference %>
           <p> You can change your contact preferences in <%= link_to "account preferences", account_preferences_path %>. </p>
         <% else %>
