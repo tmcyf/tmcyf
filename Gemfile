@@ -28,6 +28,7 @@ gem 'twilio-ruby'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'gibbon'
 gem 'rubber', github: 'rubber/rubber'
+gem 'rails_admin'
 gem 'rmagick', '2.13.2'
 gem 'icalendar'
 gem 'figaro'
@@ -38,7 +39,7 @@ gem 'turbolinks'
 
 # TESTING
 gem 'rspec-rails'
-gem 'guard', '~> 2.2.2', group: :test
+gem 'guard', '2.3.0', group: :test
 gem 'guard-rspec', group: :test
 gem 'guard-livereload', group: :test
 gem 'capybara', group: :test
