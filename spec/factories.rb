@@ -1,5 +1,7 @@
 FactoryGirl.define do
   factory :user do
+    fname "Baz"
+    lname "Qux"
     sequence(:email) { |n| "foo#{n}@example.com" }
     password("secret12")
     # might want to consider making this optional, having "should confirm" as
