@@ -7,5 +7,8 @@ FactoryGirl.define do
     # might want to consider making this optional, having "should confirm" as
     # an argument to the factory call
     confirmed_at(DateTime.now)
+    factory :admin do
+      admin true
+    end
   end
 end
