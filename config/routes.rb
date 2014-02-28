@@ -1,11 +1,12 @@
 Static::Application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin2', :as => 'rails_admin'
   resources :give, only: [:index, :new, :create]
 
   resources :events
 
   devise_for :users,
-    controllers: { registrations: :registrations, confirmations: :confirmations },
+    controllers: { registrations: :registrations },
     path: '',
     path_names: {sign_in: 'login',
                  sign_out: 'logout',
