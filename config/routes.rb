@@ -5,7 +5,7 @@ Static::Application.routes.draw do
   resources :events
 
   devise_for :users,
-    controllers: { registrations: :registrations, confirmations: :confirmations },
+    controllers: { registrations: :registrations },
     path: '',
     path_names: {sign_in: 'login',
                  sign_out: 'logout',
