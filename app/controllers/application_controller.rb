@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   layout 'application'
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def current_admin
+    current_user && current_user.admin?
+  end
   protected
 
   def configure_permitted_parameters
