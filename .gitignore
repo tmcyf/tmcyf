@@ -3,6 +3,6 @@ tmp/
 .bundle/
 log/
 /config/application.yml
+/config/rubber/rubber.yml
 /config/certs/
-/config/rubber/
 /config/newrelic.yml
