@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   end
 
   before_validation(on: :update) do
-		self.phone = phone.gsub(/[^0-9]/, "") if attribute_present?("phone")
+    self.phone = phone.gsub(/[^0-9]/, "") if attribute_present?("phone")
   end
 
   validates_format_of :phone, with: /\d*[1-9]\d*/i, on: :update, message: "This isn't a valid number!", allow_blank: true, allow_nil: true
@@ -19,12 +19,12 @@ class User < ActiveRecord::Base
   validates_format_of :email, with: /.+@.+\..+/i, on: :create, message: "This isn't a valid email address."
   validates_format_of :email, with: /.+@.+\..+/i, on: :update, message: "This isn't a valid email address."
 
-	# ideally, this is done in the controller, but modifying Devise controllers
-	# is less straightforward than simply instantiating a mailman here
-	def auto_optin
-		mailman = Mailman.new
-		mailman.subscribe(self)
-	end
+  # ideally, this is done in the controller, but modifying Devise controllers
+  # is less straightforward than simply instantiating a mailman here
+  def auto_optin
+    mailman = Mailman.new
+    mailman.subscribe(self)
+  end
 
   def fullname
     self.fname ? self.fname + " " + self.lname : nil
