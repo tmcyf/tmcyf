@@ -6,11 +6,17 @@ class Mailman
   end
 
   def subscribe(user)
-    subscribe(user) if !mailchimp_member?(user)
+     if !mailchimp_member?(user)
+       subscribe(user) and user.email_contact=true
+       user.save!
+     end
   end
 
   def subscribe
-    unsubscribe(user) if mailchimp_member?(user)
+    if mailchimp_member?(user)
+      unsubscribe(user) and user.email_contact=false
+      user.save!
+    end
   end
 
   def mailchimp_member?(user)
