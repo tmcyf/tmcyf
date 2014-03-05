@@ -15,6 +15,36 @@
               </div>
             </div>
             <div class="row">
+          <div class="large-4 columns">
+            <%= f.input :line1, label: 'Street Address', :placeholder => "5810 Almeda-Genoa Rd" %>
+          </div>
+          <div class="large-3 columns">
+            <%= f.input :city, label: 'City', :placeholder => "Houston" %>
+          </div>
+          <div class="large-2 columns">
+            <%= f.input :state, label: 'State', :placeholder => "TX", input_html: { maxlength: 2 } %>
+          </div>
+          <div class="large-2 pull-1 columns">
+            <%= f.input :zip, label: 'Zip', :placeholder => "77048" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-3 columns">
+            <%= f.input :phone, as: :tel, :placeholder => '7139911557' %>
+          </div>
+          <div class="large-2 columns">
+            <%= f.input :gender, collection: [:Male, :Female] %>
+          </div>
+          <div class="large-5 columns">
+            <%= f.label :birthday %><br>
+            <%= f.date_select :birthday, {:include_blank => true, :default => nil, :order => [:month, :day, :year], :start_year => Date.today.year - 13, :end_year => 1970} %>
+          </div>
+          <div class="large-2 columns">
+            <%= f.label :shirt_size %><br>
+            <%= f.input_field :shirtsize, collection: [:XS, :S, :M, :L, :XL] %>
+          </div>
+        </div>
+            <div class="row">
               <div class="large-4 columns">
                 <%= f.input :email, :required => true %>
               </div>
