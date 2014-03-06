@@ -22,11 +22,6 @@ class PagesController < ApplicationController
   def biblestudy
   end
 
-  def account
-    @completion_percentage = current_user.profile_completion_percentage
-    @has_selected_contact_preference = current_user.has_selected_contact_preference?
-  end
-
   def admin
     redirect_to :root unless current_user && current_user.admin?
     @fbname = User.where(facebook_contact: true).collect { |user| user.fullname }
