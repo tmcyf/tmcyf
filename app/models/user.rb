@@ -72,26 +72,6 @@ class User < ActiveRecord::Base
     self.sms_contact=false
   end
 
-  def has_selected_contact_preference?
-    [ :email_contact, :facebook_contact, :sms_contact ].any? do |c|
-      self[c]
-    end
-  end
-  def profile_completion_percentage
-    required_items = [ :email, :fname, :lname, :phone, :gender, :birthday, :city, :state, :zip, :shirtsize, :email_contact, :facebook_contact, :sms_contact ]
-    # count number of empty or nil items, add them up, and divide by total
-    # number of required items
-    # in a perfect world, Date would respond to the .empty? method so this
-    # could be one beautiful line of code
-    required_items.map do |k|
-      if self[k].respond_to? :empty?
-        self[k].empty? ? 0 : 1
-      else
-        self[k].nil? ? 0 : 1
-      end
-    end.reduce(:+).to_f / required_items.size * 100
-  end
-
   def self.to_xls
     # an xls file is just a CSV with tabs as delimiters
     CSV.generate(col_sep: "\t") do |csv|
