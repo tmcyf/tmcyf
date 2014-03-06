@@ -1,15 +1,15 @@
-<% provide(:title, 'Edit profile') %>
+<% provide(:title, "Edit profile") %>
 <div class="row">
-  <%= render 'layouts/account_menu' %>
+  <%= render "layouts/account_menu" %>
   <div class="large-9 columns">
     <fieldset class="fields">
       <div class="large-12 columns">
         <h2>Edit Your Profile</h2>
-        <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :method => :put }) do |f| %>
         <%= f.error_notification %>
         <div class="row">
           <div class="large-4 columns">
-            <%= f.input :email, :required => true, :autofocus => true %>
+            <%= f.input :email, required: true, autofocus: true %>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
             <% end %>
@@ -17,51 +17,49 @@
         </div>
         <div class="row">
           <div class="large-3 columns">
-            <%= f.input :fname, label: 'First Name', :placeholder => "John", :required => true %>
+            <%= f.input :fname, label: "First Name", placeholder: "John", required: true %>
           </div>
           <div class="large-4 pull-5 columns">
-            <%= f.input :lname, label: 'Last Name', :placeholder => "Smith", :required => true %>
+            <%= f.input :lname, label: "Last Name", placeholder: "Smith", required: true %>
           </div>
         </div>
         <div class="row">
           <div class="large-4 columns">
-            <%= f.input :line1, label: 'Street Address', :placeholder => "5810 Almeda-Genoa Rd" %>
+            <%= f.input :line1, label: "Street Address", placeholder: "5810 Almeda-Genoa Rd" %>
           </div>
           <div class="large-3 columns">
-            <%= f.input :city, label: 'City', :placeholder => "Houston" %>
+            <%= f.input :city, label: "City", placeholder: "Houston" %>
           </div>
           <div class="large-2 columns">
-            <%= f.input :state, label: 'State', :placeholder => "TX", input_html: { maxlength: 2 } %>
+            <%= f.input :state, label: "State", placeholder: "TX", input_html: { maxlength: 2 } %>
           </div>
           <div class="large-2 pull-1 columns">
-            <%= f.input :zip, label: 'Zip', :placeholder => "77048" %>
+            <%= f.input :zip, label: "Zip", placeholder: "77048" %>
           </div>
         </div>
         <div class="row">
           <div class="large-3 columns">
-            <%= f.input :phone, as: :tel, :placeholder => '7139911557' %>
+            <%= f.input :phone, as: :tel, placeholder: "7139911557" %>
           </div>
           <div class="large-2 columns">
             <%= f.input :gender, collection: [:Male, :Female] %>
           </div>
           <div class="large-5 columns">
-            <%= f.label :birthday %><br>
-            <%= f.date_select :birthday, {:include_blank => true, :default => nil, :order => [:month, :day, :year], :start_year => Date.today.year - 13, :end_year => 1970} %>
+            <%= f.input :birthday, as: :date, start_year: Date.today.year - 13, end_year: Date.today.year - 45, order: [:month, :day, :year], include_blank: true, label: "Birthday" %>
           </div>
           <div class="large-2 columns">
-            <%= f.label :shirt_size %><br>
-            <%= f.input_field :shirtsize, collection: [:XS, :S, :M, :L, :XL] %>
+            <%= f.input :shirtsize, label: "Shirt Size", collection: [:XS, :S, :M, :L, :XL] %>
           </div>
         </div>
         <div class="row">
           <div class="large-4 columns">
-            <%= f.input :current_password, :hint => "We need your current password to confirm your changes!", :required => true %>
+            <%= f.input :current_password, hint: "We need your current password to confirm your changes!", required: true %>
           </div>
           <div class="large-4 columns">
-            <%= f.input :password, label: 'New password', :autocomplete => "off", :required => false %>
+            <%= f.input :password, label: "New password", autocomplete: "off" %>
           </div>
           <div class="large-4 columns">
-            <%= f.input :password_confirmation, label: 'New password confirmation', :required => false %>
+            <%= f.input :password_confirmation, label: "New password confirmation" %>
           </div>
         </div>
         <div class="row">

@@ -1,7 +1,6 @@
 <div class="large-3 columns">
   <ul class="account-nav vertical">
-  	<li><%= link_to "Status", account_path %></li>
-    <li><%= link_to "Profile", account_profile_path %></li>
+    <li><%= link_to "Profile", account_path %></li>
     <li><%= link_to "Preferences", account_preferences_path %></li>
   	<% if current_user.try(:admin?) %>
   	<li><%= link_to "Admin", admin_path %></li>
