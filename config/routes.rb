@@ -23,9 +23,9 @@ Static::Application.routes.draw do
     put '/reset'                    => 'devise/passwords#update'
     post '/reset'                   => 'devise/passwords#create'
     get '/reset/change'             => 'devise/passwords#edit'
-    get '/account/profile'          => 'devise/registrations#edit'
-    patch '/account/profile'        => 'devise/registrations#update'
-    put '/account/profile'          => 'devise/registrations#update'
+    get '/account'                  => 'devise/registrations#edit'
+    patch '/account'        => 'devise/registrations#update'
+    put '/account'          => 'devise/registrations#update'
   end
 
   root to: 'pages#home'
@@ -38,9 +38,7 @@ Static::Application.routes.draw do
     get '/about/officers/past'      => 'pages#officers_archive'
     get '/about/contact'            => 'pages#about_contact'
   get '/biblestudy'                 => 'pages#biblestudy'
-  get '/account'                    => 'pages#account'
   get '/admin'                      => 'pages#admin'
-  get '/account/profile'            => 'pages#profile'
   get '/account/preferences'        => 'pages#preferences'
   post '/account/preferences'       => 'pages#update_preferences'
   get '/privacy_policy'             => 'pages#privacy_policy'

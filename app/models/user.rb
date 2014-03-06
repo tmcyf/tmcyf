@@ -6,11 +6,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable
   after_create :auto_optin
 
+  before_validation(on: :create) do
+    self.phone = phone.gsub(/[^0-9]/, "") if attribute_present?("phone")
+  end
+
   before_validation(on: :update) do
     self.phone = phone.gsub(/[^0-9]/, "") if attribute_present?("phone")
   end
 
   validates_format_of :phone, with: /\d*[1-9]\d*/i, on: :update, message: "This isn't a valid number!", allow_blank: true, allow_nil: true
+  validates_format_of :phone, with: /\d*[1-9]\d*/i, on: :create, message: "This isn't a valid number!", allow_blank: true, allow_nil: true
+  validates_format_of :email, with: /.+@.+\..+/i, on: :create, message: "This isn't a valid email address."
   validates_format_of :email, with: /.+@.+\..+/i, on: :update, message: "This isn't a valid email address."
 
   def fullname
@@ -64,26 +70,6 @@ class User < ActiveRecord::Base
 
   def sms_unsubscribe
     self.sms_contact=false
-  end
-
-  def has_selected_contact_preference?
-    [ :email_contact, :facebook_contact, :sms_contact ].any? do |c|
-      self[c]
-    end
-  end
-  def profile_completion_percentage
-    required_items = [ :email, :fname, :lname, :phone, :gender, :birthday, :city, :state, :zip, :shirtsize, :email_contact, :facebook_contact, :sms_contact ]
-    # count number of empty or nil items, add them up, and divide by total
-    # number of required items
-    # in a perfect world, Date would respond to the .empty? method so this
-    # could be one beautiful line of code
-    required_items.map do |k|
-      if self[k].respond_to? :empty?
-        self[k].empty? ? 0 : 1
-      else
-        self[k].nil? ? 0 : 1
-      end
-    end.reduce(:+).to_f / required_items.size * 100
   end
 
   def self.to_xls
