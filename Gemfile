@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 # CORE
 gem 'rails', '4.0.0'
@@ -23,6 +23,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'fog'
+gem 'unf'
 gem 'friendly_id', '5.0.0.beta1'
 gem 'twilio-ruby'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
