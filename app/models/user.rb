@@ -19,10 +19,10 @@ class User < ActiveRecord::Base
   validates_format_of :email, with: /.+@.+\..+/i, on: :create, message: "This isn't a valid email address."
   validates_format_of :email, with: /.+@.+\..+/i, on: :update, message: "This isn't a valid email address."
 
-  # ideally, this is done in the controller, but modifying Devise controllers
-  # is less straightforward than simply instantiating a mailman here
   def auto_optin
-		self.email_contact = true
+    self.email_contact = true
+    self.email_subscribe
+    self.save!
   end
 
   def fullname
@@ -42,13 +42,13 @@ class User < ActiveRecord::Base
     self.sms_contact=false
   end
 
-	def email_subscribe
+  def email_subscribe
     mailman = Mailman.new
     mailman.subscribe(self)
-	end
+  end
 
-	def email_unsubscribe
+  def email_unsubscribe
     mailman = Mailman.new
     mailman.unsubscribe(self)
-	end
+  end
 end
