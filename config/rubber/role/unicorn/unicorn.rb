@@ -49,7 +49,7 @@ before_fork do |server, worker|
       # someone else did our job for us
     end
   end
-  
+
   # This option works in together with preload_app true setting
   # What is does is prevent the master process from holding
   # the database connection
@@ -79,7 +79,7 @@ after_fork do |server, worker|
       raise e
     end
   end
-  
+
   # Here we are establishing the connection after forking worker
   # processes
   defined?(ActiveRecord::Base) and
