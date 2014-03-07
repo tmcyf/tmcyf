@@ -46,7 +46,7 @@ describe "Pages" do
 
     it "should have the title 'Account'" do
       visit '/account'
-      expect(page).to have_title("Account | #{base_title}")
+      expect(page).to have_title("Edit profile | #{base_title}")
     end
   end
 
