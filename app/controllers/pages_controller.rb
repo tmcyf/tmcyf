@@ -24,9 +24,9 @@ class PagesController < ApplicationController
 
   def admin
     redirect_to :root unless current_user && current_user.admin?
-    @fbname = User.where(facebook_contact: true).collect { |user| user.fullname }
-    @emailname = User.where(email_contact: true).collect { |user| user.fullname }
-    @smsname = User.where(sms_contact: true).collect { |user| user.fullname }
+    @fb_users = User.prefers_fb.collect { |user| user.fullname }
+    @email_users = User.prefers_emails.collect { |user| user.fullname }
+    @sms_users = User.prefers_sms.collect { |user| user.fullname }
     @allusers = User.all.collect { |user| user.fullname }
   end
 
