@@ -14,7 +14,6 @@ describe "PasswordResets" do
       fill_in "user_email", with: @user.email
       click_button "Send me reset password instructions"
       page.should have_content "You will receive an email with instructions about how to reset your password in a few minutes."
-      binding.pry
       ActionMailer::Base.deliveries.last.to.should == [@user.email]
       token = extract_token_from_email(:reset_password)
       visit edit_user_password_path(@user, reset_password_token: token)
