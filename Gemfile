@@ -62,5 +62,9 @@ group :test do
   gem 'factory_girl_rails'
 end
 
-# Monitoring
-gem 'newrelic_rpm'
+# Production
+group :production do
+  gem 'unicorn'
+  gem 'therubyracer', platforms: :ruby
+  gem 'newrelic_rpm'
+end
