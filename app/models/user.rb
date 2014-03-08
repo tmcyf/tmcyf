@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   validates_format_of :email, with: /.+@.+\..+/i, on: :create, on: :update, message: "This isn't a valid email address."
   validates_format_of :phone, with: /\d*[1-9]\d*/i, on: :create, on: :update, message: "This isn't a valid number!", allow_blank: true, allow_nil: true
 
+  scope :prefers_emails, -> { where(email_contact: true) }
+  scope :prefers_sms, -> { where(sms_contact: true) }
+  scope :prefers_fb, -> { where(facebook_contact: true) }
+
   def auto_optin
     self.email_contact = true
     self.email_subscribe
