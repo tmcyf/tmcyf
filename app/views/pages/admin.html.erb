@@ -18,17 +18,17 @@
 			</div>
 			<div class="large-12 columns">
 				<h5>List of users who prefer Facebook:</h5>
-				<% @fbname.each do |fullname| %>
+				<% @fb_users.each do |fullname| %>
 					<li style="list-style: none;"><%= fullname %></li>
 				<% end %>
 			<hr />
 				<h5>List of users who prefer SMS:</h5>
-				<% @smsname.each do |fullname| %>
+				<% @sms_users.each do |fullname| %>
 					<li style="list-style: none;"><%= fullname %></li>
 				<% end %>
 			<hr />
 				<h5>List of users who prefer Email:</h5>
-				<% @emailname.each do |fullname| %>
+				<% @email_users.each do |fullname| %>
 					<li style="list-style: none;"><%= fullname %></li>
 				<% end %>
 			<hr />
