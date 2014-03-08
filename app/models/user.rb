@@ -6,18 +6,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable
   after_create :auto_optin
 
-  before_validation(on: :create) do
+  before_validation(on: :create, on: :update) do
     self.phone = phone.gsub(/[^0-9]/, "") if attribute_present?("phone")
   end
 
-  before_validation(on: :update) do
-    self.phone = phone.gsub(/[^0-9]/, "") if attribute_present?("phone")
-  end
-
-  validates_format_of :phone, with: /\d*[1-9]\d*/i, on: :update, message: "This isn't a valid number!", allow_blank: true, allow_nil: true
-  validates_format_of :phone, with: /\d*[1-9]\d*/i, on: :create, message: "This isn't a valid number!", allow_blank: true, allow_nil: true
-  validates_format_of :email, with: /.+@.+\..+/i, on: :create, message: "This isn't a valid email address."
-  validates_format_of :email, with: /.+@.+\..+/i, on: :update, message: "This isn't a valid email address."
+  validates_format_of :email, with: /.+@.+\..+/i, on: :create, on: :update, message: "This isn't a valid email address."
+  validates_format_of :phone, with: /\d*[1-9]\d*/i, on: :create, on: :update, message: "This isn't a valid number!", allow_blank: true, allow_nil: true
 
   def auto_optin
     self.email_contact = true
