@@ -1,7 +1,5 @@
-TMCYF.org
+TMCYF.org [![Code Climate](https://codeclimate.com/github/tmcyf/tmcyf.png)](https://codeclimate.com/github/tmcyf/tmcyf) [![Build Status](https://travis-ci.org/tmcyf/tmcyf.png?branch=master)](https://travis-ci.org/tmcyf/tmcyf)
 =======
-[![Code Climate](https://codeclimate.com/github/tmcyf/tmcyf.png)](https://codeclimate.com/github/tmcyf/tmcyf)
-[![Build Status](https://travis-ci.org/tmcyf/tmcyf.png?branch=master)](https://travis-ci.org/tmcyf/tmcyf)
 
 Source for the Trinity Mar Thoma Church Youth Fellowship website.
 
