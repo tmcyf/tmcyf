@@ -9,4 +9,8 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-TMCYF::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']
+if Rails.env.test?
+  TMCYF::Application.config.secret_key_base = '6f4215a01935d53dab0189d6b1f8d'
+else
+  TMCYF::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']
+end
