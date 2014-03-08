@@ -14,7 +14,6 @@ gem 'font-awesome-rails'
 gem "jquery-rails"
 gem 'uglifier', '>= 1.3.0'
 gem 'redcarpet'
-gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 
 # Authentication and Authorization
