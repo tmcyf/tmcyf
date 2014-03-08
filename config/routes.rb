@@ -12,38 +12,38 @@ TMCYF::Application.routes.draw do
                  sign_out: 'logout',
                  sign_up: 'register',
                  password: 'reset'}
-  get '/pages/database' => 'pages#database', as: 'database'
+  get '/pages/database', to: 'pages#database', as: 'database'
 
   devise_scope :user do
-    get '/login'                    => 'devise/sessions#new'
-    get '/logout'                   => 'devise/sessions#destroy'
-    get '/register'                 => 'devise/registrations#new'
-    post '/register'                => 'devise/registrations#create'
-    get '/reset'                    => 'devise/passwords#new'
-    put '/reset'                    => 'devise/passwords#update'
-    post '/reset'                   => 'devise/passwords#create'
-    get '/reset/change'             => 'devise/passwords#edit'
-    get '/account'                  => 'devise/registrations#edit'
-    patch '/account'        => 'devise/registrations#update'
-    put '/account'          => 'devise/registrations#update'
+    get '/login',                   to: 'devise/sessions#new'
+    get '/logout',                  to: 'devise/sessions#destroy'
+    get '/register',                to: 'devise/registrations#new'
+    post '/register',               to: 'devise/registrations#create'
+    get '/reset',                   to: 'devise/passwords#new'
+    put '/reset',                   to: 'devise/passwords#update'
+    post '/reset',                  to: 'devise/passwords#create'
+    get '/reset/change',            to: 'devise/passwords#edit'
+    get '/account',                 to: 'devise/registrations#edit'
+    patch '/account',               to: 'devise/registrations#update'
+    put '/account',                 to: 'devise/registrations#update'
   end
 
   root to: 'pages#home'
-  get '/about'                      => 'pages#about'
-    get '/about/biblestudies'       => 'pages#about_biblestudies'
-    get '/about/tribes'             => 'pages#about_tribes'
-    get '/about/service'            => 'pages#about_service'
-    get '/about/socials'            => 'pages#about_socials'
-    get '/about/officers'           => 'pages#about_officers'
-    get '/about/officers/past'      => 'pages#officers_archive'
-    get '/about/contact'            => 'pages#about_contact'
-  get '/biblestudy'                 => 'pages#biblestudy'
-  get '/admin'                      => 'pages#admin'
-  get '/account/preferences'        => 'pages#preferences'
-  post '/account/preferences'       => 'pages#update_preferences'
-  get '/privacy_policy'             => 'pages#privacy_policy'
-  get '/admin/send_sms'             => 'contact#send_sms', as: "send_sms"
-  post '/admin/receive_sms'         => 'contact#receive_sms', as: "receive_sms"
-  post '/admin/send_message'        => 'contact#send_all_message', as: "send_message"
+  get '/about',                     to: 'pages#about'
+    get '/about/biblestudies',      to: 'pages#about_biblestudies'
+    get '/about/tribes',            to: 'pages#about_tribes'
+    get '/about/service',           to: 'pages#about_service'
+    get '/about/socials',           to: 'pages#about_socials'
+    get '/about/officers',          to: 'pages#about_officers'
+    get '/about/officers/past',     to: 'pages#officers_archive'
+    get '/about/contact',           to: 'pages#about_contact'
+  get '/biblestudy',                to: 'pages#biblestudy'
+  get '/admin',                     to: 'pages#admin'
+  get '/account/preferences',       to: 'pages#preferences'
+  post '/account/preferences',      to: 'pages#update_preferences'
+  get '/privacy_policy',            to: 'pages#privacy_policy'
+  get '/admin/send_sms',            to: 'contact#send_sms', as: "send_sms"
+  post '/admin/receive_sms',        to: 'contact#receive_sms', as: "receive_sms"
+  post '/admin/send_message',       to: 'contact#send_all_message', as: "send_message"
   get ':status', to: 'errors#show', constraints: {status: /\d{3}/}
 end
