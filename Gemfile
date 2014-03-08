@@ -1,15 +1,11 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-# CORE
 gem 'rails', '4.0.0'
 
-# Use Thin instead of Webrick
-gem 'thin'
-
-# DATABASE
+# Database
 gem 'pg'
 
-# ASSETS
+# Frontend
 gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails'
@@ -17,47 +13,54 @@ gem 'zurb-foundation', '~> 4.2.3'
 gem 'font-awesome-rails'
 gem "jquery-rails"
 gem 'uglifier', '>= 1.3.0'
+gem 'redcarpet'
+gem 'turbolinks'
 
-# PLUGINS
+# Authentication and Authorization
 gem 'devise'
-gem 'simple_form'
+
+# Upload
 gem 'carrierwave'
 gem 'fog'
 gem 'unf'
+
+# Other tools
+gem 'simple_form'
 gem 'friendly_id', '5.0.0.beta1'
+gem 'rails_admin'
+gem 'mini_magick'
+gem 'icalendar'
+gem 'active_link_to'
+gem 'rubber', github: 'rubber/rubber'
+gem 'dotenv-rails'
+
+# External services
 gem 'twilio-ruby'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'gibbon'
-gem 'rubber', github: 'rubber/rubber'
-gem 'rails_admin'
-gem 'rmagick', '2.13.2'
-gem 'icalendar'
-gem 'figaro'
-gem 'redcarpet'
-gem 'active_link_to'
-gem 'therubyracer', platforms: :ruby
-gem 'turbolinks'
 
-# TESTING
-gem 'rspec-rails'
-gem 'guard', '2.3.0', group: :test
-gem 'guard-rspec', group: :test
-gem 'guard-livereload', group: :test
-gem 'capybara', group: :test
-gem 'factory_girl_rails', group: :test
+# Development
+group :development do
+  gem 'puma'
+  gem 'letter_opener'
+  gem 'debugger'
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'pry'
+  gem 'open4'
+end
 
-# DEPLOYMENT
-gem 'unicorn'
-gem 'capistrano', group: :development
+# Testing
+group :test do
+  gem 'rspec-rails'
+  gem 'guard', '2.3.0'
+  gem 'guard-rspec'
+  gem 'guard-livereload'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+end
 
-# MONITORING
+# Monitoring
 gem 'newrelic_rpm'
-
-# Use debugger
-gem 'debugger', group: :development
-gem 'better_errors', group: :development
-gem 'quiet_assets', group: :development
-gem 'binding_of_caller', group: :development
-gem 'meta_request', group: :development
-gem 'pry', group: :development
-gem 'open4'
