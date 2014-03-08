@@ -19,6 +19,12 @@ class User < ActiveRecord::Base
   validates_format_of :email, with: /.+@.+\..+/i, on: :create, message: "This isn't a valid email address."
   validates_format_of :email, with: /.+@.+\..+/i, on: :update, message: "This isn't a valid email address."
 
+  def auto_optin
+    self.email_contact = true
+    self.email_subscribe
+    self.save!
+  end
+
   def fullname
     self.fname ? self.fname + " " + self.lname : nil
   end
@@ -27,42 +33,6 @@ class User < ActiveRecord::Base
     self.line1 + self.city + self.state + self.zip
   end
 
-  def auto_optin
-    gibbon = Gibbon::API.new
-    Gibbon::API.throws_exceptions = false
-    self.email_contact = true
-    self.save
-    if gibbon.lists.members(id: ENV['MAILCHIMP_CAMPAIGN_ID'], email: self.email)
-      gibbon.lists.subscribe(id: ENV['MAILCHIMP_CAMPAIGN_ID'],
-                             email: {email: self.email},
-                             merge_vars: {FNAME: self.fname, LNAME: self.lname},
-                             double_optin: false)
-    end
-  end
-
-  def email_subscribe
-    gibbon = Gibbon::API.new
-    Gibbon::API.throws_exceptions = false
-    self.email_contact = true
-    if gibbon.lists.members(id: ENV['MAILCHIMP_CAMPAIGN_ID'], email: self.email)
-      gibbon.lists.subscribe(id: ENV['MAILCHIMP_CAMPAIGN_ID'],
-                             email: {email: self.email},
-                             merge_vars: {FNAME: self.fname, LNAME: self.lname},
-                             double_optin: false)
-    end
-  end
-
-  def email_unsubscribe
-    gibbon = Gibbon::API.new
-    Gibbon::API.throws_exceptions = false
-    self.email_contact = false
-    if gibbon.lists.members(id: ENV['MAILCHIMP_CAMPAIGN_ID'], email: self.email)
-      gibbon.lists.unsubscribe(id: ENV['MAILCHIMP_CAMPAIGN_ID'],
-                             email: {email: self.email},
-                             merge_vars: {FNAME: self.fname, LNAME: self.lname},
-                             double_optin: false)
-    end
-  end
 
   def sms_subscribe
     self.phone? ? self.sms_contact = true : false
@@ -72,13 +42,13 @@ class User < ActiveRecord::Base
     self.sms_contact=false
   end
 
-  def self.to_xls
-    # an xls file is just a CSV with tabs as delimiters
-    CSV.generate(col_sep: "\t") do |csv|
-      csv << column_names
-      all.each do |user|
-        csv << user.attributes.values_at(*column_names)
-      end
-    end
+  def email_subscribe
+    mailman = Mailman.new
+    mailman.subscribe(self)
+  end
+
+  def email_unsubscribe
+    mailman = Mailman.new
+    mailman.unsubscribe(self)
   end
 end
