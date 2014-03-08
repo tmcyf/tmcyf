@@ -2,7 +2,8 @@
 tmp/
 .bundle/
 log/
-/config/application.yml
+.env
+.env.development
 /config/rubber/rubber.yml
 /config/certs/
 /config/newrelic.yml
