@@ -14,8 +14,8 @@ describe "UserConfirmation" do
       fill_in "user_fname", :with => @user.fname
       fill_in "user_lname", :with => @user.lname
       fill_in "user_email", :with => @user.email
-      fill_in "user_password", :with => "foobar2000"
-      fill_in "user_password_confirmation", :with => "foobar2000"
+      fill_in "user_password", :with => @user.password
+      fill_in "user_password_confirmation", :with => @user.password
       click_button "Sign up"
       page.should have_content "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
       ActionMailer::Base.deliveries.last.to.should == [@user.email]

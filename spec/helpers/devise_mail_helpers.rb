@@ -2,7 +2,7 @@ module Features
   module MailHelpers
 
     def last_email
-      ActionMailer::Base.deliveries[0]
+      ActionMailer::Base.deliveries.last
     end
 
     def extract_token_from_email(token_name)
