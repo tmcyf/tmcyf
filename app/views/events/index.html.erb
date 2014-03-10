@@ -1,7 +1,7 @@
 <% provide(:title, 'Events') %>
 <div class="row">
   <div class="large-12 columns">
-      <% @events.each_with_index do |event, index| %>
+    <% @events.each_with_index do |event, index| %>
       <div class="row">
         <article>
           <div class="large-6 columns">
@@ -17,6 +17,9 @@
       <% unless index == @events.size - 1 %>
         <hr />
       <% end %>
-      <% end %>
+    <% end %>
+    <div class="pagination center">
+      <%= paginate @events %>
+    </div>
   </div>
 </div>
