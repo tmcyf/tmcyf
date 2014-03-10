@@ -25,6 +25,7 @@ gem 'fog'
 gem 'unf'
 
 # Other tools
+gem 'kaminari'
 gem 'simple_form'
 gem 'friendly_id', '5.0.0.beta1'
 gem 'rails_admin'
