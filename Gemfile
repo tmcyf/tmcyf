@@ -43,7 +43,6 @@ gem 'gibbon'
 group :development do
   gem 'puma'
   gem 'letter_opener'
-  gem 'debugger'
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'binding_of_caller'
