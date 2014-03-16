@@ -92,8 +92,7 @@ describe User do
       should allow_value('foo@example.com').
       for(:email).
       on(:create).
-      on(:update).
-      with_message("This isn't a valid email address.")
+      on(:update)
     end
 
     it do
@@ -102,6 +101,16 @@ describe User do
       on(:create).
       on(:update).
       with_message("This isn't a valid email address.")
+    end
+  end
+
+  describe "phone validations" do
+    it do
+      should allow_value('1234567890', "", nil).
+      for(:phone).
+      on(:create).
+      on(:update).
+      with_message("This isn't a valid number!")
     end
   end
 end
