@@ -86,4 +86,22 @@ describe User do
       User.new(hash).should_not be_valid
     end
   end
+
+  describe "email validations" do
+    it do
+      should allow_value('foo@example.com').
+      for(:email).
+      on(:create).
+      on(:update).
+      with_message("This isn't a valid email address.")
+    end
+
+    it do
+      should_not allow_value('foo.com', '1234', 'urmom').
+      for(:email).
+      on(:create).
+      on(:update).
+      with_message("This isn't a valid email address.")
+    end
+  end
 end
