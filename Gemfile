@@ -49,6 +49,7 @@ group :development do
   gem 'meta_request'
   gem 'pry'
   gem 'open4'
+  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 end
 
 # Testing
