@@ -1,7 +1,6 @@
 development:
   adapter: postgresql
-  database: tmcyf_helios
-  user: tmcyf
+  database: db_development
   pool: 5
   timeout: 5000
 test:
