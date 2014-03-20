@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
   end
 
   def fullname
-    self.fname ? self.fname + " " + self.lname : nil
+    "#{self.fname} #{self.lname}"
   end
 
   def address
