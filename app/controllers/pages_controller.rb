@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     @votd = data.at_css(".todays-verse-verse").text
     @votdref = data.at_css(".todays-verse-ref").text
 
-    @featured_events = FeaturedEvent.last
+    @featured_event = FeaturedEvent.last
   end
 
   def about
