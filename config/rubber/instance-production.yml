@@ -27,6 +27,10 @@
   - !ruby/object:Rubber::Configuration::RoleItem
     name: web_toolss
     options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: db
+    options:
+      primary: true
   instance_id: i-dbfdcdfa
   image_type: m1.small
   image_id: ami-0b9c9f62
@@ -40,7 +44,7 @@
   - tmcyf_production_common
   - tmcyf_production_collectd
   - tmcyf_production_monit
-  - tmcyf_production_web_toolss
+  - tmcyf_production_web_tools
   external_host: ec2-54-81-165-103.compute-1.amazonaws.com
   external_ip: 54.81.165.103
   internal_host: ip-10-165-12-67.ec2.internal
