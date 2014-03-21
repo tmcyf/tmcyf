@@ -4,6 +4,16 @@ describe User do
 
   before(:each) do
     @attr = {
+      :fname => "Baz",
+      :lname => "Qux",
+      :line1 => "5810 Almeda-Genoa Rd",
+      :city => "Houston",
+      :state => "TX",
+      :zip => "77048",
+      :phone => "7139911557",
+      :gender => "Male",
+      :birthday => "#{18.years.ago}",
+      :shirtsize => "L",
       :email => "user@example.com",
       :password => "changeme",
       :password_confirmation => "changeme"
