@@ -373,6 +373,7 @@ DEPENDENCIES
   guard-rspec
   icalendar
   jquery-rails
+  kaminari
   letter_opener
   meta_request
   mini_magick
