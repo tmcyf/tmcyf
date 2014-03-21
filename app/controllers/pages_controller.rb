@@ -5,6 +5,8 @@ class PagesController < ApplicationController
     data = Nokogiri::HTML(open(url))
     @votd = data.at_css(".todays-verse-verse").text
     @votdref = data.at_css(".todays-verse-ref").text
+
+    @featured_events = FeaturedEvent.last
   end
 
   def about
