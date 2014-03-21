@@ -8,11 +8,10 @@ TMCYF::Application.routes.draw do
   devise_for :users,
     controllers: { registrations: :registrations },
     path: '',
-    path_names: {sign_in: 'login',
-                 sign_out: 'logout',
-                 sign_up: 'register',
-                 password: 'reset'}
-  get '/pages/database', to: 'pages#database', as: 'database'
+    path_names: { sign_in: 'login',
+                  sign_out: 'logout',
+                  sign_up: 'register',
+                  password: 'reset' }
 
   devise_scope :user do
     get '/login',                   to: 'devise/sessions#new'
@@ -38,9 +37,10 @@ TMCYF::Application.routes.draw do
     get '/about/officers/past',     to: 'pages#officers_archive'
     get '/about/contact',           to: 'pages#about_contact'
   get '/biblestudy',                to: 'pages#biblestudy'
-  get '/admin',                     to: 'pages#admin'
-  get '/account/preferences',       to: 'pages#preferences'
-  post '/account/preferences',      to: 'pages#update_preferences'
+  get '/admin',                     to: 'admin#dashboard'
+  get '/admin/database',            TO: 'admin#database', as: 'database'
+  get '/account/preferences',       to: 'preferences#edit'
+  post '/account/preferences',      to: 'preferences#update'
   get '/privacy_policy',            to: 'pages#privacy_policy'
   get '/admin/send_sms',            to: 'contact#send_sms', as: "send_sms"
   post '/admin/receive_sms',        to: 'contact#receive_sms', as: "receive_sms"
