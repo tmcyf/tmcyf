@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @featured_event.image_url %>
+</p>
+
+<p>
+  <strong>Event url:</strong>
+  <%= @featured_event.event_url %>
+</p>
+
+<%= link_to 'Edit', edit_featured_event_path(@featured_event) %> |
+<%= link_to 'Back', featured_events_path %>

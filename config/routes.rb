@@ -1,5 +1,7 @@
 TMCYF::Application.routes.draw do
 
+  resources :featured_events
+
   mount RailsAdmin::Engine => '/admin2', :as => 'rails_admin'
   resources :give, only: [:index, :new, :create]
 
