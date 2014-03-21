@@ -1,4 +1,7 @@
 require 'spec_helper'
+require 'helpers/auth_helpers.rb'
+include Features
+include AuthHelpers
 
 describe "Pages" do
 
@@ -31,53 +34,36 @@ describe "Pages" do
   end
 
   describe "Account page" do
-    before (:each) do
-      @user = FactoryGirl.create(:user)
-      visit "/login"
-      fill_in "user_email", with: @user.email
-      fill_in "user_password", with: @user.password
-      click_button "Sign in"
-    end
 
     it "should have the content 'Account'" do
+      sign_in
       visit '/account'
       expect(page).to have_content('Account')
     end
 
     it "should have the title 'Account'" do
+      sign_in
       visit '/account'
       expect(page).to have_title("Edit profile | #{base_title}")
     end
   end
 
   describe "Preferences page" do
-    before (:each) do
-      @user = FactoryGirl.create(:user)
-      visit "/login"
-      fill_in "user_email", with: @user.email
-      fill_in "user_password", with: @user.password
-      click_button "Sign in"
-    end
 
     it "should have the content 'Preferences'" do
+      sign_in
       visit '/account/preferences'
       expect(page).to have_content('Preferences')
     end
 
     it "should have the title 'Preferences'" do
+      sign_in
       visit '/account/preferences'
       expect(page).to have_title("Preferences | #{base_title}")
     end
   end
 
   describe "Privacy Policy page" do
-    before (:each) do
-      @user = FactoryGirl.create(:user)
-      visit "/login"
-      fill_in "user_email", with: @user.email
-      fill_in "user_password", with: @user.password
-      click_button "Sign in"
-    end
 
     it "should have the content 'Privacy Policy'" do
       visit '/privacy_policy'
@@ -91,13 +77,6 @@ describe "Pages" do
   end
 
   describe "Give page" do
-    before (:each) do
-      @user = FactoryGirl.create(:user)
-      visit "/login"
-      fill_in "user_email", with: @user.email
-      fill_in "user_password", with: @user.password
-      click_button "Sign in"
-    end
 
     it "should have the content 'Give'" do
       visit '/give'
