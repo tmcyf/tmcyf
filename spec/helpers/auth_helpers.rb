@@ -3,7 +3,7 @@ module Features
 
     def register
       visit "/register"
-      page.should have_content "Register"
+      expect(page).to have_content "Register"
       user = FactoryGirl.build(:user)
       fill_in "user_fname", with: user.fname
       fill_in "user_lname", with: user.lname
