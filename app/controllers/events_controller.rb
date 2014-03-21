@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = Event.all.order("startdt DESC")
+    @events = Event.all.order("startdt DESC").page(params[:page]).per(5)
   end
 
   # GET /events/1
