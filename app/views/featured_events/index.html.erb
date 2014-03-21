@@ -1,0 +1,29 @@
+<h1>Listing featured_events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image url</th>
+      <th>Event url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @featured_events.each do |featured_event| %>
+      <tr>
+        <td><%= featured_event.image_url %></td>
+        <td><%= featured_event.event_url %></td>
+        <td><%= link_to 'Show', featured_event %></td>
+        <td><%= link_to 'Edit', edit_featured_event_path(featured_event) %></td>
+        <td><%= link_to 'Destroy', featured_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Featured event', new_featured_event_path %>

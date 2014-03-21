@@ -1,8 +1,8 @@
 <div class="row">
   <div class="large-12 columns">
-    <div>
-      <%= link_to image_tag('https://s3-us-west-2.amazonaws.com/files.tmcyf.org/hero/ablaze.jpg'), 'https://tmcyf.org/events/ablaze' %>
-    </div>
+      <div>
+        <%= link_to(image_tag(@featured_events.image_url.to_s), @featured_events.event_url.to_s) %>
+      </div>
   <hr />
   </div>
 </div>
