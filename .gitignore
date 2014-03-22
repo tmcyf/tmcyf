@@ -7,3 +7,4 @@ log/
 /config/rubber/rubber.yml
 /config/certs/
 /config/newrelic.yml
+coverage/
