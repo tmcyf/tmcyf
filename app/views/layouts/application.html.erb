@@ -14,7 +14,6 @@
   	<title><%= full_title(yield(:title)) %></title>
     <meta name="description" content="Passion for God, Passion for Others!">
   	<%= stylesheet_link_tag    "application" %>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <style type="text/css">body { border-top: 7px solid #c73f3f }</style>
     <%= csrf_meta_tags %>
     <%= tag :meta, :name => "stripe-key", :content => ENV['STRIPE_PUBLIC_KEY'] %>
