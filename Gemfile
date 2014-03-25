@@ -61,6 +61,7 @@ group :test do
   gem 'guard-livereload'
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'simplecov'
 end
 
 # Production
