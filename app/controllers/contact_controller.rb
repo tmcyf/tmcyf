@@ -1,6 +1,6 @@
 class ContactController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token, :only => [:receive_sms]
+  skip_before_filter :verify_authenticity_token, only: [:receive_sms]
 
   def send_sms
     # validate that user is an admin
@@ -12,7 +12,7 @@ class ContactController < ApplicationController
     from_num = params["From"]
 
     payload = {
-      :text => "From: #{from_num}. Message: #{msg_body}"
+      text: "From: #{from_num}. Message: #{msg_body}"
     }.to_json
 
     uri = URI('https://tmcyf.slack.com/services/hooks/incoming-webhook?token=lFAo4KrEmegGC3IoBnbfYvdP')
@@ -36,9 +36,9 @@ class ContactController < ApplicationController
     if contact_number
       @twilio_client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
       @twilio_client.account.messages.create(
-        :from => "+1#{ENV['TWILIO_NUMBER']}",
-        :to => contact_number,
-        :body => message
+        from: "+1#{ENV['TWILIO_NUMBER']}",
+        to: contact_number,
+        body: message
       )
       flash[:notice] = "Message sent!"
     else
