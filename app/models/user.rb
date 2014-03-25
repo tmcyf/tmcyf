@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   validates_format_of :email, with: /.+@.+\..+/i, on: :create, on: :update, message: "This isn't a valid email address."
   validates_format_of :phone, with: /\d*[1-9]\d*/i, on: :create, on: :update, message: "This isn't a valid number!", allow_blank: true, allow_nil: true
 
-  validates_presence_of :fname, :lname, :line1, :city, :state, :zip, :phone, :gender, :birthday, :shirtsize, :email, :password, :password_confirmation
+  validates_presence_of :fname, :lname, :line1, :city, :state, :zip, :phone, :gender, :birthday, :shirtsize, :email
 
   scope :prefers_emails, -> { where(email_contact: true) }
   scope :prefers_sms, -> { where(sms_contact: true) }
