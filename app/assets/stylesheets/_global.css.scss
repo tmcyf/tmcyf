@@ -1,4 +1,15 @@
-@import url(https://fonts.googleapis.com/css?family=Cardo:400italic|Bevan);
+@font-face {
+  font-family: 'Bevan';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Bevan'), url(https://themes.googleusercontent.com/static/fonts/bevan/v5/EJh9uh2wkQP9ayreC3xPZaCWcynf_cDxXwCLxiixG1c.woff) format('woff');
+}
+@font-face {
+  font-family: 'Cardo';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Cardo Italic'), local('Cardo-Italic'), url(https://themes.googleusercontent.com/static/fonts/cardo/v6/mSKSxAIybPTfRoik7xAeTQLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+}
 
 $primary: #c73f3f;
 $primary-muted: darken($primary, 15%);
