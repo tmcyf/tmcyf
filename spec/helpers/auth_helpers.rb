@@ -3,7 +3,7 @@ module Features
 
     def register
       visit "/register"
-      page.should have_content "Register"
+      expect(page).to have_content "Register"
       user = FactoryGirl.build(:user)
       fill_in "user_fname", with: user.fname
       fill_in "user_lname", with: user.lname
@@ -12,11 +12,11 @@ module Features
       fill_in "user_state", with: user.state
       fill_in "user_zip", with: user.zip
       fill_in "user_phone", with: user.phone
-      select user.gender, :from => "user_gender"
-      select "August", :from => "user_birthday_2i"
-      select "22", :from => "user_birthday_3i"
-      select "1992", :from => "user_birthday_1i"
-      select user.shirtsize, :from => "user_shirtsize"
+      select user.gender, from: "user_gender"
+      select "August", from: "user_birthday_2i"
+      select "22", from: "user_birthday_3i"
+      select "1992", from: "user_birthday_1i"
+      select user.shirtsize, from: "user_shirtsize"
       fill_in "user_email", with: user.email
       fill_in "user_password", with: user.password
       fill_in "user_password_confirmation", with: user.password
