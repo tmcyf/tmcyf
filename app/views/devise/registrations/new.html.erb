@@ -8,49 +8,49 @@
               <%= f.error_notification %>
             <div class="row">
               <div class="large-4 columns">
-                <%= f.input :fname, label: "First Name", placeholder: "John", required: true,  autofocus: true%>
+                <%= f.input :fname, label: "First Name", placeholder: "John", autofocus: true%>
               </div>
               <div class="large-4 pull-4 columns">
-                <%= f.input :lname, label: "Last Name", placeholder: "Smith", required: true %>
+                <%= f.input :lname, label: "Last Name", placeholder: "Smith" %>
               </div>
             </div>
             <div class="row">
           <div class="large-4 columns">
-            <%= f.input :line1, label: "Street Address", :placeholder => "5810 Almeda-Genoa Rd", required: true %>
+            <%= f.input :line1, label: "Street Address", :placeholder => "5810 Almeda-Genoa Rd" %>
           </div>
           <div class="large-3 columns">
-            <%= f.input :city, label: "City", :placeholder => "Houston", required: true %>
+            <%= f.input :city, label: "City", :placeholder => "Houston" %>
           </div>
           <div class="large-2 columns">
-            <%= f.input :state, label: "State", placeholder: "TX", input_html: { maxlength: 2 }, required: true %>
+            <%= f.input :state, label: "State", placeholder: "TX", input_html: { maxlength: 2 } %>
           </div>
           <div class="large-2 pull-1 columns">
-            <%= f.input :zip, label: "Zip", placeholder: "77048", required: true %>
+            <%= f.input :zip, label: "Zip", placeholder: "77048" %>
           </div>
         </div>
         <div class="row">
           <div class="large-3 columns">
-            <%= f.input :phone, as: :tel, placeholder: "7139911557" %>
+            <%= f.input :phone, as: :tel, placeholder: "7139911557", required: false %>
           </div>
           <div class="large-2 columns">
-            <%= f.input :gender, collection: [:Male, :Female], required: true %>
+            <%= f.input :gender, collection: [:Male, :Female] %>
           </div>
           <div class="large-5 columns">
-            <%= f.input :birthday, as: :date, start_year: Date.today.year - 13, end_year: Date.today.year - 45, order: [:month, :day, :year], include_blank: true, label: "Birthday", required: true %>
+            <%= f.input :birthday, as: :date, start_year: Date.today.year - 13, end_year: Date.today.year - 45, order: [:month, :day, :year], include_blank: true, label: "Birthday" %>
           </div>
           <div class="large-2 columns">
-            <%= f.input :shirtsize, label: "Shirt Size", required: true, collection: [:XS, :S, :M, :L, :XL] %>
+            <%= f.input :shirtsize, label: "Shirt Size", collection: [:XS, :S, :M, :L, :XL] %>
           </div>
         </div>
             <div class="row">
               <div class="large-4 columns">
-                <%= f.input :email, required: true %>
+                <%= f.input :email %>
               </div>
               <div class="large-4 columns">
-                <%= f.input :password, required: true %>
+                <%= f.input :password %>
               </div>
               <div class="large-4 columns">
-                <%= f.input :password_confirmation, required: true %>
+                <%= f.input :password_confirmation %>
               </div>
             </div>
             <%= f.button :submit, "Sign up" %>
