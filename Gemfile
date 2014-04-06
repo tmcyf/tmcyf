@@ -32,13 +32,18 @@ gem 'rails_admin'
 gem 'mini_magick'
 gem 'icalendar'
 gem 'active_link_to'
-gem 'rubber', github: 'rubber/rubber'
 gem 'dotenv-rails'
 
 # External services
 gem 'twilio-ruby'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'gibbon'
+
+# Deployment
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rbenv', '~> 2.0'
 
 # Development
 group :development do
