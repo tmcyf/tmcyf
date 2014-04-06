@@ -50,20 +50,12 @@ namespace :nginx do
     on roles(:web) do
       execute :sudo, :cp, "#{shared_path}/config/tmcyf_production.conf", '/etc/nginx/sites-available/tmcyf_production.conf'
       execute :sudo, :ln, '-fs', "/etc/nginx/sites-available/tmcyf_production.conf", "/etc/nginx/sites-enabled/tmcyf_production.conf"
-      f = '/etc/nginx/sites-enabled/default'
-      if test("[ -d #{f} ]")
-        execute :sudo, :rm, f
-      else
-        info 'Lol'
+      if test("[ -f /etc/nginx/sites-available/default ]")
+        execute :sudo, :rm, "/etc/nginx/sites-available/default"
       end
-      # if test("[ -e /etc/nginx/sites-available/default ]")
-      #   execute :sudo, 'rm /etc/nginx/sites-available/default'
-      # end
-      # if test "[ -e /etc/nginx/sites-enabled/default ]"
-      #   execute :sudo, :rm, '/etc/nginx/sites-enabled/default'
-      # else
-      #   info 'lol'
-      # end
+      if test("[ -f /etc/nginx/sites-enabled/default ]")
+        execute :sudo, :rm, "/etc/nginx/sites-enabled/default"
+      end
     end
   end
 
