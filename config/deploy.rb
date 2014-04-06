@@ -1,102 +1,138 @@
-# This is a sample Capistrano config file for rubber
+lock '3.1.0'
 
-set :rails_env, Rubber.env
+set :application, 'tmcyf'
+set :user, 'deploy'
+set :repo_url, 'git@github.com:tmcyf/tmcyf.git'
+set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
 
-on :load do
-  set :application, rubber_env.app_name
-  set :runner,      rubber_env.app_user
-  set :deploy_to,   "/mnt/#{application}-#{Rubber.env}"
-  set :copy_exclude, [".git/*", ".bundle/*", "log/*", ".rvmrc", ".rbenv-version"]
-  set :assets_role, [:app]
-end
+# RBENV
 
-# Use a simple directory tree copy here to make demo easier.
-# You probably want to use your own repository for a real app
-set :scm, :none
-set :repository, "."
-set :deploy_via, :copy
+set :rbenv_type, :system
+set :rbenv_ruby, '2.1.1'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
-# Easier to do system level config as root - probably should do it through
-# sudo in the future.  We use ssh keys for access, so no passwd needed
-set :user, 'root'
-set :password, nil
+# NGINX
 
-# Use sudo with user rails for cap deploy:[stop|start|restart]
-# This way exposed services (mongrel) aren't running as a privileged user
-set :use_sudo, true
+set :nginx_server_name, 'tmcyf.org'
+set :nginx_config_name, -> { "#{fetch(:application)}_#{fetch(:stage)}" }
+set :nginx_pid, '/run/nginx.pid'
 
-# How many old releases should be kept around when running "cleanup" task
-set :keep_releases, 3
+# Default branch is :master
+# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-# Lets us work with staging instances without having to checkin config files
-# (instance*.yml + rubber*.yml) for a deploy.  This gives us the
-# convenience of not having to checkin files for staging, as well as 
-# the safety of forcing it to be checked in for production.
-set :push_instance_config, Rubber.env != 'production'
+set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:full_app_name)}"
 
-# don't waste time bundling gems that don't need to be there 
-set :bundle_without, [:development, :test, :staging] if Rubber.env == 'production'
+set :scm, :git
+set :branch, 'master'
 
-# Allow us to do N hosts at a time for all tasks - useful when trying
-# to figure out which host in a large set is down:
-# RUBBER_ENV=production MAX_HOSTS=1 cap invoke COMMAND=hostname
-max_hosts = ENV['MAX_HOSTS'].to_i
-default_run_options[:max_hosts] = max_hosts if max_hosts > 0
+# Default value for :format is :pretty
+# set :format, :pretty
 
-# Allows the tasks defined to fail gracefully if there are no hosts for them.
-# Comment out or use "required_task" for default cap behavior of a hard failure
-rubber.allow_optional_tasks(self)
+# Default value for :log_level is :debug
+# set :log_level, :debug
 
-# Wrap tasks in the deploy namespace that have roles so that we can use FILTER
-# with something like a deploy:cold which tries to run deploy:migrate but can't
-# because we filtered out the :db role
-namespace :deploy do
-  rubber.allow_optional_tasks(self)
-  tasks.values.each do |t|
-    if t.options[:roles]
-      task t.name, t.options, &t.body
-    end
-  end
-end
+# Default value for :pty is false
+set :pty, true
 
-namespace :deploy do
-  namespace :assets do
-    rubber.allow_optional_tasks(self)
-    tasks.values.each do |t|
-      if t.options[:roles]
-        task t.name, t.options, &t.body
+set :linked_files, %w{config/database.yml .env config/certs/p-tmcyf.crt config/certs/p-tmcyf.key}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+
+# Default value for default_env is {}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+set :keep_releases, 5
+
+namespace :nginx do
+
+  desc 'Setup nginx configuration'
+  task :setup do
+    on roles(:web) do
+      execute :sudo, :cp, "#{shared_path}/config/tmcyf_production.conf", '/etc/nginx/sites-available/tmcyf_production.conf'
+      execute :sudo, :ln, '-fs', "/etc/nginx/sites-available/tmcyf_production.conf", "/etc/nginx/sites-enabled/tmcyf_production.conf"
+      f = '/etc/nginx/sites-enabled/default'
+      if test("[ -d #{f} ]")
+        execute :sudo, :rm, f
+      else
+        info 'Lol'
       end
+      # if test("[ -e /etc/nginx/sites-available/default ]")
+      #   execute :sudo, 'rm /etc/nginx/sites-available/default'
+      # end
+      # if test "[ -e /etc/nginx/sites-enabled/default ]"
+      #   execute :sudo, :rm, '/etc/nginx/sites-enabled/default'
+      # else
+      #   info 'lol'
+      # end
     end
   end
+
+  desc 'Reload nginx configuration'
+  task :reload do
+    on roles :web do
+      execute :sudo, "/etc/init.d/nginx reload"
+    end
+  end
+
+  before :setup, "deploy:upload_configs"
+
 end
 
-# load in the deploy scripts installed by vulcanize for each rubber module
-Dir["#{File.dirname(__FILE__)}/rubber/deploy-*.rb"].each do |deploy_file|
-  load deploy_file
+namespace :unicorn do
+
+  desc 'Setup Unicorn initializer'
+  task :setup do
+    on roles(:app) do
+      execute :sudo, :cp, "#{shared_path}/config/tmcyf_production", '/etc/init.d/tmcyf_production'
+      execute :sudo, 'chmod +x /etc/init.d/tmcyf_production'
+      execute :sudo, 'update-rc.d -f tmcyf_production defaults'
+    end
+  end
+
+  desc 'Restarts Unicorn'
+  task :start do
+    on roles(:app) do
+      execute :sudo, "service tmcyf_production start"
+    end
+  end
+
+  desc 'Restarts Unicorn'
+  task :stop do
+    on roles(:app) do
+      execute :sudo, "service tmcyf_production stop"
+    end
+  end
+
+  desc 'Restarts Unicorn'
+  task :restart do
+    on roles(:app) do
+      execute :sudo, "service tmcyf_production restart"
+    end
+  end
+
 end
 
-# capistrano's deploy:cleanup doesn't play well with FILTER
-after "deploy", "cleanup"
-after "deploy:migrations", "cleanup"
-task :cleanup, :except => { :no_release => true } do
-  count = fetch(:keep_releases, 5).to_i
-  
-  rsudo <<-CMD
-    all=$(ls -x1 #{releases_path} | sort -n);
-    keep=$(ls -x1 #{releases_path} | sort -n | tail -n #{count});
-    remove=$(comm -23 <(echo -e "$all") <(echo -e "$keep"));
-    for r in $remove; do rm -rf #{releases_path}/$r; done;
-  CMD
-end
+namespace :deploy do
 
-# We need to ensure that rubber:config runs before asset precompilation in Rails, as Rails tries to boot the environment,
-# which means needing to have DB access.  However, if rubber:config hasn't run yet, then the DB config will not have
-# been generated yet.  Rails will fail to boot, asset precompilation will fail to complete, and the deploy will abort.
-if Rubber::Util.has_asset_pipeline?
-  load 'deploy/assets'
+  before :deploy, "deploy:upload_configs"
+  before :deploy, "deploy:check"
 
-  callbacks[:after].delete_if {|c| c.source == "deploy:assets:precompile"}
-  callbacks[:before].delete_if {|c| c.source == "deploy:assets:symlink"}
-  before "deploy:assets:precompile", "deploy:assets:symlink"
-  after "rubber:config", "deploy:assets:precompile"
+  desc  'Upload configuration files'
+  task :upload_configs do
+    on roles(:app) do
+      upload!('config/database.yml', "#{shared_path}/config/database.yml")
+      upload!('.env', "#{shared_path}/.env")
+      upload!("config/deploy/files/nginx.conf", "#{shared_path}/config/tmcyf_production.conf")
+      upload!("config/deploy/files/unicorn.rb", "#{shared_path}/config/unicorn.rb")
+      upload!("config/deploy/files/tmcyf_production", "#{shared_path}/config/tmcyf_production")
+      upload!("config/certs/p-tmcyf.crt", "#{shared_path}/config/certs/p-tmcyf.crt")
+      upload!("config/certs/p-tmcyf.key", "#{shared_path}/config/certs/p-tmcyf.key")
+    end
+  end
+
+  after :started, 'unicorn:setup'
+  after :started, 'nginx:setup'
+  after :publishing, 'nginx:reload'
+  after :publishing, 'unicorn:restart'
+
 end
