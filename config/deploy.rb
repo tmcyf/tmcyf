@@ -84,8 +84,8 @@ namespace :unicorn do
   task :setup_initializer do
     on roles :app do
       sudo_upload! template('unicorn_init.erb'), unicorn_initd_file
-      execute :chmod, '+x', unicorn_initd_file
-      sudo 'update-rc.d', '-f', fetch(:unicorn_service), 'defaults'
+      execute :sudo, 'chmod +x', unicorn_initd_file
+      execute :sudo, 'update-rc.d', '-f', fetch(:unicorn_service), 'defaults'
     end
   end
 
@@ -93,15 +93,6 @@ namespace :unicorn do
   task :setup_app do
     on roles :app do
       upload! template('unicorn.rb.erb'), unicorn_config
-    end
-  end
-
-  %w[start stop restart].each do |command|
-    desc "#{command} unicorn"
-    task command do
-      on roles :app do
-        execute :service, fetch(:unicorn_service), command
-      end
     end
   end
 
@@ -120,6 +111,13 @@ namespace :deploy do
     end
   end
 
+  desc 'Restart unicorn application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      sudo "/etc/init.d/unicorn_#{fetch(:full_app_name)} restart"
+    end
+  end
+
   after :started, 'nginx:setup'
   after :started, 'nginx:setup_ssl'
 
@@ -127,6 +125,6 @@ namespace :deploy do
   after :updated, 'unicorn:setup_initializer'
 
   after :publishing, 'nginx:reload'
-  after :publishing, 'unicorn:restart'
+  after :publishing, 'deploy:restart'
 
 end
