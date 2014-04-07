@@ -12,12 +12,12 @@ set -e
 
 # Feel free to change any of the following variables for your app:
 TIMEOUT=${TIMEOUT-60}
-APP_ROOT="/home/deploy/apps/tmcyf_production/current"
-PID="/home/deploy/apps/tmcyf_production/shared/tmp/pids/unicorn.pid"
+APP_ROOT=<%= current_path %>
+PID=<%= fetch(:unicorn_pid) %>
 
-CMD="cd $APP_ROOT && bundle exec unicorn -D -c /home/deploy/apps/tmcyf_production/shared/config/unicorn.rb -E production"
+CMD="cd $APP_ROOT && <%= bundle_unicorn("-D -c", fetch(:unicorn_config), "-E", fetch(:stage)) %>"
 
-AS_USER="deploy"
+AS_USER=<%= fetch(:user) %>
 set -u
 
 OLD_PIN="$PID.oldbin"

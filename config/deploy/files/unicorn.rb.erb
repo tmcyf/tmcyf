@@ -1,16 +1,16 @@
-working_directory "/home/deploy/apps/tmcyf_production/current"
-pid "/home/deploy/apps/tmcyf_production/shared/tmp/pids/unicorn.pid"
-stdout_path "/home/deploy/apps/tmcyf_production/shared/log/unicorn.stdout.log"
-stderr_path "/home/deploy/apps/tmcyf_production/shared/log/unicorn.stderr.log"
+working_directory "<%= current_path %>"
+pid "<%= fetch(:unicorn_pid) %>"
+stdout_path "<%= unicorn_log_file %>"
+stderr_path "<%= unicorn_error_log_file %>"
 
-listen "/tmp/unicorn.tmcyf_production.sock"
+listen "/tmp/unicorn.<%= fetch(:full_app_name) %>.sock"
 worker_processes 5
 timeout 30
 
 preload_app true
 
 before_exec do |server|
-  ENV["BUNDLE_GEMFILE"] = "/home/deploy/apps/tmcyf_production/current/Gemfile"
+  ENV["BUNDLE_GEMFILE"] = "<%= current_path %>/Gemfile"
 end
 
 before_fork do |server, worker|
@@ -20,7 +20,7 @@ before_fork do |server, worker|
   end
 
   # Quit the old unicorn process
-  old_pid = "/tmp/unicorn.tmcyf_production.oldbin"
+  old_pid = "#{server.config[:pid]}.oldbin"
   if File.exists?(old_pid) && server.pid != old_pid
     begin
       Process.kill("QUIT", File.read(old_pid).to_i)
