@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 ### BEGIN INIT INFO
 # Provides: unicorn
 # Required-Start: $remote_fs $syslog
@@ -13,11 +13,11 @@ set -e
 # Feel free to change any of the following variables for your app:
 TIMEOUT=${TIMEOUT-60}
 APP_ROOT=<%= current_path %>
-PID=<%= fetch(:unicorn_pid) %>
+PID_DIR=$APP_ROOT/tmp/pids
+PID=$PID_DIR/unicorn.pid
 
-CMD="cd $APP_ROOT && <%= bundle_unicorn("-D -c", fetch(:unicorn_config), "-E", fetch(:stage)) %>"
-
-AS_USER=<%= fetch(:user) %>
+CMD="cd $APP_ROOT; bundle exec unicorn -D -c <%= "#{shared_path}/config/unicorn.rb" %> -E <%= fetch(:stage) %>"
+AS_USER=deploy
 set -u
 
 OLD_PIN="$PID.oldbin"
@@ -28,6 +28,12 @@ sig () {
 
 oldsig () {
   test -s $OLD_PIN && kill -$1 `cat $OLD_PIN`
+}
+
+workersig () {
+  workerpid="$APP_ROOT/tmp/pids/unicorn.$2.pid"
+
+  test -s "$workerpid" && kill -$1 `cat $workerpid`
 }
 
 run () {
@@ -50,6 +56,10 @@ stop)
 force-stop)
   sig TERM && exit 0
   echo >&2 "Not running"
+  ;;
+kill_worker)
+  workersig QUIT $2 && exit 0
+  echo >&2 "Worker not running"
   ;;
 restart|reload)
   sig USR2 && echo reloaded OK && exit 0

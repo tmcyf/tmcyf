@@ -1,17 +1,18 @@
-set :stage, :production
-set :branch, 'master'
+# set :stage, :stage
+# set :branch, '<git branch>'
 
-set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
-set :site, "tmcyf.org"
-server '107.170.110.53', user: 'deploy', roles: %w{web app}, primary: true
+# set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
+# set :site, "tmcyf.org"
+# server '<server IP>', user: 'deploy', roles: %w{web app}, primary: true
 
-# NGINX
+# # NGINX
 
-set :nginx_ssl_cert, 'p-tmcyf'
-set :nginx_ssl_cert_key, 'p-tmcyf'
-set :nginx_ssl_cert_local_path, "config/certs/p-tmcyf.crt"
-set :nginx_ssl_cert_key_local_path, "config/certs/p-tmcyf.key"
+# set :nginx_ssl_cert, 'p-tmcyf'
+# set :nginx_ssl_cert_key, 'p-tmcyf'
+# set :nginx_ssl_cert_local_path, "config/certs/p-tmcyf.crt"
+# set :nginx_ssl_cert_key_local_path, "config/certs/p-tmcyf.key"
 
-# UNICORN
+# # UNICORN
 
-set :unicorn_service, -> { "unicorn_#{fetch(:application)}_#{fetch(:stage)}" }
+# set :unicorn_service, -> { "unicorn_#{fetch(:application)}_#{fetch(:stage)}" }
+# set :unicorn_pid, -> { unicorn_default_pid_file }
