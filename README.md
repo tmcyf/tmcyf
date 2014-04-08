@@ -22,15 +22,7 @@ For the first deployment:
 
 Run `cap <stage> deploy:check` to verify required files and directories exist.
 
-Run `cap <stage> deploy:upload_configs` to upload important files to the server and symlink where necessary.
-
-Run `cap <stage> nginx:setup` to configure Nginx.
-
-Run `cap <stage> unicorn:setup` to configure Unicorn.
-
 Run `cap <stage> deploy` to deploy via Git and restart processes.
-
-**These initial steps should be made into one deploy:cold task**
 
 For subsequent deploys, simply run `cap <stage> deploy`.
 
