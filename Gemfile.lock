@@ -297,6 +297,8 @@ GEM
       multi_json
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
+    slackistrano (0.0.7)
+      json
     slop (3.4.7)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -394,6 +396,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   simple_form
   simplecov
+  slackistrano
   stripe!
   therubyracer
   turbolinks
