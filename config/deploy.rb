@@ -18,6 +18,14 @@ set :rbenv_ruby, '2.1.1'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
+# SLACK
+
+set :slack_team, "tmcyf"
+set :slack_token, "Qv4bm0x9Lm8gAB5sZLMNxpe0"
+set :slack_channel,      ->{ '#dev' }
+set :slack_username,     ->{ 'capistrano' }
+
+
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
