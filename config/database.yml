@@ -21,10 +21,6 @@ production:
 
 staging:
   adapter: postgresql
-  database: <%= ENV['POSTGRES_DB'] %>
-  username: <%= ENV['POSTGRES_USERNAME'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
-  host: dbproduction.cie8nt5fm9he.us-east-1.rds.amazonaws.com
-  port: <%= ENV['POSTGRES_PORT'] %>
+  database: tmcyfdb
   pool: 5
   timeout: 5000
