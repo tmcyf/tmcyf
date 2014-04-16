@@ -2,11 +2,11 @@ upstream unicorn_<%= fetch(:full_app_name) %> {
   server unix:/tmp/unicorn.<%= fetch(:full_app_name) %>.sock fail_timeout=0;
 }
 
-<!-- server {
+server {
   listen 80;
   server_name tmcyf.org;
   rewrite ^(.*) https://$host$1 permanent;
-} -->
+}
 
 server {
   listen 443 ssl spdy deferred;
@@ -30,10 +30,8 @@ server {
   root <%= current_path %>/public;
   try_files $uri/index.html $uri @unicorn_<%= fetch(:full_app_name) %>;
 
-  location @unicorn_<%= fetch(:full_app_name) %> Strict-Transport-Security "max-age=31536000; {
+  location @unicorn_<%= fetch(:full_app_name) %> {
     proxy_set_header X-Forwarded-Proto https;
-    underscores_in_headers on;
-
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header Host $http_host;
     proxy_set_header X-Url-Scheme $scheme;
