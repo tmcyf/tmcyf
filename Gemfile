@@ -39,7 +39,7 @@ gem 'dotenv-rails'
 
 # External services
 gem 'twilio-ruby'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'stripe'
 gem 'gibbon'
 gem 'google-analytics-rails'
 

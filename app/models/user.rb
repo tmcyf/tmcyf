@@ -42,6 +42,8 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable
+  has_many :payments
+
   after_create :auto_optin
 
   before_validation(on: :create, on: :update) do
