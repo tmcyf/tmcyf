@@ -1,0 +1,25 @@
+<%= form_for(@generic_payable) do |f| %>
+  <% if @generic_payable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@generic_payable.errors.count, "error") %> prohibited this generic_payable from being saved:</h2>
+
+      <ul>
+      <% @generic_payable.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

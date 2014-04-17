@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328020657) do
+ActiveRecord::Schema.define(version: 20140417030937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 20140328020657) do
   create_table "featured_events", force: true do |t|
     t.string   "image_url"
     t.string   "event_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "generic_payables", force: true do |t|
+    t.string   "description"
+    t.decimal  "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
