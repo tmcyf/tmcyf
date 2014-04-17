@@ -24,6 +24,9 @@ set :slack_team, "tmcyf"
 set :slack_token, "Qv4bm0x9Lm8gAB5sZLMNxpe0"
 set :slack_channel,      ->{ '#dev' }
 set :slack_username,     ->{ 'capistrano' }
+set :slack_msg_starting, ->{ "#{ENV['USER'] || ENV['USERNAME']} has started deploying branch #{fetch :branch} of #{fetch :application} to #{fetch :stage}." }
+set :slack_msg_finished, ->{ "#{ENV['USER'] || ENV['USERNAME']} has finished deploying branch #{fetch :branch} of #{fetch :application} to #{fetch :stage}." }
+set :slack_msg_failed,   ->{ "*ERROR!* #{ENV['USER'] || ENV['USERNAME']} failed to deploy branch #{fetch :branch} of #{fetch :application} to #{fetch :stage}." }
 
 
 # Default branch is :master
