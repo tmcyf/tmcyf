@@ -1,0 +1,29 @@
+<h1>Listing generic_payables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Amount</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @generic_payables.each do |generic_payable| %>
+      <tr>
+        <td><%= generic_payable.description %></td>
+        <td><%= generic_payable.amount %></td>
+        <td><%= link_to 'Show', generic_payable %></td>
+        <td><%= link_to 'Edit', edit_generic_payable_path(generic_payable) %></td>
+        <td><%= link_to 'Destroy', generic_payable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Generic payable', new_generic_payable_path %>

@@ -1,7 +1,7 @@
 TMCYF::Application.routes.draw do
 
+  resources :generic_payables
   resources :payments, except: :update
-
   resources :featured_events
 
   mount RailsAdmin::Engine => '/admin2', :as => 'rails_admin'
