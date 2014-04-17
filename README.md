@@ -20,6 +20,8 @@ Once you can SSH into server as they `deploy` user, you're ready to deploy.
 
 For the first deployment:
 
+run `rake "set_deploy_ip[<stage>, <server ip>]"`
+
 Run `cap <stage> deploy:check` to verify required files and directories exist.
 
 Run `cap <stage> deploy` to deploy via Git and restart processes.
