@@ -18,3 +18,9 @@ production:
   port: <%= ENV['POSTGRES_PORT'] %>
   pool: 5
   timeout: 5000
+
+staging:
+  adapter: postgresql
+  database: tmcyfdb
+  pool: 5
+  timeout: 5000
