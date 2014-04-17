@@ -38,6 +38,7 @@ gem 'dotenv-rails'
 gem 'twilio-ruby'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'gibbon'
+gem 'google-analytics-rails'
 
 # Deployment
 gem 'capistrano', '~> 3.1.0'

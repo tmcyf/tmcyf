@@ -66,6 +66,7 @@ TMCYF::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   PUBLIC_URL = 'tmcyf.org'
+  GA.tracker = "UA-44195593-2"
 
   config.action_mailer.default_url_options = { :host => 'tmcyf.org' }
   # ActionMailer Config
