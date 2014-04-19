@@ -3,7 +3,7 @@ set :branch, 'master'
 
 set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
 set :site, "tmcyf.org"
-server '192.241.162.86', user: 'deploy', roles: %w{web app db}, primary: true
+server '162.243.103.14', user: 'deploy', roles: %w{web app db}, primary: true
 
 # NGINX
 
