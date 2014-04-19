@@ -12,7 +12,9 @@ class PaymentsController < ApplicationController
 
   # GET /payments/new
   def new
-    @payment = Payment.new
+    logger.info params
+    @payable = GenericPayable.find(params[:generic_payable_id])
+    @payment = @payable.payments.build
   end
 
   # GET /payments/1/edit

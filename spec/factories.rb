@@ -20,4 +20,10 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :generic_payable do
+    name "The default payable"
+    description "A generic payable"
+    amount 1.00
+  end
 end
