@@ -1,6 +1,5 @@
 <h2> Payment for <%= @payment.payable.name %> </h2>
 
-<%# TODO: ugh not working rn %>
 <%= form_for [@payment.payable, @payment] do |f| %>
   <% if @payment.errors.any? %>
     <div id="error_explanation">
