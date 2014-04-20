@@ -7,7 +7,7 @@ describe BatchSMS do
       twilio = stub(send_message: true)
       numbers = [ '1' ]
       twilio.should_receive(:send_message).with('1', sms.message)
-      BatchSMS.new(sms, numbers, twilio).send
+      BatchSMS.new(sms, numbers, twilio).send_message
       sleep 1 # allow the async action to complete
     end
   end
