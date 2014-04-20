@@ -1,4 +1,4 @@
-class SMSController < ApplicationController
+class SmsController < ApplicationController
 
   skip_before_filter :verify_authenticity_token, only: [:receive_sms]
 
