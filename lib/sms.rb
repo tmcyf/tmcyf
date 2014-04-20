@@ -1,7 +1,7 @@
 class SMS
   attr_accessor :message
 
-  def initialize(message, number)
+  def initialize(message)
     begin 
       message.encode(Encoding::ISO_8859_1)
       @message = message

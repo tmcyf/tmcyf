@@ -1,18 +1,21 @@
+require 'sms_worker'
+
 class BatchSMS
   include Celluloid
-  trap_exit record_failures
+  trap_exit :record_failures
 
-  def initialize(sms, numbers)
+  def initialize(sms, numbers, client)
     @sms = sms
     @numbers = numbers
+    @client = client
     @failed = []
   end
 
   # call send! 
   # if it fails, the SMSClient actor will die silently
   def send
-    numbers.map do |number|
-      self.link SMSWorker.new(@sms, number).send!
+    @numbers.map do |number|
+      SMSWorker.new(@sms, number, @client).async.send_message
     end
   end
 
