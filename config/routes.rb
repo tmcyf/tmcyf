@@ -44,8 +44,8 @@ TMCYF::Application.routes.draw do
   get '/account/preferences',       to: 'preferences#edit'
   post '/account/preferences',      to: 'preferences#update'
   get '/privacy_policy',            to: 'pages#privacy_policy'
-  get '/admin/send_sms',            to: 'contact#send_sms', as: "send_sms"
-  post '/admin/receive_sms',        to: 'contact#receive_sms', as: "receive_sms"
-  post '/admin/send_message',       to: 'contact#send_all_message', as: "send_message"
+  get '/admin/new_sms',            to: 'sms#new_sms', as: "send_sms"
+  post '/admin/receive_sms',        to: 'sms#receive_sms', as: "receive_sms"
+  post '/admin/send_sms',       to: 'sms#send_sms', as: "send_message"
   get ':status', to: 'errors#show', constraints: {status: /\d{3}/}
 end
