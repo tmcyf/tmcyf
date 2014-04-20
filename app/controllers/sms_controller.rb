@@ -11,8 +11,8 @@ class SmsController < ApplicationController
     begin
       sms = SMS.new(params[:message])
       numbers = User.where(sms_contact: true).pluck(:phone)
-      BatchSMS.new(sms, numbers).send!
-    rescue InvalidEncodingError => e
+      BatchSMS.new(sms, numbers, TwilioWrapper.new).send_message
+    rescue SMS::InvalidEncodingError => e
       flash[:error] = e
     end
     redirect_to send_sms_path
