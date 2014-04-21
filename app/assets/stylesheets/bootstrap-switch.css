@@ -3,7 +3,7 @@
   display: inline-block;
   cursor: pointer;
   line-height: 1.231;
-  overflow: hidden;
+/*  overflow: hidden;*/
   position: relative;
   text-align: left;
   width: 80px;
