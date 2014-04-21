@@ -11,11 +11,11 @@ class BatchSMS
     @failed = []
   end
 
-  # call send! 
+  # call send!
   # if it fails, the SMSClient actor will die silently
   def send_message
     @numbers.map do |number|
-      SMSWorker.new(@sms, number, @client).async.send_message
+      SMSWorker.new_link(@sms, number, @client).async.send_message
     end
   end
 
