@@ -366,6 +366,7 @@ DEPENDENCIES
   capistrano-rbenv (~> 2.0)
   capybara
   carrierwave
+  celluloid
   coffee-rails (~> 4.0.0)
   compass-rails
   devise
