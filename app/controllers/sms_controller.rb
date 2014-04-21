@@ -15,6 +15,7 @@ class SmsController < ApplicationController
     rescue SMS::InvalidEncodingError => e
       flash[:error] = e.message
     end
+    flash[:success] = "SMS sent successfully!"
     redirect_to send_sms_path
   end
 
