@@ -44,7 +44,7 @@ TMCYF::Application.routes.draw do
     get '/about/contact',           to: 'pages#about_contact'
   get '/biblestudy',                to: 'pages#biblestudy'
   get '/admin',                     to: 'admin#dashboard'
-  get '/admin/database',            TO: 'admin#database', as: 'database'
+  get '/admin/database',            to: 'admin#database', as: 'database'
   get '/account/preferences',       to: 'preferences#edit'
   post '/account/preferences',      to: 'preferences#update'
   get '/account/payments',          to: 'generic_payables#index'
