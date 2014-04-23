@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321171253) do
+ActiveRecord::Schema.define(version: 20140422153751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,24 @@ ActiveRecord::Schema.define(version: 20140321171253) do
     t.datetime "updated_at"
   end
 
+  create_table "generic_payables", force: true do |t|
+    t.string   "description"
+    t.decimal  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
   create_table "pages", force: true do |t|
+  end
+
+  create_table "payments", force: true do |t|
+    t.decimal  "amount"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "payable_id"
+    t.string   "payable_type"
   end
 
   create_table "users", force: true do |t|
@@ -72,6 +89,8 @@ ActiveRecord::Schema.define(version: 20140321171253) do
     t.boolean  "sms_contact",            default: false
     t.boolean  "admin",                  default: false
     t.string   "stripe_id"
+    t.string   "current_last4"
+    t.integer  "status",                 default: 0
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

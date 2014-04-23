@@ -1,5 +1,9 @@
 TMCYF::Application.routes.draw do
 
+  concern :payable do
+    resources :payments, except: :update
+  end
+  resources :generic_payables, concerns: :payable
   resources :featured_events
 
   mount RailsAdmin::Engine => '/admin2', :as => 'rails_admin'
@@ -40,9 +44,10 @@ TMCYF::Application.routes.draw do
     get '/about/contact',           to: 'pages#about_contact'
   get '/biblestudy',                to: 'pages#biblestudy'
   get '/admin',                     to: 'admin#dashboard'
-  get '/admin/database',            TO: 'admin#database', as: 'database'
+  get '/admin/database',            to: 'admin#database', as: 'database'
   get '/account/preferences',       to: 'preferences#edit'
   post '/account/preferences',      to: 'preferences#update'
+  get '/account/payments',          to: 'generic_payables#index'
   get '/privacy_policy',            to: 'pages#privacy_policy'
   get '/admin/new_sms',            to: 'sms#new_sms', as: "send_sms"
   post '/admin/receive_sms',        to: 'sms#receive_sms', as: "receive_sms"
