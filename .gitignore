@@ -6,4 +6,5 @@ log/
 .env.development
 /config/certs/
 /config/newrelic.yml
+/config/application.yml
 coverage/
