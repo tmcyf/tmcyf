@@ -1,11 +1,11 @@
 class SmsResultPresenter
 
   def self.present(batch_sms_result)
-    presentation_data = present_data(batch_sms_result)
+    presentation_data = present_hash(batch_sms_result)
     "#{presentation_data[:successes]} #{presentation_data[:failures]} #{presentation_data[:errors]}"
   end
 
-  def self.present_data(batch_sms_result)
+  def self.present_hash(batch_sms_result)
     successes = successes_from(batch_sms_result)
     failures = failures_from(batch_sms_result)
     errors = errors_from(batch_sms_result)
@@ -27,7 +27,7 @@ class SmsResultPresenter
   end
 
   def self.errors_from(batch_sms_result)
-    batch_sms_result.map(&:last).reject { |err| err.nil? }.uniq.map(&:message)
+    batch_sms_result.map(&:last).reject { |err| err.nil? }.map(&:message).uniq
   end
 
   private

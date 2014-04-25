@@ -47,7 +47,7 @@ describe SmsResultPresenter do
       ['5555555', twilio_error]
     ] }
     it "shows only unique error messages" do
-      presentation_data = SmsResultPresenter.present_data(results)
+      presentation_data = SmsResultPresenter.present_hash(results)
       presentation_data[:errors].should == "Errors: an error occurred."
     end
   end
