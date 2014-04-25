@@ -1,16 +1,21 @@
 class SmsResultPresenter
 
   def self.present(batch_sms_result)
+    presentation_data = present_data(batch_sms_result)
+    "#{presentation_data[:successes]} #{presentation_data[:failures]} #{presentation_data[:errors]}"
+  end
+
+  def self.present_data(batch_sms_result)
     successes = successes_from(batch_sms_result)
     failures = failures_from(batch_sms_result)
     errors = errors_from(batch_sms_result)
-    success_list = list_with_separator(successes,', ')
+    success_list = readable_list(successes)
     success_msg = "Messages successfully sent to #{success_list}.\n" unless successes.empty?
-    failure_list = list_with_separator(failures,', ')
+    failure_list = readable_list(failures)
     failure_msg = "Messages failed to be sent to #{failure_list}." unless failures.empty?
-    error_list = list_with_separator(errors,"\n")
+    error_list = readable_list(errors)
     error_msg = "Errors: #{error_list}" unless errors.empty?
-    return "#{success_msg} #{failure_msg} #{error_msg}"
+    {successes: success_msg, failures: failure_msg, errors: error_msg}
   end
 
   def self.successes_from(batch_sms_result)
@@ -22,11 +27,11 @@ class SmsResultPresenter
   end
 
   def self.errors_from(batch_sms_result)
-    batch_sms_result.map(&:last).reject { |error| error.nil? }.map(&:message)
+    batch_sms_result.map(&:last).reject { |err| err.nil? }.uniq.map(&:message)
   end
 
   private
-  def self.list_with_separator(list, separator)
-    list.join(separator).chomp(separator)
+  def self.readable_list(list)
+    list.join(', ').chomp(', ')
   end
 end

@@ -41,4 +41,14 @@ describe SmsResultPresenter do
     end
   end
 
+  context "with multiple failures of the same kind" do
+    let(:results) { [ 
+      ['8675309', twilio_error],
+      ['5555555', twilio_error]
+    ] }
+    it "shows only unique error messages" do
+      presentation_data = SmsResultPresenter.present_data(results)
+      presentation_data[:errors].should == "Errors: an error occurred."
+    end
+  end
 end
