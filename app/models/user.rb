@@ -82,14 +82,4 @@ class User < ActiveRecord::Base
   def sms_unsubscribe
     self.sms_contact=false
   end
-
-  def email_subscribe
-    mailman = Mailman.new
-    mailman.subscribe(self)
-  end
-
-  def email_unsubscribe
-    mailman = Mailman.new
-    mailman.unsubscribe(self)
-  end
 end
