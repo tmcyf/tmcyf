@@ -46,7 +46,7 @@ set :scm, :git
 # Default value for :pty is false
 set :pty, true
 
-set :linked_files, %w{config/database.yml .env}
+set :linked_files, %w{config/database.yml config/skylight.yml .env}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # Default value for default_env is {}
@@ -119,6 +119,7 @@ namespace :deploy do
   task :upload_configs do
     on roles(:app) do
       upload!('config/database.yml', "#{shared_path}/config/database.yml")
+      upload!('config/skylight.yml', "#{shared_path}/config/skylight.yml")
       upload!('.env', "#{shared_path}/.env")
     end
   end
