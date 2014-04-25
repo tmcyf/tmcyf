@@ -1,8 +1,10 @@
 language: ruby
 rvm:
-- 2.1.1
+  - 2.1.0
+  - 2.1.1
 install: bin/wad
 script:
+- bundle exec rake db:create db:migrate
 - bundle exec rake spec
 env:
   global:
