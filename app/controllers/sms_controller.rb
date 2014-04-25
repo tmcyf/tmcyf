@@ -12,10 +12,11 @@ class SmsController < ApplicationController
       sms = SMS.new(params[:message])
       numbers = User.where(sms_contact: true).pluck(:phone)
       results = BatchSMS.new(sms, numbers, TwilioService).send_message!
-      flash[:success] = SmsResultPresenter.present(results)
+      flash.update(SmsResultPresenter.present_hash(results))
     rescue SMS::InvalidEncodingError => e
       flash[:error] = e.message
     end
+
     redirect_to send_sms_path
   end
 

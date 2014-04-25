@@ -17,7 +17,7 @@ describe SmsResultPresenter do
     let(:results) { [ ['8675309', nil] ] }
 
     it "returns the list of successful numbers" do
-      SmsResultPresenter.present(results).should match "Messages successfully sent to 8675309.\n "
+      SmsResultPresenter.present_hash(results)[:success].should match "Messages successfully sent to 8675309."
     end
   end
 
@@ -25,8 +25,8 @@ describe SmsResultPresenter do
     let(:results) { [ ['5555555', twilio_error] ] }
 
     it "returns the list of failed numbers and errors" do
-      SmsResultPresenter.present(results).should match " Messages failed to be sent to 5555555."
-      SmsResultPresenter.present(results).should match "Errors: #{twilio_error.message}"
+      res = SmsResultPresenter.present_hash(results)[:error]
+      res.should match(/Messages failed.*5555555.*#{Regexp.quote(twilio_error.message)}/)
     end
   end
 
@@ -36,19 +36,8 @@ describe SmsResultPresenter do
       ['5555555', twilio_error]
     ] }
     it "shows both failures and successes" do
-      SmsResultPresenter.present(results).should match "Messages successfully sent to 8675309.\n Messages failed to be sent to 5555555."
-      SmsResultPresenter.present(results).should match "Errors: #{twilio_error.message}"
+      SmsResultPresenter.present_hash(results)[:success].should match "Messages successfully sent to 8675309."
     end
   end
 
-  context "with multiple failures of the same kind" do
-    let(:results) { [ 
-      ['8675309', twilio_error],
-      ['5555555', twilio_error]
-    ] }
-    it "shows only unique error messages" do
-      presentation_data = SmsResultPresenter.present_hash(results)
-      presentation_data[:errors].should == "Errors: an error occurred."
-    end
-  end
 end
