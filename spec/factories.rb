@@ -20,4 +20,11 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :event do
+    sequence(:title) { |n| "Event #{n}" }
+    location "Ur Mom's Place"
+    startdt DateTime.now
+    enddt { startdt + 1.day }
+  end
 end
