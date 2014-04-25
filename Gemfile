@@ -44,6 +44,7 @@ gem 'twilio-ruby'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'gibbon'
 gem 'google-analytics-rails'
+gem 'skylight'
 
 # Deployment
 gem 'capistrano', '~> 3.1.0'

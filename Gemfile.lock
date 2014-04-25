@@ -312,6 +312,8 @@ GEM
       multi_json
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
+    skylight (0.3.12)
+      activesupport (>= 3.0.0)
     slackistrano (0.0.9)
       json
     slop (3.5.0)
@@ -415,6 +417,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   simple_form
   simplecov
+  skylight
   slackistrano
   spring
   stripe!
