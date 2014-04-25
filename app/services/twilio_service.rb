@@ -15,7 +15,7 @@ class TwilioService
         body: message
       )
     rescue Twilio::REST::RequestError => e
-      logger.info(e.message)
+      puts e.message
       exception = e
     end
 
