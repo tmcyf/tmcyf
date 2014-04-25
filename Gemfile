@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0'
+gem 'rails', '~> 4.1.0'
 
 # Database
 gem 'pg'
@@ -36,6 +36,8 @@ gem 'mini_magick'
 gem 'icalendar'
 gem 'active_link_to'
 gem 'dotenv-rails'
+gem 'spring', group: [:development, :test]
+gem 'rspec-rails', group: [:development, :test]
 
 # External services
 gem 'twilio-ruby'
@@ -65,7 +67,6 @@ end
 
 # Testing
 group :test do
-  gem 'rspec-rails'
   gem 'guard', '2.3.0'
   gem 'guard-rspec'
   gem 'guard-livereload'

@@ -1,7 +1,6 @@
 .DS_Store
 tmp/
 .bundle/
-bin/
 log/
 .env
 .env.development

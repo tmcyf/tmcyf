@@ -34,6 +34,7 @@
 #  sms_contact            :boolean          default(FALSE)
 #  admin                  :boolean          default(FALSE)
 #  stripe_id              :string(255)
+#  status                 :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -56,6 +57,8 @@ class User < ActiveRecord::Base
   scope :prefers_emails, -> { where(email_contact: true) }
   scope :prefers_sms, -> { where(sms_contact: true) }
   scope :prefers_fb, -> { where(facebook_contact: true) }
+
+  enum status: { registered: 0, active: 1 }
 
   def auto_optin
     self.email_contact = true
