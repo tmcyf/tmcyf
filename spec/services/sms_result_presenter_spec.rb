@@ -1,7 +1,7 @@
 require_relative '../../app/services/sms_result_presenter.rb'
 
 describe SmsResultPresenter do
-  let(:twilio_error) { double }
+  let(:twilio_error) { double(message: "an error occurred.") }
 
   let(:results) { [ 
     ['8675309', nil],
@@ -17,15 +17,27 @@ describe SmsResultPresenter do
     let(:results) { [ ['8675309', nil] ] }
 
     it "returns the list of successful numbers" do
-      SmsResultPresenter.present(results).should == "Messages successfully sent to 8675309.\n "
+      SmsResultPresenter.present(results).should match "Messages successfully sent to 8675309.\n "
     end
   end
 
   context "with no successes" do
     let(:results) { [ ['5555555', twilio_error] ] }
 
-    it "returns the list of failed numbers" do
-      SmsResultPresenter.present(results).should == " Messages failed to be sent to 5555555."
+    it "returns the list of failed numbers and errors" do
+      SmsResultPresenter.present(results).should match " Messages failed to be sent to 5555555."
+      SmsResultPresenter.present(results).should match "Errors: #{twilio_error.message}"
+    end
+  end
+
+  context "with both successes and failures" do
+    let(:results) { [ 
+      ['8675309', nil],
+      ['5555555', twilio_error]
+    ] }
+    it "shows both failures and successes" do
+      SmsResultPresenter.present(results).should match "Messages successfully sent to 8675309.\n Messages failed to be sent to 5555555."
+      SmsResultPresenter.present(results).should match "Errors: #{twilio_error.message}"
     end
   end
 
