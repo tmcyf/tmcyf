@@ -14,7 +14,7 @@ class Mailman
     end
   end
 
-  def unsubscribe
+  def unsubscribe(user)
     if mailchimp_member?(user)
       @gibbon.lists.unsubscribe(id: @campaign_id, email: {email: user.email})
     end
