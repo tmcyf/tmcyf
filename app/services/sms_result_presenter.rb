@@ -8,7 +8,7 @@ class SmsResultPresenter
     success_msg = "Messages successfully sent to #{success_list}.\n" unless successes.empty?
     failure_list = list_with_separator(failures,', ')
     failure_msg = "Messages failed to be sent to #{failure_list}." unless failures.empty?
-    error_list = list_with_separator(errors,'\n')
+    error_list = list_with_separator(errors,"\n")
     error_msg = "Errors: #{error_list}" unless errors.empty?
     return "#{success_msg} #{failure_msg} #{error_msg}"
   end
