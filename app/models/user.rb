@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable
+  after_create :auto_optin
 
   before_validation(on: :create, on: :update) do
     self.phone = phone.gsub(/[^0-9]/, "") if attribute_present?("phone")
@@ -59,6 +60,12 @@ class User < ActiveRecord::Base
 
   enum status: { registered: 0, active: 1 }
 
+  def auto_optin
+    self.email_contact = true
+    self.email_subscribe
+    self.save!
+  end
+
   def fullname
     "#{self.fname} #{self.lname}"
   end
@@ -74,5 +81,15 @@ class User < ActiveRecord::Base
 
   def sms_unsubscribe
     self.sms_contact=false
+  end
+
+  def email_subscribe
+    mailman = Mailman.new
+    mailman.subscribe(self)
+  end
+
+  def email_unsubscribe
+    mailman = Mailman.new
+    mailman.unsubscribe(self)
   end
 end

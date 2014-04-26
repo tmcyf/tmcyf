@@ -6,17 +6,18 @@ class Mailman
   end
 
   def subscribe(user)
-    if !mailchimp_member?(user)
-      @gibbon.lists.subscribe(id: @campaign_id,
+		if !mailchimp_member?(user)
+			@gibbon.lists.subscribe(id: @campaign_id,
           email: {email: user.email},
           merge_vars: {FNAME: user.fname, LNAME: user.lname},
           double_optin: false)
-    end
+		end
   end
 
-  def unsubscribe(user)
+  def unsubscribe
     if mailchimp_member?(user)
-      @gibbon.lists.unsubscribe(id: @campaign_id, email: {email: user.email})
+			@gibbon.lists.unsubscribe(id: @campaign_id,
+					email: {email: user.email})
     end
   end
 

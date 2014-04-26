@@ -8,6 +8,7 @@ describe "UserRegistrations" do
     it "works" do
       register
       expect(page).to have_content "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
+      expect(User.last.email_contact).to be_true
     end
   end
 
