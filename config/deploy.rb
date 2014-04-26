@@ -110,6 +110,18 @@ namespace :unicorn do
 
 end
 
+namespace :logs do
+
+  desc 'Tail logs'
+  task :tail do
+  trap("INT") { puts '...Interupted'; exit 0; }
+    on roles(:app), in: :sequence, wait: 5 do
+      execute "tail -f #{shared_path}/log/#{fetch(:stage)}.log"
+    end
+  end
+
+end
+
 namespace :deploy do
 
   before :deploy, "deploy:upload_configs"
