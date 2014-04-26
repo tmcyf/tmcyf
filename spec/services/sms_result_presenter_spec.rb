@@ -10,7 +10,7 @@ describe SmsResultPresenter do
 
   it "filters successes from failures correctly" do
     SmsResultPresenter.successes_from(results).should == ['8675309']
-    SmsResultPresenter.failures_from(results).should == ['5555555']
+    SmsResultPresenter.failures_from(results).should == [['5555555', twilio_error]]
   end
 
   context "with no failures" do
