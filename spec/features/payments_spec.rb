@@ -41,10 +41,4 @@ describe "Payments" do
     page.should have_content "Make Payment"
   end
 
-  it "should take users to a payments page for the correct payable" do
-    payable = create(:generic_payable)
-    visit "account/payments"
-    click_link "Make Payment"
-    page.should have_content "Payment for #{payable.name}"
-  end
 end
