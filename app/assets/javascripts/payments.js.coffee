@@ -28,5 +28,8 @@ jQuery ->
         Stripe.card.createToken(cardInfo, stripeResponseHandler)
 
     Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
-    $('.card-button').on('click', submitCard(getCardInfo()))
+    $('.card-form').on 'submit', (event) ->
+        event.preventDefault()
+        submitCard(getCardInfo())
+
 

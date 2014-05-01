@@ -1,17 +1,5 @@
 <h1>Payments</h1>
 
-<div id='#popover' data-dropdown-content class='card_form'>
-  <form>
-    <label>Card Number</label>
-    <input type='text' id='card_number' size='20'>
-    <label>Card Code</label>
-    <input type='text' id='card_code'>
-    <label> MM / YYYY </label>
-    <input type='text' id='card_month' size='2'>
-    <input type='text' id='card_year' size='4'>
-    <input type='submit'>
-  </form>
-</div>
 <table>
   <thead>
     <tr>
@@ -26,12 +14,26 @@
   <tbody>
     <% @generic_payables.each do |payable| %>
       <tr>
-        <td><%= generic_payable.description %></td>
-        <td><%= generic_payable.amount %></td>
-        <td><%= link_to 'Make Payment', create_payment_path,
+        <td><%= payable.description %></td>
+        <td><%= payable.amount %></td>
+        <td><%= button_to 'Make Payment', generic_payable_payments_path(payable),
                                       { class: 'payment-button',
                                         remote: true,
-                                        dropdown: 'popover' } %></td>
+                                        method: :post,
+                                        disabled: true,
+                                        'data-dropdown' => 'popover' } %></td>
+        <div id='#popover' data-dropdown-content class='card_form f-dropdown content'>
+          <form>
+            <label>Card Number</label>
+            <input type='text' id='card_number' size='20'>
+            <label>Card Code</label>
+            <input type='text' id='card_code'>
+            <label> MM / YYYY </label>
+            <input type='text' id='card_month' size='2'>
+            <input type='text' id='card_year' size='4'>
+            <input type='submit'>
+          </form>
+        </div>
       </tr>
     <% end %>
   </tbody>
