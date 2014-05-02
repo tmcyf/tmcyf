@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   # GET /events/1
   def show
     event = Event.friendly.find(params[:id])
-    ics = IcsGenerator.new.event_ics(event)
+    ics = IcsGenerator.ics_for(event)
 
     respond_to do |format|
       format.html

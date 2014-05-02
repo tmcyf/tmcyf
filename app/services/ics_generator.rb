@@ -3,13 +3,12 @@ class IcsGenerator
 
   include Icalendar
 
-  def event_ics(event)
+  def self.ics_for(event)
     cal = Calendar.new
     cal.event do |e|
       e.summary = event.title
       e.dtstart = event.startdt.strftime("%Y%m%dT%H%M%S")
       e.dtend = event.enddt.strftime("%Y%m%dT%H%M%S")
-      e.summary = event.title
       e.description = event.body
       e.location = event.location
     end
