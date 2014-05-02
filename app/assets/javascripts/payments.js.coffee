@@ -1,35 +1,25 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-
-jQuery ->
+$(document).on 'ready page:load', ->
     # there's a payment button on each payable that sends an ajax request to 
     # our payments controller with the id of the payable and the user, and it's
     # disabled by default for users without cards. after a valid card is added,
     # we want to enable those buttons
-    enablePaymentSubmission = ->
-        $('.payment-button').attr('disabled', false).removeAttr('data-dropdown')
+    handler = StripeCheckout.configure
+        key: $('meta[name=stripe-key]').attr('content')
+        token: (token, args) ->
+            $.ajax 
+                type: 'POST'
+                url: 'payments/create'
+                data:
+                    token: token.id
+                    amount: args.amount
+                success: ->
+                    alert 'success!'
+                error: ->
+                    alert 'error!'
 
-    getCardInfo = ->
-        number: $('#card_number').val()
-        cvc: $('#card_code').val()
-        expMonth: $('#card_month').val()
-        expYear: $('#card_year').val()
-
-    stripeResponseHandler = (status, response) -> 
-        $('#spinner').toggle('hide')
-        if response.error
-            alert "There was a problem submitting your card."
-        else
-            $('#card-number').attr('text', '************' + response.card.last4)
-            enablePaymentSubmission()
-
-    submitCard = (cardInfo) ->
-        Stripe.card.createToken(cardInfo, stripeResponseHandler)
-
-    Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
-    $('.card-form').on 'submit', (event) ->
-        event.preventDefault()
-        submitCard(getCardInfo())
-
-
+    $('.payment-button').on 'click', (e) ->
+        handler.open
+            name: "TMCYF"
+            description: e.target.attr('description')
+            amount: e.target.attr('amount')
+        e.preventDefault()
