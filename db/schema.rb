@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20140502085757) do
   end
 
   create_table "payments", force: true do |t|
-    t.decimal "amount"
+    t.integer "amount"
     t.string  "description"
     t.integer "payable_id"
     t.string  "payable_type"

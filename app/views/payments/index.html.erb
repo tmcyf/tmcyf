@@ -17,7 +17,7 @@
         <td><%= payment.description %></td>
         <td><%= payment.amount %></td>
         <td>
-          <form action='charge' method='POST'> 
+          <%= form_tag charge_payment_path(payment), method: 'POST', remote: true %> 
             <script 
               src="https://checkout.stripe.com/checkout.js"
               data-key="pk_test_kBic0iWCskLu6CgVYFZhotCz" # TODO: change to env stripe key
@@ -31,6 +31,7 @@
           </form>
         </td>
       </tr>
+    <% end %>
     <% @paid.each do |payment| %>
       <tr>
         <td><%= payment.description %></td>

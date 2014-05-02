@@ -26,13 +26,20 @@ class PaymentsController < ApplicationController
 
   def charge
     token = params[:stripeToken]
-    charge_params = StripeService.new(token).submit_payment_for!(@payment)
-    charge_params.merge(user_id: current_user.id)
-    if Charge.new(charge_params).save!
-      render json: {success: "Payment successfully made!"}.to_json
+    charge_result = StripeService.new(token).charge!(@payment.amount)
+    @charge = @payment.charges.build
+    @charge.user = current_user
+    @charge.amount = @payment.amount
+    @charge.stripe_id = charge_result.id
+    @charge.last4 = charge_result.card.last4
+    if @charge.save!
+      flash[:success] = "Payment successfully made!"
+      # render json: {success: "Payment successfully made!"}.to_json
     else
-      render json: {error: "There was an error submitting your payment."}.to_json
+      flash[:error] =  "There was an error submitting your payment."
+      # render json: {error: "There was an error submitting your payment."}.to_json
     end
+    redirect_to :back
   end
 
   private
