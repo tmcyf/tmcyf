@@ -25,20 +25,20 @@ describe "Payments" do
   end
 
   it "should have an accessible payments page for users" do
-    visit "account/payments"
+    visit "/payments"
     page.should have_content "Payments"
   end
 
   it "should render created payables on the accounts page" do
-    create(:payment)
-    visit "account/payments"
-    page.should have_content payable.description
+    payment = create(:payment)
+    visit "/payments"
+    page.should have_content payment.description
   end
 
   it "should show users the option to make payments for payable items" do
     create(:payment)
-    visit "account/payments"
-    page.should have_content "Make Payment"
+    visit "/payments"
+    page.should have_content "Pay with card"
   end
 
 end
