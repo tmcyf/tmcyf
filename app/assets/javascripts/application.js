@@ -18,5 +18,7 @@
 //= require foundation.topbar.js
 //= require bootstrap.js
 //= require bootstrap-switch.js
+//= require unobtrusive_flash
+//= require unobtrusive_flash_bootstrap
 //= require_tree .
 $(function(){ $(document).foundation(); });
