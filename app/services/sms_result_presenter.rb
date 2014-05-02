@@ -7,9 +7,7 @@ class SmsResultPresenter
     failures = failures_from(batch_sms_result)
 
     unless successes.empty?
-      success_count = successes.count
-      failure_count = failures.count
-      result[:success] = "Messages successfully sent to #{success_count} out of #{success_count + failure_count} numbers." 
+      result[:success] = "Messages successfully sent to #{successes.count} out of #{successes.count + failures.count} numbers." 
     end
 
     unless failures.empty?
