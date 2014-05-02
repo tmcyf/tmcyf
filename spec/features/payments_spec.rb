@@ -8,7 +8,7 @@ describe "Payments" do
     fill_in "user_password", with: admin.password
     click_button "Sign in"
   end
-    
+
   it "should be accessible from the admin dashboard" do
     visit "/admin"
     click_link "New Payment"
@@ -33,12 +33,6 @@ describe "Payments" do
     payment = create(:payment)
     visit "/payments"
     page.should have_content payment.description
-  end
-
-  it "should show users the option to make payments for payable items" do
-    create(:payment)
-    visit "/payments"
-    page.should have_content "Pay with card"
   end
 
 end
