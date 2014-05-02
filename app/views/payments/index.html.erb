@@ -15,7 +15,7 @@
     <% @unpaid.each do |payment| %>
       <tr>
         <td><%= payment.description %></td>
-        <td><%= payment.amount %></td>
+        <td>$<%= sprintf('%.2f', payment.amount / 100) %></td>
         <td>
           <%= form_tag charge_payment_path(payment), method: 'POST', remote: true %> 
             <script 
@@ -35,7 +35,7 @@
     <% @paid.each do |payment| %>
       <tr>
         <td><%= payment.description %></td>
-        <td><%= payment.amount %></td>
+        <td>$<%= sprintf('%.2f', payment.amount / 100) %></td>
         <td>Paid!</td>
       </tr>
     <% end %>
