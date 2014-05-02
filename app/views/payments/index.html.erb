@@ -1,10 +1,10 @@
-<h1>Listing payments</h1>
+<h1>Payments</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Description</th>
       <th>Amount</th>
-      <th>User</th>
       <th></th>
       <th></th>
       <th></th>
@@ -12,18 +12,32 @@
   </thead>
 
   <tbody>
-    <% @payments.each do |payment| %>
+    <% @unpaid.each do |payment| %>
       <tr>
+        <td><%= payment.description %></td>
         <td><%= payment.amount %></td>
-        <td><%= payment.user_id %></td>
-        <td><%= link_to 'Show', payment %></td>
-        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <form action='charge' method='POST'> 
+            <script 
+              src="https://checkout.stripe.com/checkout.js"
+              data-key="pk_test_kBic0iWCskLu6CgVYFZhotCz" # TODO: change to env stripe key
+              <%# data-image="/square-image.png" %> # TODO: change to lighthouse icon
+              data-name="TMCYF"
+              class="stripe-button"
+              data-email="<%= current_user.email %>"
+              data-description="<%= payment.description %>"
+              data-amount="<%= payment.amount %>">
+            </script>
+          </form>
+        </td>
+      </tr>
+    <% @paid.each do |payment| %>
+      <tr>
+        <td><%= payment.description %></td>
+        <td><%= payment.amount %></td>
+        <td>Paid!</td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Payment', new_payment_path %>

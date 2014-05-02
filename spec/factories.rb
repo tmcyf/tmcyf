@@ -26,5 +26,10 @@ FactoryGirl.define do
     location "Ur Mom's Place"
     startdt DateTime.now
     enddt { startdt + 1.day }
+
+  factory :payment do
+    amount "5.00"
+    description "A payment from the factory."
   end
+
 end

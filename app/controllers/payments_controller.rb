@@ -1,51 +1,47 @@
 class PaymentsController < ApplicationController
-  before_action :set_payment, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token, only: [:charge]
+  before_action :set_payment, only: [:charge]
 
-  # GET /payments
-  def index
-    @payments = Payment.all
-  end
-
-  # GET /payments/1
-  def show
-  end
-
-  # GET /payments/new
   def new
-    logger.info params
-    @payable = GenericPayable.find(params[:generic_payable_id])
-    @payment = @payable.payments.build
+    @payment = Payment.new
   end
 
-  # GET /payments/1/edit
-  def edit
-  end
-
-  # POST /payments
   def create
     @payment = Payment.new(payment_params)
 
-    if @payment.save
-      redirect_to @payment, notice: 'Payment was successfully created.'
+    if @payment.save!
+      flash[:success]= "Payment successfully created."
+      redirect_to admin_path
     else
-      render action: 'new'
+      flash[:error]= "There was an error creating the payment."
+      redirect_to new_payment_path
     end
   end
 
-  # DELETE /payments/1
-  def destroy
-    @payment.destroy
-    redirect_to payments_url, notice: 'Payment was successfully destroyed.'
+  def index
+    payment_history = PaymentHistory.new(current_user)
+    @paid = payment_history.paid
+    @unpaid = payment_history.unpaid
+  end
+
+  def charge
+    token = params[:stripeToken]
+    charge_params = StripeService.new(token).submit_payment_for!(@payment)
+    charge_params.merge(user_id: current_user.id)
+    if Charge.new(charge_params).save!
+      render json: {success: "Payment successfully made!"}.to_json
+    else
+      render json: {error: "There was an error submitting your payment."}.to_json
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_payment
-      @payment = Payment.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def payment_params
-      params.require(:payment).permit(:amount, :user_id)
-    end
+  def payment_params
+    params.require(:payment).permit(:amount, :description)
+  end
+
+  def set_payment
+    @payment = Payment.find(params[:id])
+  end
 end
