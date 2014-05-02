@@ -24,10 +24,9 @@ set :slack_team, "tmcyf"
 set :slack_token, "Qv4bm0x9Lm8gAB5sZLMNxpe0"
 set :slack_channel,      ->{ '#dev' }
 set :slack_username,     ->{ 'capistrano' }
-set :slack_msg_starting, ->{ "#{ENV['USER'] || ENV['USERNAME']} has started deploying branch #{fetch :branch} of #{fetch :application} to #{fetch :stage}." }
-set :slack_msg_finished, ->{ "#{ENV['USER'] || ENV['USERNAME']} has finished deploying branch #{fetch :branch} of #{fetch :application} to #{fetch :stage}." }
-set :slack_msg_failed,   ->{ "*ERROR!* #{ENV['USER'] || ENV['USERNAME']} failed to deploy branch #{fetch :branch} of #{fetch :application} to #{fetch :stage}." }
-
+set :slack_msg_starting, ->{ "#{ENV['USER'] || ENV['USERNAME']} has started deploying branch #{fetch :branch} of #{fetch :application} to #{fetch :stage} on #{fetch :ip}." }
+set :slack_msg_finished, ->{ "#{ENV['USER'] || ENV['USERNAME']} has finished deploying branch #{fetch :branch} of #{fetch :application} to #{fetch :stage} on #{fetch :ip}." }
+set :slack_msg_failed,   ->{ "*ERROR!* #{ENV['USER'] || ENV['USERNAME']} failed to deploy branch #{fetch :branch} of #{fetch :application} to #{fetch :stage} on #{fetch :ip}." }
 
 
 # Default branch is :master
@@ -61,11 +60,23 @@ namespace :nginx do
     on roles(:web) do
       sudo_upload! template('nginx_conf.erb'), nginx_sites_available_file
       sudo :ln, '-fs', nginx_sites_available_file, nginx_sites_enabled_file
-      if file_exists?(nginx_default_sites_available_file)
-        execute :sudo, :rm, nginx_default_sites_available_file
-      end
+    end
+  end
+
+  desc 'Remove default Vhosts'
+  task :remove_defaults do
+    on roles(:web) do
       if file_exists?(nginx_default_sites_enabled_file)
         execute :sudo, :rm, nginx_default_sites_enabled_file
+        puts "removed default sites-enabled file"
+      else
+        puts "no default sites-enabled file to remove"
+      end
+      if file_exists?(nginx_default_sites_available_file)
+        execute :sudo, :rm, nginx_default_sites_available_file
+        puts "removed default sites-available file"
+      else
+        puts "no default sites-available file to remove"
       end
     end
   end
@@ -145,6 +156,7 @@ namespace :deploy do
 
   after :started, 'nginx:setup'
   after :started, 'nginx:setup_ssl'
+  after :started, 'nginx:remove_defaults'
 
   after :updated, 'unicorn:setup_app'
   after :updated, 'unicorn:setup_initializer'
