@@ -8,14 +8,12 @@ class EventsController < ApplicationController
 
   # GET /events/1
   def show
+    event = Event.friendly.find(params[:id])
+    ics = IcsGenerator.ics_for(event)
+
     respond_to do |format|
       format.html
-      format.ics do
-        calendar = Icalendar::Calendar.new
-        calendar.add_event(@event.to_ics)
-        calendar.publish
-        render text: calendar.to_ical, content_type: 'text/calendar'
-      end
+      format.ics { render text: ics, layout: false }
     end
   end
 
