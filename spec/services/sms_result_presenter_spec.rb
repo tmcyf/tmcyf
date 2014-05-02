@@ -16,8 +16,8 @@ describe SmsResultPresenter do
   context "with no failures" do
     let(:results) { [ ['8675309', nil] ] }
 
-    it "returns the list of successful numbers" do
-      SmsResultPresenter.present_hash(results)[:success].should match "Messages successfully sent to 8675309."
+    it "returns the count of successful numbers" do
+      SmsResultPresenter.present_hash(results)[:success].should match "Messages successfully sent to 1 out of 1 numbers."
     end
   end
 
@@ -36,7 +36,8 @@ describe SmsResultPresenter do
       ['5555555', twilio_error]
     ] }
     it "shows both failures and successes" do
-      SmsResultPresenter.present_hash(results)[:success].should match "Messages successfully sent to 8675309."
+      SmsResultPresenter.present_hash(results)[:success].should match "Messages successfully sent to 1 out of 2 numbers."
+      SmsResultPresenter.present_hash(results)[:error].should match(/Messages failed.*5555555.*#{Regexp.quote(twilio_error.message)}/)
     end
   end
 
