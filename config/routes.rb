@@ -1,6 +1,8 @@
 TMCYF::Application.routes.draw do
 
   resources :featured_events
+  resources :payments
+  post '/payments/:id/charge', to: 'payments#charge', as: 'charge_payment'
 
   mount RailsAdmin::Engine => '/admin2', :as => 'rails_admin'
   resources :give, only: [:index, :new, :create]

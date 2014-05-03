@@ -2,6 +2,7 @@
   <ul class="account-nav vertical">
     <li><%= link_to "Profile", account_path %></li>
     <li><%= link_to "Preferences", account_preferences_path %></li>
+    <li><%= link_to "Payments", payments_path %></li>
   	<% if current_user.try(:admin?) %>
   	<li><%= link_to "Admin", admin_path %></li>
   	<% end %>

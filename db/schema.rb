@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423231645) do
+ActiveRecord::Schema.define(version: 20140502085757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "charges", force: true do |t|
+    t.string  "stripe_id"
+    t.string  "last4"
+    t.decimal "amount"
+    t.integer "user_id"
+    t.integer "payment_id"
+  end
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -38,6 +46,13 @@ ActiveRecord::Schema.define(version: 20140423231645) do
   end
 
   create_table "pages", force: true do |t|
+  end
+
+  create_table "payments", force: true do |t|
+    t.integer "amount"
+    t.string  "description"
+    t.integer "payable_id"
+    t.string  "payable_type"
   end
 
   create_table "users", force: true do |t|
@@ -72,6 +87,7 @@ ActiveRecord::Schema.define(version: 20140423231645) do
     t.boolean  "sms_contact",            default: false
     t.boolean  "admin",                  default: false
     t.string   "stripe_id"
+    t.string   "current_last4"
     t.integer  "status",                 default: 0
   end
 

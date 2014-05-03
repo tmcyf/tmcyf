@@ -15,6 +15,7 @@ gem "jquery-rails"
 gem 'uglifier', '>= 1.3.0'
 gem 'redcarpet'
 gem 'turbolinks'
+gem 'unobtrusive_flash', '>= 3'
 
 # Authentication and Authorization
 gem 'devise'
@@ -38,7 +39,7 @@ gem 'rspec-rails', group: [:development, :test]
 
 # External services
 gem 'twilio-ruby'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'stripe'
 gem 'gibbon'
 gem 'google-analytics-rails'
 gem 'skylight'
@@ -60,7 +61,7 @@ group :development do
   gem 'meta_request'
   gem 'pry'
   gem 'open4'
-  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+  gem 'annotate', git: 'git://github.com/ctran/annotate_models.git'
 end
 
 # Testing

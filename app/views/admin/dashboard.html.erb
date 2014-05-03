@@ -1,44 +1,47 @@
 <% provide(:title, 'Admin') %>
 <div class="row">
-	<%= render 'layouts/account_menu' %>
-	<div class="large-9 columns">
-		<div class="row">
-			<div class="large-12 columns">
-				<%= link_to "Advanced Admin Tasks", rails_admin_path %>
-			</div>
-			<div class="large-12 columns">
-				<%= link_to "Create a New Event", new_event_path %>
-			</div>
-			<div class="large-12 columns">
-				<%= link_to "Create a New Featured Event", new_featured_event_path %>
-			</div>
-			<div class="large-12 columns">
-				<%= link_to "Users Excel Spreadsheet", database_path(format: "xls")%>
-			</div>
-			<div class="large-12 columns">
-				<%= link_to "Create a SMS", send_sms_path %>
-			</div>
-			<div class="large-12 columns">
-				<h5>List of users who prefer Facebook:</h5>
-				<% @fb_users.each do |fullname| %>
-					<li style="list-style: none;"><%= fullname %></li>
-				<% end %>
-			<hr />
-				<h5>List of users who prefer SMS:</h5>
-				<% @sms_users.each do |fullname| %>
-					<li style="list-style: none;"><%= fullname %></li>
-				<% end %>
-			<hr />
-				<h5>List of users who prefer Email:</h5>
-				<% @email_users.each do |fullname| %>
-					<li style="list-style: none;"><%= fullname %></li>
-				<% end %>
-			<hr />
-				<h5>List of users:</h5>
-				<% @allusers.each do |fullname| %>
-					<li style="list-style: none;"><%= fullname %></li>
-				<% end %>
-			</div>
-		</div>
-	</div>
+  <%= render 'layouts/account_menu' %>
+  <div class="large-9 columns">
+    <div class="row">
+      <div class="large-12 columns">
+        <%= link_to "Advanced Admin Tasks", rails_admin_path %>
+      </div>
+      <div class="large-12 columns">
+        <%= link_to "Create a New Payment", new_payment_path %>
+      </div>
+      <div class="large-12 columns">
+        <%= link_to "Create a New Event", new_event_path %>
+      </div>
+      <div class="large-12 columns">
+        <%= link_to "Create a New Featured Event", new_featured_event_path %>
+      </div>
+      <div class="large-12 columns">
+        <%= link_to "Users Excel Spreadsheet", database_path(format: "xls")%>
+      </div>
+      <div class="large-12 columns">
+        <%= link_to "Create a SMS", send_sms_path %>
+      </div>
+      <div class="large-12 columns">
+        <h5>List of users who prefer Facebook:</h5>
+        <% @fb_users.each do |fullname| %>
+          <li style="list-style: none;"><%= fullname %></li>
+        <% end %>
+      <hr />
+        <h5>List of users who prefer SMS:</h5>
+        <% @sms_users.each do |fullname| %>
+          <li style="list-style: none;"><%= fullname %></li>
+        <% end %>
+      <hr />
+        <h5>List of users who prefer Email:</h5>
+        <% @email_users.each do |fullname| %>
+          <li style="list-style: none;"><%= fullname %></li>
+        <% end %>
+      <hr />
+        <h5>List of users:</h5>
+        <% @allusers.each do |fullname| %>
+          <li style="list-style: none;"><%= fullname %></li>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
