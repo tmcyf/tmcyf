@@ -1,44 +1,52 @@
-<h1>Payments</h1>
+<% provide(:title, 'Preferences') %>
+<div class="row">
+  <%= render 'layouts/account_menu' %>
+  <div class="large-9 columns">
+    <fieldset class="fields">
+      <div class="large-12 columns">
+        <h1>Payments</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Amount</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+        <table>
+          <thead>
+            <tr>
+              <th>Payment</th>
+              <th>Amount</th>
+              <th></th>
+            </tr>
+          </thead>
 
-  <tbody>
-    <% @unpaid.each do |payment| %>
-      <tr>
-        <td><%= payment.description %></td>
-        <td>$<%= sprintf('%.2f', payment.amount / 100) %></td>
-        <td>
-          <%= form_tag charge_payment_path(payment), method: 'POST', remote: true %> 
-            <script 
-              src="https://checkout.stripe.com/checkout.js"
-              data-key="pk_test_kBic0iWCskLu6CgVYFZhotCz" # TODO: change to env stripe key
-              <%# data-image="/square-image.png" %> # TODO: change to lighthouse icon
-              data-name="TMCYF"
-              class="stripe-button"
-              data-email="<%= current_user.email %>"
-              data-description="<%= payment.description %>"
-              data-amount="<%= payment.amount %>">
-            </script>
-          </form>
-        </td>
-      </tr>
-    <% end %>
-    <% @paid.each do |payment| %>
-      <tr>
-        <td><%= payment.description %></td>
-        <td>$<%= sprintf('%.2f', payment.amount / 100) %></td>
-        <td>Paid!</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <tbody>
+            <% @unpaid.each do |payment| %>
+              <tr>
+                <td><%= payment.description %></td>
+                <td>$<%= sprintf('%.2f', payment.amount / 100) %></td>
+                <td>
+                  <%= form_tag charge_payment_path(payment), method: 'POST', remote: true %>
+                    <script
+                      src="https://checkout.stripe.com/checkout.js"
+                      data-key="pk_test_kBic0iWCskLu6CgVYFZhotCz" # TODO: change to env stripe key
+                      <%# data-image="/square-image.png" %> # TODO: change to lighthouse icon
+                      data-name="TMCYF"
+                      class="stripe-button"
+                      data-email="<%= current_user.email %>"
+                      data-description="<%= payment.description %>"
+                      data-amount="<%= payment.amount %>">
+                    </script>
+                  </form>
+                </td>
+              </tr>
+            <% end %>
+            <% @paid.each do |payment| %>
+              <tr>
+                <td><%= payment.description %></td>
+                <td>$<%= sprintf('%.2f', payment.amount / 100) %></td>
+                <td>Paid!</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </fieldset>
+  </div>
+</div>
 

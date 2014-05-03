@@ -14,15 +14,15 @@
       <% end %>
 
       <div class="row">
-        <div class="large-4 columns">
-          <%= f.label "Amount (in cents)" %><br>
-          <%= f.text_field :amount %>
+        <div class="large-4 columns event-form-edit-datetime">
+          <%= f.label :payment %><br>
+          <%= f.text_field :description %>
         </div>
       </div>
       <div class="row">
-        <div class="large-4 columns event-form-edit-datetime">
-          <%= f.label :description %><br>
-          <%= f.text_field :description %>
+        <div class="large-4 columns">
+          <%= f.label "Amount (in cents)" %><br>
+          <%= f.text_field :amount %>
         </div>
       </div>
       <div class="row">
