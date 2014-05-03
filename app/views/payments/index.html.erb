@@ -19,12 +19,12 @@
             <% @unpaid.each do |payment| %>
               <tr>
                 <td><%= payment.description %></td>
-                <td>$<%= sprintf('%.2f', payment.amount / 100) %></td>
+                <td><%= number_to_currency(payment.amount.to_f / 100) %></td>
                 <td>
                   <%= form_tag charge_payment_path(payment), method: 'POST', remote: true %>
                     <script
                       src="https://checkout.stripe.com/checkout.js"
-                      data-key="pk_test_kBic0iWCskLu6CgVYFZhotCz" # TODO: change to env stripe key
+                      data-key=<%= ENV['STRIPE_PUBLIC_KEY'] %> # TODO: change to env stripe key
                       <%# data-image="/square-image.png" %> # TODO: change to lighthouse icon
                       data-name="TMCYF"
                       class="stripe-button"
@@ -39,7 +39,7 @@
             <% @paid.each do |payment| %>
               <tr>
                 <td><%= payment.description %></td>
-                <td>$<%= sprintf('%.2f', payment.amount / 100) %></td>
+                <td><%= number_to_currency(payment.amount.to_f / 100) %></td>
                 <td>Paid!</td>
               </tr>
             <% end %>
