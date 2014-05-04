@@ -60,8 +60,12 @@ class User < ActiveRecord::Base
 
   enum status: { registered: 0, active: 1 }
 
-  def address
-    self.line1 + self.city + self.state + self.zip
+  def fullname
+    "#{self.fname} #{self.lname}"
+  end
+
+  def fullname
+    "#{self.fname} #{self.lname}"
   end
 
 
