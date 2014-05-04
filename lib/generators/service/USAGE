@@ -1,0 +1,9 @@
+Description:
+    Simplify generating a service and its associated spec file
+
+Example:
+    rails generate service Stripe
+
+    This will create:
+        app/services/stripe_service.rb
+        spec/services/stripe_service_spec.rb
