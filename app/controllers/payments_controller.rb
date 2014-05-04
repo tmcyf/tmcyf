@@ -28,12 +28,12 @@ class PaymentsController < ApplicationController
 
   def charge
     token = params[:stripeToken]
-    charge_result = StripeService.new(token).charge!(@payment.amount)
-    @charge = @payment.charges.build
-    @charge.user = current_user
-    @charge.amount = @payment.amount
-    @charge.stripe_id = charge_result.id
-    @charge.last4 = charge_result.card.last4
+    compensated_charge = StripeCompensator.compensate(@payment.amount)
+    charge_result = StripeService.new(token).charge!(compensated_charge)
+    @charge = @payment.charges.build(user: current_user,
+                                     amount: compensated_charge,
+                                     stripe_id: charge_result.id,
+                                     last4: charge_result.card.last4)
     if @charge.save!
       flash[:success] = "Payment successfully made!"
     else
