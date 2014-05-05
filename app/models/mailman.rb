@@ -12,13 +12,15 @@ class Mailman
           merge_vars: {FNAME: user.fname, LNAME: user.lname},
           double_optin: false)
     end
+    user.email_contact = true
   end
 
-  def unsubscribe
+  def unsubscribe(user)
     if mailchimp_member?(user)
       @gibbon.lists.unsubscribe(id: @campaign_id,
           email: {email: user.email})
     end
+    user.email_contact = false
   end
 
   def mailchimp_member?(user)
