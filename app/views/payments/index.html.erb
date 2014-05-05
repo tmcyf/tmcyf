@@ -30,7 +30,8 @@
                       class="stripe-button"
                       data-email="<%= current_user.email %>"
                       data-description="<%= payment.description %>"
-                      data-amount="<%= payment.amount %>">
+                      <%# DOES THIS BELONG HERE!?!!1 %>
+                      data-amount="<%= StripeCompensator.compensate(payment.amount) %>">
                     </script>
                   </form>
                 </td>

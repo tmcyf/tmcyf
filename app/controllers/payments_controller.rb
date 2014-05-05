@@ -10,7 +10,6 @@ class PaymentsController < ApplicationController
 
   def create
     @payment = Payment.new(payment_params)
-
     if @payment.save!
       flash[:success]= "Payment successfully created."
       redirect_to admin_path

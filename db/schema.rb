@@ -87,8 +87,8 @@ ActiveRecord::Schema.define(version: 20140502085757) do
     t.boolean  "sms_contact",            default: false
     t.boolean  "admin",                  default: false
     t.string   "stripe_id"
-    t.string   "current_last4"
     t.integer  "status",                 default: 0
+    t.string   "current_last4"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
