@@ -24,7 +24,7 @@
                   <%= form_tag charge_payment_path(payment), method: 'POST', remote: true %>
                     <script
                       src="https://checkout.stripe.com/checkout.js"
-                      data-key=<%= ENV['STRIPE_PUBLIC_KEY'] %> # TODO: change to env stripe key
+                      data-key=<%= ENV['STRIPE_PUBLIC_KEY'] %>
                       <%# data-image="/square-image.png" %> # TODO: change to lighthouse icon
                       data-name="TMCYF"
                       class="stripe-button"

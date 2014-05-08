@@ -4,8 +4,9 @@ class StripeService
   end
 
 
-  def charge!(amount)
-    Stripe::Charge.create(amount: amount, currency: 'USD', card: @token)
+  def charge!(amount, description="")
+    Stripe::Charge.create(amount: amount, currency: 'USD', card: @token,
+                          description: description)
   end
 
 end
