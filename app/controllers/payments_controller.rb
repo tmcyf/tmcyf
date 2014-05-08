@@ -28,7 +28,9 @@ class PaymentsController < ApplicationController
   def charge
     token = params[:stripeToken]
     compensated_charge = StripeCompensator.compensate(@payment.amount)
-    charge_result = StripeService.new(token).charge!(compensated_charge)
+    description = "#{current_user.fullname}'s payment for #{@payment.description}."
+    charge_result = StripeService.new(token).charge!(compensated_charge,
+                                                     description)
     @charge = @payment.charges.build(user: current_user,
                                      amount: compensated_charge,
                                      stripe_id: charge_result.id,
