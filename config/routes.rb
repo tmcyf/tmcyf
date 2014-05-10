@@ -42,6 +42,9 @@ TMCYF::Application.routes.draw do
     get '/about/contact',           to: 'pages#about_contact'
   get '/biblestudy',                to: 'pages#biblestudy'
   get '/admin',                     to: 'admin#dashboard'
+  # not very RESTful; we can tidy that up later
+  get '/admin/offline_payments',    to: 'payments#new_offline_charge', as: 'new_offline_charge'
+  post '/admin/offline_payments',   to: 'payments#create_offline_charge', as: 'create_offline_charge'
   get '/admin/database',            to: 'admin#database', as: 'database'
   get '/account/preferences',       to: 'preferences#edit'
   post '/account/preferences',      to: 'preferences#update'

@@ -26,11 +26,6 @@ class User < ActiveRecord::Base
     "#{self.fname} #{self.lname}"
   end
 
-  def fullname
-    "#{self.fname} #{self.lname}"
-  end
-
-
   def sms_subscribe
     self.phone? ? self.sms_contact = true : false
   end
