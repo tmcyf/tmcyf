@@ -5,7 +5,7 @@ class PaymentHistory
   end
 
   def paid
-    Payment.find(@user.charges.pluck(:payment_id))
+    @user.payments
   end
 
   def unpaid

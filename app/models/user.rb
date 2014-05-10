@@ -1,42 +1,3 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id                     :integer          not null, primary key
-#  email                  :string(255)      default(""), not null
-#  encrypted_password     :string(255)      default(""), not null
-#  reset_password_token   :string(255)
-#  reset_password_sent_at :datetime
-#  remember_created_at    :datetime
-#  sign_in_count          :integer          default(0)
-#  current_sign_in_at     :datetime
-#  last_sign_in_at        :datetime
-#  current_sign_in_ip     :string(255)
-#  last_sign_in_ip        :string(255)
-#  confirmation_token     :string(255)
-#  confirmed_at           :datetime
-#  confirmation_sent_at   :datetime
-#  authentication_token   :string(255)
-#  created_at             :datetime
-#  updated_at             :datetime
-#  fname                  :string(255)
-#  lname                  :string(255)
-#  phone                  :string(255)
-#  gender                 :string(255)
-#  birthday               :date
-#  line1                  :string(255)
-#  city                   :string(255)
-#  state                  :string(255)
-#  zip                    :string(255)
-#  shirtsize              :string(255)
-#  email_contact          :boolean          default(FALSE)
-#  facebook_contact       :boolean          default(FALSE)
-#  sms_contact            :boolean          default(FALSE)
-#  admin                  :boolean          default(FALSE)
-#  stripe_id              :string(255)
-#  status                 :integer          default(0)
-#
-
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -44,6 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable
   has_many :charges
+  has_many :payments, through: :charges
 
   before_validation(on: :create, on: :update) do
     self.phone = phone.gsub(/[^0-9]/, "") if attribute_present?("phone")
