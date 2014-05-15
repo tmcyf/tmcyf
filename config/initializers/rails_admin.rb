@@ -12,6 +12,9 @@ RailsAdmin.config do |config|
   end
   config.current_user_method(&:current_user)
 
+  # Include specific models (exclude the others):
+  config.included_models = ['User']
+
   ## == Cancan ==
   # config.authorize_with :cancan
 
