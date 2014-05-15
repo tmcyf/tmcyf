@@ -9,6 +9,6 @@ class PaymentHistory
   end
 
   def unpaid
-    Payment.all - paid
+    Payment.active - paid
   end
 end

@@ -1,4 +1,4 @@
-<% provide(:title, 'Payments') %>
+<% provide(:title, 'Edit payments') %>
 <div class="row">
   <%= render 'layouts/account_menu' %>
   <div class="large-9 columns">
@@ -12,36 +12,32 @@
               <th>Payment</th>
               <th>Amount</th>
               <th></th>
+              <% if current_admin %>
+                <th>Edit Payment</th>
+              <% end %>
             </tr>
           </thead>
 
           <tbody>
-            <% @unpaid.each do |payment| %>
+            <% @payments.each do |payment| %>
               <tr>
                 <td><%= payment.description %></td>
                 <td><%= number_to_currency(payment.amount.to_f / 100) %></td>
-                <td>
-                  <%= form_tag charge_payment_path(payment), method: 'POST', remote: true %>
-                    <script
-                      src="https://checkout.stripe.com/checkout.js"
-                      data-key=<%= ENV['STRIPE_PUBLIC_KEY'] %>
-                      <%# data-image="/square-image.png" %> # TODO: change to lighthouse icon
-                      data-name="TMCYF"
-                      class="stripe-button"
-                      data-email="<%= current_user.email %>"
-                      data-description="<%= payment.description %>"
-                      <%# DOES THIS BELONG HERE!?!!1 %>
-                      data-amount="<%= StripeCompensator.compensate(payment.amount) %>">
-                    </script>
-                  </form>
-                </td>
+                <td></td>
+              <% if current_admin %>
+                <td><%= link_to "Edit payment", edit_payment_path(payment) %></td>
+              <% end %>
+
               </tr>
             <% end %>
-            <% @paid.each do |payment| %>
+            <% @payments.each do |payment| %>
               <tr>
                 <td><%= payment.description %></td>
                 <td><%= number_to_currency(payment.amount.to_f / 100) %></td>
                 <td>Paid!</td>
+              <% if current_admin %>
+                <td><%= link_to "Edit payment", edit_payment_path(payment) %></td>
+              <% end %>
               </tr>
             <% end %>
           </tbody>

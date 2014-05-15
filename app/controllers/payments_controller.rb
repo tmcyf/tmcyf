@@ -20,7 +20,6 @@ class PaymentsController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
@@ -54,6 +53,11 @@ class PaymentsController < ApplicationController
     redirect_to :back
   end
 
+  def edit_payments_index
+    redirect_to :root unless current_user && current_user.admin?
+    @payments = Payment.all
+  end
+
   def charge
     token = params[:stripeToken]
     compensated_charge = StripeCompensator.compensate(@payment.amount)
@@ -75,11 +79,11 @@ class PaymentsController < ApplicationController
   private
 
   def payment_params
-    params.require(:payment).permit(:ids, :amount, :description)
+    params.require(:payment).permit(:id, :amount, :description)
   end
 
   def edit_payment_params
-    params.require(:payment).permit(:active, :description)
+    params.require(:payment).permit(:active, :description, :id)
   end
 
   def offline_charge_params
