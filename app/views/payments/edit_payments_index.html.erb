@@ -12,9 +12,7 @@
               <th>Payment</th>
               <th>Amount</th>
               <th></th>
-              <% if current_admin %>
-                <th>Edit Payment</th>
-              <% end %>
+              <th>Edit Payment</th>
             </tr>
           </thead>
 
@@ -24,25 +22,12 @@
                 <td><%= payment.description %></td>
                 <td><%= number_to_currency(payment.amount.to_f / 100) %></td>
                 <td></td>
-              <% if current_admin %>
                 <td><%= link_to "Edit payment", edit_payment_path(payment) %></td>
-              <% end %>
 
-              </tr>
-            <% end %>
-            <% @payments.each do |payment| %>
-              <tr>
-                <td><%= payment.description %></td>
-                <td><%= number_to_currency(payment.amount.to_f / 100) %></td>
-                <td>Paid!</td>
-              <% if current_admin %>
-                <td><%= link_to "Edit payment", edit_payment_path(payment) %></td>
-              <% end %>
               </tr>
             <% end %>
           </tbody>
         </table>
-        <div class="surcharge-note">Note: there is a small convenience fee which will be added to the total.</div>
       </div>
     </fieldset>
   </div>
