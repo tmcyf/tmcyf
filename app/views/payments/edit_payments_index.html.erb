@@ -1,0 +1,35 @@
+<% provide(:title, 'Edit payments') %>
+<div class="row">
+  <%= render 'layouts/account_menu' %>
+  <div class="large-9 columns">
+    <fieldset class="fields">
+      <div class="large-12 columns">
+        <h1>Payments</h1>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Payment</th>
+              <th>Amount</th>
+              <th></th>
+              <th>Edit Payment</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @payments.each do |payment| %>
+              <tr>
+                <td><%= payment.description %></td>
+                <td><%= number_to_currency(payment.amount.to_f / 100) %></td>
+                <td></td>
+                <td><%= link_to "Edit payment", edit_payment_path(payment) %></td>
+
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </fieldset>
+  </div>
+</div>
+

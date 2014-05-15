@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515041100) do
+ActiveRecord::Schema.define(version: 20140515211340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(version: 20140515041100) do
     t.decimal "amount"
     t.integer "user_id"
     t.integer "payment_id"
-    t.boolean "out_of_band"
-    t.boolean "offline"
   end
 
   create_table "events", force: true do |t|
@@ -56,14 +54,6 @@ ActiveRecord::Schema.define(version: 20140515041100) do
     t.integer "payable_id"
     t.string  "payable_type"
     t.boolean "active"
-  end
-
-  create_table "sermons", force: true do |t|
-    t.string   "title"
-    t.text     "notes"
-    t.string   "audio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

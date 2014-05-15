@@ -1,4 +1,7 @@
 module ApplicationHelper
+  def current_admin
+    current_user && current_user.admin?
+  end
   def full_title(page_title)
     base_title = "Trinity Mar Thoma Church Youth Fellowship"
     if page_title.empty?

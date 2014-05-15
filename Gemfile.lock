@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/ctran/annotate_models.git
-  revision: c60fa282d74051e2fb5d41b600f919a39d9edcb4
-  specs:
-    annotate (2.6.3)
-      activerecord (>= 2.3.0)
-      rake (>= 0.8.7)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -369,7 +361,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_link_to
-  annotate!
   better_errors
   binding_of_caller
   capistrano (~> 3.1.0)
