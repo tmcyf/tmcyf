@@ -1,6 +1,5 @@
 class SermonsController < ApplicationController
   before_action :set_sermon, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
 
   # GET /sermons
   def index
@@ -13,6 +12,7 @@ class SermonsController < ApplicationController
 
   # GET /sermons/new
   def new
+    redirect_to :root unless current_user && current_user.admin?
     @sermon = Sermon.new
   end
 
