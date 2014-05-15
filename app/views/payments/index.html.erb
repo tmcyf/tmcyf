@@ -12,6 +12,9 @@
               <th>Payment</th>
               <th>Amount</th>
               <th></th>
+              <% if current_admin %>
+                <th>Edit Payment</th>
+              <% end %>
             </tr>
           </thead>
 
@@ -35,6 +38,10 @@
                     </script>
                   </form>
                 </td>
+              <% if current_admin %>
+                <td><%= link_to "Edit payment", edit_payment_path(payment) %></td>
+              <% end %>
+
               </tr>
             <% end %>
             <% @paid.each do |payment| %>
@@ -42,6 +49,9 @@
                 <td><%= payment.description %></td>
                 <td><%= number_to_currency(payment.amount.to_f / 100) %></td>
                 <td>Paid!</td>
+              <% if current_admin %>
+                <td><%= link_to "Edit payment", edit_payment_path(payment) %></td>
+              <% end %>
               </tr>
             <% end %>
           </tbody>

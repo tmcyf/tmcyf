@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:charge]
-  before_action :set_payment, only: [:charge]
+  before_action :set_payment, only: [:charge, :edit, :update]
   # ajax flash handling
   after_filter :prepare_unobtrusive_flash, only: [:charge]
 
@@ -16,6 +16,20 @@ class PaymentsController < ApplicationController
     else
       flash[:error]= "There was an error creating the payment."
       redirect_to new_payment_path
+    end
+  end
+
+  def edit
+    
+  end
+
+  def update
+    if @payment.update(edit_payment_params)
+      flash[:success]= "Payment successfully updated"
+      redirect_to admin_path
+    else
+      flash[:error]= "There was an error updating the payment"
+      redirect_to edit_payment_path
     end
   end
 
@@ -61,7 +75,11 @@ class PaymentsController < ApplicationController
   private
 
   def payment_params
-    params.require(:payment).permit(:amount, :description)
+    params.require(:payment).permit(:ids, :amount, :description)
+  end
+
+  def edit_payment_params
+    params.require(:payment).permit(:active, :description)
   end
 
   def offline_charge_params
