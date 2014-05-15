@@ -1,5 +1,6 @@
 class SermonsController < ApplicationController
   before_action :set_sermon, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /sermons
   def index
@@ -17,10 +18,12 @@ class SermonsController < ApplicationController
 
   # GET /sermons/1/edit
   def edit
+    redirect_to :root unless current_user && current_user.admin?
   end
 
   # POST /sermons
   def create
+    redirect_to :root unless current_user && current_user.admin?
     @sermon = Sermon.new(sermon_params)
 
     if @sermon.save
@@ -32,6 +35,7 @@ class SermonsController < ApplicationController
 
   # PATCH/PUT /sermons/1
   def update
+    redirect_to :root unless current_user && current_user.admin?
     if @sermon.update(sermon_params)
       redirect_to @sermon, notice: 'Sermon was successfully updated.'
     else
@@ -41,6 +45,7 @@ class SermonsController < ApplicationController
 
   # DELETE /sermons/1
   def destroy
+    redirect_to :root unless current_user && current_user.admin?
     @sermon.destroy
     redirect_to sermons_url, notice: 'Sermon was successfully destroyed.'
   end
