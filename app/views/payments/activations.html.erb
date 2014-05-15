@@ -1,0 +1,18 @@
+<%= form_for :payments, url: submit_payments_activation_path do |f| %>
+  <table>
+    <thead>
+      <th>Description</th>
+      <th>Active?</th>
+    </thead>
+    <tbody>
+      <% @payments.each do |p| %>
+        <tr>
+          <%= hidden_field_tag 'payment_ids[]', p.id %>
+          <td><%= p.description %></td>
+          <td><%= check_box_tag 'active_payments[]', checked: p.active? %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= f.submit %>
+<% end %>
