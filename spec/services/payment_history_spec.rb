@@ -6,7 +6,7 @@ describe PaymentHistory do
 
   before do
     payment_model = double
-    payment_model.stub(all: [payment])
+    payment_model.stub(active: [payment])
     stub_const('Payment', payment_model)
   end
 
