@@ -12,7 +12,9 @@
 
 <p>
   <strong>Audio:</strong>
-  <%= @sermon.audio %>
+  <audio src='<%= @sermon.audio %>' controls='controls'>
+    Your browser does not support the <code>audio</code> element.
+  </audio>
 </p>
 
 <%= link_to 'Edit', edit_sermon_path(@sermon) %> |
