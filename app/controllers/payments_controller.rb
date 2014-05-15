@@ -25,6 +25,21 @@ class PaymentsController < ApplicationController
     @unpaid = payment_history.unpaid
   end
 
+  def new_offline_charge
+    @charge = Charge.new
+  end
+
+  def create_offline_charge
+    @charge = Charge.new(offline_charge_params)
+    @charge.amount = @charge.payment.amount
+    if @charge.save!
+      flash[:success] = "Recorded payment made offline by #{@charge.user.fullname} for #{@charge.payment.description}."
+    else
+      flash[:error] = "An error occurred."
+    end
+    redirect_to :back
+  end
+
   def charge
     token = params[:stripeToken]
     compensated_charge = StripeCompensator.compensate(@payment.amount)
@@ -47,6 +62,10 @@ class PaymentsController < ApplicationController
 
   def payment_params
     params.require(:payment).permit(:amount, :description)
+  end
+
+  def offline_charge_params
+    params.require(:charge).permit(:user_id, :payment_id)
   end
 
   def set_payment
