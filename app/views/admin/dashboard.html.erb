@@ -31,6 +31,9 @@
         <%= link_to "Create a SMS", send_sms_path %>
       </div>
       <div class="large-12 columns">
+        <%= link_to 'New Sermon', new_sermon_path %>
+      </div>
+      <div class="large-12 columns">
         <h5>List of users who prefer Facebook:</h5>
         <% @fb_users.each do |fullname| %>
           <li style="list-style: none;"><%= fullname %></li>
