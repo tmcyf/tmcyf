@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20140515211340) do
     t.decimal "amount"
     t.integer "user_id"
     t.integer "payment_id"
-    t.boolean "out_of_band"
     t.boolean "offline"
   end
 
@@ -55,6 +54,7 @@ ActiveRecord::Schema.define(version: 20140515211340) do
     t.string  "description"
     t.integer "payable_id"
     t.string  "payable_type"
+    t.boolean "active"
   end
 
   create_table "sermons", force: true do |t|
