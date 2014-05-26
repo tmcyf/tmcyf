@@ -1,0 +1,20 @@
+<% provide(:title, 'Sermons') %>
+<div class="row">
+  <div class="large-12 columns">
+    <h2>Sermons</h2>
+  </div>
+  <% @sermons.each_slice(2) do |row| %>
+    <div class="row">
+    <% row.each do |sermon| %>
+      <div class="large-6 columns sermons">
+        <fieldset>
+          <b><%= sermon.title %></b>
+          <br>
+          <span>Stream</span>
+          <div><audio src='<%= sermon.audio %>' controls='controls'></div></audio>
+        </fieldset>
+      </div>
+    <% end %>
+    </div>
+  <% end %>
+</div>
