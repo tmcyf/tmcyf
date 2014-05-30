@@ -5,7 +5,8 @@ CarrierWave.configure do |config|
     :region                 => 'us-east-1',
     :aws_secret_access_key  => ENV['AWS_SECRET_KEY'],        # required
   }
-  config.fog_directory  = ENV['S3_BUCKET']                     # required
-  config.fog_public     = false                                   # optional, defaults to true
+  config.asset_host     = "https://d1fnw01tj1v9b8.cloudfront.net"
+  config.fog_directory  = ENV['S3_BUCKET']                        # required
+  config.fog_public     = true                                    # optional, defaults to true
   config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  # optional, defaults to {}
 end
