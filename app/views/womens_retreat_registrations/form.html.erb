@@ -1,0 +1,71 @@
+<% provide(:title, 'Womens Retreat Registration') %>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="retreat-heading">
+      <h1>Wholly Yours</h1>
+      <h4>2014 SWRYF Women's Retreat</h4>
+    </div>
+    <div class="retreat-form">
+    <%= simple_form_for @registration do |f| %>
+      <% if @registration.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
+
+          <ul>
+          <% @registration.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="large-4 columns">
+          <%= f.input :fname, label: "First Name", placeholder: "John" %>
+        </div>
+
+        <div class="large-4 pull-4 columns">
+          <%= f.input :lname, label: "Last Name", placeholder: "Smith" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :address, label: "Address", placeholder: "5810 Almeda Genoa Road, Houston Texas 77048" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :birthday, as: :date, start_year: Date.today.year - 10, end_year: Date.today.year - 100, order: [:month, :day, :year], include_blank: true, label: "Birthday" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-2 columns">
+          <%= f.input :phone, as: :tel, placeholder: "7139911557", required: false %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :academic_classification, label: "Academic Classification", collection: ["Intermediate School student (6-8)", "High School student (9-12)", "College (Undergraduate)", "College (Graduate)", "Post-Grad - Working"], as: :radio_buttons %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :accommodations, label: "Accomodations needed?", collection: ["Yes", "No"], as: :radio_buttons %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :parish, label: "Parish", collection: ["Horeb Mar Thoma Church, Colorado", "Mar Thoma Church of Oklahoma", "Sehion Mar Thoma Church", "Carrollton Mar Thoma Church", "St. Paul's Mar Thoma Church", "Farmer's Branch Mar Thoma Church", "Austin Mar Thoma Church", "Immanuel Mar Thoma Church", "Trinity Mar Thoma Church"], as: :radio_buttons %>
+        </div>
+      </div>
+
+    <% end %>
+    </div>
+  </div>
+</div>

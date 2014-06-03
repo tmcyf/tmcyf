@@ -1,4 +1,4 @@
-class WomensRetreatRegistrationController < ApplicationController
+class WomensRetreatRegistrationsController < ApplicationController
   def form
     @registration = WomensRetreatRegistration.new
   end
