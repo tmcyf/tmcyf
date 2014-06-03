@@ -43,7 +43,7 @@
 
       <div class="row">
         <div class="large-2 columns">
-          <%= f.input :phone, as: :tel, placeholder: "7139911557", required: false %>
+          <%= f.input :phone, as: :tel, placeholder: "7139911557" %>
         </div>
       </div>
 
@@ -64,6 +64,64 @@
           <%= f.input :parish, label: "Parish", collection: ["Horeb Mar Thoma Church, Colorado", "Mar Thoma Church of Oklahoma", "Sehion Mar Thoma Church", "Carrollton Mar Thoma Church", "St. Paul's Mar Thoma Church", "Farmer's Branch Mar Thoma Church", "Austin Mar Thoma Church", "Immanuel Mar Thoma Church", "Trinity Mar Thoma Church"], as: :radio_buttons %>
         </div>
       </div>
+
+      <div class="retreat-heading">
+        <h3>Medical Information</h3>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :restrictions, as: :text, label: "Allergies/Dietary Restrictions" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :medical_conditions, as: :text, label: "Medical Conditions" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :insurance_info, as: :text, label: "Health Insurance Information (Insurance company & policy number)" %>
+        </div>
+      </div>
+
+      <div class="retreat-heading">
+        <h3>Emergency Contact</h3>
+      </div>
+
+      <div class="row">
+        <div class="large-4 columns">
+          <%= f.input :ec_name, label: "Name", placeholder: "John Smith" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-2 columns">
+          <%= f.input :ec_phone, label: "Phone Number", as: :tel, placeholder: "7139911557" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-4 columns">
+          <%= f.input :ec_relationship, label: "Relationship", placeholder: "Father, mother, sibling, etc." %>
+        </div>
+      </div>
+
+     <div class="retreat-heading">
+        <h3>Payment</h3>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :payment_method, label: "How will you be paying for your registration?", collection: ["Online", "Cash - $25", "Check (made out to TMCYF) - $25"], as: :radio_buttons %>
+        </div>
+      </div>
+
+      <br>
+      <%= f.button :submit, "Submit" %>
+
 
     <% end %>
     </div>
