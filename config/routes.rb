@@ -4,6 +4,7 @@ TMCYF::Application.routes.draw do
 
   resources :womens_retreat_registrations
   get '/womens-retreat',             to: 'womens_retreat_registrations#form'
+  post '/womens-retreat/register',            to: 'womens_retreat_registrations#create'
 
   resources :featured_events
   resources :payments
