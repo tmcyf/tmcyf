@@ -21,47 +21,47 @@
 
       <div class="row">
         <div class="large-4 columns">
-          <%= f.input :fname, label: "First Name", placeholder: "John" %>
+          <%= f.input :fname, label: "First Name", placeholder: "John", required: true %>
         </div>
 
         <div class="large-4 pull-4 columns">
-          <%= f.input :lname, label: "Last Name", placeholder: "Smith" %>
+          <%= f.input :lname, label: "Last Name", placeholder: "Smith", required: true  %>
         </div>
       </div>
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :address, label: "Address", placeholder: "5810 Almeda Genoa Road, Houston Texas 77048" %>
+          <%= f.input :address, label: "Address", placeholder: "5810 Almeda Genoa Road, Houston Texas 77048", required: true  %>
         </div>
       </div>
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :birthday, as: :date, start_year: Date.today.year - 10, end_year: Date.today.year - 100, order: [:month, :day, :year], include_blank: true, label: "Birthday" %>
+          <%= f.input :birthday, as: :date, start_year: Date.today.year - 10, end_year: Date.today.year - 100, order: [:month, :day, :year], include_blank: true, label: "Birthday", required: true  %>
         </div>
       </div>
 
       <div class="row">
         <div class="large-2 columns">
-          <%= f.input :phone, as: :tel, placeholder: "7139911557" %>
+          <%= f.input :phone, as: :tel, placeholder: "7139911557", required: true  %>
         </div>
       </div>
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :academic_classification, label: "Academic Classification", collection: @ac.collect { |ac| ac }, as: :radio_buttons %>
+          <%= f.input :academic_classification, label: "Academic Classification", collection: @ac.collect { |ac| ac }, as: :radio_buttons, required: true  %>
         </div>
       </div>
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :accommodations, label: "Accomodations needed?", collection: ["Yes", "No"], as: :radio_buttons %>
+          <%= f.input :accommodations, label: "Accomodations needed?", collection: ["Yes", "No"], as: :radio_buttons, required: true  %>
         </div>
       </div>
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :parish, label: "Parish", collection: @parish.collect { |parish| parish }, as: :radio_buttons %>
+          <%= f.input :parish, label: "Parish", collection: @parish.collect { |parish| parish }, as: :radio_buttons, required: true  %>
         </div>
       </div>
 
@@ -71,19 +71,19 @@
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :restrictions, as: :text, label: "Allergies/Dietary Restrictions" %>
+          <%= f.input :restrictions, as: :text, label: "Allergies/Dietary Restrictions", required: true  %>
         </div>
       </div>
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :medical_conditions, as: :text, label: "Medical Conditions" %>
+          <%= f.input :medical_conditions, as: :text, label: "Medical Conditions", required: true  %>
         </div>
       </div>
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :insurance_info, as: :text, label: "Health Insurance Information (Insurance company & policy number)" %>
+          <%= f.input :insurance_info, as: :text, label: "Health Insurance Information (Insurance company & policy number)", required: true  %>
         </div>
       </div>
 
@@ -93,19 +93,19 @@
 
       <div class="row">
         <div class="large-4 columns">
-          <%= f.input :ec_name, label: "Name", placeholder: "John Smith" %>
+          <%= f.input :ec_name, label: "Name", placeholder: "John Smith", required: true  %>
         </div>
       </div>
 
       <div class="row">
         <div class="large-2 columns">
-          <%= f.input :ec_phone, label: "Phone Number", as: :tel, placeholder: "7139911557" %>
+          <%= f.input :ec_phone, label: "Phone Number", as: :tel, placeholder: "7139911557", required: true  %>
         </div>
       </div>
 
       <div class="row">
         <div class="large-4 columns">
-          <%= f.input :ec_relationship, label: "Relationship", placeholder: "Father, mother, sibling, etc." %>
+          <%= f.input :ec_relationship, label: "Relationship", placeholder: "Father, mother, sibling, etc.", required: true  %>
         </div>
       </div>
 
@@ -115,12 +115,12 @@
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :payment_method, label: "How will you be paying for your registration?", collection: @pm.collect { |pm| pm }, as: :radio_buttons %>
+          <%= f.input :payment_method, label: "How will you be paying for your registration?", collection: @pm.collect { |pm| pm }, as: :radio_buttons, required: true  %>
         </div>
       </div>
 
       <br>
-      <%= f.submit "Submit", :class => 'button btn-pay'%>
+      <%= f.submit "Submit", :class => 'button btn-pay', required: true %>
 
     <% end %>
     </div>
