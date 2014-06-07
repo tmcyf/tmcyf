@@ -49,7 +49,7 @@
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :academic_classification, label: "Academic Classification", collection: ["Intermediate School student (6-8)", "High School student (9-12)", "College (Undergraduate)", "College (Graduate)", "Post-Grad - Working"], as: :radio_buttons %>
+          <%= f.input :academic_classification, label: "Academic Classification", collection: @ac.collect { |ac| ac }, as: :radio_buttons %>
         </div>
       </div>
 
@@ -61,7 +61,7 @@
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :parish, label: "Parish", collection: ["Horeb Mar Thoma Church, Colorado", "Mar Thoma Church of Oklahoma", "Sehion Mar Thoma Church", "Carrollton Mar Thoma Church", "St. Paul's Mar Thoma Church", "Farmer's Branch Mar Thoma Church", "Austin Mar Thoma Church", "Immanuel Mar Thoma Church", "Trinity Mar Thoma Church"], as: :radio_buttons %>
+          <%= f.input :parish, label: "Parish", collection: @parish.collect { |parish| parish }, as: :radio_buttons %>
         </div>
       </div>
 
@@ -115,13 +115,12 @@
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :payment_method, label: "How will you be paying for your registration?", collection: ["Online", "Cash - $25", "Check (made out to TMCYF) - $25"], as: :radio_buttons %>
+          <%= f.input :payment_method, label: "How will you be paying for your registration?", collection: @pm.collect { |pm| pm }, as: :radio_buttons %>
         </div>
       </div>
 
       <br>
-      <%= f.submit :submit %>
-
+      <%= f.submit "Submit", :class => 'button btn-pay'%>
 
     <% end %>
     </div>

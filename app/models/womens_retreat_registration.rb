@@ -1,8 +1,4 @@
 class WomensRetreatRegistration < ActiveRecord::Base
-  enum academic_classification: [ :intermediate, :high_school, :undergraduate, 
-                                  :graduate, :postgraduate ]
-  enum parish: [ :trinity, :horeb, :oklahoma, :sehion, :carollton, :st_paul, 
-                 :farmers_branch, :austin, :immanuel ]
 
   def parish_display_name(parish_keyword)
     names = {
