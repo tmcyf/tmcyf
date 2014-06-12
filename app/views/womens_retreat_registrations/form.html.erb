@@ -1,0 +1,154 @@
+<% provide(:title, 'Womens Retreat Registration') %>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="retreat-heading">
+      <h1>Wholly Yours</h1>
+      <h4>2014 SWRYF Women's Retreat</h4>
+    </div>
+    <div class="retreat-form">
+    <%= simple_form_for @registration, url: 'womens-retreat/register' do |f| %>
+      <% if @registration.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
+
+          <ul>
+          <% @registration.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :email, label: "Email", placeholder: "youremail@example.com", required: true  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-4 columns">
+          <%= f.input :fname, label: "First Name", placeholder: "John", required: true %>
+        </div>
+
+        <div class="large-4 pull-4 columns">
+          <%= f.input :lname, label: "Last Name", placeholder: "Smith", required: true  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :address, label: "Address", placeholder: "5810 Almeda Genoa Road, Houston Texas 77048", required: true  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :birthday, as: :date, start_year: Date.today.year - 10, end_year: Date.today.year - 100, order: [:month, :day, :year], include_blank: true, label: "Birthday", required: true  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-2 columns">
+          <%= f.input :phone, as: :tel, placeholder: "7139911557", required: true  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :academic_classification, label: "Academic Classification", collection: @ac.collect { |ac| ac }, as: :radio_buttons, required: true  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :accommodations, label: "Accomodations needed?", collection: ["Yes", "No"], as: :radio_buttons, required: true  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :parish, label: "Parish", collection: @parish.collect { |parish| parish }, as: :radio_buttons, required: true  %>
+        </div>
+      </div>
+
+      <div class="retreat-heading">
+        <h3>Medical Information</h3>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :restrictions, as: :text, label: "Allergies/Dietary Restrictions", required: true  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :medical_conditions, as: :text, label: "Medical Conditions", required: true  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :insurance_info, as: :text, label: "Health Insurance Information (Insurance company & policy number)", required: true  %>
+        </div>
+      </div>
+
+      <div class="retreat-heading">
+        <h3>Emergency Contact</h3>
+      </div>
+
+      <div class="row">
+        <div class="large-4 columns">
+          <%= f.input :ec_name, label: "Name", placeholder: "John Smith", required: true  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-2 columns">
+          <%= f.input :ec_phone, label: "Phone Number", as: :tel, placeholder: "7139911557", required: true  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-4 columns">
+          <%= f.input :ec_relationship, label: "Relationship", placeholder: "Father, mother, sibling, etc.", required: true  %>
+        </div>
+      </div>
+
+     <div class="retreat-heading">
+        <h3>Payment</h3>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :payment_method, label: "How will you be paying for your registration?", collection: @pm.collect { |pm| pm }, as: :radio_buttons, required: true  %>
+        </div>
+      </div>
+
+      <br>
+      <%= f.submit "Submit", :class => 'button btn-pay', required: true %>
+
+    <% end %>
+    </div>
+
+    <hr />
+
+    <div class="retreat-pay">
+      <h4>Online Payment</h4>
+      <%= form_tag womens_retreat_charge_path do %>
+        <article>
+          <label class="amount">
+            <span>Amount: $26.06 (inc. convenience fee)</span>
+          </label>
+        </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key=<%= ENV['STRIPE_PUBLIC_KEY'] %>
+                data-name="Women's Retreat"
+                data-description="$26.06"
+                data-allow-remember-me="false"
+                data-amount="2603"></script>
+      <% end %>
+    </div>
+  </div>
+</div>

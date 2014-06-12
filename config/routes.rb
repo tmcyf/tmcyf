@@ -2,6 +2,11 @@ TMCYF::Application.routes.draw do
 
   resources :sermons
 
+  resources :womens_retreat_registrations
+  get '/womens-retreat',                      to: 'womens_retreat_registrations#form'
+  post '/womens-retreat/register',            to: 'womens_retreat_registrations#create'
+  post 'womens-retreat/charge',               to: 'womens_retreat_registrations#charge'
+
   resources :featured_events
   resources :payments
   post '/payments/:id/charge', to: 'payments#charge', as: 'charge_payment'
@@ -47,13 +52,13 @@ TMCYF::Application.routes.draw do
   # not very RESTful; we can tidy that up later
   get '/admin/offline_payments',    to: 'payments#new_offline_charge', as: 'new_offline_charge'
   post '/admin/offline_payments',   to: 'payments#create_offline_charge', as: 'create_offline_charge'
-  get '/admin/edit_payments_index',  to: 'payments#edit_payments_index', as: 'edit_payments_index'
+  get '/admin/edit_payments_index', to: 'payments#edit_payments_index', as: 'edit_payments_index'
   get '/admin/database',            to: 'admin#database', as: 'database'
   get '/account/preferences',       to: 'preferences#edit'
   post '/account/preferences',      to: 'preferences#update'
   get '/privacy_policy',            to: 'pages#privacy_policy'
-  get '/admin/new_sms',            to: 'sms#new_sms', as: "send_sms"
+  get '/admin/new_sms',             to: 'sms#new_sms', as: "send_sms"
   post '/admin/receive_sms',        to: 'sms#receive_sms', as: "receive_sms"
-  post '/admin/send_sms',       to: 'sms#send_sms', as: "send_message"
+  post '/admin/send_sms',           to: 'sms#send_sms', as: "send_message"
   get ':status', to: 'errors#show', constraints: {status: /\d{3}/}
 end

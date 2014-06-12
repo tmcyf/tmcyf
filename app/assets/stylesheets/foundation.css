@@ -1756,7 +1756,6 @@ textarea {
 /* Adjust margin for form elements below */
 input[type="file"],
 input[type="checkbox"],
-input[type="radio"],
 select {
   margin: 0 0 1em 0; }
 

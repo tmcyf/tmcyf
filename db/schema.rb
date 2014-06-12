@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515211340) do
+ActiveRecord::Schema.define(version: 20140612154051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,5 +105,27 @@ ActiveRecord::Schema.define(version: 20140515211340) do
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "womens_retreat_registrations", force: true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.date     "birthday"
+    t.string   "address"
+    t.string   "phone"
+    t.integer  "age"
+    t.string   "academic_classification"
+    t.string   "parish"
+    t.boolean  "accommodations"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "restrictions"
+    t.text     "medical_conditions"
+    t.text     "insurance_info"
+    t.string   "ec_name"
+    t.string   "ec_phone"
+    t.string   "ec_relationship"
+    t.string   "payment_method"
+    t.string   "email"
+  end
 
 end
