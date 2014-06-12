@@ -20,6 +20,12 @@
       <% end %>
 
       <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :email, label: "Email", placeholder: "youremail@example.com", required: true  %>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="large-4 columns">
           <%= f.input :fname, label: "First Name", placeholder: "John", required: true %>
         </div>
@@ -123,6 +129,26 @@
       <%= f.submit "Submit", :class => 'button btn-pay', required: true %>
 
     <% end %>
+    </div>
+
+    <hr />
+
+    <div class="retreat-pay">
+      <h4>Online Payment</h4>
+      <%= form_tag womens_retreat_charge_path do %>
+        <article>
+          <label class="amount">
+            <span>Amount: $26.06 (inc. convenience fee)</span>
+          </label>
+        </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key=<%= ENV['STRIPE_PUBLIC_KEY'] %>
+                data-name="Women's Retreat"
+                data-description="$26.06"
+                data-allow-remember-me="false"
+                data-amount="2603"></script>
+      <% end %>
     </div>
   </div>
 </div>
