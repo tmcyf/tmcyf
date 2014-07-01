@@ -1,7 +1,7 @@
 class WomensRetreatRegistrationsController < ApplicationController
   def form
     @registration = WomensRetreatRegistration.new
-    @ac = [ "Intermediate", "High School", "Undergraduate", "Gradudate", "Post-Graduate" ]
+    @ac = [ "Intermediate", "High School", "Undergraduate", "Graduate", "Post-Graduate" ]
     @parish = [  "Horeb Mar Thoma Church, Colorado", "Mar Thoma Church of Oklahoma", "Sehion Mar Thoma Church", "Carrollton Mar Thoma Church", "St. Paul's Mar Thoma Church", "Farmer's Branch Mar Thoma Church", "Austin Mar Thoma Church", "Immanuel Mar Thoma Church", "Trinity Mar Thoma Church" ]
     @pm = [ "Online - $25", "Cash - $25", "Check (made out to TMCYF) - $25" ]
   end
