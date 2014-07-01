@@ -55,19 +55,20 @@
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :academic_classification, label: "Academic Classification", collection: @ac.collect { |ac| ac }, as: :radio_buttons, required: true  %>
+          <%= f.input :academic_classification, label: "Academic Classification", collection: @ac.collect { |ac| ac }, as: :radio_buttons %>
         </div>
       </div>
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :accommodations, label: "Accomodations needed?", collection: ["Yes", "No"], as: :radio_buttons, required: true  %>
+          <%= f.input :accommodations, label: "Accomodations needed?", collection: ["Yes", "No"], as: :radio_buttons %>
         </div>
       </div>
 
       <div class="row">
         <div class="large-6 columns">
-          <%= f.input :parish, label: "Parish", collection: @parish.collect { |parish| parish }, as: :radio_buttons, required: true  %>
+          <%= f.input :parish, label: "Parish", collection: @parish.collect { |parish| parish }, as: :radio_buttons %>
+          <%= f.input :parish, placeholder: "Other", label: false  %>
         </div>
       </div>
 
@@ -126,7 +127,7 @@
       </div>
 
       <br>
-      <%= f.submit "Submit", :class => 'button btn-pay', required: true %>
+      <%= f.submit "Submit", :class => 'button btn-pay' %>
 
     <% end %>
     </div>
