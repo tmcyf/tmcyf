@@ -54,6 +54,12 @@
       </div>
 
       <div class="row">
+        <div class="large-2 columns">
+          <%= f.input :shirtsize, label: "Shirt Size", collection: [:S, :M, :L, :XL], required: true %>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="large-6 columns">
           <%= f.input :academic_classification, label: "Academic Classification", collection: @ac.collect { |ac| ac }, as: :radio_buttons %>
         </div>
@@ -68,7 +74,12 @@
       <div class="row">
         <div class="large-6 columns">
           <%= f.input :parish, label: "Parish", collection: @parish.collect { |parish| parish }, as: :radio_buttons %>
-          <%= f.input :parish, placeholder: "Other", label: false  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.input :otherparish, label: "Parish not listed?", placeholder: "Other" %>
         </div>
       </div>
 
@@ -130,6 +141,7 @@
       <%= f.submit "Submit", :class => 'button btn-pay' %>
 
     <% end %>
+    <span class="retreat-span">Don't forget to hit submit!</span>
     </div>
 
     <hr />

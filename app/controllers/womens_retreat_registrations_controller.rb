@@ -43,6 +43,6 @@ class WomensRetreatRegistrationsController < ApplicationController
 
   private
   def womens_retreat_registration_params
-    params.require(:womens_retreat_registration).permit(:email, :fname, :lname, :birthday, :address, :phone, :age, :academic_classification, :parish, :accommodations, :restrictions, :medical_conditions, :insurance_info, :ec_name, :ec_phone, :ec_relationship, :payment_method)
+    params.require(:womens_retreat_registration).permit(:email, :otherparish, :shirtsize, :fname, :lname, :birthday, :address, :phone, :age, :academic_classification, :parish, :accommodations, :restrictions, :medical_conditions, :insurance_info, :ec_name, :ec_phone, :ec_relationship, :payment_method)
   end
 end
