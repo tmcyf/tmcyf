@@ -1,5 +1,7 @@
 TMCYF::Application.routes.draw do
 
+  resources :retreat
+
   resources :sermons
 
   resources :featured_events
