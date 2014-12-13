@@ -1,0 +1,32 @@
+<p>Hey, <%= @retreat.fname %>!</p>
+
+<p>You've successfully registered for this year's retreat!</p>
+
+<p>Here's what we have on you:</p>
+<br>
+Name: <%= @retreat.fname %> <%= @retreat.lname %>
+<br>
+Email: <%= @retreat.email %>
+<br>
+Address:
+<%= @retreat.line1 %>
+<%= @retreat.city %> <%= @retreat.state %>, <%= @retreat.zip %>
+<br>
+Phone: <%= @retreat.phone %>
+<br>
+Gender: <%= @retreat.gender %>
+<br>
+Birthday: <%= @retreat.birthday %>
+<br>
+Pant Size: <%= @retreat.pant_size %>
+<br>
+Emergency Contact & relation: <%= @retreat.emergency_contact %>,  <%= @retreat.emergency_contact_relation %>
+<br>
+Emergency Contact Number: <%= @retreat.emergency_contact_number %>
+<br>
+Insurance Provider: <%= @retreat.insurance_provider %>
+<br>
+Insurance Policy Number: <%= @retreat.insurance_policy_number %>
+<br>
+Allergy Information: <%= @retreat.allergy_information %>
+<br>

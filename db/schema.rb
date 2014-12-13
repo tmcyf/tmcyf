@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730163145) do
+ActiveRecord::Schema.define(version: 20141213215714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,29 @@ ActiveRecord::Schema.define(version: 20140730163145) do
     t.integer "payable_id"
     t.string  "payable_type"
     t.boolean "active"
+  end
+
+  create_table "retreats", force: true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "email"
+    t.string   "line1"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "gender"
+    t.date     "birthday"
+    t.string   "pant_size"
+    t.string   "emergency_contact"
+    t.string   "emergency_contact_relation"
+    t.string   "emergency_contact_number"
+    t.string   "insurance_provider"
+    t.string   "insurance_policy_number"
+    t.text     "allergy_information"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "level"
   end
 
   create_table "sermons", force: true do |t|

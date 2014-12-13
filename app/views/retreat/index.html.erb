@@ -1,5 +1,73 @@
-<div class="row">
-  <div class="large-12 columns">
-
+<% provide(:title, 'Sweeter than Honey, Better than Gold | Retreat 2014') %>
+<div class="yf-retreat-header-block">
+  <div class="row">
+    <div class="large-12 columns">
+      <img src="http://d3krmhcqjnbsob.cloudfront.net/retreat-header.png" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="yf-retreat-heading center">
+        <h1>January 9th - 11th || Frontier Camp <span>&#183;</span> Grapeland, TX</h1>
+      </div>
+    </div>
   </div>
 </div>
+<hr />
+<div class="yf-retreat-speaker-block center">
+  <h1 class="yf-retreat-speaker-block-header">Learn from these great folks</h1>
+  <div class="row">
+    <div class="large-4 columns">
+      <img src="http://placehold.it/350x250" />
+      <h4>Rev. Larry Varghese</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat.</p>
+    </div>
+    <div class="large-4 columns">
+      <img src="http://placehold.it/350x250" />
+      <h4>Abey Mathai</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat.</p>
+    </div>
+    <div class="large-4 columns">
+      <img src="http://placehold.it/350x250" />
+      <h4>Shibu George</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat.</p>
+    </div>
+  </div>
+</div>
+<hr />
+<div class="yf-retreat-schedule-block center">
+  <h1>Schedule</h1>
+  <h4>- TBA -</h4>
+</div>
+<hr />
+<div class="yf-retreat-form-block">
+  <h1 class="center">Registration Form</h1>
+  <%= render 'form' %>
+</div>
+<hr />
+<div class="yf-retreat-payment-block center">
+  <h1>Pay Online</h1>
+  <%= form_tag retreat_charge_path do %>
+    <label class="amount">
+      <h5>Amount: $95</h5>
+    </label>
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key=<%= ENV['STRIPE_PUBLIC_KEY'] %>
+      data-image="http://d3krmhcqjnbsob.cloudfront.net/sitelogo.png"
+      data-name="Retreat 2014"
+      data-description="1 golden ticket ($95.00)"
+      data-amount="9500">
+    </script>
+  <% end %>
+</div>
+<hr />

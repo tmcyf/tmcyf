@@ -1,0 +1,86 @@
+<div class="yf-retreat-form">
+  <%= simple_form_for @retreat, url: retreat_index_path do |f| %>
+    <div class="row">
+      <div class="large-3 columns">
+        <%= f.input :fname, label: "First Name", placeholder: "John" %>
+      </div>
+      <div class="large-4 pull-5 columns">
+        <%= f.input :lname, label: "Last Name", placeholder: "Smith" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= f.input :email , label: "Email Address", placeholder: "example@tmcyf.org" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= f.input :line1, label: "Street Address", placeholder: "5810 Almeda-Genoa Rd" %>
+      </div>
+      <div class="large-3 columns">
+        <%= f.input :city, label: "City", placeholder: "Houston" %>
+      </div>
+      <div class="large-2 columns">
+        <%= f.input :state, label: "State", placeholder: "TX", input_html: { maxlength: 2 } %>
+      </div>
+      <div class="large-2 pull-1 columns">
+            <%= f.input :zip, label: "Zip", placeholder: "77048" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-3 columns">
+        <%= f.input :phone, as: :tel, placeholder: "7139911557", required: false %>
+      </div>
+      <div class="large-2 columns">
+        <%= f.input :gender, collection: [:Male, :Female] %>
+      </div>
+      <div class="large-5 columns">
+        <%= f.input :birthday, as: :date, start_year: Date.today.year - 13, end_year: Date.today.year - 45, order: [:month, :day, :year], include_blank: true, label: "Birthday" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-5 columns">
+        <%= f.input :pant_size, label: "Pant Size", collection: ["Small (28-30)", "Medium (32-34)", "Large (36-38)", "X-Large (40-42)", "XX-Large (44-46)"] %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-5 columns">
+        <%= f.input :level, label: "Which of the following best describes you?", collection: ["I want to study the bible in depth.", "I want to learn the basics about the bible.", "I am not fully convinced and/or question the trustworthiness of the Bible."] %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= f.input :emergency_contact , label: "Emergency Contact" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <%= f.input :emergency_contact_relation, label: "Relationship to Emergency Contact", collection: ["Parent", "Sibling", "Other"] %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-3 columns">
+        <%= f.input :emergency_contact_number, label: "Emergency Contact's Number", as: :tel %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= f.input :insurance_provider, label: "Insurance Provider" %>
+      </div>
+      <div class="large-3 pull-5 columns">
+        <%= f.input :insurance_policy_number, label: "Insurance Policy Number" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-5 columns">
+        <%= f.input :allergy_information, label: "Allergies / Dietary Restrictions", placeholder: "Totally low carb, vegan, gluten free, lead free, organic meals only!!!" %>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="large-12 columns">
+        <%= f.button :submit, 'Sign Me Up!' %>
+      </div>
+    </div>
+  <% end %>
+</div>
