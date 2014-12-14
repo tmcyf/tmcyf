@@ -5,4 +5,9 @@ class RetreatMailer < ActionMailer::Base
     @retreat = retreat
     mail(to: @retreat.email, subject: "Congrats! You've registered!")
   end
+
+  def payment_confirmation(email)
+    @email = email
+    mail(to: email, subject: "Awesome! You've paid!")
+  end
 end

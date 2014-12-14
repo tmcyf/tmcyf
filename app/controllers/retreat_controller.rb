@@ -33,6 +33,7 @@ class RetreatController < ApplicationController
       :currency    => 'usd'
     )
     flash[:success] = "Thanks for your payment!"
+    RetreatMailer.payment_confirmation(@retreat).deliver
     redirect_to retreat_index_path
 
   rescue Stripe::CardError => e
