@@ -43,6 +43,6 @@ class RetreatController < ApplicationController
   private
 
     def retreat_params
-      params.require(:retreat).permit(:fname, :lname, :email, :line1, :city, :state, :zip, :phone, :gender, :birthday, :pant_size, :emergency_contact, :emergency_contact_relation, :emergency_contact_number, :insurance_provider, :insurance_policy_number, :allergy_information)
+      params.require(:retreat).permit(:fname, :lname, :email, :line1, :city, :state, :zip, :phone, :gender, :birthday, :level, :pant_size, :emergency_contact, :emergency_contact_relation, :emergency_contact_number, :insurance_provider, :insurance_policy_number, :allergy_information)
     end
 end

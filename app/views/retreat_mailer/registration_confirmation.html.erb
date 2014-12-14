@@ -3,13 +3,12 @@
 <p>You've successfully registered for this year's retreat!</p>
 
 <p>Here's what we have on you:</p>
-<br>
 Name: <%= @retreat.fname %> <%= @retreat.lname %>
 <br>
 Email: <%= @retreat.email %>
 <br>
 Address:
-<%= @retreat.line1 %>
+<%= @retreat.line1 %><br>
 <%= @retreat.city %> <%= @retreat.state %>, <%= @retreat.zip %>
 <br>
 Phone: <%= @retreat.phone %>
@@ -17,6 +16,8 @@ Phone: <%= @retreat.phone %>
 Gender: <%= @retreat.gender %>
 <br>
 Birthday: <%= @retreat.birthday %>
+<br>
+Your experience with the bible: <%= @retreat.level %>
 <br>
 Pant Size: <%= @retreat.pant_size %>
 <br>
@@ -30,3 +31,13 @@ Insurance Policy Number: <%= @retreat.insurance_policy_number %>
 <br>
 Allergy Information: <%= @retreat.allergy_information %>
 <br>
+<br>
+If there are any errors with the above information, send us an email at hello@tmcyf.org with the corrections!
+<br>
+<br>
+<b>Now that you've registered, all that's left is for you to pay!</b>
+<br>
+<br>
+Yours in Christ,
+<br>
+TMCYF
