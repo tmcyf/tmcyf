@@ -1,5 +1,8 @@
 TMCYF::Application.routes.draw do
 
+  resources :retreat
+  post 'retreat/charge',               to: 'retreat#charge'
+
   resources :sermons
 
   resources :featured_events

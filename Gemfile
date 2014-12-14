@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'redcarpet'
 gem 'turbolinks'
 gem 'unobtrusive_flash', '>= 3'
+gem "autoprefixer-rails"
 
 # Authentication and Authorization
 gem 'devise'
