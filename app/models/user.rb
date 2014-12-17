@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   scope :prefers_fb, -> { where(facebook_contact: true) }
 
   enum status: { registered: 0, active: 1 }
+  enum role: { admin: 0, author: 1 }
 
   def fullname
     "#{self.fname} #{self.lname}"

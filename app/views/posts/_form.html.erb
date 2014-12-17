@@ -1,0 +1,24 @@
+<%= form_for @post do |f| %>
+  <% if @post.errors.any? %>
+    Whoops, something went wrong.
+  <% end %>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :collaborators %><br>
+    <%= f.text_field :editors %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

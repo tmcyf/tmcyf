@@ -1,0 +1,7 @@
+<% @posts.each do |p| %>
+  <h3><%= p.title %> </h3>
+  <%= p.author %> <%= p.date %>
+  <% if current_user.author? %>
+    <%= link_to 'edit', edit_post_path(p) %>
+  <% end %>
+<% end %>
