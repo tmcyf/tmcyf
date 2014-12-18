@@ -45,6 +45,11 @@
     </div>
     <div class="row">
       <div class="large-5 columns">
+        <%= f.input :transportation, label: "Do you need transportation to the campsite?", collection: ["Yes", "No"] %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-5 columns">
         <%= f.input :level, label: "Which of the following best describes you?", collection: ["I want to study the bible in depth.", "I want to learn the basics about the bible.", "I am not fully convinced and/or question the trustworthiness of the Bible."] %>
       </div>
     </div>
