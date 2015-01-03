@@ -25,19 +25,6 @@
 </div>
 <hr />
 <div class="yf-retreat-payment-block center">
-  <h1>Pay Online</h1>
-  <%= form_tag retreat_charge_path do %>
-    <label class="amount">
-      <h5>Amount: $95</h5>
-      <p>Please use the same email as on the registration form!</p>
-    </label>
-    <script
-      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key=<%= ENV['STRIPE_PUBLIC_KEY'] %>
-      data-image="http://d3krmhcqjnbsob.cloudfront.net/sitelogo.png"
-      data-name="Retreat 2014"
-      data-description="1 golden ticket ($95.00)"
-      data-amount="9500">
-    </script>
-  <% end %>
+<h1>Payment</h1>
+Online retreat payment is closed. Please pay at church either through cash or check.
 </div>
