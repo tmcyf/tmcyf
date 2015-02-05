@@ -21,14 +21,17 @@ class SmsController < ApplicationController
   end
 
   def receive_sms
+    # Pulls in params from Twilio request
+    # Converts the number to a name, if the name exists in the database.
+    # Creates a payload to send to Slack as JSON
     msg_body = params["Body"]
     from_num = params["From"]
-
+    from_name = SMS.convert(from_num)
     payload = {
-      text: "From: #{from_num}. Message: #{msg_body}"
+      text: "From: #{from_name}. Message: #{msg_body}"
     }.to_json
 
-    uri = URI('https://tmcyf.slack.com/services/hooks/incoming-webhook?token=lFAo4KrEmegGC3IoBnbfYvdP')
+    uri = URI('https://hooks.slack.com/services/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')
     @res = Net::HTTP.post_form(uri, 'payload' => payload)
 
     render json: @res
