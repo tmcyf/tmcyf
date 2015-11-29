@@ -18,8 +18,9 @@ class RetreatController < ApplicationController
 
   def charge
     # Amount in cents
-    @amount = 9500
-    @email = params[:stripeEmail]
+    amount = 9000
+    compensated_charge = StripeCompensator.compensate(amount)
+    email = params[:stripeEmail]
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -28,12 +29,12 @@ class RetreatController < ApplicationController
 
     charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => @amount,
-      :description => @email,
+      :amount      => compensated_charge,
+      :description => email,
       :currency    => 'usd'
     )
     flash[:success] = "Thanks for your payment!"
-    RetreatMailer.payment_confirmation(@email).deliver
+    RetreatMailer.payment_confirmation(email).deliver
     redirect_to retreat_index_path
 
   rescue Stripe::CardError => e
@@ -44,6 +45,6 @@ class RetreatController < ApplicationController
   private
 
     def retreat_params
-      params.require(:retreat).permit(:fname, :lname, :email, :line1, :city, :state, :zip, :phone, :gender, :birthday, :level, :pant_size, :transportation, :emergency_contact, :emergency_contact_relation, :emergency_contact_number, :insurance_provider, :insurance_policy_number, :allergy_information)
+      params.require(:retreat).permit(:fname, :lname, :email, :line1, :city, :state, :zip, :phone, :gender, :birthday, :shirt_size, :transportation, :emergency_contact, :emergency_contact_relation, :emergency_contact_number, :insurance_provider, :insurance_policy_number, :allergy_information)
     end
 end

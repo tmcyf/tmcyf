@@ -17,5 +17,9 @@
   margin-bottom: 2em;
 }
 .yf-retreat-form-block {
-  margin: 2em 0 0 2em;
+/*  margin: 2em 0 0 2em;*/
+}
+
+select {
+  margin: 0 0 1em 0;
 }
