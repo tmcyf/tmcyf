@@ -28,16 +28,16 @@
 <h1>Payment</h1>
 <%= form_tag retreat_charge_path do %>
     <label class="amount">
-      <h5>Amount: $90</h5>
-      <p>Please use the same email as on the registration form!<br><em>There will be a convenience charge of $3 applied.<em></p>
+      <h5>Amount: $100</h5>
+      <p>Please use the same email as on the registration form!<br><em>There will be a convenience charge of $3.30 applied.<em></p>
     </label>
     <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key=<%= ENV['STRIPE_PUBLIC_KEY'] %>
       data-image="http://d3krmhcqjnbsob.cloudfront.net/sitelogo.png"
       data-name="Retreat 2015: Lighted to Lighten"
-      data-description="1 golden ticket ($93.00)"
-      data-amount="9300">
+      data-description="1 golden ticket ($103.30)"
+      data-amount="10330">
     </script>
   <% end %>
 </div>
