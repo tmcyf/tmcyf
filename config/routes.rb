@@ -5,6 +5,11 @@ TMCYF::Application.routes.draw do
 
   resources :sermons
 
+  resources :odr_registrations
+  get '/faith-awaken',                  to: 'odr_registrations#form'
+  post '/faith-awaken/register',        to: 'odr_registrations#create'
+  post '/faith-awaken/charge',          to: 'odr_registrations#charge'
+
   resources :featured_events
   resources :payments
   post '/payments/:id/charge', to: 'payments#charge', as: 'charge_payment'

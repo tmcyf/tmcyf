@@ -1,0 +1,94 @@
+<% provide(:title, 'Faith Awaken Registration') %>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="retreat-heading">
+      <h1>Faith Awaken</h1>
+      <h4>2016 SWRYF One Day Retreat</h4>
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <div class="retreat-details">
+      <h5>Theme: <p>Faith Awaken | Romans 13:11<p></h5>
+      <h5>Main Speaker: <p>Tyler Ballew<p></h5>
+      <h5>Track Leaders: <p>Lenis David & Abey Mathai<p></h5>
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <div class="retreat-details">
+      <h5>Date: <p>March 12, 2016<p></h5>
+      <h5>Location: <p>Trinity Mar Thoma Church<p></h5>
+      <h5>Conveners: <p>Jesna Kurian & Christo Varghese<p></h5>
+    </div>
+  </div>
+  <div class="large-12 columns">
+    <div class="retreat-form">
+      <%= simple_form_for @registration, url: 'faith-awaken/register' do |f| %>
+        <% if @registration.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
+
+            <ul>
+            <% @registration.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="row">
+          <div class="large-6 columns">
+            <%= f.input :email, label: "Email", placeholder: "youremail@example.com", required: true  %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-4 columns">
+            <%= f.input :fname, label: "First Name", placeholder: "John", required: true %>
+          </div>
+          <div class="large-4 pull-4 columns">
+            <%= f.input :lname, label: "Last Name", placeholder: "Smith", required: true  %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-4 columns">
+            <%= f.input :parish, label: "Parish", placeholder: "Trinity Mar Thoma Church", required: true %>
+          </div>
+          <div class="large-1 columns">
+            <%= f.input :age, label: "Age", placeholder: "18", required: true  %>
+          </div>
+          <div class="large-4  pull-3 columns">
+            <%= f.input :shirt_size, label: "Shirt Size", collection: [:S, :M, :L, :XL], required: true %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-6 columns">
+            <%= f.input :payment_method, label: "How will you be paying for your registration?", collection: @pm.collect { |pm| pm }, as: :radio_buttons, required: true  %>
+          </div>
+        </div>
+        <%= f.submit "Submit", :class => 'button btn-pay' %>
+      <% end %>
+    </div>
+  </div>
+  <hr />
+  <div class="large-12 columns">
+    <div class="retreat-pay">
+      <h4>Online Payment - $15</h4>
+      <span class="odr-span">Please use the same email address used for registration! Otherwise, we will be unable to track your payment.</span>
+      <%= form_tag faith_awaken_charge_path do %>
+        <article>
+          <label class="amount">
+            <span>Amount: <b>$15.76</b> (inc. convenience fee)</span>
+          </label>
+        </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key=<%= ENV['STRIPE_PUBLIC_KEY'] %>
+                data-name="Women's Retreat"
+                data-description="$15.76"
+                data-allow-remember-me="false"
+                data-amount="1576"></script>
+      <% end %>
+    </div>
+  </div>
+</div>
