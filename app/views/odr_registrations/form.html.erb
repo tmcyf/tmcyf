@@ -63,6 +63,12 @@
 
         <div class="row">
           <div class="large-6 columns">
+            <%= f.input :diet, as: :text, label: "Allergies/Dietary Restrictions", placeholder: "Totally low carb, vegan, gluten free, lead free, organic meals only!!!" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-6 columns">
             <%= f.input :payment_method, label: "How will you be paying for your registration?", collection: @pm.collect { |pm| pm }, as: :radio_buttons, required: true  %>
           </div>
         </div>

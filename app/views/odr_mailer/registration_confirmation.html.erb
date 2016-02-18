@@ -13,6 +13,10 @@ Parish: <%= @registration.parish %>
 <br>
 Shirt Size: <%= @registration.shirt_size %>
 <br>
+<% if @registration.diet? %>
+  Allergies/Dietary Restrictions: <%= @registration.diet %>
+<br>
+<% end %>
 Payment Method: <%= @registration.payment_method %>
 <br>
 If there are any errors with the above information, send us an email at hello@tmcyf.org with the corrections!

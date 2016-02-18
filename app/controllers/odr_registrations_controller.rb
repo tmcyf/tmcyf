@@ -44,6 +44,6 @@ class OdrRegistrationsController < ApplicationController
 
   private
   def odr_registration_params
-    params.require(:odr_registration).permit(:email, :fname, :lname, :age, :parish, :shirt_size, :payment_method)
+    params.require(:odr_registration).permit(:email, :fname, :lname, :age, :parish, :shirt_size, :payment_method, :diet)
   end
 end
