@@ -1,4 +1,4 @@
-<% provide(:title, 'Faith Awaken Registration') %>
+<% provide(:title, 'The Faith Awakens Registration') %>
 <div class="row">
   <div class="large-12 columns">
     <div class="retreat-heading">
@@ -8,7 +8,7 @@
   </div>
   <div class="large-6 columns">
     <div class="retreat-details">
-      <h5>Theme: <p>Faith Awaken | Romans 13:11<p></h5>
+      <h5>Theme: <p>The Faith Awakens | Romans 13:11<p></h5>
       <h5>Main Speaker: <p>Tyler Ballew<p></h5>
       <h5>Track Leaders: <p>Lenis David & Abey Mathai<p></h5>
     </div>
@@ -22,7 +22,7 @@
   </div>
   <div class="large-12 columns">
     <div class="retreat-form">
-      <%= simple_form_for @registration, url: 'faith-awaken/register' do |f| %>
+      <%= simple_form_for @registration, url: 'the-faith-awakens/register' do |f| %>
         <% if @registration.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(@registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
@@ -81,7 +81,7 @@
     <div class="retreat-pay">
       <h4>Online Payment - $15</h4>
       <span class="odr-span">Please use the same email address used for registration! Otherwise, we will be unable to track your payment.</span>
-      <%= form_tag faith_awaken_charge_path do %>
+      <%= form_tag the_faith_awakens_charge_path do %>
         <article>
           <label class="amount">
             <span>Amount: <b>$15.76</b> (inc. convenience fee)</span>
