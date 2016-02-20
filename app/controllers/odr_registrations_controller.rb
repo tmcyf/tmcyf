@@ -10,10 +10,10 @@ class OdrRegistrationsController < ApplicationController
     if @registration.save!
       flash[:success] = "Successfully registered!"
       OdrMailer.registration_confirmation(@registration).deliver
-      redirect_to faith_awaken_path
+      redirect_to the_faith_awakens_path
     else
       flash[:error] = "Oops, there was an error registering you for One Day Retreat."
-      redirect_to faith_awaken_path
+      redirect_to the_faith_awakens_path
     end
   end
 
@@ -35,11 +35,11 @@ class OdrRegistrationsController < ApplicationController
     )
     flash[:success] = "Thanks for your payment!"
     OdrMailer.payment_confirmation(@email).deliver
-    redirect_to faith_awaken_path
+    redirect_to the_faith_awakens_path
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to faith_awaken_path
+    redirect_to the_faith_awakens_path
   end
 
   private
