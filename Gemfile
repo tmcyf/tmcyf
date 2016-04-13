@@ -35,7 +35,6 @@ gem 'mini_magick'
 gem 'icalendar'
 gem 'active_link_to'
 gem 'dotenv-rails'
-gem 'spring', group: [:development, :test]
 gem 'rspec-rails', group: [:development, :test]
 
 # External services
