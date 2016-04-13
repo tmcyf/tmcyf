@@ -43,7 +43,6 @@ gem 'twilio-ruby'
 gem 'stripe'
 gem 'gibbon'
 gem 'google-analytics-rails'
-gem 'skylight'
 
 # Deployment
 gem 'capistrano', '~> 3.1.0'
@@ -66,12 +65,8 @@ end
 
 # Testing
 group :test do
-  gem 'guard', '2.3.0'
-  gem 'guard-rspec'
-  gem 'guard-livereload'
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'simplecov'
 end
 
 # Production

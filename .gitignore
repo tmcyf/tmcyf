@@ -6,7 +6,5 @@
 /config/application.yml
 /config/certs/
 /config/newrelic.yml
-/config/skylight.yml
-coverage/
 log/
 tmp/
