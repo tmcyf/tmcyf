@@ -9,7 +9,7 @@ describe StripeCompensator do
       compensated_price = StripeCompensator.compensate(original)
       stripe_fee = (0.029 * compensated_price + 30).round
       price_after_fee = compensated_price - stripe_fee
-      price_after_fee.should == original
+      expect(price_after_fee).to eq(original)
     end
   end
     

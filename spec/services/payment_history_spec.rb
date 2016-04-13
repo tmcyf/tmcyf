@@ -12,11 +12,11 @@ describe PaymentHistory do
 
   it 'finds unpaid payments by users' do
     user.stub(payments: [])
-    PaymentHistory.new(user).unpaid.should include(payment)
+    expect(PaymentHistory.new(user).unpaid).to include(payment)
   end
 
   it 'finds paid payments by users' do
     user.stub(payments: [payment])
-    PaymentHistory.new(user).paid.should include(payment)
+    expect(PaymentHistory.new(user).paid).to include(payment)
   end
 end
