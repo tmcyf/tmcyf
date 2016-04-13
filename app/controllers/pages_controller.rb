@@ -3,8 +3,8 @@ class PagesController < ApplicationController
   def home
     url = 'http://www.heartlight.org/cgi-shl/todaysverse.cgi'
     data = Nokogiri::HTML(open(url))
-    @votd = data.at_css(".todays-verse-verse").text
-    @votdref = data.at_css(".todays-verse-ref").text
+    @votd = data.css(".well").children.first.text
+    @votdref = data.css(".well").children.last.text
 
     @featured_event = FeaturedEvent.last
   end
