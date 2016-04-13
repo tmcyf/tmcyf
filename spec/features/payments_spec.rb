@@ -26,13 +26,13 @@ describe "Payments" do
 
   it "should have an accessible payments page for users" do
     visit "/payments"
-    page.should have_content "Payments"
+    expect(page).to have_content "Payments"
   end
 
   it "should render created payables on the accounts page" do
     payment = create(:payment)
     visit "/payments"
-    page.should have_content payment.description
+    expect(page).to have_content payment.description
   end
 
 end

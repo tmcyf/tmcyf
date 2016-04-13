@@ -10,12 +10,12 @@ describe EventsController do
     context 'format is ics' do
       it 'responds with success' do
         get :show, format: 'ics', id: @event.id
-        response.should be_success
+        expect(response).to be_success
       end
 
       it 'delegates to IcsGenerator' do
         generator = double(event_ics: 'NEW CALENDAR ICS MAGIC')
-        IcsGenerator.should_receive(:ics_for).and_return(generator)
+        expect(IcsGenerator).to receive(:ics_for).and_return(generator)
 
         get :show, format: 'ics', id: @event.id
       end
