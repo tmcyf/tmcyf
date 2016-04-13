@@ -1,11 +1,12 @@
-.DS_Store
-tmp/
 .bundle/
-log/
+.DS_Store
 .env
 .env.development
+.vagrant
+/config/application.yml
 /config/certs/
 /config/newrelic.yml
 /config/skylight.yml
-/config/application.yml
 coverage/
+log/
+tmp/
