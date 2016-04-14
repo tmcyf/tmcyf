@@ -40,9 +40,21 @@ Vagrant.configure(2) do |config|
         }]
       },
       "postgresql" => {
-        "password" => {
-          "postgres" => "developmentdbpassword"
-        }
+        "users": [
+          {
+            "username": "vagrant",
+            "password": "databasepassword",
+            "superuser": true,
+            "createdb": true,
+            "createrole": false
+          }
+        ],
+        "databases": [
+          {
+            "name": "vagrant",
+            "owner": "vagrant"
+          }
+        ]
       },
       "platform_packages" => {
         "pkgs" => [
