@@ -7,12 +7,11 @@ class User < ActiveRecord::Base
   has_many :charges
   has_many :payments, through: :charges
 
-  before_validation(on: :create, on: :update) do
-    self.phone = phone.gsub(/[^0-9]/, "") if attribute_present?("phone")
-  end
+  ## TEST THIS METHOD
+  before_validation :strip_phone_number
 
-  validates_format_of :email, with: /.+@.+\..+/i, on: :create, on: :update, message: "This isn't a valid email address."
-  validates_format_of :phone, with: /\d*[1-9]\d*/i, on: :create, on: :update, message: "This isn't a valid number!", allow_blank: true, allow_nil: true
+  validates_format_of :email, with: /.+@.+\..+/i, message: "This isn't a valid email address."
+  validates_format_of :phone, with: /\d*[1-9]\d*/i, message: "This isn't a valid number!", allow_blank: true, allow_nil: true
 
   validates_presence_of :fname, :lname, :line1, :city, :state, :zip, :phone, :gender, :birthday, :shirtsize, :email
 
@@ -33,4 +32,9 @@ class User < ActiveRecord::Base
   def sms_unsubscribe
     self.sms_contact=false
   end
+
+  protected
+    def strip_phone_number
+      self.phone = phone.gsub(/[^0-9]/, "") if attribute_present?("phone")
+    end
 end
