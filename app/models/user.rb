@@ -1,13 +1,9 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable
   has_many :charges
   has_many :payments, through: :charges
 
-  ## TEST THIS METHOD
   before_validation :strip_phone_number
 
   validates_format_of :email, with: /.+@.+\..+/i, message: "This isn't a valid email address."
