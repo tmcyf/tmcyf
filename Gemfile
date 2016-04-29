@@ -36,6 +36,7 @@ gem 'icalendar'
 gem 'active_link_to'
 gem 'dotenv-rails'
 gem 'rspec-rails', group: [:development, :test]
+gem 'pry', group: [:development, :test]
 
 # External services
 gem 'twilio-ruby'
@@ -58,7 +59,6 @@ group :development do
   gem 'quiet_assets'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'pry'
   gem 'open4'
 end
 
