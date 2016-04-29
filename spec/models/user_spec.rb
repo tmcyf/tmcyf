@@ -58,13 +58,13 @@ describe User do
     expect(user_with_duplicate_email).not_to be_valid
   end
 
-  # it "should strip phone numbers" do
-  #   bad_numbers = %w[(832)-603-9372 832-603-9372 832.603.9372]
-  #   bad_numbers.each do |number|
-  #     invalid_phone_numbers = User.new(@attr.merge(phone: number))
-  #     expect(invalid_phone_numbers).to_not be_valid
-  #   end
-  # end
+  it "should strip phone numbers" do
+    bad_numbers = %w[(832)-603-9372 832-603-9372 832.603.9372]
+    bad_numbers.each do |number|
+      user_with_stripped_number = User.create(@attr.merge(phone: number))
+      expect(user_with_stripped_number.phone).to eq('8326039372')
+    end
+  end
 
   describe "passwords" do
 
