@@ -30,12 +30,13 @@ gem 'unf'
 gem 'kaminari'
 gem 'simple_form'
 gem 'friendly_id', '5.0.0.beta1'
-gem 'rails_admin'
+gem 'rails_admin', :git => 'https://github.com/sferik/rails_admin.git'
 gem 'mini_magick'
 gem 'icalendar'
 gem 'active_link_to'
 gem 'dotenv-rails'
 gem 'rspec-rails', group: [:development, :test]
+gem 'pry', group: [:development, :test]
 
 # External services
 gem 'twilio-ruby'
@@ -58,7 +59,6 @@ group :development do
   gem 'quiet_assets'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'pry'
   gem 'open4'
 end
 

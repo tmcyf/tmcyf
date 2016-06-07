@@ -6,17 +6,17 @@ describe PaymentHistory do
 
   before do
     payment_model = double
-    payment_model.stub(active: [payment])
+    allow(payment_model).to receive_messages(active: [payment])
     stub_const('Payment', payment_model)
   end
 
   it 'finds unpaid payments by users' do
-    user.stub(payments: [])
+    allow(user).to receive_messages(payments: [])
     expect(PaymentHistory.new(user).unpaid).to include(payment)
   end
 
   it 'finds paid payments by users' do
-    user.stub(payments: [payment])
+    allow(user).to receive_messages(payments: [payment])
     expect(PaymentHistory.new(user).paid).to include(payment)
   end
 end

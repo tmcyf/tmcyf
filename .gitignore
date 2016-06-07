@@ -3,8 +3,6 @@
 .env
 .env.development
 .vagrant
-/config/application.yml
 /config/certs/
-/config/newrelic.yml
 log/
 tmp/
