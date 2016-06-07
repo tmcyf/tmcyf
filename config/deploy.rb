@@ -14,7 +14,7 @@ set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
 # RBENV
 
 set :rbenv_type, :system
-set :rbenv_ruby, '2.0.0-p451'
+set :rbenv_ruby, '2.2.4'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
