@@ -392,8 +392,8 @@ GEM
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
-    slackistrano (2.0.1)
-      capistrano (>= 3.0.1)
+    slackistrano (3.0.1)
+      capistrano (>= 3.5.0)
       json
     slop (3.6.0)
     sprockets (2.12.4)
@@ -484,7 +484,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.0)
   simple_form
-  slackistrano
+  slackistrano (~> 3.0.1)
   stripe
   therubyracer
   turbolinks
