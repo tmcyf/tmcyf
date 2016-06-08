@@ -16,7 +16,7 @@ class Mailman
         }
       )
     else
-      @gibbon.lists(@campaign_id).members(@hashed_email).update(
+      @gibbon.lists(@campaign_id).members(@hashed_email).upsert(
         body: {
           status: "subscribed"
         }
@@ -39,13 +39,18 @@ class Mailman
 
   def mailchimp_member?(user)
     @hashed_email = lower_case_and_md5_hash_email(user)
-    @gibbon.lists(@campaign_id).members.retrieve['members'].detect do |u|
+    get_list['members'].detect do |u|
       u['id'] == @hashed_email
     end
   end
 
   def get_list
-    @gibbon.lists(@campaign_id).members.retrieve
+    count = get_list_count
+    @gibbon.lists(@campaign_id).members.retrieve(params: {"count": count})
+  end
+
+  def get_list_count
+    @gibbon.lists(@campaign_id).retrieve['stats']['member_count']
   end
 
   protected
