@@ -29,7 +29,7 @@
     </div>
     <div class="row">
       <div class="large-3 columns">
-        <%= f.input :phone, as: :tel, placeholder: "7139911557", required: false %>
+        <%= f.input :phone, as: :tel, placeholder: "7139911557", required: true %>
       </div>
       <div class="large-2 columns">
         <%= f.input :gender, collection: [:Male, :Female], required: true %>
@@ -65,7 +65,7 @@
     </div>
     <div class="row">
       <div class="large-4 columns">
-        <%= f.input :insurance_provider, label: "Insurance Provider" %>
+        <%= f.input :insurance_provider, label: "Insurance Provider", required: true %>
       </div>
       <div class="large-3 pull-5 columns">
         <%= f.input :insurance_policy_number, label: "Insurance Policy Number" %>
@@ -74,6 +74,16 @@
     <div class="row">
       <div class="large-5 columns">
         <%= f.input :allergy_information, label: "Allergies / Dietary Restrictions", placeholder: "Totally low carb, vegan, gluten free, lead free, organic meals only!!!" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-5 columns">
+        <%= f.input :payment_method, label: "How will you be paying for retreat this year?", collection: ["Online", "In-Person", "Venmo"], required: true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-5 columns">
+        <%= f.input :policy_confirmation, label: ("I have downloaded the #{link_to 'waivers', "http://d3krmhcqjnbsob.cloudfront.net/retreat/campsite_release.pdf"} read the #{link_to "campsite rules", "http://d3krmhcqjnbsob.cloudfront.net/retreat/retreat_rules_and_information.pdf"} and agree to follow them.").html_safe, required: true %>
       </div>
     </div>
     <br />

@@ -18,7 +18,7 @@ class RetreatController < ApplicationController
 
   def charge
     # Amount in cents
-    amount = 10000
+    amount = 8500
     compensated_charge = StripeCompensator.compensate(amount)
     email = params[:stripeEmail]
 
@@ -45,6 +45,6 @@ class RetreatController < ApplicationController
   private
 
     def retreat_params
-      params.require(:retreat).permit(:fname, :lname, :email, :line1, :city, :state, :zip, :phone, :gender, :birthday, :shirt_size, :transportation, :emergency_contact, :emergency_contact_relation, :emergency_contact_number, :insurance_provider, :insurance_policy_number, :allergy_information)
+      params.require(:retreat).permit(:fname, :lname, :email, :line1, :city, :state, :zip, :phone, :gender, :birthday, :shirt_size, :transportation, :emergency_contact, :emergency_contact_relation, :emergency_contact_number, :insurance_provider, :insurance_policy_number, :allergy_information, :policy_confirmation, :payment_method)
     end
 end

@@ -1,43 +1,73 @@
-<% provide(:title, 'Lighted to Lighten | Retreat 2015') %>
+<% provide(:title, 'All Things New - Retreat 2017') %>
 <div class="yf-retreat-header-block">
   <div class="row">
     <div class="large-12 columns">
-      <img src="http://d3krmhcqjnbsob.cloudfront.net/retreat/header.png" />
+      <img src="http://d3krmhcqjnbsob.cloudfront.net/retreat/2017_retreat.png" />
     </div>
   </div>
   <div class="row">
     <div class="large-12 columns">
       <div class="yf-retreat-heading center">
-        <h1>January 15th - 17th<br>Carolina Creek Camp <span>&#183;</span> Huntsville, TX</h1>
+        <h1>January 13th - 15th<br>Frontier Camp <span>&#183;</span> Grapeland, TX</h1>
+        <h1 id="price">Cost: $85</h1>
       </div>
     </div>
   </div>
 </div>
 <hr />
-<div class="yf-retreat-schedule-block center">
+<div class="yf-retreat-theme-block center">
+  <div class="row">
+    <div class="large-12 columns">
+      <h1>Theme: All Things New</h1>
+      <h4>Revelations 21:4-5</h4>
+      <p>He will wipe away every tear from their eyes, and death shall be no more, neither shall there be mourning, nor crying, nor pain anymore, for the former things have passed away.</p>
+      <h3>Speaker: Jojy Koshy</h3>
+    </div>
+  </div>
+
+</div>
+<hr />
+<div class="yf-retreat-payment-methods-block">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="center">
+        <h1>Ways to Pay</h1>
+        <h4>There are three simple ways to pay for retreat this year!</h4>
+      </div>
+      <p><span>Online:</span> You can make a payment online with a credit card using the form below.</p><br>
+      <p><span>In-person:</span> You can pay in-person with cash or check. Just find a YF officer to make your payment.</p><br>
+      <p><span>Venmo:</span> This year, we are introducing payments via Venmo. If you would like to use Venmo, select "Venmo" as your payment method in the form below and we will send you a payment request on there! Easy! <br>Our Venmo ID: @TMC-YF</p><br>
+      <div class="yf-retreat-payment-methods-important center">
+        <p>NOTE: RETREAT PRICE WILL INCREASE TO $95 AFTER JANUARY 1ST, 2017. NO EXCEPTIONS.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+<!-- <div class="yf-retreat-schedule-block center">
   <h1>Schedule</h1>
   <h4>- TBA -</h4>
 </div>
-<hr />
+<hr /> -->
 <div class="yf-retreat-form-block">
   <h1 class="center">Registration Form</h1>
   <%= render 'form' %>
 </div>
 <hr />
 <div class="yf-retreat-payment-block center">
-<h1>Payment</h1>
+<h1>Online Payment</h1>
 <%= form_tag retreat_charge_path do %>
     <label class="amount">
-      <h5>Amount: $100</h5>
-      <p>Please use the same email as on the registration form!<br><em>There will be a convenience charge of $3.30 applied.<em></p>
+      <h5>Amount: $85</h5>
+      <p>Please use the same email as on the registration form!<br><em>There will be a convenience charge of $2.85 applied.<em></p>
     </label>
     <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key=<%= ENV['STRIPE_PUBLIC_KEY'] %>
       data-image="http://d3krmhcqjnbsob.cloudfront.net/sitelogo.png"
-      data-name="Retreat 2015: Lighted to Lighten"
-      data-description="1 golden ticket ($103.30)"
-      data-amount="10330">
+      data-name="Retreat 2017: All Things New"
+      data-description="1 golden ticket ($87.85)"
+      data-amount="8785">
     </script>
   <% end %>
 </div>

@@ -1,8 +1,12 @@
+@import 'global';
 /*.yf-retreat-block1 {
   background: #111;
 }*/
 .yf-retreat-heading > h1 {
   font-size: 2.5rem;
+}
+#price {
+  color: $primary;
 }
 /*div.yf-retreat-heading > h1, h2 {
   color: #eee;
@@ -20,6 +24,22 @@
 /*  margin: 2em 0 0 2em;*/
 }
 
+.yf-retreat-payment-methods-block span {
+  text-decoration: underline;
+}
+.yf-retreat-payment-methods-block p {
+  font-size: 1.2em;
+  display: inline-block;
+}
+.yf-retreat-payment-methods-important p {
+  color: $primary;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 select {
   margin: 0 0 1em 0;
+}
+.yf-retreat-form-block span.custom.checkbox {
+  padding-right: 1em;
 }
