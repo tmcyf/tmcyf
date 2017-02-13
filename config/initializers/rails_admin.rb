@@ -15,6 +15,13 @@ RailsAdmin.config do |config|
   # Include specific models (exclude the others):
   config.included_models = ['User', 'Sermon', 'Retreat', 'OdrRegistration']
 
+  config.model 'User' do
+    edit do
+      include_fields :email, :fname, :lname, :phone, :gender, :birthday, :line1, :city, :state, :zip, :shirtsize, :email_contact, :facebook_contact, :sms_contact, :admin, :status
+    end
+  end
+
+
   ## == Cancan ==
   # config.authorize_with :cancan
 
