@@ -16,6 +16,15 @@
 
 class Event < ActiveRecord::Base
   mount_uploader :image, ImageUploader
+
+  validate :check_dimensions, :on => :create
+
+  def check_dimensions
+    if !image_cache.nil? && (image.width != 1000 || image.height != 400)
+      errors.add(:image, "The image dimensions are not 1000 x 400! Please resize and try again.")
+    end
+  end
+
   extend FriendlyId
   include Payable
   has_many :payments, as: :payable
