@@ -270,7 +270,8 @@ GEM
     font-awesome-rails (4.6.1.0)
       railties (>= 3.2, < 5.1)
     formatador (0.2.5)
-    friendly_id (5.0.0.beta1)
+    friendly_id (5.2.1)
+      activerecord (>= 4.0.0)
     fssm (0.2.10)
     gibbon (3.0.1)
       faraday (>= 0.9.1)
@@ -469,7 +470,7 @@ DEPENDENCIES
   factory_girl_rails
   fog
   font-awesome-rails
-  friendly_id (= 5.0.0.beta1)
+  friendly_id
   gibbon
   google-analytics-rails
   icalendar

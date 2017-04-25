@@ -29,7 +29,7 @@ gem 'unf'
 # Other tools
 gem 'kaminari'
 gem 'simple_form'
-gem 'friendly_id', '5.0.0.beta1'
+gem 'friendly_id'
 gem 'rails_admin', :git => 'https://github.com/sferik/rails_admin.git'
 gem 'mini_magick'
 gem 'icalendar'
