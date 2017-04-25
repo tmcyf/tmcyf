@@ -45,10 +45,10 @@ gem 'gibbon'
 gem 'google-analytics-rails'
 
 # Deployment
-gem 'capistrano', '~> 3.5'
-gem 'capistrano-rails', '~> 1.1.6'
-gem 'capistrano-bundler', '~> 1.1.4'
-gem 'capistrano-rbenv', '~> 2.0.4'
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
+gem 'capistrano-rbenv'
 gem 'slackistrano', '~> 3.0.1'
 
 # Development

@@ -4,7 +4,7 @@ require './lib/capistrano/dsl/helpers'
 include Capistrano::DSL::Helpers
 include Capistrano::DSL::Paths
 
-lock '3.5'
+lock '3.8.1'
 
 set :application, 'tmcyf'
 set :user, 'deploy'
