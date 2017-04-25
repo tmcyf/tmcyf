@@ -8,7 +8,7 @@ describe "UserConfirmation" do
     before do
       @user = FactoryGirl.build(:user)
     end
-    it "sends account confirmation email" do
+    it "sends account confirmation email", truncation: true do
       visit new_user_registration_path
       expect(page).to have_content "Register"
       fill_in "user_fname", with: @user.fname
