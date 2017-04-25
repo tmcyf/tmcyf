@@ -6,7 +6,7 @@ gem 'rails', '~> 4.1.0'
 gem 'pg'
 
 # Frontend
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails'
 gem 'zurb-foundation', '~> 4.2.3'
@@ -29,7 +29,7 @@ gem 'unf'
 # Other tools
 gem 'kaminari'
 gem 'simple_form'
-gem 'friendly_id', '5.0.0.beta1'
+gem 'friendly_id'
 gem 'rails_admin', :git => 'https://github.com/sferik/rails_admin.git'
 gem 'mini_magick'
 gem 'icalendar'
@@ -65,6 +65,7 @@ end
 # Testing
 group :test do
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
 end
 

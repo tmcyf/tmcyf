@@ -1,4 +1,4 @@
-require 'sms'
+require_relative '../../app/models/sms.rb'
 
 describe SMS do
   it 'initializes correctly' do
