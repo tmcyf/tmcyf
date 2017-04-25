@@ -6,7 +6,7 @@ gem 'rails', '~> 4.1.0'
 gem 'pg'
 
 # Frontend
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails'
 gem 'zurb-foundation', '~> 4.2.3'
