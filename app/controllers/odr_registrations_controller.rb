@@ -9,7 +9,7 @@ class OdrRegistrationsController < ApplicationController
     @registration = OdrRegistration.new(odr_registration_params)
     if @registration.save!
       flash[:success] = "Successfully registered!"
-      OdrMailer.registration_confirmation(@registration).deliver
+      OdrMailer.registration_confirmation(@registration).deliver_now
       redirect_to the_faith_awakens_path
     else
       flash[:error] = "Oops, there was an error registering you for One Day Retreat."
