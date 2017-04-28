@@ -39,7 +39,7 @@ class Mailman
 
   def mailchimp_member?(user)
     @hashed_email = lower_case_and_md5_hash_email(user)
-    get_list['members'].detect do |u|
+    get_list.body['members'].detect do |u|
       u['id'] == @hashed_email
     end
   end
@@ -50,11 +50,12 @@ class Mailman
   end
 
   def get_list_count
-    @gibbon.lists(@campaign_id).retrieve['stats']['member_count']
+    # @gibbon.lists(@campaign_id).retrieve['stats']['member_count']
+    @gibbon.lists(@campaign_id).retrieve(params: {"fields": "stats.member_count"}).body['stats']['member_count']
   end
 
   protected
-
+  
   def lower_case_and_md5_hash_email(user)
     downcased_email = user.email.downcase
     hashed_email = Digest::MD5.hexdigest(downcased_email)
