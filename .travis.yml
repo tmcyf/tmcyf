@@ -1,6 +1,7 @@
 language: ruby
 rvm:
   - 2.2.4
+  - 2.4.1
 install: bin/wad
 script:
 - bundle exec rake db:create db:migrate
