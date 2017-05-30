@@ -3,7 +3,7 @@ set :branch, 'master'
 
 set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
 set :site, "tmcyf.org"
-set :ip, '107.170.126.226'
+set :ip, "#{ENV['PRODUCTION_IP']}"
 server "#{fetch(:ip)}", user: 'deploy', roles: %w{web app db}, primary: true
 
 # NGINX
