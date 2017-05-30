@@ -4,6 +4,8 @@ require './lib/capistrano/dsl/helpers'
 include Capistrano::DSL::Helpers
 include Capistrano::DSL::Paths
 
+Dotenv.load
+
 lock '3.8.1'
 
 set :application, 'tmcyf'
@@ -21,7 +23,7 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 # SLACK
 
 set :slack_team, "tmcyf"
-set :slack_token, "Qv4bm0x9Lm8gAB5sZLMNxpe0"
+set :slack_token, "#{ENV['SLACK_TOKEN']}"
 set :slack_channel,      ->{ '#dev' }
 set :slack_username,     ->{ 'capistrano' }
 set :slack_msg_starting, ->{ "#{ENV['USER'] || ENV['USERNAME']} has started deploying branch #{fetch :branch} of #{fetch :application} to #{fetch :stage} on #{fetch :ip}." }
@@ -34,7 +36,6 @@ set :slack_msg_failed,   ->{ "*ERROR!* #{ENV['USER'] || ENV['USERNAME']} failed 
 
 set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:full_app_name)}"
 
-set :scm, :git
 
 # Default value for :format is :pretty
 # set :format, :pretty
