@@ -74,5 +74,4 @@ end
 # Production
 group :production do
   gem 'unicorn'
-  # gem 'therubyracer', platforms: :ruby
 end
