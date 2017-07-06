@@ -39,6 +39,7 @@ gem 'active_link_to'
 gem 'dotenv-rails'
 gem 'rspec-rails', group: [:development, :test]
 gem 'pry', group: [:development, :test]
+gem 'puma', group: [:development, :production]
 
 # External services
 gem 'twilio-ruby'
@@ -55,7 +56,6 @@ gem 'slackistrano', '~> 3.0.1'
 
 # Development
 group :development do
-  gem 'puma'
   gem 'letter_opener'
   gem 'better_errors'
   gem 'quiet_assets'
@@ -73,5 +73,5 @@ end
 
 # Production
 group :production do
-  gem 'unicorn'
+  gem 'rails_12factor'
 end
