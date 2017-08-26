@@ -507,5 +507,8 @@ DEPENDENCIES
   unobtrusive_flash (>= 3)
   zurb-foundation (~> 4.2.3)
 
+RUBY VERSION
+   ruby 2.2.4p230
+
 BUNDLED WITH
    1.15.1
