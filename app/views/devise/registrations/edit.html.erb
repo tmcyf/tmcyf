@@ -45,7 +45,7 @@
             <%= f.input :gender, collection: [:Male, :Female] %>
           </div>
           <div class="large-5 columns">
-            <%= f.input :birthday, as: :date, start_year: Date.today.year - 13, end_year: Date.today.year - 45, order: [:month, :day, :year], include_blank: true, label: "Birthday" %>
+            <%= f.input :birthday, as: :date, start_year: Date.today.year - 12, end_year: Date.today.year - 45, order: [:month, :day, :year], include_blank: true, label: "Birthday" %>
           </div>
           <div class="large-2 columns">
             <%= f.input :shirtsize, label: "Shirt Size", collection: [:XS, :S, :M, :L, :XL] %>
