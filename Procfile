@@ -1,1 +1,1 @@
-web: bundle exec puma -p ${PORT:-5000}
+web: bundle exec puma -t 0:5 -p ${PORT:-5000}

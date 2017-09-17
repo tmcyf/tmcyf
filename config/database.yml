@@ -14,7 +14,7 @@ production:
   database: <%= ENV['POSTGRES_DB'] %>
   username: <%= ENV['POSTGRES_USERNAME'] %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>
-  host: <%= ENV['POSTGRES_HOST'] %>
+  host: <%= ENV['DATABASE_URL'] %>
   port: <%= ENV['POSTGRES_PORT'] %>
   pool: 5
   timeout: 5000
