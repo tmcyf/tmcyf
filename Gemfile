@@ -25,7 +25,7 @@ gem 'devise'
 
 # Upload
 gem 'carrierwave'
-gem 'fog'
+gem 'fog-aws'
 gem 'unf'
 
 # Other tools
