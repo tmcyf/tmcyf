@@ -3,6 +3,5 @@
 .env
 .env.development
 .vagrant
-/config/certs/
 log/
 tmp/
