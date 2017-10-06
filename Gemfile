@@ -47,13 +47,6 @@ gem 'stripe'
 gem 'gibbon'
 gem 'google-analytics-rails'
 
-# Deployment
-gem 'capistrano'
-gem 'capistrano-rails'
-gem 'capistrano-bundler'
-gem 'capistrano-rbenv'
-gem 'slackistrano', '~> 3.0.1'
-
 # Development
 group :development do
   gem 'letter_opener'
