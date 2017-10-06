@@ -18,6 +18,10 @@ production:
   port: <%= ENV['POSTGRES_PORT'] %>
   pool: 5
   timeout: 5000
+  variables:
+    tcp_keepalives_idle: 60
+    tcp_keepalives_interval: 60
+    tcp_keepalives_count: 100
 
 staging:
   adapter: postgresql
