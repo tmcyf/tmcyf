@@ -11,7 +11,7 @@
           <b><%= sermon.title %></b>
           <br>
           <span>Stream</span>
-          <div><audio src='<%= sermon.audio %>' controls='controls'></div></audio>
+          <div><audio src='<%= sermon.audio %>' controls='controls' preload="none"></div></audio>
         </fieldset>
       </div>
     <% end %>
