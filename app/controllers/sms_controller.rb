@@ -28,7 +28,7 @@ class SmsController < ApplicationController
     from_num = params["From"]
     from_name = SMS.convert(from_num)
     payload = {
-      text: "From: #{from_name}. Message: #{msg_body}"
+      text: "From: #{from_name} (#{from_num}). Message: #{msg_body}"
     }.to_json
 
     uri = URI('https://hooks.slack.com/services/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')
