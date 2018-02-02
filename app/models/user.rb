@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   scope :prefers_sms, -> { where(sms_contact: true) }
   scope :prefers_fb, -> { where(facebook_contact: true) }
 
-  enum status: { registered: 0, active: 1 }
+  enum status: { registered: 0, active: 1, paid: 2 }
 
   def fullname
     "#{self.fname} #{self.lname}"
