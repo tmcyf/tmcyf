@@ -3,7 +3,7 @@ class SMS
 
   def initialize(message)
     begin
-      message.gsub!(/[‘’]/, "'").encode(Encoding::ISO_8859_1)
+      message.encode(Encoding::ISO_8859_1)
       @message = message
     rescue Encoding::UndefinedConversionError
       raise InvalidEncodingError, "You input a character that SMSes can't read."
