@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bin/rake db:migrate",
+      "postdeploy": "dokku logspout:stop && dokku logspout:start",
+    }
+  }
+}
