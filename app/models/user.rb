@@ -11,10 +11,6 @@ class User < ActiveRecord::Base
 
   validates_presence_of :fname, :lname, :line1, :city, :state, :zip, :phone, :gender, :birthday, :shirtsize, :email
 
-  scope :prefers_emails, -> { where(email_contact: true) }
-  scope :prefers_sms, -> { where(sms_contact: true) }
-  scope :prefers_fb, -> { where(facebook_contact: true) }
-
   enum status: { registered: 0, active: 1, paid: 2 }
 
   def fullname

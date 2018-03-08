@@ -57,7 +57,6 @@ TMCYF::Application.routes.draw do
   get '/admin/offline_payments',    to: 'payments#new_offline_charge', as: 'new_offline_charge'
   post '/admin/offline_payments',   to: 'payments#create_offline_charge', as: 'create_offline_charge'
   get '/admin/edit_payments_index', to: 'payments#edit_payments_index', as: 'edit_payments_index'
-  get '/admin/database',            to: 'admin#database', as: 'database'
   get '/account/preferences',       to: 'preferences#edit'
   post '/account/preferences',      to: 'preferences#update'
   get '/privacy_policy',            to: 'pages#privacy_policy'
