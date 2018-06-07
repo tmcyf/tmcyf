@@ -17,7 +17,6 @@
     <style type="text/css">body { border-top: 7px solid #c73f3f }</style>
     <%= csrf_meta_tags %>
     <%= tag :meta, :name => "stripe-key", :content => ENV['STRIPE_PUBLIC_KEY'] %>
-    <%= analytics_init if Rails.env.production? %>
   </head>
   <body>
     <%= render 'layouts/header' %>

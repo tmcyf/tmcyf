@@ -45,7 +45,6 @@ gem 'puma', group: [:development, :production]
 gem 'twilio-ruby'
 gem 'stripe'
 gem 'gibbon'
-gem 'google-analytics-rails'
 
 # Development
 group :development do

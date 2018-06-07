@@ -157,7 +157,6 @@ GEM
     git-version-bump (0.15.1)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    google-analytics-rails (1.1.0)
     haml (5.0.1)
       temple (>= 0.8.0)
       tilt
@@ -349,7 +348,6 @@ DEPENDENCIES
   font-awesome-rails
   friendly_id
   gibbon
-  google-analytics-rails
   icalendar
   jquery-rails
   kaminari
@@ -380,4 +378,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.16.0.pre.2
+   1.16.1
