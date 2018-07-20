@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  before_filter :authenticate_user!
   skip_before_filter :verify_authenticity_token, only: [:charge]
   before_action :set_payment, only: [:charge, :edit, :update]
   # ajax flash handling
