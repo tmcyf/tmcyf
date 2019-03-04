@@ -35,7 +35,7 @@
         <%= f.input :gender, collection: [:Male, :Female], required: true %>
       </div>
       <div class="large-5 columns pull-2 columns">
-        <%= f.input :birthday, as: :date, start_year: Date.today.year - 13, end_year: Date.today.year - 45, order: [:month, :day, :year], include_blank: true, label: "Birthday", required: true %>
+        <%= f.input :birthday, as: :date, start_year: Date.today.year - 12, end_year: Date.today.year - 45, order: [:month, :day, :year], include_blank: true, label: "Birthday", required: true %>
       </div>
     </div>
     <div class="row">
