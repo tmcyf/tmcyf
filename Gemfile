@@ -43,6 +43,7 @@ gem 'puma', group: [:development, :production]
 
 # External services
 gem 'twilio-ruby'
+gem 'sendgrid-actionmailer'
 gem 'stripe'
 gem 'gibbon'
 
